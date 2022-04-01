@@ -33,6 +33,14 @@ export function ListItem({ children }: IListItemContentProps) {
 export function List({ children, className, elementType: ElementType = 'ul', ...rest }: IGenericElementProps) {
   const getContent = () => {
     const items = children as IIndexable;
+    if (!items.filter) {
+      return (
+        <ListItem>
+          { items as any }
+        </ListItem>
+      )
+    }
+    
     return items.filter((item: any) => {
       return typeof item !== 'undefined' && item;
     }).map((item: string, i: number) => {
