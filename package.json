@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/cool-cats-web-components"
   },
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "React web components used by the Cool-Cats frontend team.",
   "scripts": {
     "rollup": "rollup -c",
@@ -48,8 +48,8 @@
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-terser": "^7.0.2",
     "sass": "^1.47.0",
-    "sass-loader": "^12.4.0",
-    "style-loader": "^3.3.1",
+    "sass-loader": "^10.2.1",
+    "style-loader": "^2.0.0",
     "tslib": "^2.3.1",
     "typescript": "^4.5.4"
   },

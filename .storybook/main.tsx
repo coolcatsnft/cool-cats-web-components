@@ -1,34 +1,19 @@
-import type { StorybookConfig } from '@storybook/react/types';
-
-const config: StorybookConfig = {
-  stories: [
+module.exports = {
+  "typescript": { "reactDocgen": false },
+  "stories": [
+    "../src/**/*.stories.mdx",
     "../src/**/*.stories.@(js|jsx|ts|tsx)"
   ],
-  logLevel: 'debug',
-  addons: [
-    '@storybook/addon-essentials',
-    '@storybook/addon-storysource',
-    '@storybook/addon-storyshots'
+  "addons": [
+    "@storybook/addon-links",
+    "@storybook/addon-essentials",
+    "@storybook/preset-scss"
   ],
-  typescript: {
-    check: true,
-    checkOptions: {},
-    reactDocgenTypescriptOptions: {
-      propFilter: (prop) => ['label', 'disabled'].includes(prop.name),
-    },
+  "framework": "@storybook/react",
+  "core": {
+    "builder": "webpack5"
   },
-  core: {
-    builder: 'webpack4',
-    channelOptions: { allowFunction: false, maxDepth: 10 },
-  },
-  features: {
-    postcss: false,
-    // modernInlineRender: true,
-    storyStoreV7: true,
-    buildStoriesJson: true,
-    babelModeV7: true,
-  },
-  framework: '@storybook/react',
-};
-
-module.exports = config;
+  "node": {
+    "Buffer": true
+  }
+}
