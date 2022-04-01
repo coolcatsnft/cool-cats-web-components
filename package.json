@@ -3,14 +3,14 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/cool-cats-web-components"
   },
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "React web components used by the Cool-Cats frontend team.",
   "scripts": {
     "rollup": "node_modules/.bin/rollup -c",
     "test": "node_modules/.bin/jest",
     "storybook": "node_modules/.bin/start-storybook -p 6006",
     "build-storybook": "node_modules/.bin/build-storybook",
-    "start": "npm run node_modules/.bin/storybook"
+    "start": "npm run storybook"
   },
   "author": "Alex Wyett-Adams",
   "license": "ISC",

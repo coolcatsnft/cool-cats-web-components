@@ -14,6 +14,6 @@ export default {
 
 export const Example = ((args) => {
   return (
-    <BooleanVisibilityContainer {...args}>A an animated visibility control</BooleanVisibilityContainer>
+    <BooleanVisibilityContainer {...args}>An animated visibility control</BooleanVisibilityContainer>
   )
 }).bind({});
