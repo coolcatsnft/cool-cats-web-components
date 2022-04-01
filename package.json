@@ -1,9 +1,9 @@
 {
   "name": "@alex-coolcats/cool-cats-web-components",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/cool-cats-web-components"
+    "registry": "https://npm.pkg.github.com/alex-coolcats"
   },
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "React web components used by the Cool-Cats frontend team.",
   "scripts": {
     "rollup": "node_modules/.bin/rollup -c",
