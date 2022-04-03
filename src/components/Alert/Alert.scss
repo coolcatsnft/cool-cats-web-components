@@ -2,7 +2,7 @@
 
 $height: 100px;
 
-.alert {
+.#{$global-prefix}alert {
   height: $height;
   border-radius: 60px 20px 20px 60px;
   background-color: #ffffff;
@@ -21,14 +21,14 @@ $height: 100px;
     width: auto;
   }
 
-  &.alert--fixed {
+  &.#{$global-prefix}alert--fixed {
     position: fixed;
     bottom: $global-margin;
   }
 
   > * {
     &:first-child {
-      &:not(.text) {
+      &:not(.#{$global-prefix}text) {
         height: $height;
         width: $height;
         border: 0 none;
@@ -49,13 +49,13 @@ $height: 100px;
           border: 10px solid white;
         }
       }
-      &.text {
+      &.#{$global-prefix}text {
         margin-left: $global-margin;
       }
     }
   }
 
-  .text {
+  .#{$global-prefix}text {
     display: flex;
     flex-flow: column nowrap;
     align-items: flex-start;
@@ -80,8 +80,8 @@ $height: 100px;
     }
   }
 
-  &:not(.boolean-visibility--hidden) {
-    + .alert--fixed {
+  &:not(.#{$global-prefix}boolean-visibility--hidden) {
+    + .#{$global-prefix}alert--fixed {
       margin-bottom: $height + $global-margin; 
     }
   }

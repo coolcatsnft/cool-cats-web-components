@@ -1,6 +1,7 @@
 import React from "react";
 import Container from "../Container";
 
+import '../../utils/scss/globals.scss';
 import './BooleanVisibilityContainer.scss';
 
 export function BooleanVisibilityContainer(props: any) {
@@ -9,12 +10,12 @@ export function BooleanVisibilityContainer(props: any) {
       elementType={props.elementType || 'div'}
       className={props.class || props.className || ''}
       states={[{
-        className: 'boolean-visibility'
+        className: 'ccwc-boolean-visibility'
       }, {
-        className: 'boolean-visibility--hidden',
+        className: 'ccwc-boolean-visibility--hidden',
         condition: props.visible !== true
       }, {
-        className: 'boolean-visibility--visible',
+        className: 'ccwc-boolean-visibility--visible',
         condition: props.visible === true
       }]}
     >

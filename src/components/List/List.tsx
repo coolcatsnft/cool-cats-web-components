@@ -53,7 +53,7 @@ export function List({ children, className, elementType: ElementType = 'ul', ...
   };
 
   return (
-    <Container elementType={ElementType} className={className || 'cool-cats-list'} {...rest}>
+    <Container elementType={ElementType} className={className || 'ccwc-list'} {...rest}>
       { getContent() }
     </Container>
   );

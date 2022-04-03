@@ -1,4 +1,6 @@
-.boolean-visibility {
+@import '../../utils/scss/';
+
+.#{$global-prefix}boolean-visibility {
   transition: opacity 0.5s;
 
   &--visible {
