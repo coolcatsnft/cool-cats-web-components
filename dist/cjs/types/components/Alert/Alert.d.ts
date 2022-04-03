@@ -1,4 +1,5 @@
 import React from "react";
+import '../../utils/scss/globals.scss';
 import './Alert.scss';
 import '../BooleanVisibilityContainer/BooleanVisibilityContainer.scss';
 export declare function AlertText({ children }: {
