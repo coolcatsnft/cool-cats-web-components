@@ -15,7 +15,7 @@ export function Tabs({ tabs, activeTab, children }: ITabsProps) {
   const getTabs = () => {
     return tabs.map((t: string, i: number) => {
       return (
-        <Tab key={i} tab={t} active={active === t} onClick={() => setActive(t)} />
+        <TabsTab key={i} tab={t} active={active === t} onClick={() => setActive(t)} />
       )
     });
   };
@@ -24,9 +24,9 @@ export function Tabs({ tabs, activeTab, children }: ITabsProps) {
     const content = children as IIndexable;
     return tabs.map((tab: string, i: number) => {
       return (
-        <Content active={active === tab} key={i}>
+        <TabsContent active={active === tab} key={i}>
           { content[i] }
-        </Content>
+        </TabsContent>
       )
     });
   };
@@ -43,7 +43,7 @@ export function Tabs({ tabs, activeTab, children }: ITabsProps) {
   );
 }
 
-export function Tab({ tab, active, onClick }: ITabsTab) {
+export function TabsTab({ tab, active, onClick }: ITabsTab) {
   return (
     <Header size={2} onClick={onClick} className="ccwc-tabs__header" states={[{ className: 'active', condition: active }]}>
       { tab }
@@ -51,7 +51,7 @@ export function Tab({ tab, active, onClick }: ITabsTab) {
   )
 }
 
-export function Content({ active, children }: ITabsContent) {
+export function TabsContent({ active, children }: ITabsContent) {
   return (
     <Container className="ccwc-tabs__panel" states={[{ className: 'open', condition: active }]}>
       { children }

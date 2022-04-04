@@ -90,6 +90,8 @@ declare function Alert({ visible, fixed, type, className, children }: {
 declare function List({ children, className, elementType: ElementType, ...rest }: IGenericElementProps): JSX.Element;
 
 declare function Tabs({ tabs, activeTab, children }: ITabsProps): JSX.Element;
+declare function TabsTab({ tab, active, onClick }: ITabsTab): JSX.Element;
+declare function TabsContent({ active, children }: ITabsContent): JSX.Element;
 
 declare function Plural({ count, single, plural, zero, loading }: IPluralProps): JSX.Element;
 
@@ -106,6 +108,8 @@ declare const Components_Alert: typeof Alert;
 declare const Components_AlertText: typeof AlertText;
 declare const Components_List: typeof List;
 declare const Components_Tabs: typeof Tabs;
+declare const Components_TabsTab: typeof TabsTab;
+declare const Components_TabsContent: typeof TabsContent;
 declare const Components_Plural: typeof Plural;
 declare const Components_Dots: typeof Dots;
 declare const Components_Header: typeof Header;
@@ -117,6 +121,8 @@ declare namespace Components {
     Components_AlertText as AlertText,
     Components_List as List,
     Components_Tabs as Tabs,
+    Components_TabsTab as TabsTab,
+    Components_TabsContent as TabsContent,
     Components_Plural as Plural,
     Components_Dots as Dots,
     Components_Header as Header,
@@ -149,4 +155,4 @@ declare const _default: {
     Utils: typeof Utils;
 };
 
-export { Alert, AlertText, BooleanVisibilityContainer, Container, Dots, Header, IButtonProps, IGenericElementProps, IIndexable, IJustChildrenProps, IPluralProps, ITabsContent, ITabsProps, ITabsTab, List, Plural, TChildNode, THeaderSize, Tabs, _default as default, useData, useObserver };
+export { Alert, AlertText, BooleanVisibilityContainer, Container, Dots, Header, IButtonProps, IGenericElementProps, IIndexable, IJustChildrenProps, IPluralProps, ITabsContent, ITabsProps, ITabsTab, List, Plural, TChildNode, THeaderSize, Tabs, TabsContent, TabsTab, _default as default, useData, useObserver };
