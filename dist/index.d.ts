@@ -102,6 +102,30 @@ declare function Dots({ mod, absolute }: {
 
 declare function Header(props: any): JSX.Element;
 
+declare function Cat(): JSX.Element;
+
+declare function Pet(): JSX.Element;
+
+declare function Item(): JSX.Element;
+
+declare function Marketplace(): JSX.Element;
+
+declare function Questing(): JSX.Element;
+
+declare function Housing(): JSX.Element;
+
+declare function Battling(): JSX.Element;
+
+declare function Shop(): JSX.Element;
+
+declare function Envelope(): JSX.Element;
+
+declare function Meowpad({ open }: {
+    open?: boolean;
+}): JSX.Element;
+
+declare function Help(): JSX.Element;
+
 declare const Components_Container: typeof Container;
 declare const Components_BooleanVisibilityContainer: typeof BooleanVisibilityContainer;
 declare const Components_Alert: typeof Alert;
@@ -126,6 +150,17 @@ declare namespace Components {
     Components_Plural as Plural,
     Components_Dots as Dots,
     Components_Header as Header,
+    Cat as CatIcon,
+    Pet as PetIcon,
+    Item as ItemIcon,
+    Marketplace as MarketplaceIcon,
+    Questing as QuestingIcon,
+    Housing as HousingIcon,
+    Battling as BattlingIcon,
+    Shop as ShopIcon,
+    Envelope as EnvelopeIcon,
+    Meowpad as MeowpadIcon,
+    Help as HelpIcon,
   };
 }
 
@@ -155,4 +190,4 @@ declare const _default: {
     Utils: typeof Utils;
 };
 
-export { Alert, AlertText, BooleanVisibilityContainer, Container, Dots, Header, IButtonProps, IGenericElementProps, IIndexable, IJustChildrenProps, IPluralProps, ITabsContent, ITabsProps, ITabsTab, List, Plural, TChildNode, THeaderSize, Tabs, TabsContent, TabsTab, _default as default, useData, useObserver };
+export { Alert, AlertText, Battling as BattlingIcon, BooleanVisibilityContainer, Cat as CatIcon, Container, Dots, Envelope as EnvelopeIcon, Header, Help as HelpIcon, Housing as HousingIcon, IButtonProps, IGenericElementProps, IIndexable, IJustChildrenProps, IPluralProps, ITabsContent, ITabsProps, ITabsTab, Item as ItemIcon, List, Marketplace as MarketplaceIcon, Meowpad as MeowpadIcon, Pet as PetIcon, Plural, Questing as QuestingIcon, Shop as ShopIcon, TChildNode, THeaderSize, Tabs, TabsContent, TabsTab, _default as default, useData, useObserver };
