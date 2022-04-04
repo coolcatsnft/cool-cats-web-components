@@ -1,4 +1,4 @@
-import { CSSProperties, useEffect, useState } from 'react';
+import React, { CSSProperties, useEffect, useState } from 'react';
 
 export function Dots({ mod, absolute }: { mod?: number, absolute?: boolean }) {
   const [time, setTime] = useState<number>(0);
