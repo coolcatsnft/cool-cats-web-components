@@ -13,15 +13,9 @@ jobs:
 
       - name: Install and Build 🔧 
         run: |
-          echo "node_modules" > .gitignore
           npm install
           npm test
-          npm version patch -m "v%s"
-          VERSION=$(node -p "require('./package.json').version")
           npm run rollup
-          git tag ${VERSION}
-          git push "https://$GITHUB_ACTOR:${{ secrets.ACCESS_TOKEN }}@github.com/$GITHUB_REPOSITORY.git" --follow-tags
-          git push "https://$GITHUB_ACTOR:${{ secrets.ACCESS_TOKEN }}@github.com/$GITHUB_REPOSITORY.git" --tags
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.2.5
