@@ -14,8 +14,8 @@ jobs:
       - run: git config user.name "$GITHUB_ACTOR"
       - run: npm install
       - run: npm run rollup
-      - run: git add -A
-      - run: HUSKY_SKIP_HOOKS=true git commit -m "build site" --no-verify
+      # - run: git add -A
+      # - run: HUSKY_SKIP_HOOKS=true git commit -m "build site" --no-verify
       - run: npm version patch -m "v%s"
       - run: VERSION=$(node -p "require('./package.json').version")
       - run: git tag ${VERSION}
