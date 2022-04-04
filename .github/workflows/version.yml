@@ -1,25 +1,30 @@
-name: Version Increment
-
+name: Build and Deploy to tag
 on:
   push:
     branches:
       - main
-
 jobs:
-  version:
+  build-and-deploy:
+    concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-      - run: git config user.name "$GITHUB_ACTOR"
-      - run: npm install
-      - run: npm run rollup
-      - run: npm version patch -m "v%s"
-      - run: VERSION=$(node -p "require('./package.json').version")
-      - run: git checkout -b release ${VERSION}
-      - run: git add -A
-      - run: HUSKY_SKIP_HOOKS=true git commit -m "build site" --no-verify
-      - run: git push
-      - run: git tag ${VERSION}
-      - run: git push "https://$GITHUB_ACTOR:${{ secrets.ACCESS_TOKEN }}@github.com/$GITHUB_REPOSITORY.git" --follow-tags
-      - run: git push "https://$GITHUB_ACTOR:${{ secrets.ACCESS_TOKEN }}@github.com/$GITHUB_REPOSITORY.git" --tags
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Install and Build 🔧 
+        run: |
+          echo "node_modules" > .gitignore
+          npm install
+          npm test
+          npm version patch -m "v%s"
+          VERSION=$(node -p "require('./package.json').version")
+          npm run rollup
+          git tag ${VERSION}
+          git push "https://$GITHUB_ACTOR:${{ secrets.ACCESS_TOKEN }}@github.com/$GITHUB_REPOSITORY.git" --follow-tags
+          git push "https://$GITHUB_ACTOR:${{ secrets.ACCESS_TOKEN }}@github.com/$GITHUB_REPOSITORY.git" --tags
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          branch: release # The branch the action should deploy to.
+          folder: . # The folder the action should deploy.
