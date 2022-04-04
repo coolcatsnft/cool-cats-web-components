@@ -21,11 +21,8 @@
 
     p,
     li {
-      &,
-      & > * {
-        &:not(strong) {
-          font-weight: normal;
-        }
+      &  {
+        font-weight: normal;
       }
     }
 
