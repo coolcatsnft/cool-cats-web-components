@@ -14,7 +14,7 @@ jobs:
       - run: git config user.name "$GITHUB_ACTOR"
       - run: npm install
       - run: npm run rollup
-      - run: git add -A && git commit -am "chore: build site"
+      - run: git add -A && git commit -amn "workflow:build site"
       - run: npm version minor -m "v%s"
       - run: VERSION=$(node -p "require('./package.json').version")
       - run: git tag ${VERSION}
