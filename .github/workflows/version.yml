@@ -16,6 +16,10 @@ jobs:
           npm install
           npm test
           npm run rollup
+      - name: Tag
+        run: |
+          npm version patch -m "v%s"
+          HUSKY_SKIP_HOOKS=true git commit -m "build site" --no-verify
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.2.5
