@@ -44,3 +44,30 @@ export interface IPluralProps {
     loading?: string;
 }
 export declare type THeaderSize = 1 | 2 | 3 | 4 | 5;
+export interface IPill {
+    children?: React.ReactNode;
+    appear?: boolean;
+    direction?: string;
+    colour?: string;
+    className?: string;
+    icon?: boolean;
+    disabled?: boolean;
+    noText?: boolean;
+    bordered?: boolean;
+}
+export interface IPills {
+    children: React.ReactNode;
+    className?: string;
+    elementType?: string;
+    bordered?: boolean;
+    states?: (IContainerClassState | IContainerAttributeState)[];
+}
+export interface IContainerClassState {
+    className: string;
+    condition?: boolean | Function;
+}
+export interface IContainerAttributeState {
+    attr: string;
+    value: string | number;
+    condition?: boolean | Function;
+}

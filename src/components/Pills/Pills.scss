@@ -1,0 +1,60 @@
+@import '../../utils/scss/';
+
+.#{$global-prefix}pills {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  align-content: center;
+
+  &.bordered {
+    > .pill.bordered {
+      border-right: 0 none;
+
+      &:last-child {
+        border-right: 3px solid black;
+      }
+    }
+  }
+
+  > .#{$global-prefix}pill {
+    &:not(.left):not(.right) {
+      text-align: center;
+    }
+
+    &:not(:last-child) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      padding-right: 8px;
+
+      &:not(.right):not(.bordered) {
+        padding-right: 0;
+      }
+      
+      &:after {
+        display: none;
+      }
+
+      &:not(:first-child) {
+        &.bordered {
+          border-left-width: 0;
+          border-right-width: 0;
+        }
+      }
+    }
+    + .#{$global-prefix}pill {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+
+      &:not(.icon) {
+        padding-left: 8px;
+      }
+      &:before {
+        display: none;
+      }
+
+      &:last-child {
+        padding-left: 8px;
+      }
+    }
+  }
+}

@@ -1,3 +1,94 @@
+@use "sass:map";
 $global-margin: 16px !default;
 $global-padding: 16px !default;
 $global-prefix: 'ccwc-';
+$global-radius: 5px;
+
+$global-pill-colors: (
+  orange: #FC9144,
+  red: #FA3C6A,
+  green: #39E27D,
+  pale-green: #8EB272,
+  pink: #FD9DCB,
+  light-blue: #90CFF1,
+  simple-yellow: #FAD121,
+  yellow: #FAD121,
+  grey: #dadada,
+  white: white,
+  transparent: white,
+
+  disabled: #A5A5A5,
+  listed: #3A69AC,
+  purchase: #8EB272,
+  buttonText: #FFFFFF,
+  selected: #3A69AC,
+
+  error: #b15f5f,
+  warning: #E18800,
+  success: #8EB272,
+  info: #3A69AC,
+
+  fire: #FC7E0A,
+  water: #38C9F6,
+  grass: #7FBF5E,
+  air: #A16BCC,
+  border: #14396D,
+
+  common: #dec5a8,
+  uncommon: #39e27d,
+  rare: #348FED,
+  epic: #fa3c6a,
+  legendary: #FAD121,
+  legendary-star: #FFFF00,
+
+  pilldefault: #9CB5FE
+);
+
+$global-pill-font-colors: (
+  pilldefault: white,
+
+  orange: white,
+  red: white,
+  green: white,
+  pale-green: white,
+  pink: white,
+  light-blue: white,
+  simple-yellow: white,
+  yellow: white,
+  grey: white,
+  white: black,
+  transparent: black,
+
+  disabled: white,
+  listed: white,
+  purchase: white,
+  buttonText: white,
+  selected: white,
+
+  error: white,
+  warning: white,
+  success: white,
+  info: white,
+
+  fire: white,
+  water: white,
+  grass: white,
+  air: white,
+  border: white,
+
+  common: white,
+  uncommon: white,
+  rare: white,
+  epic: white,
+  legendary: white,
+  legendary-star: white
+);
+
+$global-element-colors: (
+  formelement-label: #14396D,
+  formelement-border: lightgrey,
+  formelement-outline: grey,
+  topnav: #3A69AC
+);
+
+$global-site-colors: map.merge($global-pill-colors, $global-element-colors);

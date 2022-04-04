@@ -46,6 +46,33 @@ interface IPluralProps {
     loading?: string;
 }
 declare type THeaderSize = 1 | 2 | 3 | 4 | 5;
+interface IPill {
+    children?: React.ReactNode;
+    appear?: boolean;
+    direction?: string;
+    colour?: string;
+    className?: string;
+    icon?: boolean;
+    disabled?: boolean;
+    noText?: boolean;
+    bordered?: boolean;
+}
+interface IPills {
+    children: React.ReactNode;
+    className?: string;
+    elementType?: string;
+    bordered?: boolean;
+    states?: (IContainerClassState | IContainerAttributeState)[];
+}
+interface IContainerClassState {
+    className: string;
+    condition?: boolean | Function;
+}
+interface IContainerAttributeState {
+    attr: string;
+    value: string | number;
+    condition?: boolean | Function;
+}
 
 type Utils_IIndexable = IIndexable;
 type Utils_TChildNode = TChildNode;
@@ -57,6 +84,10 @@ type Utils_ITabsContent = ITabsContent;
 type Utils_ITabsTab = ITabsTab;
 type Utils_IPluralProps = IPluralProps;
 type Utils_THeaderSize = THeaderSize;
+type Utils_IPill = IPill;
+type Utils_IPills = IPills;
+type Utils_IContainerClassState = IContainerClassState;
+type Utils_IContainerAttributeState = IContainerAttributeState;
 declare namespace Utils {
   export {
     Utils_IIndexable as IIndexable,
@@ -69,6 +100,10 @@ declare namespace Utils {
     Utils_ITabsTab as ITabsTab,
     Utils_IPluralProps as IPluralProps,
     Utils_THeaderSize as THeaderSize,
+    Utils_IPill as IPill,
+    Utils_IPills as IPills,
+    Utils_IContainerClassState as IContainerClassState,
+    Utils_IContainerAttributeState as IContainerAttributeState,
   };
 }
 
@@ -102,6 +137,10 @@ declare function Dots({ mod, absolute }: {
 
 declare function Header(props: any): JSX.Element;
 
+declare function Pill({ children, appear, direction, colour, icon, noText, disabled, bordered, className }: IPill): JSX.Element;
+
+declare function Pills({ children, className, bordered, states, ...rest }: IPills): JSX.Element;
+
 declare function Cat(): JSX.Element;
 
 declare function Pet(): JSX.Element;
@@ -126,6 +165,10 @@ declare function Meowpad({ open }: {
 
 declare function Help(): JSX.Element;
 
+declare function NetworkErrorMessage({ networkId }: {
+    networkId: number;
+}): JSX.Element;
+
 declare const Components_Container: typeof Container;
 declare const Components_BooleanVisibilityContainer: typeof BooleanVisibilityContainer;
 declare const Components_Alert: typeof Alert;
@@ -137,6 +180,9 @@ declare const Components_TabsContent: typeof TabsContent;
 declare const Components_Plural: typeof Plural;
 declare const Components_Dots: typeof Dots;
 declare const Components_Header: typeof Header;
+declare const Components_Pill: typeof Pill;
+declare const Components_Pills: typeof Pills;
+declare const Components_NetworkErrorMessage: typeof NetworkErrorMessage;
 declare namespace Components {
   export {
     Components_Container as Container,
@@ -150,6 +196,8 @@ declare namespace Components {
     Components_Plural as Plural,
     Components_Dots as Dots,
     Components_Header as Header,
+    Components_Pill as Pill,
+    Components_Pills as Pills,
     Cat as CatIcon,
     Pet as PetIcon,
     Item as ItemIcon,
@@ -161,6 +209,7 @@ declare namespace Components {
     Envelope as EnvelopeIcon,
     Meowpad as MeowpadIcon,
     Help as HelpIcon,
+    Components_NetworkErrorMessage as NetworkErrorMessage,
   };
 }
 
@@ -190,4 +239,4 @@ declare const _default: {
     Utils: typeof Utils;
 };
 
-export { Alert, AlertText, Battling as BattlingIcon, BooleanVisibilityContainer, Cat as CatIcon, Container, Dots, Envelope as EnvelopeIcon, Header, Help as HelpIcon, Housing as HousingIcon, IButtonProps, IGenericElementProps, IIndexable, IJustChildrenProps, IPluralProps, ITabsContent, ITabsProps, ITabsTab, Item as ItemIcon, List, Marketplace as MarketplaceIcon, Meowpad as MeowpadIcon, Pet as PetIcon, Plural, Questing as QuestingIcon, Shop as ShopIcon, TChildNode, THeaderSize, Tabs, TabsContent, TabsTab, _default as default, useData, useObserver };
+export { Alert, AlertText, Battling as BattlingIcon, BooleanVisibilityContainer, Cat as CatIcon, Container, Dots, Envelope as EnvelopeIcon, Header, Help as HelpIcon, Housing as HousingIcon, IButtonProps, IContainerAttributeState, IContainerClassState, IGenericElementProps, IIndexable, IJustChildrenProps, IPill, IPills, IPluralProps, ITabsContent, ITabsProps, ITabsTab, Item as ItemIcon, List, Marketplace as MarketplaceIcon, Meowpad as MeowpadIcon, NetworkErrorMessage, Pet as PetIcon, Pill, Pills, Plural, Questing as QuestingIcon, Shop as ShopIcon, TChildNode, THeaderSize, Tabs, TabsContent, TabsTab, _default as default, useData, useObserver };

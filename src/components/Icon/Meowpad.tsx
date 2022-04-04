@@ -8,7 +8,7 @@ export function Meowpad({ open }: { open?: boolean }) {
   }
   
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.082 21.371" width="" height="">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.082 21.371">
       <g id="Fills" transform="matrix(1, 0, 0, 1, 0.03, -4.119999)">
         <polygon points="5,11 1,12 1,23.97 1.54,24.68 5.2,24.68 5,11 12,11 11,7 10.09,5.2 8.41,5 7.27,5.61 6.07,7.42  " style={{ fill: fillColour }} />
         <polygon points="17,11 24.19,11 23,7 21.42,5.66 19,5 18,7  " style={{ fill: fillColour }} />
