@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { IIndexable, ITabsProps, ITabsTab, ITabsContent } from '../../utils';
 import Container from "../Container";
+import Header from '../Header';
 
 import './Tabs.scss';
 
@@ -44,9 +45,9 @@ export function Tabs({ tabs, activeTab, children }: ITabsProps) {
 
 export function Tab({ tab, active, onClick }: ITabsTab) {
   return (
-    <Container onClick={onClick} elementType="h2" className="ccwc-tabs__header" states={[{ className: 'active', condition: active }]}>
+    <Header size={2} onClick={onClick} className="ccwc-tabs__header" states={[{ className: 'active', condition: active }]}>
       { tab }
-    </Container>
+    </Header>
   )
 }
 

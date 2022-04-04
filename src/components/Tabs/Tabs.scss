@@ -16,7 +16,7 @@
   justify-content: center;
   width: calc(100% - ($global-margin * 2));
 
-  h2 {
+  .#{$global-prefix}header {
     font-size: 22px;
     line-height: 42px;
     text-transform: uppercase;

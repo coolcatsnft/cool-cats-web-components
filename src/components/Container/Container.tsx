@@ -80,8 +80,9 @@ export function Container(props: any) {
     'classNames',
     'className',
     'emptyCondition',
-    'loading'
-  ];
+    'loading',
+    'invalidProps'
+  ].concat(props.invalidProps || []);
   const rest = Object.fromEntries(
     Object.entries(
       props

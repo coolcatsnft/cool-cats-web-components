@@ -50,3 +50,5 @@ export interface IPluralProps {
   zero?: string,
   loading?: string
 };
+
+export type THeaderSize = 1|2|3|4|5;

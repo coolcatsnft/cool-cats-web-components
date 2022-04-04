@@ -45,6 +45,7 @@ interface IPluralProps {
     zero?: string;
     loading?: string;
 }
+declare type THeaderSize = 1 | 2 | 3 | 4 | 5;
 
 type Utils_IIndexable = IIndexable;
 type Utils_TChildNode = TChildNode;
@@ -55,6 +56,7 @@ type Utils_ITabsProps = ITabsProps;
 type Utils_ITabsContent = ITabsContent;
 type Utils_ITabsTab = ITabsTab;
 type Utils_IPluralProps = IPluralProps;
+type Utils_THeaderSize = THeaderSize;
 declare namespace Utils {
   export {
     Utils_IIndexable as IIndexable,
@@ -66,6 +68,7 @@ declare namespace Utils {
     Utils_ITabsContent as ITabsContent,
     Utils_ITabsTab as ITabsTab,
     Utils_IPluralProps as IPluralProps,
+    Utils_THeaderSize as THeaderSize,
   };
 }
 
@@ -95,6 +98,8 @@ declare function Dots({ mod, absolute }: {
     absolute?: boolean;
 }): JSX.Element;
 
+declare function Header(props: any): JSX.Element;
+
 declare const Components_Container: typeof Container;
 declare const Components_BooleanVisibilityContainer: typeof BooleanVisibilityContainer;
 declare const Components_Alert: typeof Alert;
@@ -103,6 +108,7 @@ declare const Components_List: typeof List;
 declare const Components_Tabs: typeof Tabs;
 declare const Components_Plural: typeof Plural;
 declare const Components_Dots: typeof Dots;
+declare const Components_Header: typeof Header;
 declare namespace Components {
   export {
     Components_Container as Container,
@@ -113,6 +119,7 @@ declare namespace Components {
     Components_Tabs as Tabs,
     Components_Plural as Plural,
     Components_Dots as Dots,
+    Components_Header as Header,
   };
 }
 
@@ -142,4 +149,4 @@ declare const _default: {
     Utils: typeof Utils;
 };
 
-export { Alert, AlertText, BooleanVisibilityContainer, Container, Dots, IButtonProps, IGenericElementProps, IIndexable, IJustChildrenProps, IPluralProps, ITabsContent, ITabsProps, ITabsTab, List, Plural, TChildNode, Tabs, _default as default, useData, useObserver };
+export { Alert, AlertText, BooleanVisibilityContainer, Container, Dots, Header, IButtonProps, IGenericElementProps, IIndexable, IJustChildrenProps, IPluralProps, ITabsContent, ITabsProps, ITabsTab, List, Plural, TChildNode, THeaderSize, Tabs, _default as default, useData, useObserver };
