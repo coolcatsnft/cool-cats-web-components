@@ -1,7 +1,54 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto+Mono:ital,wght@0,400;0,700;1,400&family=PT+Serif:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto+Mono:ital,wght@0,400;0,700;1,400&family=PT+Serif:wght@400;700&display=swap');
 @import './variables';
 
 [class^="ccwc-"],
 [class*=" ccwc-"] {
-  font-family: 'Poppins', serif;
+  &,
+  * {
+    &,
+    &:before,
+    &:after {
+      box-sizing: border-box;
+    }
+
+    & {
+      font-family: 'Poppins', serif;
+      font-weight: bold;
+      margin: 0;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    p,
+    li {
+      font-weight: normal;
+    }
+
+
+    img,
+    picture,
+    video,
+    canvas,
+    svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    input,
+    button,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      overflow-wrap: break-word;
+    }
+  }
 }

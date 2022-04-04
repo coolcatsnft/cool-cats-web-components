@@ -3,3 +3,6 @@ export { default as BooleanVisibilityContainer } from "./BooleanVisibilityContai
 export { default as Alert } from "./Alert";
 export { AlertText } from "./Alert";
 export { default as List } from "./List";
+export { default as Tabs } from "./Tabs";
+export { default as Plural } from "./Plural";
+export { default as Dots } from "./Dots";

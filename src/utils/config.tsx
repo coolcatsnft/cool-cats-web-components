@@ -25,3 +25,28 @@ export interface IButtonProps {
 	states?: any;
   title?: string;
 };
+
+export interface ITabsProps {
+  children: React.ReactNode;
+  tabs: string[];
+  activeTab?: string;
+};
+
+export interface ITabsContent {
+  children: React.ReactNode;
+  active: boolean;
+};
+
+export interface ITabsTab {
+  tab: string;
+  active: boolean;
+  onClick: Function;
+};
+
+export interface IPluralProps {
+  count: number,
+  single: string | React.ReactElement,
+  plural: string | React.ReactElement,
+  zero?: string,
+  loading?: string
+};
