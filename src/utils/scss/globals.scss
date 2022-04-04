@@ -23,7 +23,9 @@
     li {
       &,
       & > * {
-        font-weight: normal;
+        &:not(strong) {
+          font-weight: normal;
+        }
       }
     }
 
