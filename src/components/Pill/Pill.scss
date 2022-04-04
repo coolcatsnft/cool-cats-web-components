@@ -1,0 +1,269 @@
+@use "sass:math";
+@import '../../utils/scss/';
+
+$pill-height: 42px;
+$pill-padding: 20px;
+$border-width: 3px;
+$line-height: 26px;
+
+.#{$global-prefix}pill {
+  padding: 8px math.div($pill-height, 2) 8px math.div($pill-height, 2);
+  font-size: 20px;
+  line-height: $line-height;
+  height: $pill-height;
+  background-color: map-get($global-pill-colors, pilldefault);
+  position: relative;
+  border-radius: $pill-height;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  color: map-get($global-pill-font-colors, pilldefault);
+  display: inline-block;
+
+  &:before {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: math.div($pill-height, 2);
+    border-bottom-left-radius: math.div($pill-height, 2);
+  }
+
+  &,
+  > *,
+  &:before {
+    user-select: none;
+  }
+
+  &:before,
+  &:after,
+  > i,
+  > svg,
+  > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: auto;
+    height: 100%;
+    height: 100%;
+    width: $pill-height;
+  }
+
+  > i {
+    background-color: map-get($global-pill-font-colors, pilldefault);
+  }
+
+  > i,
+  > svg,
+  > img {
+    z-index: 1;
+    border-radius: math.div($pill-height, 2);
+    background-color: map-get($global-pill-font-colors, default);
+  }
+
+  > i img,
+  > i svg {
+    position: absolute;
+    height: 50%;
+    width: 50%;
+    top: 25%;
+    left: 24%;
+  }
+
+  &:before,
+  &:after {
+    width: math.div($pill-height, 2);
+    border-top-left-radius: math.div($pill-height, 2);
+    border-bottom-left-radius: math.div($pill-height, 2);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    background-color: inherit;
+    content: "";
+    z-index: -1;
+  }
+
+  &:after {
+    right: 0;
+    left: auto;
+    width: math.div($pill-height, 2);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: math.div($pill-height, 2);
+    border-bottom-right-radius: math.div($pill-height, 2);
+    background-color: inherit;
+    content: "";
+  }
+
+  &.icon {
+    padding-left: $pill-height;
+    text-indent: math.div($global-padding, 2);
+
+    &.no-text {
+      padding-left: math.div($pill-height, 2);
+
+      &.bordered {
+        padding-left: math.div($pill-height, 2) - ($border-width  * 2);
+        > i,
+        > svg,
+        > img {
+          border-width: 0;
+          top: 0px;
+          left: 0px;
+          width: calc(100% + 6px);
+          height: auto;
+        }
+      }
+    }
+
+    &.right {
+      padding-left: 0;
+      padding-right: $pill-height + math.div($global-padding, 2);
+
+      &.no-text {
+        padding-left: $pill-height;
+        padding-right: $pill-height;
+      }
+    }
+  }
+  
+  &.left {
+    &:before,
+    > i,
+    > img {
+      right: auto;
+    }
+  }
+  
+  &.right {
+    text-indent: 0;
+    
+    > i,
+    > svg,
+    > img {
+      left: auto;
+      right: 0;
+    }
+  }
+
+  @each $key, $color in $global-pill-colors {
+    &.#{$key} {
+      background-color: $color;
+      color: map-get($global-pill-font-colors, $key);
+    }
+  }
+
+  &.disabled,
+  &[disabled] {
+    cursor: not-allowed !important;
+    &:not(.close) {
+      background-color: map-get($global-site-colors, disabled);
+    }
+
+    > svg,
+    > img,
+    > i img {
+      filter: grayscale(100%);
+    }
+  }
+
+  &.appear {
+    max-width: 1px;
+    padding-right: 0px;
+    padding-left: $pill-height;
+    animation: appearOpacity 0.5s 1 linear
+      , appearPadding 0.5s 1 ease-in forwards
+      , appearWidth 0.5s 1 ease-in forwards
+      , appearHide 0.5s 1 linear forwards;
+    animation-delay: 0s, 1s, 1s, 5s;
+
+    > img,
+    > svg,
+    > i {
+      animation: appearIcon 0.5s 1 ease-in;
+      animation-delay: 0.5s;
+    }
+  }
+
+  &.bordered {
+    line-height: $line-height - ($border-width * 2);
+      
+    &,
+    > i,
+    > svg,
+    > img {
+      border: $border-width solid black;
+    }
+
+    > i,
+    > svg,
+    > img {
+      height: calc(100% + 6px);
+      top: $border-width * -1;
+      left: $border-width * -1;
+    }
+
+    &.right {
+      > i,
+      > svg,
+      > img {
+        left: auto;
+        right: $border-width * -1;
+      }
+    }
+  }
+}
+
+a.#{$global-prefix}pill,
+button.#{$global-prefix}pill,
+.button.#{$global-prefix}pill {
+  border: 0 none;
+  outline: none;
+}
+
+@keyframes appearOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes appearPadding {
+  0% {
+    padding-right: 0px;
+    padding-left: $pill-height;
+  }
+  100% {
+    padding-right: 21px;
+    padding-left: 50px;
+  }
+}
+
+@keyframes appearWidth {
+  0% {
+    max-width: 1px;
+  }
+  100% {
+    max-width: 100%;
+    padding-right: 21px;
+    padding-left: 50px;
+  }
+}
+
+@keyframes appearIcon {
+  from {
+    transform: rotateZ(0deg)
+  }
+  to {
+    transform: rotateZ(360deg)
+  }
+}
+
+@keyframes appearHide {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

@@ -1,0 +1,16 @@
+
+@import '../../utils/scss/';
+
+.#{$global-prefix}error-message {
+  background-color: map-get($global-site-colors, error);
+  color: map-get($global-site-colors, white);
+  box-shadow: 0px 0px 10px 10px rgba(0,0,0,0.1);
+  padding: $global-margin * 0.25 $global-margin * 0.5;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  line-height: 17px;
+  border-radius: $global-radius;
+  letter-spacing: 1px;
+  text-align: center;
+}
