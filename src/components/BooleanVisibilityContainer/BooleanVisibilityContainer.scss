@@ -1,0 +1,14 @@
+@import '../../utils/scss/';
+
+.#{$global-prefix}boolean-visibility {
+  transition: opacity 0.5s;
+
+  &--visible {
+    opacity: 1;
+  }
+  
+  &--hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,88 @@
+@import '../../utils/scss/';
+
+$height: 100px;
+
+.#{$global-prefix}alert {
+  height: $height;
+  border-radius: 60px 20px 20px 60px;
+  background-color: #ffffff;
+  line-height: 23px;
+  width: 98%;
+  z-index: 999;
+  font-weight: bold;
+  font-size: small;
+  transition: all 0.4s;
+  padding-right: 15px;
+  box-shadow: 0px 0px 10px #999;
+
+  @include largemobilebreakpoint() {
+    font-size: inherit;
+    left: $global-margin;
+    width: auto;
+  }
+
+  &.#{$global-prefix}alert--fixed {
+    position: fixed;
+    bottom: $global-margin;
+  }
+
+  > * {
+    &:first-child {
+      &:not(.#{$global-prefix}text) {
+        height: $height;
+        width: $height;
+        border: 0 none;
+        outline: none;
+        z-index: 4;
+        background-color: transparent;
+        background-position: center center;
+        margin-right: 10px;
+        float: left;
+        border-radius: 60px;
+        overflow: hidden;
+  
+        @include tabletbreakpoint() {
+          font-size: inherit;
+        }
+
+        &.lazy-load-image-background {
+          border: 10px solid white;
+        }
+      }
+      &.#{$global-prefix}text {
+        margin-left: $global-margin;
+      }
+    }
+  }
+
+  .#{$global-prefix}text {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: center;
+    flex-grow: 1;
+    height: $height;
+    font-size: 12px;
+    min-width: 200px;
+
+    @include tabletbreakpoint() {
+      font-size: 16px;
+    }
+    > span {
+      display: block;
+      color: #ff0000;
+      text-transform: uppercase;
+    }
+
+    .button.close {
+      top: -20px;
+      right: -20px;
+    }
+  }
+
+  &:not(.#{$global-prefix}boolean-visibility--hidden) {
+    + .#{$global-prefix}alert--fixed {
+      margin-bottom: $height + $global-margin; 
+    }
+  }
+}

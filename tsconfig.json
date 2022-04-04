@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "es5", 
+    "esModuleInterop": true, 
+    "forceConsistentCasingInFileNames": true,
+    "allowJs": true, 
+    "strict": false, 
+    "skipLibCheck": true,
+    "jsx": "react", 
+    "module": "ESNext",  
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "declarationDir": "types",
+    "emitDeclarationOnly": true
+  },
+  "exclude": [
+    "**/tests",
+    "**/*.test.tsx",
+    "**/stories",
+    "**/*.stories.tsx",
+    "**/Test.tsx",
+  ]
+}
