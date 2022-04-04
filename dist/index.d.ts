@@ -24,12 +24,37 @@ interface IButtonProps {
     states?: any;
     title?: string;
 }
+interface ITabsProps {
+    children: React.ReactNode;
+    tabs: string[];
+    activeTab?: string;
+}
+interface ITabsContent {
+    children: React.ReactNode;
+    active: boolean;
+}
+interface ITabsTab {
+    tab: string;
+    active: boolean;
+    onClick: Function;
+}
+interface IPluralProps {
+    count: number;
+    single: string | React.ReactElement;
+    plural: string | React.ReactElement;
+    zero?: string;
+    loading?: string;
+}
 
 type Utils_IIndexable = IIndexable;
 type Utils_TChildNode = TChildNode;
 type Utils_IGenericElementProps = IGenericElementProps;
 type Utils_IJustChildrenProps = IJustChildrenProps;
 type Utils_IButtonProps = IButtonProps;
+type Utils_ITabsProps = ITabsProps;
+type Utils_ITabsContent = ITabsContent;
+type Utils_ITabsTab = ITabsTab;
+type Utils_IPluralProps = IPluralProps;
 declare namespace Utils {
   export {
     Utils_IIndexable as IIndexable,
@@ -37,6 +62,10 @@ declare namespace Utils {
     Utils_IGenericElementProps as IGenericElementProps,
     Utils_IJustChildrenProps as IJustChildrenProps,
     Utils_IButtonProps as IButtonProps,
+    Utils_ITabsProps as ITabsProps,
+    Utils_ITabsContent as ITabsContent,
+    Utils_ITabsTab as ITabsTab,
+    Utils_IPluralProps as IPluralProps,
   };
 }
 
@@ -57,11 +86,23 @@ declare function Alert({ visible, fixed, type, className, children }: {
 
 declare function List({ children, className, elementType: ElementType, ...rest }: IGenericElementProps): JSX.Element;
 
+declare function Tabs({ tabs, activeTab, children }: ITabsProps): JSX.Element;
+
+declare function Plural({ count, single, plural, zero, loading }: IPluralProps): JSX.Element;
+
+declare function Dots({ mod, absolute }: {
+    mod?: number;
+    absolute?: boolean;
+}): JSX.Element;
+
 declare const Components_Container: typeof Container;
 declare const Components_BooleanVisibilityContainer: typeof BooleanVisibilityContainer;
 declare const Components_Alert: typeof Alert;
 declare const Components_AlertText: typeof AlertText;
 declare const Components_List: typeof List;
+declare const Components_Tabs: typeof Tabs;
+declare const Components_Plural: typeof Plural;
+declare const Components_Dots: typeof Dots;
 declare namespace Components {
   export {
     Components_Container as Container,
@@ -69,6 +110,9 @@ declare namespace Components {
     Components_Alert as Alert,
     Components_AlertText as AlertText,
     Components_List as List,
+    Components_Tabs as Tabs,
+    Components_Plural as Plural,
+    Components_Dots as Dots,
   };
 }
 
@@ -98,4 +142,4 @@ declare const _default: {
     Utils: typeof Utils;
 };
 
-export { Alert, AlertText, BooleanVisibilityContainer, Container, IButtonProps, IGenericElementProps, IIndexable, IJustChildrenProps, List, TChildNode, _default as default, useData, useObserver };
+export { Alert, AlertText, BooleanVisibilityContainer, Container, Dots, IButtonProps, IGenericElementProps, IIndexable, IJustChildrenProps, IPluralProps, ITabsContent, ITabsProps, ITabsTab, List, Plural, TChildNode, Tabs, _default as default, useData, useObserver };
