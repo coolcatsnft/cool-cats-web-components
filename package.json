@@ -10,7 +10,8 @@
     "test": "node_modules/.bin/jest",
     "storybook": "node_modules/.bin/start-storybook -p 6006",
     "build-storybook": "node_modules/.bin/build-storybook",
-    "start": "npm run storybook"
+    "start": "npm run storybook",
+    "prepare": "husky install"
   },
   "author": "Alex Wyett-Adams",
   "license": "ISC",
@@ -19,6 +20,7 @@
     "@babel/preset-env": "^7.16.8",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
+    "@commitlint/cli": "^16.2.3",
     "@commitlint/config-conventional": "^16.2.1",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.1.3",
