@@ -16,7 +16,7 @@ jobs:
       - run: npm run rollup
       - run: npm version patch -m "v%s"
       - run: VERSION=$(node -p "require('./package.json').version")
-      - run: git checkout -b release/${VERSION}
+      - run: git checkout -b release ${VERSION}
       - run: git add -A
       - run: HUSKY_SKIP_HOOKS=true git commit -m "build site" --no-verify
       - run: git push
