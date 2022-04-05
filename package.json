@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/alex-coolcats"
   },
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "React web components used by the Cool-Cats frontend team.",
   "scripts": {
     "rollup": "node_modules/.bin/rollup -c",
