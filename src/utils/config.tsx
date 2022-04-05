@@ -114,7 +114,8 @@ export interface IInput {
   onChange?: Function,
   onError?: Function,
   restrictOnError?: boolean,
-  showError?: boolean
+  showError?: boolean,
+  readonly?: boolean
 }
 
 export interface IEditableInput {
@@ -134,4 +135,14 @@ export interface IEditableInput {
   onError?: Function,
   restrictOnError?: boolean,
   showError?: boolean
-}
+};
+
+export enum TPanelType {
+  LISTITEM = 'listitem'
+};
+
+export interface IPanelProps {
+  type: TPanelType,
+  children?: React.ReactNode,
+  header?: string
+};
