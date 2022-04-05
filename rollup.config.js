@@ -6,6 +6,7 @@ import postcss from "rollup-plugin-postcss";
 import { terser } from "rollup-plugin-terser";
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import copy from 'rollup-plugin-copy';
+import url from 'postcss-url';
 
 const packageJson = require("./package.json");
 
@@ -29,7 +30,15 @@ export default [
       resolve(),
       commonjs(),
       typescript({ tsconfig: "./tsconfig.json" }),
-      postcss(),
+      postcss({
+        plugins: [
+          url({
+            url: "inline", // enable inline assets using base64 encoding
+            maxSize: 30, // maximum file size to inline (in kilobytes)
+            fallback: "copy", // fallback method to use if max size is exceeded
+          }),
+        ]
+      }),
       terser(),
       copy({
         targets: [
