@@ -1,14 +1,11 @@
 import React from "react";
-import Container from "../Container";
-
-import '../../utils/scss/globals.scss';
-import './NetworkErrorMessage.scss';
+import ErrorMessage from "../ErrorMessage";
 
 export function NetworkErrorMessage({ networkId }: { networkId: number }) {
   return (
-    <Container elementType="p" className="ccwc-error-message">
+    <ErrorMessage>
       Switch to the<br />{ networkName(networkId) } network.
-    </Container>
+    </ErrorMessage>
   );
 }
 

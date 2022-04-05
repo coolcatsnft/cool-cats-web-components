@@ -4,7 +4,7 @@ import { IInput } from "../../utils";
 import BooleanVisibilityContainer from "../BooleanVisibilityContainer";
 import Element from "./Element";
 
-export function Input({ name, id, type, value, label, min, max, hideLabel, placeholder, pattern, onChange, onError, disabled, checked, restrictOnError, showError }: IInput) {
+export function Input({ name, id, type, value, label, min, max, hideLabel, placeholder, pattern, onChange, onError, disabled, checked, restrictOnError, showError, readonly }: IInput) {
   const [_error, _setError] = useState<boolean | string>(false);
   const [_value, _setValue] = useState<string | boolean>(type === 'checkbox' || type === 'radio' ? (value || false) : String(value || ''));
   const [_checked, setChecked] = useState<boolean>(type === 'checkbox' || type === 'radio' ? (checked || false) : false);
@@ -49,6 +49,16 @@ export function Input({ name, id, type, value, label, min, max, hideLabel, place
 
   if (label === false) {
     lbl = '';
+  }
+
+  if (readonly) {
+    return (
+      <Element type="static" htmlFor={name} label={lbl}>
+        { !isTextArea && <p>{ value || `#` }</p> }
+        { isTextArea && value.length > 0 && <pre>{ value.length > 30 ? `${value.substring(0, 30).trim()}...` : value }</pre> }
+        { isTextArea && value.length === 0 && <p>#</p> }
+      </Element>
+    );
   }
 
   const iProps = {} as any;

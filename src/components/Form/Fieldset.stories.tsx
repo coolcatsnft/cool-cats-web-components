@@ -8,7 +8,7 @@ export default {
   component: Fieldset
 }
 
-export const Basic = ((args) => {
+export const Basic = (() => {
   return (
     <Fieldset legend='Field set'>
       <Input name='test1' label='Text box 1' />
@@ -17,11 +17,11 @@ export const Basic = ((args) => {
   )
 }).bind({});
 
-export const Multiple = ((args) => {
+export const Multiple = (() => {
   return (
     <Container className="ccwc-fieldsets">
       <Fieldset legend='Field set 1'>
-        <Input name='test1' label='Text box 1' />
+        <Input name='test1' type="number" max={10} showError label='Number box 1' />
         <Input name='test2' label='Text box 2' />
       </Fieldset>
       <Fieldset legend='Field set 2'>
