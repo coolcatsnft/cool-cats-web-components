@@ -11,16 +11,21 @@ export default {
       options: ["ul", "ol"],
       defaultValue: "ul",
       name: "List type"
+    },
+    numberOfItems: {
+      control: { type: 'number', min: 1, max: 12 },
+      defaultValue: 2
     }
   }
 }
 
 export const BasicList = ((args) => {
+  const items = Array.from(Array(args.numberOfItems).keys()).map((key: number) => {
+    return <React.Fragment key={key}>{`List item ${key + 1}`}</React.Fragment>;
+  });
   return (
-    <List {...args}>
-      <>A simple list</>
-      <>A simple list</>
-      <>A simple list</>
+    <List elementType={args.elementType}>
+      { items }
     </List>
   )
 }).bind({});

@@ -1,0 +1,188 @@
+@use "sass:math";
+@import '../../utils/scss/';
+
+.#{$global-prefix}form-element {
+	width: 100%;
+
+  &--static {
+    label[for] {
+      cursor: auto;
+    }
+  }
+
+	select,
+	input[type=text],
+	input[type=email],
+	input[type=password],
+	input[type=number],
+	textarea {
+		width: 100%;
+	}
+
+	select,
+	input[type=text],
+	input[type=email],
+	input[type=number],
+	textarea {
+    font-size: 18px;
+    color: #000000;
+    border: solid 4px map-get($global-site-colors, formelement-border);
+    border-radius: 6px;
+    padding: 6px 6px;
+    margin-right: 0px;
+    text-transform: uppercase;
+    font-family: $global-font;
+
+    &:focus,
+    &:focus-visible,
+    &:active {
+      outline: 4px solid map-get($global-site-colors, formelement-outline);
+      outline-offset: -4px;
+    }
+  }
+
+	textarea {
+    height: 123px;
+    resize: none;
+  }
+
+  + .#{$global-prefix}-boolean-visibility {
+    position: absolute;
+    font-size: x-small;
+    color: map-get($global-site-colors, error);
+    margin-top: math.div($global-margin, 2) * -1;
+
+    & + .#{$global-prefix}form-element {
+      margin-top: $global-margin;
+    }
+  }
+
+  &--error {
+    > label {
+      &:after {
+        content: " *";
+        color: map-get($global-site-colors, error);
+        margin-left: math.div($global-margin, 2);
+      }
+    }
+
+    .error {
+      font-size: small;
+    }
+
+    select,
+    input[type=text],
+    input[type=email],
+    input[type=password],
+    input[type=number],
+    textarea {
+      border-color: map-get($global-site-colors, error);
+    }
+  }
+
+  input[type=text],
+  input[type=email] {
+    text-transform: none;
+  }
+
+	input[type=radio],
+	input[type=checkbox] {
+    -webkit-appearance: none;
+    background-color: #ffffff;
+    border: 4px solid #000000;
+    padding: 9px;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:checked {
+      border: 4px solid #000000;
+      color: #99a1a7;
+      &:after {
+        content: '\2714';
+        position: absolute;
+        font-size: 18px;
+        top: -3px;
+        left: 2px;
+        color: #006613;
+        font-weight: bold;
+      }
+    }
+  }
+
+	&--checkbox,
+  &--radio {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin-bottom: 3px;
+  }
+
+  &--disabled input,
+  &--disabled button,
+  &--disabled select,
+  &--disabled textarea,
+  input[disabled],
+  button[disabled],
+  textarea[disabled],
+  select[disabled] {
+    cursor: not-allowed !important;
+    background-color: map-get($global-site-colors, disabled) !important;
+  }
+  
+  &--disabled {
+    > label {
+      font-weight: bold;
+      color: map-get($global-site-colors, disabled) !important;
+    }
+  }
+}
+
+.#{$global-prefix}form-element label,
+.#{$global-prefix}form-element--label {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 0;
+  font-size: 16px;
+  color: map-get($global-site-colors, formelement-label);
+  margin-right: 3px;
+
+  & + pre,
+  & + p {
+    padding: 3px;
+    margin: 0;
+  }
+
+  &[for] {
+    cursor: pointer;
+  }
+}
+
+.#{$global-prefix}form-fieldsets {
+	margin-bottom: 1rem;
+  @media screen and (min-width: 800px) {
+    display: flex;
+    justify-content: space-between;
+
+    .#{$global-prefix}form-fieldset {
+      width: 49%;
+    }
+  }
+}
+
+.#{$global-prefix}form-fieldset {
+	margin: 0;
+	padding: 0;
+	border: 0 none;
+}
+
+.#{$global-prefix}form .actions {
+	display: flex;
+	justify-content: space-around;
+  margin-top: 1rem;
+}

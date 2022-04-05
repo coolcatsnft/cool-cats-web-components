@@ -92,3 +92,4 @@ $global-element-colors: (
 );
 
 $global-site-colors: map.merge($global-pill-colors, $global-element-colors);
+$global-font: 'Poppins', serif;
