@@ -223,6 +223,12 @@ declare function Panel({ type, header, children }: IPanelProps): JSX.Element;
 
 declare function ErrorMessage({ children, className, elementType: ElementType, ...rest }: IGenericElementProps): JSX.Element;
 
+declare function MilkValue({ children, size, elementType }: {
+    children?: React$1.ReactNode;
+    size?: string;
+    elementType?: string;
+}): JSX.Element;
+
 declare function Legend({ children }: IJustChildrenProps): JSX.Element;
 
 declare function Element({ type, label, disabled, error, htmlFor, children }: IFormElement): JSX.Element;
@@ -277,6 +283,7 @@ declare const Components_Group: typeof Group;
 declare const Components_ItemSummary: typeof ItemSummary;
 declare const Components_Panel: typeof Panel;
 declare const Components_ErrorMessage: typeof ErrorMessage;
+declare const Components_MilkValue: typeof MilkValue;
 declare namespace Components {
   export {
     Components_Container as Container,
@@ -297,6 +304,7 @@ declare namespace Components {
     Components_ItemSummary as ItemSummary,
     Components_Panel as Panel,
     Components_ErrorMessage as ErrorMessage,
+    Components_MilkValue as MilkValue,
     Legend as FormLegend,
     Element as FormElement,
     Label as FormLabel,
@@ -343,4 +351,4 @@ declare const _default: {
     Utils: typeof Utils;
 };
 
-export { Alert, AlertText, Battling as BattlingIcon, BooleanVisibilityContainer, Cat as CatIcon, Container, Dots, Envelope as EnvelopeIcon, ErrorMessage, Element as FormElement, Fieldset as FormFieldset, Input as FormInput, Label as FormLabel, Legend as FormLegend, Group, Header, Help as HelpIcon, Housing as HousingIcon, IButtonProps, IContainerAttributeState, IContainerClassState, IEditableInput, IFormElement, IFormLabel, IGenericElementProps, IIndexable, IInput, IJustChildrenProps, IPanelProps, IPill, IPills, IPluralProps, ITabsContent, ITabsProps, ITabsTab, Item as ItemIcon, ItemSummary, List, Marketplace as MarketplaceIcon, Meowpad as MeowpadIcon, Milk as MilkIcon, NetworkErrorMessage, Panel, Pet as PetIcon, Pill, Pills, Plural, Questing as QuestingIcon, Shop as ShopIcon, TChildNode, THeaderSize, TPanelType, Tabs, TabsContent, TabsTab, _default as default, useData, useObserver };
+export { Alert, AlertText, Battling as BattlingIcon, BooleanVisibilityContainer, Cat as CatIcon, Container, Dots, Envelope as EnvelopeIcon, ErrorMessage, Element as FormElement, Fieldset as FormFieldset, Input as FormInput, Label as FormLabel, Legend as FormLegend, Group, Header, Help as HelpIcon, Housing as HousingIcon, IButtonProps, IContainerAttributeState, IContainerClassState, IEditableInput, IFormElement, IFormLabel, IGenericElementProps, IIndexable, IInput, IJustChildrenProps, IPanelProps, IPill, IPills, IPluralProps, ITabsContent, ITabsProps, ITabsTab, Item as ItemIcon, ItemSummary, List, Marketplace as MarketplaceIcon, Meowpad as MeowpadIcon, Milk as MilkIcon, MilkValue, NetworkErrorMessage, Panel, Pet as PetIcon, Pill, Pills, Plural, Questing as QuestingIcon, Shop as ShopIcon, TChildNode, THeaderSize, TPanelType, Tabs, TabsContent, TabsTab, _default as default, useData, useObserver };
