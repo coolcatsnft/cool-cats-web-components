@@ -100,6 +100,7 @@ export interface IFormLabel {
 
 export interface IInput {
   name: string,
+  id?: string,
   label?: string | React.ReactNode | boolean,
   type?: string,
   placeholder?: string,

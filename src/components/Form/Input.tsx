@@ -1,10 +1,10 @@
 /* eslint-disable consistent-return */
 import React, { useState } from "react";
-import { IEditableInput, IInput } from "../../utils";
+import { IInput } from "../../utils";
 import BooleanVisibilityContainer from "../BooleanVisibilityContainer";
 import Element from "./Element";
 
-export function Input({ name, type, value, label, min, max, hideLabel, placeholder, pattern, onChange, onError, disabled, checked, restrictOnError, showError }: IInput) {
+export function Input({ name, id, type, value, label, min, max, hideLabel, placeholder, pattern, onChange, onError, disabled, checked, restrictOnError, showError }: IInput) {
   const [_error, _setError] = useState<boolean | string>(false);
   const [_value, _setValue] = useState<string | boolean>(type === 'checkbox' || type === 'radio' ? (value || false) : String(value || ''));
   const [_checked, setChecked] = useState<boolean>(type === 'checkbox' || type === 'radio' ? (checked || false) : false);
@@ -20,7 +20,7 @@ export function Input({ name, type, value, label, min, max, hideLabel, placehold
   const isNumberType = type === 'number' || type === 'tel';
 
   const setValue = (e: any) => {
-    if (type === 'checkbox' || type === 'checkbox') {
+    if (type === 'checkbox' || type === 'radio') {
       setChecked(e.target.checked);
     } else {
       _setValue(String(e?.target?.value || ''));
@@ -55,7 +55,7 @@ export function Input({ name, type, value, label, min, max, hideLabel, placehold
   iProps.placeholder = (isStringType || isNumberType) ? placeholder || '' : undefined;
   iProps.type = type;
   iProps.name = name;
-  iProps.id = name;
+  iProps.id = id || name;
   iProps.disabled = disabled === true;
 
   if (isStringType) {
@@ -89,6 +89,12 @@ export function Input({ name, type, value, label, min, max, hideLabel, placehold
   if (type === 'textarea' && max && typeof _value === 'string') {
     const len = _value.length || 0;
     lbl = `${lbl} (${len}/${max})`;
+  }
+
+  iProps.onBlur = (e: any) => {
+    if (type === 'checkbox' || type === 'radio') {
+      setValue(e);
+    }
   }
   
   iProps.onChange = (e: any) => {
@@ -162,6 +168,9 @@ export function Input({ name, type, value, label, min, max, hideLabel, placehold
       if (_error.indexOf('s]') >= 0) {
         return 'Only letters or numbers allowed';
       }
+      if (_error.indexOf('d+$') >= 0) {
+        return 'Only whole numbers allowed';
+      }
 
       return _error;
     }
@@ -176,7 +185,7 @@ export function Input({ name, type, value, label, min, max, hideLabel, placehold
         type={type}
         disabled={disabled}
         error={isError}
-        htmlFor={name}
+        htmlFor={iProps.id}
         label={!hideLabel && lbl}
       >
         { type !== 'textarea' && <input {...iProps} /> }

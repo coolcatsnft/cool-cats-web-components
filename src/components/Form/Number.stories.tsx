@@ -22,3 +22,9 @@ export const WithValidation = ((args) => {
     <Input showError label='Enter a number between 1 and 10' name='numberTest' min={0} max={10} type='number' {...args} />
   )
 }).bind({});
+
+export const WithRegexValidation = ((args) => {
+  return (
+    <Input showError pattern={/^\d+$/} restrictOnError label='Enter a number' name='numberTest' {...args} />
+  )
+}).bind({});

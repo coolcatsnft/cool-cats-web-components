@@ -30,9 +30,9 @@ export const BasicList = ((args) => {
   )
 }).bind({});
 
-export const ListWithAContainerElement = ((args) => {
+export const ListWithAContainerElement = (() => {
   return (
-    <List {...args}>
+    <List>
       <>Item 1</>
       <Container>Item 2 (should be a li with a nested div)</Container>
       <Container elementType="li">Item 2 (should just be a li)</Container>

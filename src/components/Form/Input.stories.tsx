@@ -16,3 +16,9 @@ export const Basic = ((args) => {
     <Input name='test' {...args} />
   )
 }).bind({});
+
+export const Textarea = ((args) => {
+  return (
+    <Input name='textarea' label='Text area' type='textarea' {...args} />
+  )
+}).bind({});
