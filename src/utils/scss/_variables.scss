@@ -90,7 +90,8 @@ $global-element-colors: (
   formelement-border: lightgrey,
   default-border: lightgrey,
   formelement-outline: grey,
-  topnav: #3A69AC
+  topnav: #3A69AC,
+  milk: #EEAC49
 );
 
 $global-site-colors: map.merge($global-pill-colors, $global-element-colors);
