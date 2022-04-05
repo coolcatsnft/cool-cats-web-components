@@ -13,6 +13,7 @@ export { default as Pill } from "./Pill";
 export { default as Pills } from "./Pills";
 export { default as NetworkErrorMessage } from "./NetworkErrorMessage";
 export { default as Group } from "./Group";
+export { default as ItemSummary } from "./ItemSummary";
 
 // Form
 export { Legend as FormLegend } from "./Form";

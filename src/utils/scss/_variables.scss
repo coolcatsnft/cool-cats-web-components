@@ -3,6 +3,7 @@ $global-margin: 16px !default;
 $global-padding: 16px !default;
 $global-prefix: 'ccwc-';
 $global-radius: 5px;
+$global-border-width: 3px;
 
 $global-pill-colors: (
   orange: #FC9144,
@@ -87,6 +88,7 @@ $global-pill-font-colors: (
 $global-element-colors: (
   formelement-label: #14396D,
   formelement-border: lightgrey,
+  default-border: lightgrey,
   formelement-outline: grey,
   topnav: #3A69AC
 );
