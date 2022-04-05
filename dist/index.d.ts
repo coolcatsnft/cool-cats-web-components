@@ -73,6 +73,54 @@ interface IContainerAttributeState {
     value: string | number;
     condition?: boolean | Function;
 }
+interface IFormElement {
+    type: string;
+    disabled?: boolean;
+    error?: boolean;
+    htmlFor?: string;
+    label?: string | React.ReactNode;
+    children?: string | React.ReactNode;
+}
+interface IFormLabel {
+    htmlFor?: string;
+    children?: string | React.ReactNode;
+}
+interface IInput {
+    name: string;
+    id?: string;
+    label?: string | React.ReactNode | boolean;
+    type?: string;
+    placeholder?: string;
+    value?: any;
+    min?: number;
+    max?: number;
+    hideLabel?: boolean;
+    disabled?: boolean;
+    checked?: boolean;
+    pattern?: RegExp;
+    onChange?: Function;
+    onError?: Function;
+    restrictOnError?: boolean;
+    showError?: boolean;
+}
+interface IEditableInput {
+    editMode: boolean;
+    name: string;
+    label?: string | React.ReactNode;
+    type?: string;
+    placeholder?: string;
+    value?: any;
+    min?: number;
+    max?: number;
+    hideLabel?: boolean;
+    disabled?: boolean;
+    checked?: boolean;
+    pattern?: RegExp;
+    onChange?: Function;
+    onError?: Function;
+    restrictOnError?: boolean;
+    showError?: boolean;
+}
 
 type Utils_IIndexable = IIndexable;
 type Utils_TChildNode = TChildNode;
@@ -88,6 +136,10 @@ type Utils_IPill = IPill;
 type Utils_IPills = IPills;
 type Utils_IContainerClassState = IContainerClassState;
 type Utils_IContainerAttributeState = IContainerAttributeState;
+type Utils_IFormElement = IFormElement;
+type Utils_IFormLabel = IFormLabel;
+type Utils_IInput = IInput;
+type Utils_IEditableInput = IEditableInput;
 declare namespace Utils {
   export {
     Utils_IIndexable as IIndexable,
@@ -104,6 +156,10 @@ declare namespace Utils {
     Utils_IPills as IPills,
     Utils_IContainerClassState as IContainerClassState,
     Utils_IContainerAttributeState as IContainerAttributeState,
+    Utils_IFormElement as IFormElement,
+    Utils_IFormLabel as IFormLabel,
+    Utils_IInput as IInput,
+    Utils_IEditableInput as IEditableInput,
   };
 }
 
@@ -122,7 +178,7 @@ declare function Alert({ visible, fixed, type, className, children }: {
     children?: React$1.ReactNode;
 }): JSX.Element;
 
-declare function List({ children, className, elementType: ElementType, ...rest }: IGenericElementProps): JSX.Element;
+declare function List(props: IGenericElementProps): JSX.Element;
 
 declare function Tabs({ tabs, activeTab, children }: ITabsProps): JSX.Element;
 declare function TabsTab({ tab, active, onClick }: ITabsTab): JSX.Element;
@@ -140,6 +196,24 @@ declare function Header(props: any): JSX.Element;
 declare function Pill({ children, appear, direction, colour, icon, noText, disabled, bordered, className }: IPill): JSX.Element;
 
 declare function Pills({ children, className, bordered, states, ...rest }: IPills): JSX.Element;
+
+declare function NetworkErrorMessage({ networkId }: {
+    networkId: number;
+}): JSX.Element;
+
+declare function Group({ children, className, elementType: ElementType, ...rest }: IGenericElementProps): JSX.Element;
+
+declare function ItemSummary(props: any): JSX.Element;
+
+declare function Legend({ children }: IJustChildrenProps): JSX.Element;
+
+declare function Element({ type, label, disabled, error, htmlFor, children }: IFormElement): JSX.Element;
+
+declare function Fieldset(props: any): JSX.Element;
+
+declare function Label({ htmlFor, children }: IFormLabel): JSX.Element;
+
+declare function Input({ name, id, type, value, label, min, max, hideLabel, placeholder, pattern, onChange, onError, disabled, checked, restrictOnError, showError }: IInput): JSX.Element;
 
 declare function Cat(): JSX.Element;
 
@@ -165,10 +239,6 @@ declare function Meowpad({ open }: {
 
 declare function Help(): JSX.Element;
 
-declare function NetworkErrorMessage({ networkId }: {
-    networkId: number;
-}): JSX.Element;
-
 declare const Components_Container: typeof Container;
 declare const Components_BooleanVisibilityContainer: typeof BooleanVisibilityContainer;
 declare const Components_Alert: typeof Alert;
@@ -183,6 +253,8 @@ declare const Components_Header: typeof Header;
 declare const Components_Pill: typeof Pill;
 declare const Components_Pills: typeof Pills;
 declare const Components_NetworkErrorMessage: typeof NetworkErrorMessage;
+declare const Components_Group: typeof Group;
+declare const Components_ItemSummary: typeof ItemSummary;
 declare namespace Components {
   export {
     Components_Container as Container,
@@ -198,6 +270,14 @@ declare namespace Components {
     Components_Header as Header,
     Components_Pill as Pill,
     Components_Pills as Pills,
+    Components_NetworkErrorMessage as NetworkErrorMessage,
+    Components_Group as Group,
+    Components_ItemSummary as ItemSummary,
+    Legend as FormLegend,
+    Element as FormElement,
+    Label as FormLabel,
+    Fieldset as FormFieldset,
+    Input as FormInput,
     Cat as CatIcon,
     Pet as PetIcon,
     Item as ItemIcon,
@@ -209,7 +289,6 @@ declare namespace Components {
     Envelope as EnvelopeIcon,
     Meowpad as MeowpadIcon,
     Help as HelpIcon,
-    Components_NetworkErrorMessage as NetworkErrorMessage,
   };
 }
 
@@ -239,4 +318,4 @@ declare const _default: {
     Utils: typeof Utils;
 };
 
-export { Alert, AlertText, Battling as BattlingIcon, BooleanVisibilityContainer, Cat as CatIcon, Container, Dots, Envelope as EnvelopeIcon, Header, Help as HelpIcon, Housing as HousingIcon, IButtonProps, IContainerAttributeState, IContainerClassState, IGenericElementProps, IIndexable, IJustChildrenProps, IPill, IPills, IPluralProps, ITabsContent, ITabsProps, ITabsTab, Item as ItemIcon, List, Marketplace as MarketplaceIcon, Meowpad as MeowpadIcon, NetworkErrorMessage, Pet as PetIcon, Pill, Pills, Plural, Questing as QuestingIcon, Shop as ShopIcon, TChildNode, THeaderSize, Tabs, TabsContent, TabsTab, _default as default, useData, useObserver };
+export { Alert, AlertText, Battling as BattlingIcon, BooleanVisibilityContainer, Cat as CatIcon, Container, Dots, Envelope as EnvelopeIcon, Element as FormElement, Fieldset as FormFieldset, Input as FormInput, Label as FormLabel, Legend as FormLegend, Group, Header, Help as HelpIcon, Housing as HousingIcon, IButtonProps, IContainerAttributeState, IContainerClassState, IEditableInput, IFormElement, IFormLabel, IGenericElementProps, IIndexable, IInput, IJustChildrenProps, IPill, IPills, IPluralProps, ITabsContent, ITabsProps, ITabsTab, Item as ItemIcon, ItemSummary, List, Marketplace as MarketplaceIcon, Meowpad as MeowpadIcon, NetworkErrorMessage, Pet as PetIcon, Pill, Pills, Plural, Questing as QuestingIcon, Shop as ShopIcon, TChildNode, THeaderSize, Tabs, TabsContent, TabsTab, _default as default, useData, useObserver };
