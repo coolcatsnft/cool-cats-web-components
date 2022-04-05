@@ -14,6 +14,8 @@ export { default as Pills } from "./Pills";
 export { default as NetworkErrorMessage } from "./NetworkErrorMessage";
 export { default as Group } from "./Group";
 export { default as ItemSummary } from "./ItemSummary";
+export { default as Panel } from "./Panel";
+export { default as ErrorMessage } from "./ErrorMessage";
 
 // Form
 export { Legend as FormLegend } from "./Form";

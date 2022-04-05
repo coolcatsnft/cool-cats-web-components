@@ -100,6 +100,7 @@ export interface IInput {
     onError?: Function;
     restrictOnError?: boolean;
     showError?: boolean;
+    readonly?: boolean;
 }
 export interface IEditableInput {
     editMode: boolean;
@@ -118,4 +119,12 @@ export interface IEditableInput {
     onError?: Function;
     restrictOnError?: boolean;
     showError?: boolean;
+}
+export declare enum TPanelType {
+    LISTITEM = "listitem"
+}
+export interface IPanelProps {
+    type: TPanelType;
+    children?: React.ReactNode;
+    header?: string;
 }
