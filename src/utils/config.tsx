@@ -83,3 +83,55 @@ export interface IContainerAttributeState {
   value: string|number,
   condition?: boolean|Function
 };
+
+export interface IFormElement {
+  type: string,
+  disabled?: boolean,
+  error?: boolean,
+  htmlFor?: string,
+  label?: string | React.ReactNode,
+  children?: string | React.ReactNode
+};
+
+export interface IFormLabel {
+  htmlFor?: string,
+  children?: string | React.ReactNode
+};
+
+export interface IInput {
+  name: string,
+  id?: string,
+  label?: string | React.ReactNode | boolean,
+  type?: string,
+  placeholder?: string,
+  value?: any,
+  min?: number,
+  max?: number,
+  hideLabel?: boolean,
+  disabled?: boolean,
+  checked?: boolean,
+  pattern?: RegExp,
+  onChange?: Function,
+  onError?: Function,
+  restrictOnError?: boolean,
+  showError?: boolean
+}
+
+export interface IEditableInput {
+  editMode: boolean,
+  name: string,
+  label?: string | React.ReactNode,
+  type?: string,
+  placeholder?: string,
+  value?: any,
+  min?: number,
+  max?: number,
+  hideLabel?: boolean,
+  disabled?: boolean,
+  checked?: boolean,
+  pattern?: RegExp,
+  onChange?: Function,
+  onError?: Function,
+  restrictOnError?: boolean,
+  showError?: boolean
+}

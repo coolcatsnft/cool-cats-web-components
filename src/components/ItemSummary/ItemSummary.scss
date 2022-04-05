@@ -1,0 +1,72 @@
+@import '../../utils/scss/';
+
+.#{$global-prefix}item-summary {
+  display: flex;
+  padding: $global-padding;
+  padding-right: 0;
+  border: $global-border-width solid map-get($global-site-colors, default-border);
+  border-radius: $global-radius;
+
+  @include desktopbreakpoint() {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  > img,
+  > .cool-cat-thumbnail {
+    &:first-of-type {
+      margin: 0;
+      margin-right: $global-margin;
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: space-between;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      font-size: smaller;
+      transition: opacity 0.5s;
+      flex-basis: 100%;
+  
+      .gold-reward {
+        &:before {
+          top: 3px;
+        }
+      }
+
+      &.hidden {
+        opacity: 0;
+      }
+
+      &.visible {
+        opacity: 1;
+      }
+
+      span,
+      strong {
+        flex-basis: 90px;
+
+        @include tabletbreakpoint() {
+          flex-basis: 45%;
+        }
+      }
+
+      .itemname {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+    }
+  }
+}
