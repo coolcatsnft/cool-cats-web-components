@@ -257,6 +257,8 @@ declare function Meowpad({ open }: {
 
 declare function Help(): JSX.Element;
 
+declare function Milk(): JSX.Element;
+
 declare const Components_Container: typeof Container;
 declare const Components_BooleanVisibilityContainer: typeof BooleanVisibilityContainer;
 declare const Components_Alert: typeof Alert;
@@ -311,6 +313,7 @@ declare namespace Components {
     Envelope as EnvelopeIcon,
     Meowpad as MeowpadIcon,
     Help as HelpIcon,
+    Milk as MilkIcon,
   };
 }
 
@@ -340,4 +343,4 @@ declare const _default: {
     Utils: typeof Utils;
 };
 
-export { Alert, AlertText, Battling as BattlingIcon, BooleanVisibilityContainer, Cat as CatIcon, Container, Dots, Envelope as EnvelopeIcon, ErrorMessage, Element as FormElement, Fieldset as FormFieldset, Input as FormInput, Label as FormLabel, Legend as FormLegend, Group, Header, Help as HelpIcon, Housing as HousingIcon, IButtonProps, IContainerAttributeState, IContainerClassState, IEditableInput, IFormElement, IFormLabel, IGenericElementProps, IIndexable, IInput, IJustChildrenProps, IPanelProps, IPill, IPills, IPluralProps, ITabsContent, ITabsProps, ITabsTab, Item as ItemIcon, ItemSummary, List, Marketplace as MarketplaceIcon, Meowpad as MeowpadIcon, NetworkErrorMessage, Panel, Pet as PetIcon, Pill, Pills, Plural, Questing as QuestingIcon, Shop as ShopIcon, TChildNode, THeaderSize, TPanelType, Tabs, TabsContent, TabsTab, _default as default, useData, useObserver };
+export { Alert, AlertText, Battling as BattlingIcon, BooleanVisibilityContainer, Cat as CatIcon, Container, Dots, Envelope as EnvelopeIcon, ErrorMessage, Element as FormElement, Fieldset as FormFieldset, Input as FormInput, Label as FormLabel, Legend as FormLegend, Group, Header, Help as HelpIcon, Housing as HousingIcon, IButtonProps, IContainerAttributeState, IContainerClassState, IEditableInput, IFormElement, IFormLabel, IGenericElementProps, IIndexable, IInput, IJustChildrenProps, IPanelProps, IPill, IPills, IPluralProps, ITabsContent, ITabsProps, ITabsTab, Item as ItemIcon, ItemSummary, List, Marketplace as MarketplaceIcon, Meowpad as MeowpadIcon, Milk as MilkIcon, NetworkErrorMessage, Panel, Pet as PetIcon, Pill, Pills, Plural, Questing as QuestingIcon, Shop as ShopIcon, TChildNode, THeaderSize, TPanelType, Tabs, TabsContent, TabsTab, _default as default, useData, useObserver };

@@ -36,3 +36,4 @@ export { Shop as ShopIcon } from "./Icon";
 export { Envelope as EnvelopeIcon } from "./Icon";
 export { Meowpad as MeowpadIcon } from "./Icon";
 export { Help as HelpIcon } from "./Icon";
+export { Milk as MilkIcon } from "./Icon";
