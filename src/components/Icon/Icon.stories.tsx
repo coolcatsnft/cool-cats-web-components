@@ -10,6 +10,7 @@ import { Shop } from './Shop';
 import { Envelope } from './Envelope';
 import { Meowpad } from './Meowpad';
 import { Help } from './Help';
+import { Milk } from './Milk';
 
 export default {
   title: 'Icon',
@@ -85,5 +86,11 @@ export const MeowpadIconOpen = (() => {
 export const HelpIcon = (() => {
   return (
     <Help />
+  )
+}).bind({});
+
+export const MilkIcon = (() => {
+  return (
+    <Milk />
   )
 }).bind({});

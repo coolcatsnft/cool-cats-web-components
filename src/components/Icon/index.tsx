@@ -9,7 +9,8 @@ import { Shop } from './Shop';
 import { Envelope } from './Envelope';
 import { Meowpad } from './Meowpad';
 import { Help } from './Help';
+import { Milk } from './Milk';
 
-export { Cat, Pet, Item, Marketplace, Questing, Housing, Battling, Shop, Envelope, Meowpad, Help };
+export { Cat, Pet, Item, Marketplace, Questing, Housing, Battling, Shop, Envelope, Meowpad, Help, Milk };
 
 export default Pet;
