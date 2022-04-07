@@ -17,6 +17,7 @@ export { default as ItemSummary } from "./ItemSummary";
 export { default as Panel } from "./Panel";
 export { default as ErrorMessage } from "./ErrorMessage";
 export { default as MilkValue } from "./MilkValue";
+export { default as Icon } from "./Icon";
 
 // Form
 export { Legend as FormLegend } from "./Form";
@@ -38,3 +39,4 @@ export { Envelope as EnvelopeIcon } from "./Icon";
 export { Meowpad as MeowpadIcon } from "./Icon";
 export { Help as HelpIcon } from "./Icon";
 export { Milk as MilkIcon } from "./Icon";
+export { Opensea as OpenseaIcon } from "./Icon";

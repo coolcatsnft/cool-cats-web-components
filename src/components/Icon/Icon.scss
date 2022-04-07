@@ -1,0 +1,63 @@
+@import '../../utils/scss/';
+
+$width: 42px;
+$height: 42px;
+
+.#{$global-prefix}icon {
+  display: inline-block;
+  height: $height;
+  width: $width;
+  border-radius: $width * 0.5;
+  overflow: hidden;
+  position: relative;
+
+  @each $key, $color in $global-base-colors {
+    &.#{"" + $key} {
+      background-color: $color;
+      color: map-get($global-pill-font-colors, $key);
+    }
+  }
+
+  &,
+  > *,
+  &:before {
+    user-select: none;
+  }
+
+  > button,
+  > a,
+  > i {
+    position: absolute;
+    padding: 6px;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    top: 0;
+    border: 0 none;
+
+    > img,
+    > svg {
+      position: absolute;
+      height: calc(100% - 12px);
+      width: calc(100% - 12px);
+    }
+  }
+
+  &.#{$global-prefix}icon--fill {
+    > button,
+    > a,
+    > i {
+      padding: 0;
+  
+      > img,
+      > svg {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+
+  & + .#{$global-prefix}icon {
+    margin-left: $global-margin * 0.5;
+  }
+}

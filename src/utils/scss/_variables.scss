@@ -5,7 +5,7 @@ $global-prefix: 'ccwc-';
 $global-radius: 5px;
 $global-border-width: 4px;
 
-$global-pill-colors: (
+$global-base-colors: (
   orange: #FC9144,
   red: #FA3C6A,
   green: #39E27D,
@@ -17,6 +17,7 @@ $global-pill-colors: (
   grey: #dadada,
   white: white,
   transparent: white,
+  opensea: #2081E2,
 
   disabled: #A5A5A5,
   listed: #3A69AC,
@@ -94,5 +95,6 @@ $global-element-colors: (
   milk: #EEAC49
 );
 
-$global-site-colors: map.merge($global-pill-colors, $global-element-colors);
+$global-pill-colors: $global-base-colors;
+$global-site-colors: map.merge($global-base-colors, $global-element-colors);
 $global-font: 'Poppins', serif;
