@@ -43,6 +43,14 @@ $height: 42px;
     }
   }
 
+  > button {
+    cursor: pointer;
+    > img,
+    > svg {
+      top: 0;
+    }
+  }
+
   &.#{$global-prefix}icon--fill {
     > button,
     > a,
