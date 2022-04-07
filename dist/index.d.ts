@@ -261,6 +261,26 @@ declare function Opensea({ invert }: {
     invert?: boolean;
 }): JSX.Element;
 
+interface ILogo {
+    x?: number;
+    y?: number;
+    stroke?: string;
+    fill?: string;
+    eyes?: string;
+    pupil?: string;
+    whiskersLeft?: string;
+    whiskersRight?: string;
+    mouth?: string;
+}
+declare function Logo({ logo }: {
+    logo?: ILogo;
+}): JSX.Element;
+declare function LogoMotion(): JSX.Element;
+declare function SiteLogo(): JSX.Element;
+declare function SiteLogoMotion(): JSX.Element;
+declare function WhiteOutlineLogo(): JSX.Element;
+declare function WhiteOutlineLogoMotion(): JSX.Element;
+
 declare function Legend({ children }: IJustChildrenProps): JSX.Element;
 
 declare function Element({ type, label, disabled, error, htmlFor, children }: IFormElement): JSX.Element;
@@ -331,6 +351,12 @@ declare namespace Components {
     Help as HelpIcon,
     Milk as MilkIcon,
     Opensea as OpenseaIcon,
+    Logo as LogoIcon,
+    LogoMotion as LogoMotionIcon,
+    SiteLogo as SiteLogoIcon,
+    SiteLogoMotion as SiteLogoMotionIcon,
+    WhiteOutlineLogo as WhiteOutlineLogoIcon,
+    WhiteOutlineLogoMotion as WhiteOutlineLogoMotionIcon,
   };
 }
 
@@ -345,12 +371,21 @@ declare function useData(initialData?: any[]): {
     removeByValue: (value: any) => void;
 };
 
+declare const useMousePosition: ({ includeTouch }: {
+    includeTouch: any;
+}) => {
+    x: any;
+    y: any;
+};
+
 declare const Hooks_useObserver: typeof useObserver;
 declare const Hooks_useData: typeof useData;
+declare const Hooks_useMousePosition: typeof useMousePosition;
 declare namespace Hooks {
   export {
     Hooks_useObserver as useObserver,
     Hooks_useData as useData,
+    Hooks_useMousePosition as useMousePosition,
   };
 }
 
@@ -360,4 +395,4 @@ declare const _default: {
     Utils: typeof Utils;
 };
 
-export { Alert, AlertText, Battling as BattlingIcon, BooleanVisibilityContainer, Cat as CatIcon, Container, Dots, Envelope as EnvelopeIcon, ErrorMessage, Element as FormElement, Fieldset as FormFieldset, Input as FormInput, Label as FormLabel, Legend as FormLegend, Group, Header, Help as HelpIcon, Housing as HousingIcon, IButtonProps, IContainerAttributeState, IContainerClassState, IEditableInput, IFormElement, IFormLabel, IGenericElementProps, IIndexable, IInput, IJustChildrenProps, IPanelProps, IPill, IPills, IPluralProps, ITabsContent, ITabsProps, ITabsTab, Icon, Item as ItemIcon, ItemSummary, List, Marketplace as MarketplaceIcon, Meowpad as MeowpadIcon, Milk as MilkIcon, MilkValue, NetworkErrorMessage, Opensea as OpenseaIcon, Panel, Pet as PetIcon, Pill, Pills, Plural, Questing as QuestingIcon, Shop as ShopIcon, TChildNode, THeaderSize, TPanelType, Tabs, TabsContent, TabsTab, _default as default, useData, useObserver };
+export { Alert, AlertText, Battling as BattlingIcon, BooleanVisibilityContainer, Cat as CatIcon, Container, Dots, Envelope as EnvelopeIcon, ErrorMessage, Element as FormElement, Fieldset as FormFieldset, Input as FormInput, Label as FormLabel, Legend as FormLegend, Group, Header, Help as HelpIcon, Housing as HousingIcon, IButtonProps, IContainerAttributeState, IContainerClassState, IEditableInput, IFormElement, IFormLabel, IGenericElementProps, IIndexable, IInput, IJustChildrenProps, IPanelProps, IPill, IPills, IPluralProps, ITabsContent, ITabsProps, ITabsTab, Icon, Item as ItemIcon, ItemSummary, List, Logo as LogoIcon, LogoMotion as LogoMotionIcon, Marketplace as MarketplaceIcon, Meowpad as MeowpadIcon, Milk as MilkIcon, MilkValue, NetworkErrorMessage, Opensea as OpenseaIcon, Panel, Pet as PetIcon, Pill, Pills, Plural, Questing as QuestingIcon, Shop as ShopIcon, SiteLogo as SiteLogoIcon, SiteLogoMotion as SiteLogoMotionIcon, TChildNode, THeaderSize, TPanelType, Tabs, TabsContent, TabsTab, WhiteOutlineLogo as WhiteOutlineLogoIcon, WhiteOutlineLogoMotion as WhiteOutlineLogoMotionIcon, _default as default, useData, useMousePosition, useObserver };

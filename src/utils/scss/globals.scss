@@ -1,4 +1,5 @@
 @import './variables';
+@import './keyframes';
 
 [class^="ccwc-"],
 [class*=" ccwc-"] {
@@ -50,6 +51,24 @@
     h5,
     h6 {
       overflow-wrap: break-word;
+    }
+  }
+
+  &.shake {
+    &,
+    &--hover:hover {
+      animation: shake 0.22s cubic-bezier(.36,.07,.19,.97) both;
+      transform: translate3d(0, 0, 0);
+      backface-visibility: hidden;
+      perspective: 1000px;
+    }
+  }
+
+  &.eggshake {
+    &,
+    &--hover:hover {
+      transform-origin: center 80%;
+      animation: eggshake 1s infinite alternate;
     }
   }
 }

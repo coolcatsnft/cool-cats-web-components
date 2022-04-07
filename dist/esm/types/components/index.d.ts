@@ -36,3 +36,4 @@ export { Meowpad as MeowpadIcon } from "./Icon";
 export { Help as HelpIcon } from "./Icon";
 export { Milk as MilkIcon } from "./Icon";
 export { Opensea as OpenseaIcon } from "./Icon";
+export { Logo as LogoIcon, LogoMotion as LogoMotionIcon, SiteLogo as SiteLogoIcon, SiteLogoMotion as SiteLogoMotionIcon, WhiteOutlineLogo as WhiteOutlineLogoIcon, WhiteOutlineLogoMotion as WhiteOutlineLogoMotionIcon } from './Icon';
