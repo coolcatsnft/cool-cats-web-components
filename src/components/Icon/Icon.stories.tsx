@@ -11,6 +11,8 @@ import { Envelope } from './Envelope';
 import { Meowpad } from './Meowpad';
 import { Help } from './Help';
 import { Milk } from './Milk';
+import { Icon } from './Icon';
+import { Opensea } from './Opensea';
 
 export default {
   title: 'Icon',
@@ -92,5 +94,63 @@ export const HelpIcon = (() => {
 export const MilkIcon = (() => {
   return (
     <Milk />
+  )
+}).bind({});
+
+export const OpenseaIcon = (() => {
+  return (
+    <Opensea />
+  )
+}).bind({});
+
+export const IconExample = (() => {
+  return (
+    <Icon>
+      <i>
+        <Pet />
+      </i>
+    </Icon>
+  )
+}).bind({});
+
+export const IconWithColourExample = (() => {
+  return (
+    <Icon states={[{ className: 'simple-yellow' }]}>
+      <i>
+        <Pet />
+      </i>
+    </Icon>
+  )
+}).bind({});
+
+export const MultipleIconsExample = (() => {
+  return (
+    <>
+      <Icon title="Pet" color="grey">
+        <i>
+          <Pet />
+        </i>
+      </Icon>
+      <Icon color="opensea">
+        <a href='#'>
+          <Opensea />
+        </a>
+      </Icon>
+      <Icon color="opensea" className="ccwc-icon--fill">
+        <a href='#'>
+          <Opensea invert />
+        </a>
+      </Icon>
+      <Icon color="grey">
+        <i>
+          <Shop />
+        </i>
+      </Icon>
+      <Icon color="opensea" className="ccwc-icon--fill">
+        <button>
+          <Opensea invert />
+        </button>
+      </Icon>
+    </>
   )
 }).bind({});

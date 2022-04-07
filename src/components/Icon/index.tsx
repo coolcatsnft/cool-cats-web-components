@@ -10,7 +10,9 @@ import { Envelope } from './Envelope';
 import { Meowpad } from './Meowpad';
 import { Help } from './Help';
 import { Milk } from './Milk';
+import { Icon } from './Icon';
+import { Opensea } from './Opensea';
 
-export { Cat, Pet, Item, Marketplace, Questing, Housing, Battling, Shop, Envelope, Meowpad, Help, Milk };
+export { Cat, Pet, Item, Marketplace, Questing, Housing, Battling, Shop, Envelope, Meowpad, Help, Milk, Opensea, Icon };
 
-export default Pet;
+export default Icon;

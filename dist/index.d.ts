@@ -229,16 +229,6 @@ declare function MilkValue({ children, size, elementType }: {
     elementType?: string;
 }): JSX.Element;
 
-declare function Legend({ children }: IJustChildrenProps): JSX.Element;
-
-declare function Element({ type, label, disabled, error, htmlFor, children }: IFormElement): JSX.Element;
-
-declare function Fieldset(props: any): JSX.Element;
-
-declare function Label({ htmlFor, children }: IFormLabel): JSX.Element;
-
-declare function Input({ name, id, type, value, label, min, max, hideLabel, placeholder, pattern, onChange, onError, disabled, checked, restrictOnError, showError, readonly }: IInput): JSX.Element;
-
 declare function Cat(): JSX.Element;
 
 declare function Pet(): JSX.Element;
@@ -265,6 +255,22 @@ declare function Help(): JSX.Element;
 
 declare function Milk(): JSX.Element;
 
+declare function Icon(props: any): JSX.Element;
+
+declare function Opensea({ invert }: {
+    invert?: boolean;
+}): JSX.Element;
+
+declare function Legend({ children }: IJustChildrenProps): JSX.Element;
+
+declare function Element({ type, label, disabled, error, htmlFor, children }: IFormElement): JSX.Element;
+
+declare function Fieldset(props: any): JSX.Element;
+
+declare function Label({ htmlFor, children }: IFormLabel): JSX.Element;
+
+declare function Input({ name, id, type, value, label, min, max, hideLabel, placeholder, pattern, onChange, onError, disabled, checked, restrictOnError, showError, readonly }: IInput): JSX.Element;
+
 declare const Components_Container: typeof Container;
 declare const Components_BooleanVisibilityContainer: typeof BooleanVisibilityContainer;
 declare const Components_Alert: typeof Alert;
@@ -284,6 +290,7 @@ declare const Components_ItemSummary: typeof ItemSummary;
 declare const Components_Panel: typeof Panel;
 declare const Components_ErrorMessage: typeof ErrorMessage;
 declare const Components_MilkValue: typeof MilkValue;
+declare const Components_Icon: typeof Icon;
 declare namespace Components {
   export {
     Components_Container as Container,
@@ -305,6 +312,7 @@ declare namespace Components {
     Components_Panel as Panel,
     Components_ErrorMessage as ErrorMessage,
     Components_MilkValue as MilkValue,
+    Components_Icon as Icon,
     Legend as FormLegend,
     Element as FormElement,
     Label as FormLabel,
@@ -322,6 +330,7 @@ declare namespace Components {
     Meowpad as MeowpadIcon,
     Help as HelpIcon,
     Milk as MilkIcon,
+    Opensea as OpenseaIcon,
   };
 }
 
@@ -351,4 +360,4 @@ declare const _default: {
     Utils: typeof Utils;
 };
 
-export { Alert, AlertText, Battling as BattlingIcon, BooleanVisibilityContainer, Cat as CatIcon, Container, Dots, Envelope as EnvelopeIcon, ErrorMessage, Element as FormElement, Fieldset as FormFieldset, Input as FormInput, Label as FormLabel, Legend as FormLegend, Group, Header, Help as HelpIcon, Housing as HousingIcon, IButtonProps, IContainerAttributeState, IContainerClassState, IEditableInput, IFormElement, IFormLabel, IGenericElementProps, IIndexable, IInput, IJustChildrenProps, IPanelProps, IPill, IPills, IPluralProps, ITabsContent, ITabsProps, ITabsTab, Item as ItemIcon, ItemSummary, List, Marketplace as MarketplaceIcon, Meowpad as MeowpadIcon, Milk as MilkIcon, MilkValue, NetworkErrorMessage, Panel, Pet as PetIcon, Pill, Pills, Plural, Questing as QuestingIcon, Shop as ShopIcon, TChildNode, THeaderSize, TPanelType, Tabs, TabsContent, TabsTab, _default as default, useData, useObserver };
+export { Alert, AlertText, Battling as BattlingIcon, BooleanVisibilityContainer, Cat as CatIcon, Container, Dots, Envelope as EnvelopeIcon, ErrorMessage, Element as FormElement, Fieldset as FormFieldset, Input as FormInput, Label as FormLabel, Legend as FormLegend, Group, Header, Help as HelpIcon, Housing as HousingIcon, IButtonProps, IContainerAttributeState, IContainerClassState, IEditableInput, IFormElement, IFormLabel, IGenericElementProps, IIndexable, IInput, IJustChildrenProps, IPanelProps, IPill, IPills, IPluralProps, ITabsContent, ITabsProps, ITabsTab, Icon, Item as ItemIcon, ItemSummary, List, Marketplace as MarketplaceIcon, Meowpad as MeowpadIcon, Milk as MilkIcon, MilkValue, NetworkErrorMessage, Opensea as OpenseaIcon, Panel, Pet as PetIcon, Pill, Pills, Plural, Questing as QuestingIcon, Shop as ShopIcon, TChildNode, THeaderSize, TPanelType, Tabs, TabsContent, TabsTab, _default as default, useData, useObserver };
