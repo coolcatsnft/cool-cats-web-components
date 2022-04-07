@@ -13,6 +13,7 @@ import { Help } from './Help';
 import { Milk } from './Milk';
 import { Icon } from './Icon';
 import { Opensea } from './Opensea';
+import { Logo, LogoMotion, SiteLogo, SiteLogoMotion, WhiteOutlineLogo, WhiteOutlineLogoMotion } from './Logo';
 
 export default {
   title: 'Icon',
@@ -103,6 +104,42 @@ export const OpenseaIcon = (() => {
   )
 }).bind({});
 
+export const LogoIcon = (() => {
+  return (
+    <Logo />
+  )
+}).bind({});
+
+export const LogoEyesIcon = (() => {
+  return (
+    <LogoMotion />
+  )
+}).bind({});
+
+export const WhiteOutlineLogoIcon = (() => {
+  return (
+    <WhiteOutlineLogo />
+  )
+}).bind({});
+
+export const WhiteOutlineLogoMotionIcon = (() => {
+  return (
+    <WhiteOutlineLogoMotion />
+  )
+}).bind({});
+
+export const SiteLogoIcon = (() => {
+  return (
+    <SiteLogo />
+  )
+}).bind({});
+
+export const SiteLogoMotionIcon = (() => {
+  return (
+    <SiteLogoMotion />
+  )
+}).bind({});
+
 export const IconExample = (() => {
   return (
     <Icon>
@@ -126,7 +163,7 @@ export const IconWithColourExample = (() => {
 export const MultipleIconsExample = (() => {
   return (
     <>
-      <Icon title="Pet" color="grey">
+      <Icon title="Pet" color="grey eggshake">
         <i>
           <Pet />
         </i>
@@ -136,7 +173,7 @@ export const MultipleIconsExample = (() => {
           <Opensea />
         </a>
       </Icon>
-      <Icon color="opensea" className="ccwc-icon--fill">
+      <Icon color="opensea shake--hover" className="ccwc-icon--fill">
         <a href='#'>
           <Opensea invert />
         </a>
