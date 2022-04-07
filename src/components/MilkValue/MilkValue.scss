@@ -1,0 +1,52 @@
+@import '../../utils/scss/';
+
+.#{$global-prefix}milk-value {
+  color: map-get($global-site-colors, milk);
+  font-size: 22px;
+  -webkit-text-stroke: 1px #000000;
+  padding-left: $global-padding * 2;
+  position: relative;
+
+  &--tiny,
+  &--normal {
+    color: inherit;
+    font-size: inherit;
+    -webkit-text-stroke: transparent;
+  }
+  
+  &:before {
+    content: "";
+    height: 100%;
+    width: 24px;
+    background-size: 100% 100%;
+    background-image: url("../../../assets/icon/milk.svg");
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  &--tiny {
+    padding-left: $global-padding + 4;
+    margin-left: 3px;
+    &:before {
+      width: 16px;
+    }
+  }
+
+  &--small {
+    font-size: 20px;
+    padding-left: 32px;
+    &:before {
+      top: 4px;
+      left: 4px;
+      width: 22px;
+    }
+  }
+
+  &--large {
+    font-size: 28px;
+    &:before {
+      width: 28px;
+    }
+  }
+}
