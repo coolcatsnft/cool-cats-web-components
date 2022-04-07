@@ -53,3 +53,10 @@
     }
   }
 }
+
+@each $key, $color in $global-pill-colors {
+  .#{$global-prefix}background--#{"" + $key} {
+    background-color: $color;
+    color: map-get($global-pill-font-colors, $key);
+  }
+}
