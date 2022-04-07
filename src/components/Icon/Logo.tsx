@@ -1,5 +1,5 @@
 import React from "react";
-import { useMousePosition } from "../../hooks";
+import useEyes from "../../hooks/useEyes";
 
 interface ILogo {
   x?: number,
@@ -80,9 +80,7 @@ export function Logo({ logo }: { logo?: ILogo }) {
 }
 
 export function LogoMotion() {
-  const mousePosition = useMousePosition({ includeTouch: true });
-  const xPos = mousePosition.x ? mousePosition.x * 0.1 : 0;
-  const yPos = mousePosition.y ? (mousePosition.y * 0.1) * -1 : 0;
+  const { xPos, yPos } = useEyes();
 
   return (
     <Logo logo={{ x: xPos, y: yPos }} />
@@ -96,9 +94,7 @@ export function SiteLogo() {
 }
 
 export function SiteLogoMotion() {
-  const mousePosition = useMousePosition({ includeTouch: true });
-  const xPos = mousePosition.x ? mousePosition.x * 0.1 : 0;
-  const yPos = mousePosition.y ? (mousePosition.y * 0.1) * -1 : 0;
+  const { xPos, yPos } = useEyes();
 
   return (
     <Logo logo={{ x: xPos, y: yPos, eyes: 'white', fill: 'white', pupil: 'white', stroke: '#14396d', mouth: 'white', whiskersLeft: 'white' }} />
@@ -107,17 +103,15 @@ export function SiteLogoMotion() {
 
 export function WhiteOutlineLogo() {
   return (
-    <Logo logo={{ eyes: 'transparent', fill: 'transparent', stroke: 'white', mouth: 'transparent' }} />
+    <Logo logo={{ eyes: 'transparent', fill: 'transparent', stroke: 'white', mouth: 'transparent', pupil: 'transparent' }} />
   )
 }
 
 export function WhiteOutlineLogoMotion() {
-  const mousePosition = useMousePosition({ includeTouch: true });
-  const xPos = mousePosition.x ? mousePosition.x * 0.1 : 0;
-  const yPos = mousePosition.y ? (mousePosition.y * 0.1) * -1 : 0;
-
+  const { xPos, yPos } = useEyes();
+  
   return (
-    <Logo logo={{ x: xPos, y: yPos, eyes: 'transparent', fill: 'transparent', stroke: 'white', mouth: 'transparent' }} />
+    <Logo logo={{ x: xPos, y: yPos, eyes: 'transparent', fill: 'transparent', stroke: 'white', mouth: 'transparent', pupil: 'transparent' }} />
   )
 }
 
