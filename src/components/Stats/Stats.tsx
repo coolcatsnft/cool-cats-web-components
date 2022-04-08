@@ -68,7 +68,7 @@ export function Stats(props: IStatBlock) {
         condition: typeof props.children !== 'undefined'
       }]}
     >
-      { props.header && <Header size="3">{props.header}</Header> }
+      { props.header && <Header size="4">{props.header}</Header> }
       <StatTable {...props.stats} />
       { props.children || null }
     </Container>

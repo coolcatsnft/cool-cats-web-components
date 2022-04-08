@@ -2,7 +2,7 @@ import React from 'react';
 import Container from "../Container";
 
 export function Header(props: any) {
-  const headerSize = typeof props.size === 'number' ? props.size : '2';
+  const headerSize = typeof props.size === 'number' || typeof props.size === 'string' ? props.size : '2';
   return (
     <Container 
       {...props}

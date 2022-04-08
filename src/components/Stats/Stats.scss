@@ -63,6 +63,7 @@ $width-badge-width: $global-rarity-badge-width + $global-margin;
     &:after {
       font-weight: bold;
       font-size: 12px;
+      line-height: 12px;
     }
 
     &:before {
@@ -82,7 +83,7 @@ $width-badge-width: $global-rarity-badge-width + $global-margin;
       max-height: 33%;
       &:before {
         position: absolute;
-        top: -5px;
+        top: -2px;
       }
       &:after {
         display: none;
