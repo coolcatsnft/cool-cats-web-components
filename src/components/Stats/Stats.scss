@@ -1,0 +1,192 @@
+@use "sass:math";
+@import '../../utils/scss/';
+
+$width-badge-width: $global-rarity-badge-width + $global-margin;
+
+.#{$global-prefix}stats {
+  > .#{$global-prefix}header {
+    font-size: 20px;
+  }
+
+  &--withbadge {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+
+    > .#{$global-prefix}header {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      + .#{$global-prefix}stats-table {
+        li:first-child {
+          margin-top: 26px;
+        }
+
+        li {
+          background-size: 16px;
+        }
+      }
+    }
+
+    .#{$global-prefix}stats-table {
+      width: calc(100% - #{$width-badge-width});
+      height: 100%;
+      position: absolute;
+      left: 0;
+    }
+  }
+}
+
+.#{$global-prefix}stats-table {
+  min-height: 82px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: stretch;
+  margin: 0;
+  padding: 0;
+  
+  li {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    flex-basis: 100%;
+    background-image: none;
+    max-height: 20%;
+
+    &:before,
+    &:after {
+      font-weight: bold;
+      font-size: 12px;
+    }
+
+    &:before {
+      content: attr(title);
+    }
+
+    &:after {
+      content: attr(data-amount);
+    }
+
+    @include largemobilebreakpoint() {
+      padding-top: 8px;
+      padding-left: 30px;
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 20px;
+      max-height: 33%;
+      &:before {
+        position: absolute;
+        top: -5px;
+      }
+      &:after {
+        display: none;
+      }
+    }
+
+    @include tabletbreakpoint() {
+      padding-top: 0;
+      &:before {
+        display: none;
+      }
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    @include largemobilebreakpoint() {
+      &.hat {
+        background-image: url('../../../assets/icon/hat.svg');
+      }
+  
+      &.clothes {
+        background-image: url('../../../assets/icon/shirt.svg');
+      }
+  
+      &.mood {
+        background-image: url('../../../assets/icon/face.svg');
+      }
+  
+      &.quests {
+        background-image: url('../../../assets/icon/scroll.svg');
+      }
+  
+      &.items {
+        background-image: url('../../../assets/icon/bag.svg');
+      }
+  
+      &.pets {
+        background-image: url('../../../assets/icon/egg.svg');
+      }
+    }
+
+    span {
+      display: none;
+
+      @include largemobilebreakpoint() {
+        display: inline-block;
+        height: 100%;
+        background-color: #F0EFEF;
+        border-radius: 4px;
+        flex-grow: 1;
+        margin-right: math.div($global-margin, 2);
+        max-height: 50%;
+  
+        &:last-of-type {
+          margin-right: 0;
+        }
+  
+        &.active {
+          position: relative;
+          &:after {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            background-color: #FAD121;
+            width: 100%;
+            height: 100%;
+            border-radius: 4px;
+          }
+        }
+      }
+    }
+
+    &[data-max="15"],
+    &[data-max="25"],
+    &[data-max="50"] {
+      span {
+        &,
+        &:after {
+          @include largemobilebreakpoint() {
+            margin-right: 0;
+            border-radius: 0;
+          }
+        }
+
+        &:first-of-type {
+          &,
+          &:after {
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+          }
+        }
+
+        &:last-of-type {
+          &,
+          &:after {
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+          }
+        }
+      }
+    }
+  }
+}

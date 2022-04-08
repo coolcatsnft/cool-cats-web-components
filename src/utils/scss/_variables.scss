@@ -43,7 +43,16 @@ $global-base-colors: (
   legendary: #FAD121,
   legendary-star: #FFFF00,
 
-  pilldefault: #9CB5FE
+  pilldefault: #9CB5FE,
+
+  cool_1: #DEC5A8,
+  cool_2: #9cb5fe,
+  wild_1: #39e27d,
+  wild_2: #fc9144,
+  classy_1: #df9dcb,
+  classy_2: #fa3c6a,
+  exotic_1: #a070dd,
+  exotic_2: #FAD121,
 );
 
 $global-pill-font-colors: (
@@ -98,3 +107,4 @@ $global-element-colors: (
 $global-pill-colors: $global-base-colors;
 $global-site-colors: map.merge($global-base-colors, $global-element-colors);
 $global-font: 'Poppins', serif;
+$global-rarity-badge-width: 80px;
