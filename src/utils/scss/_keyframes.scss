@@ -31,3 +31,24 @@
     transform: rotateZ(0);
   }
 }
+
+@keyframes coolTabletOpen {
+  0% {
+    overflow: hidden;
+  }
+  100% {
+    max-height: $cool-tablet-height;
+    min-height: $cool-tablet-height;
+  }
+}
+
+@keyframes coolTabletClose {
+  0% {
+    max-height: $cool-tablet-height;
+    min-height: $cool-tablet-height;
+  }
+  100% {
+    max-height: 0px;
+    min-height: 0px;
+  }
+}
