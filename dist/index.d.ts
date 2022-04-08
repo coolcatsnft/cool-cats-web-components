@@ -130,6 +130,24 @@ interface IPanelProps {
     children?: React.ReactNode;
     header?: string;
 }
+interface ISubStats {
+    max: number;
+    amount: number;
+}
+interface IStats {
+    body?: number;
+    shirt?: number;
+    hats?: number;
+    face?: number;
+    questsRemaining?: ISubStats;
+    dailyItemInteractions?: ISubStats;
+    phaseItemInteractions?: ISubStats;
+}
+interface IStatBlock {
+    stats: IStats;
+    children?: React.ReactNode;
+    header?: string;
+}
 
 type Utils_IIndexable = IIndexable;
 type Utils_TChildNode = TChildNode;
@@ -152,6 +170,9 @@ type Utils_IEditableInput = IEditableInput;
 type Utils_TPanelType = TPanelType;
 declare const Utils_TPanelType: typeof TPanelType;
 type Utils_IPanelProps = IPanelProps;
+type Utils_ISubStats = ISubStats;
+type Utils_IStats = IStats;
+type Utils_IStatBlock = IStatBlock;
 declare namespace Utils {
   export {
     Utils_IIndexable as IIndexable,
@@ -174,6 +195,9 @@ declare namespace Utils {
     Utils_IEditableInput as IEditableInput,
     Utils_TPanelType as TPanelType,
     Utils_IPanelProps as IPanelProps,
+    Utils_ISubStats as ISubStats,
+    Utils_IStats as IStats,
+    Utils_IStatBlock as IStatBlock,
   };
 }
 
@@ -281,6 +305,16 @@ declare function SiteLogoMotion(): JSX.Element;
 declare function WhiteOutlineLogo(): JSX.Element;
 declare function WhiteOutlineLogoMotion(): JSX.Element;
 
+declare function StatTable(stats: IStats): JSX.Element;
+declare function Stats(props: IStatBlock): JSX.Element;
+
+declare function RarityBadge({ label, className, value, children }: {
+    label: string;
+    className?: string;
+    value?: number;
+    children?: React$1.ReactNode;
+}): JSX.Element;
+
 declare function Legend({ children }: IJustChildrenProps): JSX.Element;
 
 declare function Element({ type, label, disabled, error, htmlFor, children }: IFormElement): JSX.Element;
@@ -311,6 +345,9 @@ declare const Components_Panel: typeof Panel;
 declare const Components_ErrorMessage: typeof ErrorMessage;
 declare const Components_MilkValue: typeof MilkValue;
 declare const Components_Icon: typeof Icon;
+declare const Components_Stats: typeof Stats;
+declare const Components_StatTable: typeof StatTable;
+declare const Components_RarityBadge: typeof RarityBadge;
 declare namespace Components {
   export {
     Components_Container as Container,
@@ -333,6 +370,9 @@ declare namespace Components {
     Components_ErrorMessage as ErrorMessage,
     Components_MilkValue as MilkValue,
     Components_Icon as Icon,
+    Components_Stats as Stats,
+    Components_StatTable as StatTable,
+    Components_RarityBadge as RarityBadge,
     Legend as FormLegend,
     Element as FormElement,
     Label as FormLabel,
@@ -402,4 +442,4 @@ declare const _default: {
     Utils: typeof Utils;
 };
 
-export { Alert, AlertText, Battling as BattlingIcon, BooleanVisibilityContainer, Cat as CatIcon, Container, Dots, Envelope as EnvelopeIcon, ErrorMessage, Element as FormElement, Fieldset as FormFieldset, Input as FormInput, Label as FormLabel, Legend as FormLegend, Group, Header, Help as HelpIcon, Housing as HousingIcon, IButtonProps, IContainerAttributeState, IContainerClassState, IEditableInput, IFormElement, IFormLabel, IGenericElementProps, IIndexable, IInput, IJustChildrenProps, IPanelProps, IPill, IPills, IPluralProps, ITabsContent, ITabsProps, ITabsTab, Icon, Item as ItemIcon, ItemSummary, List, Logo as LogoIcon, LogoMotion as LogoMotionIcon, Marketplace as MarketplaceIcon, Meowpad as MeowpadIcon, Milk as MilkIcon, MilkValue, NetworkErrorMessage, Opensea as OpenseaIcon, Panel, Pet as PetIcon, Pill, Pills, Plural, Questing as QuestingIcon, Shop as ShopIcon, SiteLogo as SiteLogoIcon, SiteLogoMotion as SiteLogoMotionIcon, TChildNode, THeaderSize, TPanelType, Tabs, TabsContent, TabsTab, WhiteOutlineLogo as WhiteOutlineLogoIcon, WhiteOutlineLogoMotion as WhiteOutlineLogoMotionIcon, _default as default, useData, useEyes, useMousePosition, useObserver };
+export { Alert, AlertText, Battling as BattlingIcon, BooleanVisibilityContainer, Cat as CatIcon, Container, Dots, Envelope as EnvelopeIcon, ErrorMessage, Element as FormElement, Fieldset as FormFieldset, Input as FormInput, Label as FormLabel, Legend as FormLegend, Group, Header, Help as HelpIcon, Housing as HousingIcon, IButtonProps, IContainerAttributeState, IContainerClassState, IEditableInput, IFormElement, IFormLabel, IGenericElementProps, IIndexable, IInput, IJustChildrenProps, IPanelProps, IPill, IPills, IPluralProps, IStatBlock, IStats, ISubStats, ITabsContent, ITabsProps, ITabsTab, Icon, Item as ItemIcon, ItemSummary, List, Logo as LogoIcon, LogoMotion as LogoMotionIcon, Marketplace as MarketplaceIcon, Meowpad as MeowpadIcon, Milk as MilkIcon, MilkValue, NetworkErrorMessage, Opensea as OpenseaIcon, Panel, Pet as PetIcon, Pill, Pills, Plural, Questing as QuestingIcon, RarityBadge, Shop as ShopIcon, SiteLogo as SiteLogoIcon, SiteLogoMotion as SiteLogoMotionIcon, StatTable, Stats, TChildNode, THeaderSize, TPanelType, Tabs, TabsContent, TabsTab, WhiteOutlineLogo as WhiteOutlineLogoIcon, WhiteOutlineLogoMotion as WhiteOutlineLogoMotionIcon, _default as default, useData, useEyes, useMousePosition, useObserver };

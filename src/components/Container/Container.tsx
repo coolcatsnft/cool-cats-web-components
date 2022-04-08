@@ -69,6 +69,10 @@ export function Container(props: any) {
           dataAttributes[s.attr] = s.value;
         } else if (typeof s.condition === 'undefined') {
           dataAttributes[s.attr] = s.value;
+        } else if (typeof s.condition === 'function') {
+          if (s.condition(s.value) === true) {
+            dataAttributes[s.attr] = s.value;
+          }
         }
       }
     });

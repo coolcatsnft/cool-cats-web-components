@@ -128,3 +128,21 @@ export interface IPanelProps {
     children?: React.ReactNode;
     header?: string;
 }
+export interface ISubStats {
+    max: number;
+    amount: number;
+}
+export interface IStats {
+    body?: number;
+    shirt?: number;
+    hats?: number;
+    face?: number;
+    questsRemaining?: ISubStats;
+    dailyItemInteractions?: ISubStats;
+    phaseItemInteractions?: ISubStats;
+}
+export interface IStatBlock {
+    stats: IStats;
+    children?: React.ReactNode;
+    header?: string;
+}
