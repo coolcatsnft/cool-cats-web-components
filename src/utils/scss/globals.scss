@@ -87,6 +87,13 @@
       transform: scale(1);
     }
   }
+
+  &.popout {
+    &,
+    &--hover:hover {
+      animation: zoomAndRotate 1s forwards;
+    }
+  }
 }
 
 @each $key, $color in $global-pill-colors {

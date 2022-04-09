@@ -54,6 +54,7 @@ export { Hammer as HammerIcon } from "./Icon";
 export { HammerGroup as HammerGroupIcon } from "./Icon";
 export { Share as ShareIcon } from "./Icon";
 export { ShareGroup as ShareGroupIcon } from "./Icon";
+export { Air as AirIcon } from "./Icon";
 export { 
   Logo as LogoIcon,
   LogoMotion as LogoMotionIcon,
