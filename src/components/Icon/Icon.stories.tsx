@@ -18,6 +18,7 @@ import { Circle } from './Circle';
 import { Box, BoxGroup } from './Box';
 import { Egg, EggGroup } from './Egg';
 import { Hammer, HammerGroup } from './Hammer';
+import { Share, ShareGroup } from './Share';
 import { Logo, LogoMotion, SiteLogo, SiteLogoMotion, WhiteOutlineLogo, WhiteOutlineLogoMotion } from './Logo';
 
 export default {
@@ -163,10 +164,24 @@ export const HammerIcon = (() => {
   )
 }).bind({});
 
-export const HammerChestIcon = (() => {
+export const HammerCircleIcon = (() => {
   return (
     <Circle>
       <HammerGroup />
+    </Circle>
+  )
+}).bind({});
+
+export const ShareIcon = (() => {
+  return (
+    <Share />
+  )
+}).bind({});
+
+export const ShareCircleIcon = (() => {
+  return (
+    <Circle>
+      <ShareGroup />
     </Circle>
   )
 }).bind({});
@@ -254,6 +269,41 @@ export const MultipleIconsExample = (() => {
         <button>
           <Opensea invert />
         </button>
+      </Icon>
+      <Icon color="grey">
+        <Chest />
+      </Icon>
+      <Icon elementType="button" onClick={() => alert('Hello')} color="grey">
+        <Share />
+      </Icon>
+      <Icon elementType="button" onClick={() => alert('Hello')} color="grey" className="eggshake--hover">
+        <Egg />
+      </Icon>
+      <Icon elementType="button" onClick={() => alert('Hello')} color="grey">
+        <Box />
+      </Icon>
+      <Icon color="grey">
+        <Hammer />
+      </Icon>
+      <Icon color="grey">
+        <Circle>
+          <ChestGroup />
+        </Circle>
+      </Icon>
+      <Icon elementType="button" className="eggshake--hover">
+        <Circle>
+          <EggGroup />
+        </Circle>
+      </Icon>
+      <Icon elementType="button" className="clickable">
+        <Circle fill="grey" stroke="yellow">
+          <HammerGroup />
+        </Circle>
+      </Icon>
+      <Icon elementType="button" className="clickable">
+        <Circle stroke="red">
+          <ShareGroup />
+        </Circle>
       </Icon>
     </>
   )

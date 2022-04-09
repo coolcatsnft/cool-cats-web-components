@@ -17,6 +17,7 @@ import { Circle } from './Circle';
 import { Hammer, HammerGroup } from './Hammer';
 import { Box, BoxGroup } from './Box';
 import { Chest, ChestGroup } from './Chest';
+import { Share, ShareGroup } from './Share';
 import { Logo, LogoMotion, SiteLogo, SiteLogoMotion, WhiteOutlineLogo, WhiteOutlineLogoMotion } from './Logo';
 
 export { 
@@ -48,7 +49,9 @@ export {
   Egg,
   EggGroup,
   Hammer,
-  HammerGroup
+  HammerGroup,
+  Share,
+  ShareGroup
 };
 
 export default Icon;

@@ -10,6 +10,8 @@ $height: 42px;
   border-radius: $width * 0.5;
   overflow: hidden;
   position: relative;
+  border: 0 none;
+  padding: 0;
 
   @each $key, $color in $global-base-colors {
     &.#{"" + $key} {
@@ -23,6 +25,21 @@ $height: 42px;
   &:before {
     user-select: none;
   }
+
+  > .#{$global-prefix}svgicon {
+    padding: 6px;
+    height: 100%;
+    width: 100%;
+
+    &--share {
+      padding: 8px;
+    }
+
+    &--circle {
+      padding: 0px;
+    }
+  }
+
 
   > button,
   > a,
@@ -68,4 +85,8 @@ $height: 42px;
   & + .#{$global-prefix}icon {
     margin-left: $global-margin * 0.5;
   }
+}
+
+button.#{$global-prefix}icon {
+  cursor: pointer;
 }

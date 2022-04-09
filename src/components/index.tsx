@@ -51,7 +51,9 @@ export { ChestGroup as ChestGroupIcon } from "./Icon";
 export { Egg as EggIcon } from "./Icon";
 export { EggGroup as EggGroupIcon } from "./Icon";
 export { Hammer as HammerIcon } from "./Icon";
-export { Hammer as HammerGroupIcon } from "./Icon";
+export { HammerGroup as HammerGroupIcon } from "./Icon";
+export { Share as ShareIcon } from "./Icon";
+export { ShareGroup as ShareGroupIcon } from "./Icon";
 export { 
   Logo as LogoIcon,
   LogoMotion as LogoMotionIcon,
