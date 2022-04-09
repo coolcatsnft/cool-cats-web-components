@@ -1,0 +1,31 @@
+@import '../../utils/scss/';
+
+.#{$global-prefix}svgicon-group--circle {
+  + .#{$global-prefix}svgicon-group {
+    &--chest {
+      transform: translate(0, 0);
+    }
+  }
+}
+
+
+.#{$global-prefix}svgicon--circle {
+  @each $key, $color in $global-base-colors {
+    &.fill-#{"" + $key} {
+      > .#{$global-prefix}svgicon-group--circle {
+        > path + path {
+          fill: $color;
+        }
+      }
+    }
+    &.stroke-#{"" + $key} {
+      > .#{$global-prefix}svgicon-group--circle {
+        > path {
+          &:first-of-type {
+            fill: $color;
+          }
+        }
+      }
+    }
+  }
+}

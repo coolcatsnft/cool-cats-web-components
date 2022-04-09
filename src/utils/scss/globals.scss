@@ -71,6 +71,22 @@
       animation: eggshake 1s infinite alternate;
     }
   }
+
+  &.clickable {
+    transition: all 0.1s;
+    &:hover,
+    &:active {
+      transform-origin: center center;
+    }
+
+    &:hover {
+      transform: scale(1.02);
+    }
+
+    &:active {
+      transform: scale(1);
+    }
+  }
 }
 
 @each $key, $color in $global-pill-colors {
