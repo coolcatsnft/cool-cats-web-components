@@ -13,6 +13,11 @@ import { Help } from './Help';
 import { Milk } from './Milk';
 import { Icon } from './Icon';
 import { Opensea } from './Opensea';
+import { Chest, ChestGroup } from './Chest';
+import { Circle } from './Circle';
+import { Box, BoxGroup } from './Box';
+import { Egg, EggGroup } from './Egg';
+import { Hammer, HammerGroup } from './Hammer';
 import { Logo, LogoMotion, SiteLogo, SiteLogoMotion, WhiteOutlineLogo, WhiteOutlineLogoMotion } from './Logo';
 
 export default {
@@ -101,6 +106,68 @@ export const MilkIcon = (() => {
 export const OpenseaIcon = (() => {
   return (
     <Opensea />
+  )
+}).bind({});
+
+export const ChestIcon = (() => {
+  return (
+    <Chest />
+  )
+}).bind({});
+
+export const BoxIcon = (() => {
+  return (
+    <Box />
+  )
+}).bind({});
+
+export const BoxAndCircleIcon = (() => {
+  return (
+    <Circle>
+      <BoxGroup />
+    </Circle>
+  )
+}).bind({});
+
+export const EggIcon = (() => {
+  return (
+    <Egg />
+  )
+}).bind({});
+
+export const EggAndCircleIcon = (() => {
+  return (
+    <Circle>
+      <EggGroup />
+    </Circle>
+  )
+}).bind({});
+
+export const CircleIcon = (() => {
+  return (
+    <Circle />
+  )
+}).bind({});
+
+export const CircleChestIcon = (() => {
+  return (
+    <Circle>
+      <ChestGroup />
+    </Circle>
+  )
+}).bind({});
+
+export const HammerIcon = (() => {
+  return (
+    <Hammer />
+  )
+}).bind({});
+
+export const HammerChestIcon = (() => {
+  return (
+    <Circle>
+      <HammerGroup />
+    </Circle>
   )
 }).bind({});
 

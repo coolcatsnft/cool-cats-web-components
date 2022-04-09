@@ -43,6 +43,15 @@ export { Meowpad as MeowpadIcon } from "./Icon";
 export { Help as HelpIcon } from "./Icon";
 export { Milk as MilkIcon } from "./Icon";
 export { Opensea as OpenseaIcon } from "./Icon";
+export { Circle as CircleIcon } from "./Icon";
+export { Box as BoxIcon } from "./Icon";
+export { BoxGroup as BoxGroupIcon } from "./Icon";
+export { Chest as ChestIcon } from "./Icon";
+export { ChestGroup as ChestGroupIcon } from "./Icon";
+export { Egg as EggIcon } from "./Icon";
+export { EggGroup as EggGroupIcon } from "./Icon";
+export { Hammer as HammerIcon } from "./Icon";
+export { Hammer as HammerGroupIcon } from "./Icon";
 export { 
   Logo as LogoIcon,
   LogoMotion as LogoMotionIcon,

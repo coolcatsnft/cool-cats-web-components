@@ -1,0 +1,15 @@
+@import '../../utils/scss/';
+
+.#{$global-prefix}icon-group--circle {
+  + .#{$global-prefix}icon-group {
+    &--chest {
+      transform: translate(15px, 20px);
+    }
+    &--box {
+      transform: translate(0, 0);
+    }
+    &--egg {
+      transform: translate(0, 0);
+    }
+  }
+}
