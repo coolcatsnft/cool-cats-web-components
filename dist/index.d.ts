@@ -285,6 +285,27 @@ declare function Opensea({ invert }: {
     invert?: boolean;
 }): JSX.Element;
 
+declare function EggGroup(): JSX.Element;
+declare function Egg(): JSX.Element;
+
+declare function Circle({ children, fill, stroke }: {
+    children?: React$1.ReactNode;
+    fill?: string;
+    stroke?: string;
+}): JSX.Element;
+
+declare function HammerGroup(): JSX.Element;
+declare function Hammer(): JSX.Element;
+
+declare function BoxGroup(): JSX.Element;
+declare function Box(): JSX.Element;
+
+declare function ChestGroup(): JSX.Element;
+declare function Chest(): JSX.Element;
+
+declare function ShareGroup(): JSX.Element;
+declare function Share(): JSX.Element;
+
 interface ILogo {
     x?: number;
     y?: number;
@@ -391,6 +412,17 @@ declare namespace Components {
     Help as HelpIcon,
     Milk as MilkIcon,
     Opensea as OpenseaIcon,
+    Circle as CircleIcon,
+    Box as BoxIcon,
+    BoxGroup as BoxGroupIcon,
+    Chest as ChestIcon,
+    ChestGroup as ChestGroupIcon,
+    Egg as EggIcon,
+    EggGroup as EggGroupIcon,
+    Hammer as HammerIcon,
+    HammerGroup as HammerGroupIcon,
+    Share as ShareIcon,
+    ShareGroup as ShareGroupIcon,
     Logo as LogoIcon,
     LogoMotion as LogoMotionIcon,
     SiteLogo as SiteLogoIcon,
@@ -442,4 +474,4 @@ declare const _default: {
     Utils: typeof Utils;
 };
 
-export { Alert, AlertText, Battling as BattlingIcon, BooleanVisibilityContainer, Cat as CatIcon, Container, Dots, Envelope as EnvelopeIcon, ErrorMessage, Element as FormElement, Fieldset as FormFieldset, Input as FormInput, Label as FormLabel, Legend as FormLegend, Group, Header, Help as HelpIcon, Housing as HousingIcon, IButtonProps, IContainerAttributeState, IContainerClassState, IEditableInput, IFormElement, IFormLabel, IGenericElementProps, IIndexable, IInput, IJustChildrenProps, IPanelProps, IPill, IPills, IPluralProps, IStatBlock, IStats, ISubStats, ITabsContent, ITabsProps, ITabsTab, Icon, Item as ItemIcon, ItemSummary, List, Logo as LogoIcon, LogoMotion as LogoMotionIcon, Marketplace as MarketplaceIcon, Meowpad as MeowpadIcon, Milk as MilkIcon, MilkValue, NetworkErrorMessage, Opensea as OpenseaIcon, Panel, Pet as PetIcon, Pill, Pills, Plural, Questing as QuestingIcon, RarityBadge, Shop as ShopIcon, SiteLogo as SiteLogoIcon, SiteLogoMotion as SiteLogoMotionIcon, StatTable, Stats, TChildNode, THeaderSize, TPanelType, Tabs, TabsContent, TabsTab, WhiteOutlineLogo as WhiteOutlineLogoIcon, WhiteOutlineLogoMotion as WhiteOutlineLogoMotionIcon, _default as default, useData, useEyes, useMousePosition, useObserver };
+export { Alert, AlertText, Battling as BattlingIcon, BooleanVisibilityContainer, BoxGroup as BoxGroupIcon, Box as BoxIcon, Cat as CatIcon, ChestGroup as ChestGroupIcon, Chest as ChestIcon, Circle as CircleIcon, Container, Dots, EggGroup as EggGroupIcon, Egg as EggIcon, Envelope as EnvelopeIcon, ErrorMessage, Element as FormElement, Fieldset as FormFieldset, Input as FormInput, Label as FormLabel, Legend as FormLegend, Group, HammerGroup as HammerGroupIcon, Hammer as HammerIcon, Header, Help as HelpIcon, Housing as HousingIcon, IButtonProps, IContainerAttributeState, IContainerClassState, IEditableInput, IFormElement, IFormLabel, IGenericElementProps, IIndexable, IInput, IJustChildrenProps, IPanelProps, IPill, IPills, IPluralProps, IStatBlock, IStats, ISubStats, ITabsContent, ITabsProps, ITabsTab, Icon, Item as ItemIcon, ItemSummary, List, Logo as LogoIcon, LogoMotion as LogoMotionIcon, Marketplace as MarketplaceIcon, Meowpad as MeowpadIcon, Milk as MilkIcon, MilkValue, NetworkErrorMessage, Opensea as OpenseaIcon, Panel, Pet as PetIcon, Pill, Pills, Plural, Questing as QuestingIcon, RarityBadge, ShareGroup as ShareGroupIcon, Share as ShareIcon, Shop as ShopIcon, SiteLogo as SiteLogoIcon, SiteLogoMotion as SiteLogoMotionIcon, StatTable, Stats, TChildNode, THeaderSize, TPanelType, Tabs, TabsContent, TabsTab, WhiteOutlineLogo as WhiteOutlineLogoIcon, WhiteOutlineLogoMotion as WhiteOutlineLogoMotionIcon, _default as default, useData, useEyes, useMousePosition, useObserver };
