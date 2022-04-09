@@ -16,6 +16,9 @@
   pointer-events: none;
   max-width: 1280px;
   left: auto;
+  background: white;
+  max-height: 0px;
+  min-height: 0px;
 
   @include desktopbreakpoint() {
     overflow: hidden;
@@ -25,8 +28,12 @@
   &[open] {
     opacity: 1.0;
     pointer-events: stroke;
+    min-height: $cool-tablet-height * 0.5;
+    max-height: none;
     
     @include desktopbreakpoint() {
+      min-height: 0px;
+      max-height: 0px;
       animation: coolTabletOpen 0.2s forwards;
     }
   }
