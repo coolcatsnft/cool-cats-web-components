@@ -91,7 +91,18 @@
   &.popout {
     &,
     &--hover:hover {
-      animation: zoomAndRotate 1s forwards;
+      animation: zoom 0.5s forwards;
+    }
+  }
+
+  &.popout--icon {
+    &,
+    &--hover:hover {
+      svg {
+        &:first-of-type {
+          animation: zoom 0.5s forwards;
+        }
+      }
     }
   }
 }
