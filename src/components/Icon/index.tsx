@@ -12,6 +12,10 @@ import { Help } from './Help';
 import { Milk } from './Milk';
 import { Icon } from './Icon';
 import { Opensea } from './Opensea';
+import { Air } from './Air';
+import { Grass } from './Grass';
+import { Fire } from './Fire';
+import { Water } from './Water';
 import { Egg, EggGroup } from './Egg';
 import { Circle } from './Circle';
 import { Hammer, HammerGroup } from './Hammer';
@@ -21,7 +25,11 @@ import { Share, ShareGroup } from './Share';
 import { Logo, LogoMotion, SiteLogo, SiteLogoMotion, WhiteOutlineLogo, WhiteOutlineLogoMotion } from './Logo';
 
 export { 
-  Cat, 
+  Air,
+  Fire,
+  Grass,
+  Water,
+  Cat,
   Pet, 
   Item, 
   Marketplace, 

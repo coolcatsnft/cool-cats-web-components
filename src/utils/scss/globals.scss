@@ -87,6 +87,24 @@
       transform: scale(1);
     }
   }
+
+  &.popout {
+    &,
+    &--hover:hover {
+      animation: zoom 0.5s forwards;
+    }
+  }
+
+  &.popout--icon {
+    &,
+    &--hover:hover {
+      svg {
+        &:first-of-type {
+          animation: zoom 0.5s forwards;
+        }
+      }
+    }
+  }
 }
 
 @each $key, $color in $global-pill-colors {

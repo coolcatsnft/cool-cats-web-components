@@ -19,12 +19,40 @@ import { Box, BoxGroup } from './Box';
 import { Egg, EggGroup } from './Egg';
 import { Hammer, HammerGroup } from './Hammer';
 import { Share, ShareGroup } from './Share';
+import { Air } from './Air';
+import { Fire } from './Fire';
+import { Grass } from './Grass';
+import { Water } from './Water';
 import { Logo, LogoMotion, SiteLogo, SiteLogoMotion, WhiteOutlineLogo, WhiteOutlineLogoMotion } from './Logo';
 
 export default {
   title: 'Icon',
   component: Cat
 }
+
+export const AirIcon = (() => {
+  return (
+    <Air />
+  )
+}).bind({});
+
+export const WaterIcon = (() => {
+  return (
+    <Water />
+  )
+}).bind({});
+
+export const FireIcon = (() => {
+  return (
+    <Fire />
+  )
+}).bind({});
+
+export const GrassIcon = (() => {
+  return (
+    <Grass />
+  )
+}).bind({});
 
 export const CatIcon = (() => {
   return (
@@ -254,6 +282,26 @@ export const MultipleIconsExample = (() => {
         <a href='#'>
           <Opensea />
         </a>
+      </Icon>
+      <Icon color="grey popout--icon--hover">
+        <button>
+          <Air />
+        </button>
+      </Icon>
+      <Icon color="grey popout--icon--hover">
+        <button>
+          <Fire />
+        </button>
+      </Icon>
+      <Icon color="grey popout--icon--hover">
+        <button>
+          <Grass />
+        </button>
+      </Icon>
+      <Icon color="grey popout--icon--hover">
+        <button>
+          <Water />
+        </button>
       </Icon>
       <Icon color="opensea shake--hover" className="ccwc-icon--fill">
         <a href='#'>
