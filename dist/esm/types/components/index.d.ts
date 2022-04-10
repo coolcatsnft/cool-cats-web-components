@@ -50,4 +50,8 @@ export { Hammer as HammerIcon } from "./Icon";
 export { HammerGroup as HammerGroupIcon } from "./Icon";
 export { Share as ShareIcon } from "./Icon";
 export { ShareGroup as ShareGroupIcon } from "./Icon";
+export { Air as AirIcon } from "./Icon";
+export { Fire as FireIcon } from "./Icon";
+export { Grass as GrassIcon } from "./Icon";
+export { Water as WaterIcon } from "./Icon";
 export { Logo as LogoIcon, LogoMotion as LogoMotionIcon, SiteLogo as SiteLogoIcon, SiteLogoMotion as SiteLogoMotionIcon, WhiteOutlineLogo as WhiteOutlineLogoIcon, WhiteOutlineLogoMotion as WhiteOutlineLogoMotionIcon } from './Icon';
