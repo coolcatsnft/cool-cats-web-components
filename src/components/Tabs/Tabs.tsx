@@ -13,8 +13,8 @@ const getTabContent = (tab: string|ITab) => {
   return typeof tab === 'string' ? tab : tab.content;
 }
 
-export function Tabs({ tabs, activeTab, children, callback }: ITabsProps) {
-  const [active, setActive] = useState<string>(getTab(tabs[0]) || activeTab || '');
+export function Tabs({ tabs, children, activeTab, callback }: ITabsProps) {
+  const [active, setActive] = useState<string>(getTab(activeTab || tabs[0]) || '');
 
   const setActiveTab = (tab: string) => {
     setActive(tab);
@@ -32,7 +32,7 @@ export function Tabs({ tabs, activeTab, children, callback }: ITabsProps) {
     return tabs.map((t: (string|ITab), i: number) => {
       const tab = getTab(t);
       return (
-        <TabsTab key={i} tab={t} active={active === tab || activeTab === tab} onClick={() => setActiveTab(tab)} />
+        <TabsTab key={i} tab={t} active={active === tab} onClick={() => setActiveTab(tab)} />
       )
     });
   };

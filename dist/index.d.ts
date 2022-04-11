@@ -229,7 +229,7 @@ declare function Alert({ visible, fixed, type, className, children }: {
 
 declare function List(props: IGenericElementProps): JSX.Element;
 
-declare function Tabs({ tabs, activeTab, children, callback }: ITabsProps): JSX.Element;
+declare function Tabs({ tabs, children, activeTab, callback }: ITabsProps): JSX.Element;
 declare function TabsTab({ tab, active, onClick }: ITabsTab): JSX.Element;
 declare function TabsContent({ active, children }: ITabsContent): JSX.Element;
 
