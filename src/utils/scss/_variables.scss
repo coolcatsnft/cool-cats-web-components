@@ -108,3 +108,6 @@ $global-pill-colors: $global-base-colors;
 $global-site-colors: map.merge($global-base-colors, $global-element-colors);
 $global-font: 'Poppins', serif;
 $global-rarity-badge-width: 80px;
+
+$global-icons-swords-right: rotateY(180deg) translateX(calc(100% * -1));
+$global-icons-swords-left: rotateY(0deg) translateX(0%);
