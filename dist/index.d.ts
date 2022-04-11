@@ -24,17 +24,22 @@ interface IButtonProps {
     states?: any;
     title?: string;
 }
+interface ITab {
+    tab: string;
+    content: any;
+}
 interface ITabsProps {
     children: React.ReactNode;
-    tabs: string[];
+    tabs: (string | ITab)[];
     activeTab?: string;
+    callback?: Function;
 }
 interface ITabsContent {
     children: React.ReactNode;
     active: boolean;
 }
 interface ITabsTab {
-    tab: string;
+    tab: string | ITab;
     active: boolean;
     onClick: Function;
 }
@@ -149,11 +154,15 @@ interface IStatBlock {
     header?: string;
 }
 
+declare const simpleSlug: (str: string) => string;
+
+declare const Utils_simpleSlug: typeof simpleSlug;
 type Utils_IIndexable = IIndexable;
 type Utils_TChildNode = TChildNode;
 type Utils_IGenericElementProps = IGenericElementProps;
 type Utils_IJustChildrenProps = IJustChildrenProps;
 type Utils_IButtonProps = IButtonProps;
+type Utils_ITab = ITab;
 type Utils_ITabsProps = ITabsProps;
 type Utils_ITabsContent = ITabsContent;
 type Utils_ITabsTab = ITabsTab;
@@ -175,11 +184,13 @@ type Utils_IStats = IStats;
 type Utils_IStatBlock = IStatBlock;
 declare namespace Utils {
   export {
+    Utils_simpleSlug as simpleSlug,
     Utils_IIndexable as IIndexable,
     Utils_TChildNode as TChildNode,
     Utils_IGenericElementProps as IGenericElementProps,
     Utils_IJustChildrenProps as IJustChildrenProps,
     Utils_IButtonProps as IButtonProps,
+    Utils_ITab as ITab,
     Utils_ITabsProps as ITabsProps,
     Utils_ITabsContent as ITabsContent,
     Utils_ITabsTab as ITabsTab,
@@ -218,7 +229,7 @@ declare function Alert({ visible, fixed, type, className, children }: {
 
 declare function List(props: IGenericElementProps): JSX.Element;
 
-declare function Tabs({ tabs, activeTab, children }: ITabsProps): JSX.Element;
+declare function Tabs({ tabs, activeTab, children, callback }: ITabsProps): JSX.Element;
 declare function TabsTab({ tab, active, onClick }: ITabsTab): JSX.Element;
 declare function TabsContent({ active, children }: ITabsContent): JSX.Element;
 
@@ -512,4 +523,4 @@ declare const _default: {
     Utils: typeof Utils;
 };
 
-export { Air as AirIcon, Alert, AlertText, Battling as BattlingIcon, BooleanVisibilityContainer, BoxGroup as BoxGroupIcon, Box as BoxIcon, Cat as CatIcon, ChestGroup as ChestGroupIcon, Chest as ChestIcon, Circle as CircleIcon, CogGroup as CogGroupIcon, Cog as CogIcon, Container, Dots, EggGroup as EggGroupIcon, Egg as EggIcon, Envelope as EnvelopeIcon, ErrorMessage, Fire as FireIcon, Element as FormElement, Fieldset as FormFieldset, Input as FormInput, Label as FormLabel, Legend as FormLegend, Grass as GrassIcon, Group, HammerGroup as HammerGroupIcon, Hammer as HammerIcon, Header, Help as HelpIcon, Housing as HousingIcon, IButtonProps, IContainerAttributeState, IContainerClassState, IEditableInput, IFormElement, IFormLabel, IGenericElementProps, IIndexable, IInput, IJustChildrenProps, IPanelProps, IPill, IPills, IPluralProps, IStatBlock, IStats, ISubStats, ITabsContent, ITabsProps, ITabsTab, Icon, Item as ItemIcon, ItemSummary, List, Logo as LogoIcon, LogoMotion as LogoMotionIcon, Marketplace as MarketplaceIcon, Meowpad as MeowpadIcon, Milk as MilkIcon, MilkValue, NetworkErrorMessage, Opensea as OpenseaIcon, Panel, Pet as PetIcon, Pill, Pills, Plural, Questing as QuestingIcon, QuestionMarkGroup as QuestionMarkGroupIcon, QuestionMark as QuestionMarkIcon, RarityBadge, ShareGroup as ShareGroupIcon, Share as ShareIcon, Shop as ShopIcon, SiteLogo as SiteLogoIcon, SiteLogoMotion as SiteLogoMotionIcon, StatTable, Stats, TChildNode, THeaderSize, TPanelType, Tabs, TabsContent, TabsTab, Water as WaterIcon, WhiteOutlineLogo as WhiteOutlineLogoIcon, WhiteOutlineLogoMotion as WhiteOutlineLogoMotionIcon, _default as default, useData, useEyes, useMousePosition, useObserver };
+export { Air as AirIcon, Alert, AlertText, Battling as BattlingIcon, BooleanVisibilityContainer, BoxGroup as BoxGroupIcon, Box as BoxIcon, Cat as CatIcon, ChestGroup as ChestGroupIcon, Chest as ChestIcon, Circle as CircleIcon, CogGroup as CogGroupIcon, Cog as CogIcon, Container, Dots, EggGroup as EggGroupIcon, Egg as EggIcon, Envelope as EnvelopeIcon, ErrorMessage, Fire as FireIcon, Element as FormElement, Fieldset as FormFieldset, Input as FormInput, Label as FormLabel, Legend as FormLegend, Grass as GrassIcon, Group, HammerGroup as HammerGroupIcon, Hammer as HammerIcon, Header, Help as HelpIcon, Housing as HousingIcon, IButtonProps, IContainerAttributeState, IContainerClassState, IEditableInput, IFormElement, IFormLabel, IGenericElementProps, IIndexable, IInput, IJustChildrenProps, IPanelProps, IPill, IPills, IPluralProps, IStatBlock, IStats, ISubStats, ITab, ITabsContent, ITabsProps, ITabsTab, Icon, Item as ItemIcon, ItemSummary, List, Logo as LogoIcon, LogoMotion as LogoMotionIcon, Marketplace as MarketplaceIcon, Meowpad as MeowpadIcon, Milk as MilkIcon, MilkValue, NetworkErrorMessage, Opensea as OpenseaIcon, Panel, Pet as PetIcon, Pill, Pills, Plural, Questing as QuestingIcon, QuestionMarkGroup as QuestionMarkGroupIcon, QuestionMark as QuestionMarkIcon, RarityBadge, ShareGroup as ShareGroupIcon, Share as ShareIcon, Shop as ShopIcon, SiteLogo as SiteLogoIcon, SiteLogoMotion as SiteLogoMotionIcon, StatTable, Stats, TChildNode, THeaderSize, TPanelType, Tabs, TabsContent, TabsTab, Water as WaterIcon, WhiteOutlineLogo as WhiteOutlineLogoIcon, WhiteOutlineLogoMotion as WhiteOutlineLogoMotionIcon, _default as default, simpleSlug, useData, useEyes, useMousePosition, useObserver };
