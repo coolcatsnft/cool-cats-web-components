@@ -275,7 +275,11 @@ declare function Meowpad({ open }: {
     open?: boolean;
 }): JSX.Element;
 
-declare function Help(): JSX.Element;
+declare function Help({ fill, stroke, hollow }: {
+    fill?: string;
+    stroke?: string;
+    hollow?: string;
+}): JSX.Element;
 
 declare function Milk(): JSX.Element;
 
@@ -313,6 +317,24 @@ declare function Chest(): JSX.Element;
 
 declare function ShareGroup(): JSX.Element;
 declare function Share(): JSX.Element;
+
+declare function CogGroup({ fill, stroke }: {
+    fill?: string;
+    stroke?: string;
+}): JSX.Element;
+declare function Cog({ fill, stroke }: {
+    fill?: string;
+    stroke?: string;
+}): JSX.Element;
+
+declare function QuestionMarkGroup({ fill, stroke }: {
+    fill?: string;
+    stroke?: string;
+}): JSX.Element;
+declare function QuestionMark({ fill, stroke }: {
+    fill?: string;
+    stroke?: string;
+}): JSX.Element;
 
 interface ILogo {
     x?: number;
@@ -435,6 +457,10 @@ declare namespace Components {
     Fire as FireIcon,
     Grass as GrassIcon,
     Water as WaterIcon,
+    Cog as CogIcon,
+    CogGroup as CogGroupIcon,
+    QuestionMark as QuestionMarkIcon,
+    QuestionMarkGroup as QuestionMarkGroupIcon,
     Logo as LogoIcon,
     LogoMotion as LogoMotionIcon,
     SiteLogo as SiteLogoIcon,
@@ -486,4 +512,4 @@ declare const _default: {
     Utils: typeof Utils;
 };
 
-export { Air as AirIcon, Alert, AlertText, Battling as BattlingIcon, BooleanVisibilityContainer, BoxGroup as BoxGroupIcon, Box as BoxIcon, Cat as CatIcon, ChestGroup as ChestGroupIcon, Chest as ChestIcon, Circle as CircleIcon, Container, Dots, EggGroup as EggGroupIcon, Egg as EggIcon, Envelope as EnvelopeIcon, ErrorMessage, Fire as FireIcon, Element as FormElement, Fieldset as FormFieldset, Input as FormInput, Label as FormLabel, Legend as FormLegend, Grass as GrassIcon, Group, HammerGroup as HammerGroupIcon, Hammer as HammerIcon, Header, Help as HelpIcon, Housing as HousingIcon, IButtonProps, IContainerAttributeState, IContainerClassState, IEditableInput, IFormElement, IFormLabel, IGenericElementProps, IIndexable, IInput, IJustChildrenProps, IPanelProps, IPill, IPills, IPluralProps, IStatBlock, IStats, ISubStats, ITabsContent, ITabsProps, ITabsTab, Icon, Item as ItemIcon, ItemSummary, List, Logo as LogoIcon, LogoMotion as LogoMotionIcon, Marketplace as MarketplaceIcon, Meowpad as MeowpadIcon, Milk as MilkIcon, MilkValue, NetworkErrorMessage, Opensea as OpenseaIcon, Panel, Pet as PetIcon, Pill, Pills, Plural, Questing as QuestingIcon, RarityBadge, ShareGroup as ShareGroupIcon, Share as ShareIcon, Shop as ShopIcon, SiteLogo as SiteLogoIcon, SiteLogoMotion as SiteLogoMotionIcon, StatTable, Stats, TChildNode, THeaderSize, TPanelType, Tabs, TabsContent, TabsTab, Water as WaterIcon, WhiteOutlineLogo as WhiteOutlineLogoIcon, WhiteOutlineLogoMotion as WhiteOutlineLogoMotionIcon, _default as default, useData, useEyes, useMousePosition, useObserver };
+export { Air as AirIcon, Alert, AlertText, Battling as BattlingIcon, BooleanVisibilityContainer, BoxGroup as BoxGroupIcon, Box as BoxIcon, Cat as CatIcon, ChestGroup as ChestGroupIcon, Chest as ChestIcon, Circle as CircleIcon, CogGroup as CogGroupIcon, Cog as CogIcon, Container, Dots, EggGroup as EggGroupIcon, Egg as EggIcon, Envelope as EnvelopeIcon, ErrorMessage, Fire as FireIcon, Element as FormElement, Fieldset as FormFieldset, Input as FormInput, Label as FormLabel, Legend as FormLegend, Grass as GrassIcon, Group, HammerGroup as HammerGroupIcon, Hammer as HammerIcon, Header, Help as HelpIcon, Housing as HousingIcon, IButtonProps, IContainerAttributeState, IContainerClassState, IEditableInput, IFormElement, IFormLabel, IGenericElementProps, IIndexable, IInput, IJustChildrenProps, IPanelProps, IPill, IPills, IPluralProps, IStatBlock, IStats, ISubStats, ITabsContent, ITabsProps, ITabsTab, Icon, Item as ItemIcon, ItemSummary, List, Logo as LogoIcon, LogoMotion as LogoMotionIcon, Marketplace as MarketplaceIcon, Meowpad as MeowpadIcon, Milk as MilkIcon, MilkValue, NetworkErrorMessage, Opensea as OpenseaIcon, Panel, Pet as PetIcon, Pill, Pills, Plural, Questing as QuestingIcon, QuestionMarkGroup as QuestionMarkGroupIcon, QuestionMark as QuestionMarkIcon, RarityBadge, ShareGroup as ShareGroupIcon, Share as ShareIcon, Shop as ShopIcon, SiteLogo as SiteLogoIcon, SiteLogoMotion as SiteLogoMotionIcon, StatTable, Stats, TChildNode, THeaderSize, TPanelType, Tabs, TabsContent, TabsTab, Water as WaterIcon, WhiteOutlineLogo as WhiteOutlineLogoIcon, WhiteOutlineLogoMotion as WhiteOutlineLogoMotionIcon, _default as default, useData, useEyes, useMousePosition, useObserver };

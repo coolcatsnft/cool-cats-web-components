@@ -22,6 +22,8 @@ import { Hammer, HammerGroup } from './Hammer';
 import { Box, BoxGroup } from './Box';
 import { Chest, ChestGroup } from './Chest';
 import { Share, ShareGroup } from './Share';
+import { Cog, CogGroup } from './Cog';
+import { QuestionMark, QuestionMarkGroup } from './QuestionMark';
 import { Logo, LogoMotion, SiteLogo, SiteLogoMotion, WhiteOutlineLogo, WhiteOutlineLogoMotion } from './Logo';
 
 export { 
@@ -59,7 +61,11 @@ export {
   Hammer,
   HammerGroup,
   Share,
-  ShareGroup
+  ShareGroup,
+  Cog,
+  CogGroup,
+  QuestionMark,
+  QuestionMarkGroup
 };
 
 export default Icon;
