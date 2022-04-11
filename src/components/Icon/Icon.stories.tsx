@@ -10,6 +10,7 @@ import { Shop } from './Shop';
 import { Envelope } from './Envelope';
 import { Meowpad } from './Meowpad';
 import { Help } from './Help';
+import { QuestionMark, QuestionMarkGroup } from './QuestionMark';
 import { Milk } from './Milk';
 import { Icon } from './Icon';
 import { Opensea } from './Opensea';
@@ -24,6 +25,7 @@ import { Fire } from './Fire';
 import { Grass } from './Grass';
 import { Water } from './Water';
 import { Swords, SwordsGroup } from './Swords';
+import { Cog } from './Cog';
 import { Logo, LogoMotion, SiteLogo, SiteLogoMotion, WhiteOutlineLogo, WhiteOutlineLogoMotion } from './Logo';
 
 export default {
@@ -155,6 +157,12 @@ export const OpenseaIcon = (() => {
   )
 }).bind({});
 
+export const QuestionMarkIcon = (() => {
+  return (
+    <QuestionMark />
+  )
+}).bind({});
+
 export const ChestIcon = (() => {
   return (
     <Chest />
@@ -214,6 +222,12 @@ export const HammerCircleIcon = (() => {
     <Circle>
       <HammerGroup />
     </Circle>
+  )
+}).bind({});
+
+export const CogIcon = (() => {
+  return (
+    <Cog />
   )
 }).bind({});
 
@@ -374,6 +388,11 @@ export const MultipleIconsExample = (() => {
         <button>
           <Swords fill={'white'} />
         </button>
+      </Icon>
+      <Icon elementType="button" className="clickable">
+        <Circle>
+          <QuestionMarkGroup />
+        </Circle>
       </Icon>
     </>
   )
