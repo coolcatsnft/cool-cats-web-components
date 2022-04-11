@@ -23,6 +23,7 @@ import { Air } from './Air';
 import { Fire } from './Fire';
 import { Grass } from './Grass';
 import { Water } from './Water';
+import { Swords, SwordsGroup } from './Swords';
 import { Logo, LogoMotion, SiteLogo, SiteLogoMotion, WhiteOutlineLogo, WhiteOutlineLogoMotion } from './Logo';
 
 export default {
@@ -51,6 +52,22 @@ export const FireIcon = (() => {
 export const GrassIcon = (() => {
   return (
     <Grass />
+  )
+}).bind({});
+
+export const SwordsIcon = (() => {
+  return (
+    <Swords />
+  )
+}).bind({});
+
+export const SwordsInIconIcon = (() => {
+  return (
+    <Icon elementType="button" className="animate--hover">
+      <i>
+        <Swords />
+      </i>
+    </Icon>
   )
 }).bind({});
 
@@ -352,6 +369,11 @@ export const MultipleIconsExample = (() => {
         <Circle stroke="red">
           <ShareGroup />
         </Circle>
+      </Icon>
+      <Icon className="rare animate--hover">
+        <button>
+          <Swords fill={'white'} />
+        </button>
       </Icon>
     </>
   )

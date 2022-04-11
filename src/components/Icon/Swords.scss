@@ -1,0 +1,29 @@
+@import '../../utils/scss/';
+
+.#{$global-prefix}svgicon-group--swords {
+  .left,
+  .right {
+    transition: all 0.5s;
+  }
+  .left {
+    transform-origin: bottom left;
+    transform: $global-icons-swords-left rotateZ(0);
+  }
+  .right {
+    transform-origin: bottom left;
+    transform: $global-icons-swords-right rotateZ(0);
+  }
+}
+
+.#{$global-prefix}icon {
+  @each $key, $color in $global-base-colors {
+    &.#{"" + $key} {
+      & > .#{$global-prefix}svgicon-swords,
+      > button > .#{$global-prefix}svgicon--swords {
+        .border {
+          fill: $color;
+        }
+      }
+    }
+  }
+}

@@ -11,11 +11,15 @@ $height: 42px;
   position: relative;
   border: 0 none;
   padding: 0;
+  appearance: none;
 
   @each $key, $color in $global-base-colors {
     &.#{"" + $key} {
-      background-color: $color;
-      color: map-get($global-pill-font-colors, $key);
+      &,
+      > button {
+        background-color: $color;
+        color: map-get($global-pill-font-colors, $key);
+      }
     }
   }
 
@@ -86,6 +90,18 @@ $height: 42px;
 
   & + .#{$global-prefix}icon {
     margin-left: $global-margin * 0.5;
+  }
+
+  &.animate,
+  &.animate--hover:hover {
+    .#{$global-prefix}svgicon--swords {
+      .left {
+        transform: $global-icons-swords-left rotateZ(-40deg);
+      }
+      .right {
+        transform: $global-icons-swords-right rotateZ(-40deg);
+      }
+    }
   }
 }
 
