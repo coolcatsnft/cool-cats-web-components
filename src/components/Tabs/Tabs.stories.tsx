@@ -51,7 +51,7 @@ export const ExampleTwo = (() => {
     <i key={2}>Tab pane 3</i>
   ];
   return (
-    <Tabs tabs={headers} callback={(tab: string) => alert(tab)}>
+    <Tabs tabs={headers} activeTab='Tab 3' callback={(tab: string) => alert(tab)}>
       { panes }
     </Tabs>
   )
