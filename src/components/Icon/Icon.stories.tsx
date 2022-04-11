@@ -24,8 +24,8 @@ import { Air } from './Air';
 import { Fire } from './Fire';
 import { Grass } from './Grass';
 import { Water } from './Water';
-import { Swords, SwordsGroup } from './Swords';
-import { Cog } from './Cog';
+import { Swords } from './Swords';
+import { Cog, CogGroup } from './Cog';
 import { Logo, LogoMotion, SiteLogo, SiteLogoMotion, WhiteOutlineLogo, WhiteOutlineLogoMotion } from './Logo';
 
 export default {
@@ -231,6 +231,14 @@ export const CogIcon = (() => {
   )
 }).bind({});
 
+export const CogCircleIcon = (() => {
+  return (
+    <Circle>
+      <CogGroup />
+    </Circle>
+  )
+}).bind({});
+
 export const ShareIcon = (() => {
   return (
     <Share />
@@ -392,6 +400,11 @@ export const MultipleIconsExample = (() => {
       <Icon elementType="button" className="clickable">
         <Circle>
           <QuestionMarkGroup />
+        </Circle>
+      </Icon>
+      <Icon elementType="button" className="clickable">
+        <Circle>
+          <CogGroup />
         </Circle>
       </Icon>
     </>

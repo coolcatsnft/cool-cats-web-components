@@ -58,6 +58,10 @@ export { Air as AirIcon } from "./Icon";
 export { Fire as FireIcon } from "./Icon";
 export { Grass as GrassIcon } from "./Icon";
 export { Water as WaterIcon } from "./Icon";
+export { Cog as CogIcon } from "./Icon";
+export { CogGroup as CogGroupIcon } from "./Icon";
+export { QuestionMark as QuestionMarkIcon } from "./Icon";
+export { QuestionMarkGroup as QuestionMarkGroupIcon } from "./Icon";
 export { 
   Logo as LogoIcon,
   LogoMotion as LogoMotionIcon,
