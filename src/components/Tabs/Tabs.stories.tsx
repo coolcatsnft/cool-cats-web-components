@@ -1,4 +1,6 @@
 import React from 'react';
+import Icon from '../Icon/Icon';
+import Shop from '../Icon/Shop';
 import { Tabs } from './Tabs';
 
 export default {
@@ -21,6 +23,35 @@ export const Example = ((args) => {
   });
   return (
     <Tabs tabs={headers}>
+      { panes }
+    </Tabs>
+  )
+}).bind({});
+
+export const ExampleTwo = (() => {
+  const headers = [
+    'Tab 1',
+    {
+      tab: 'Tab 2',
+      content: 'Tab 2 with extended header'
+    },
+    {
+      tab: 'Tab 3',
+      content: <>
+        <i>
+          <Shop />
+        </i>
+        Tab 3
+      </>
+    }
+  ];
+  const panes = [
+    <i key={0}>Tab pane 1</i>,
+    <i key={1}>Tab pane 2</i>,
+    <i key={2}>Tab pane 3</i>
+  ];
+  return (
+    <Tabs tabs={headers} callback={(tab: string) => alert(tab)}>
       { panes }
     </Tabs>
   )

@@ -26,10 +26,16 @@ export interface IButtonProps {
   title?: string;
 };
 
+export interface ITab {
+  tab: string;
+  content: any;
+};
+
 export interface ITabsProps {
   children: React.ReactNode;
-  tabs: string[];
+  tabs: (string|ITab)[];
   activeTab?: string;
+  callback?: Function;
 };
 
 export interface ITabsContent {
@@ -38,7 +44,7 @@ export interface ITabsContent {
 };
 
 export interface ITabsTab {
-  tab: string;
+  tab: string|ITab;
   active: boolean;
   onClick: Function;
 };
