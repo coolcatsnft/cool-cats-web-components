@@ -1,4 +1,5 @@
 import React from 'react';
+import { getSizes } from '../../utils';
 import { Input } from './Input';
 
 export default {
@@ -9,6 +10,18 @@ export default {
 export const Basic = ((args) => {
   return (
     <Input name='checkbox' type='checkbox' label='Tick box example' {...args} />
+  )
+}).bind({});
+
+export const Sizes = ((args) => {
+  return (
+    <>
+      { getSizes().map((size: string) => {
+        return (
+          <Input key={size} size={size} name={size} type='checkbox' label={`${size} tick box`} {...args} />
+        )
+      }) }
+    </>
   )
 }).bind({});
 

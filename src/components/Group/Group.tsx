@@ -26,7 +26,7 @@ export function GroupItem({ children, elementType }: IGroupItemContentProps) {
   }
 
   return (
-    <Container elementType={type} className={`ccwc-group--${type}`}>
+    <Container elementType={type}>
       { children }
     </Container>
   );

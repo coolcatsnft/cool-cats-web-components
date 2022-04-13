@@ -1,0 +1,32 @@
+@import '../../utils/scss/';
+
+$input-button-border-radius: 22px;
+
+.#{$global-prefix}input-button {
+  &,
+  > * {
+    width: 100%;
+  }
+
+  > .#{$global-prefix}form-element {
+    input {
+      text-align: center;
+      border-top-left-radius: $input-button-border-radius;
+      border-top-right-radius: $input-button-border-radius;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      outline: none;
+    }
+  }
+
+  > .#{$global-prefix}button {
+    border-bottom-left-radius: $input-button-border-radius;
+    border-bottom-right-radius: $input-button-border-radius;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+
+    &:hover {
+      transform: none;
+    }
+  }
+}

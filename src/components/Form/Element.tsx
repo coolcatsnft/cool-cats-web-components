@@ -6,7 +6,7 @@ import Label from "./Label";
 import '../../utils/scss/globals.scss';
 import './Form.scss';
 
-export function Element({ type, label, disabled, error, htmlFor, children }: IFormElement) {
+export function Element({ type, label, disabled, error, size, htmlFor, children }: IFormElement) {
   return (
     <Container 
       className="ccwc-form-element" 
@@ -18,6 +18,9 @@ export function Element({ type, label, disabled, error, htmlFor, children }: IFo
       }, { 
         className: 'ccwc-form-element--disabled',
         condition: disabled === true
+      }, { 
+        className: typeof size === 'string' && size.length > 0 ? `${size}` : '',
+        condition: typeof size === 'string' && size.length > 0
       }]}
     >
       { label && <Label htmlFor={htmlFor}>{ label }</Label> }

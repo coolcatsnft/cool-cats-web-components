@@ -8,3 +8,7 @@ export const simpleSlug = (str: string) => {
     .replace(/[^\w\-]+/g, '')
     .replace(/\-\-+/g, '-');
 }
+
+export const getSizes = () => {
+  return ["tiny", "small", "medium", "normal", "large", "xlarge", "massive"];
+}

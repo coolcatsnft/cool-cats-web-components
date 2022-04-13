@@ -14,18 +14,6 @@ export interface IJustChildrenProps {
   children: TChildNode;
 };
 
-export interface IButtonProps {
-	children: React.ReactNode;
-	disabled?: boolean;
-	colour?: string;
-	className?: string;
-	size?: string;
-	onClick?: Function;
-	elementType?: string;
-	states?: any;
-  title?: string;
-};
-
 export interface ITab {
   tab: string;
   content: any;
@@ -94,6 +82,7 @@ export interface IFormElement {
   type: string,
   disabled?: boolean,
   error?: boolean,
+  size?: string,
   htmlFor?: string,
   label?: string | React.ReactNode,
   children?: string | React.ReactNode
@@ -110,6 +99,8 @@ export interface IInput {
   label?: string | React.ReactNode | boolean,
   type?: string,
   placeholder?: string,
+  size?: string,
+	required?: boolean,
   value?: any,
   min?: number,
   max?: number,
@@ -172,4 +163,20 @@ export interface IStatBlock {
   stats: IStats,
   children?: React.ReactNode,
   header?: string
+};
+
+export interface IButtonProps {
+	children?: React.ReactNode;
+	label?: React.ReactNode;
+	disabled?: boolean;
+	expanded?: boolean;
+	sashed?: boolean;
+	colour?: string;
+	className?: string;
+	size?: string;
+	onClick?: Function;
+	elementType?: string;
+	states?: any;
+  title?: string;
+  removeBaseClass?: boolean;
 };

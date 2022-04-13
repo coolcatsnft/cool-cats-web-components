@@ -1,4 +1,5 @@
 import React from 'react';
+import { getSizes } from '../../utils';
 import { Input } from './Input';
 
 export default {
@@ -7,6 +8,12 @@ export default {
   argTypes: {
     placeholder: {
       control: { type: 'text' }
+    },
+    size: {
+      control: "select",
+      options: getSizes(),
+      defaultValue: "normal",
+      name: "Size"
     }
   }
 }
