@@ -21,6 +21,8 @@ export { default as Icon } from "./Icon";
 export { default as Stats } from "./Stats";
 export { StatTable } from "./Stats";
 export { default as RarityBadge } from "./RarityBadge";
+export { default as InputButton } from "./InputButton";
+export { default as Button } from "./Button";
 
 // Form
 export { Legend as FormLegend } from "./Form";
