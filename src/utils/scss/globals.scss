@@ -10,18 +10,20 @@
     &:after {
       box-sizing: border-box;
     }
+  }
 
-    & {
-      font-family: $global-font;
-      font-weight: bold;
-      margin: 0;
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-    }
+  & {
+    font-family: $global-font;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
 
+    td,
+    tr,
     p,
     li {
-      &  {
+      & {
         font-weight: normal;
       }
     }

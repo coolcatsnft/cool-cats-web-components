@@ -1,4 +1,6 @@
 @use "sass:map";
+@use "sass:math";
+
 $global-margin: 16px !default;
 $global-padding: 16px !default;
 $global-prefix: 'ccwc-';
@@ -44,6 +46,7 @@ $global-base-colors: (
   legendary-star: #FFFF00,
 
   pilldefault: #9CB5FE,
+  buttondefault: #9CB5FE,
 
   cool_1: #DEC5A8,
   cool_2: #9cb5fe,
@@ -55,7 +58,91 @@ $global-base-colors: (
   exotic_2: #FAD121,
 );
 
-$global-pill-font-colors: (
+$global-button-colors: (
+  default: #9CB5FE,
+  orange: #FC9144,
+  red: #f30f5f,
+  green: #39E27D,
+  pale-green: #8EB272,
+  pink: #FD9DCB,
+  light-blue: #90CFF1,
+  simple-yellow: #FAD121,
+  yellow: #FAD121,
+  grey: #dadada,
+  white: white,
+  black: black,
+  opensea: #2081E2,
+  disabled: #A5A5A5,
+  listed: #3A69AC,
+  purchase: #8EB272,
+  selected: #3A69AC,
+  error: #b15f5f,
+  warning: #E18800,
+  success: #8EB272,
+  info: #3A69AC,
+  fire: #FC7E0A,
+  water: #38C9F6,
+  grass: #7FBF5E,
+  air: #d6c6e2,
+  common: #dec5a8,
+  uncommon: #39e27d,
+  rare: #348FED,
+  epic: #fa3c6a,
+  legendary: #FAD121,
+  legendary-star: #FFFF00,
+  cool_1: #DEC5A8,
+  cool_2: #9cb5fe,
+  wild_1: #39e27d,
+  wild_2: #fc9144,
+  classy_1: #df9dcb,
+  classy_2: #fa3c6a,
+  exotic_1: #a070dd,
+  exotic_2: #FAD121
+);
+
+$global-button-font-colors: (
+  default: black,
+  orange: black,
+  red: black,
+  green: black,
+  pale-green: black,
+  pink: black,
+  light-blue: black,
+  simple-yellow: black,
+  yellow: black,
+  grey: black,
+  white: black,
+  black: white,
+  opensea: black,
+  disabled: black,
+  listed: black,
+  purchase: black,
+  selected: white,
+  error: black,
+  warning: black,
+  success: black,
+  info: black,
+  fire: black,
+  water: black,
+  grass: black,
+  air: black,
+  common: black,
+  uncommon: black,
+  rare: black,
+  epic: black,
+  legendary: black,
+  cool_1: black,
+  cool_2: black,
+  wild_1: black,
+  wild_2: black,
+  classy_1: black,
+  classy_2: black,
+  exotic_1: black,
+  exotic_2: black
+);
+
+$global-background-font-colors: (
+  buttondefault: black,
   pilldefault: white,
 
   orange: white,
@@ -104,6 +191,53 @@ $global-element-colors: (
   milk: #EEAC49
 );
 
+$global-sizes: 'tiny', 'small', 'normal', 'medium', 'large', 'xlarge', 'massive';
+$global-button-sizes: (
+  font-tiny: 10px,
+  line-height-tiny: 18px,
+  font-tiny--desktop: 12px,
+  line-height-tiny--desktop: 20px,
+  padding-tiny: 4px 8px,
+
+  font-small: 14px,
+  line-height-small: 18px,
+  font-small--desktop: 16px,
+  line-height-small--desktop: 20px,
+  padding-small: 6px 10px,
+
+  font-normal: 16px,
+  line-height-normal: 20px,
+  font-normal--desktop: 20px,
+  line-height-normal--desktop: 24px,
+  padding-normal: 8px 16px,
+
+  font-medium: 16px,
+  line-height-medium: 20px,
+  font-medium--desktop: 20px,
+  line-height-medium--desktop: 24px,
+  padding-medium: 8px 16px,
+
+  font-large: 20px,
+  line-height-large: 24px,
+  font-large--desktop: 30px,
+  line-height-large--desktop: 40px,
+  padding-large: 8px 16px,
+
+  font-xlarge: 30px,
+  line-height-xlarge: 40px,
+  font-xlarge--desktop: 40px,
+  line-height-xlarge--desktop: 42px,
+  padding-xlarge: 8px 24px,
+
+  font-massive: 40px,
+  line-height-massive: 60px,
+  font-massive--desktop: 50px,
+  line-height-massive--desktop: 98px,
+  padding-massive: 8px 32px
+);
+$global-input-sizes: $global-button-sizes;
+
+$global-pill-font-colors: $global-background-font-colors;
 $global-pill-colors: $global-base-colors;
 $global-site-colors: map.merge($global-base-colors, $global-element-colors);
 $global-font: 'Poppins', serif;

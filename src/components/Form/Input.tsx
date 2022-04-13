@@ -4,7 +4,7 @@ import { IInput } from "../../utils";
 import BooleanVisibilityContainer from "../BooleanVisibilityContainer";
 import Element from "./Element";
 
-export function Input({ name, id, type, value, label, min, max, hideLabel, placeholder, pattern, onChange, onError, disabled, checked, restrictOnError, showError, readonly }: IInput) {
+export function Input({ name, id, type, value, label, min, max, hideLabel, placeholder, size, pattern, required, onChange, onError, disabled, checked, restrictOnError, showError, readonly }: IInput) {
   const [_error, _setError] = useState<boolean | string>(false);
   const [_value, _setValue] = useState<string | boolean>(type === 'checkbox' || type === 'radio' ? (value || false) : String(value || ''));
   const [_checked, setChecked] = useState<boolean>(type === 'checkbox' || type === 'radio' ? (checked || false) : false);
@@ -128,6 +128,9 @@ export function Input({ name, id, type, value, label, min, max, hideLabel, place
       if (pattern && !pattern.test(e.target.value)) {
         setError(`Value doesn't match requirements of ${pattern}`, e);
       }
+      if (required === true && !e.target.value) {
+        setError(`${lbl} is required`, e);
+      }
     }
     if (type === 'email') {
       if (!validateEmail(e.target.value)) {
@@ -143,6 +146,8 @@ export function Input({ name, id, type, value, label, min, max, hideLabel, place
         setError('Value doesn\'t match requirements', e);
       } else if (Number.isNaN(parseFloat(e.target.value))) {
         setError(`Not a number`, e);
+      } else if (required === true && String(e.target.value).length === 0) {
+        setError(`${lbl} is required`, e);
       }
       try {
         // eslint-disable-next-line no-undef
@@ -194,6 +199,7 @@ export function Input({ name, id, type, value, label, min, max, hideLabel, place
       <Element
         type={type}
         disabled={disabled}
+        size={size}
         error={isError}
         htmlFor={iProps.id}
         label={!hideLabel && lbl}
