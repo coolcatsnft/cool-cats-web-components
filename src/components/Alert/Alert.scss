@@ -63,7 +63,10 @@ $height: 100px;
     flex-grow: 1;
     height: $height;
     font-size: 12px;
-    min-width: 200px;
+    
+    @include largemobilebreakpoint() {
+      min-width: 200px;
+    }
 
     @include tabletbreakpoint() {
       font-size: 16px;
