@@ -180,3 +180,11 @@ export interface IButtonProps {
   title?: string;
   removeBaseClass?: boolean;
 };
+
+export interface ICatThumbnail {
+	id: string|number;
+	src: string;
+  stats: IStats;
+	onClick?: Function;
+  href?: string;
+};
