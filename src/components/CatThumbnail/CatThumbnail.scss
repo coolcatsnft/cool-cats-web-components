@@ -56,6 +56,43 @@ $border-radius: 10px;
     }
   }
 
+  &.air,
+  &.fire,
+  &.grass,
+  &.water {
+    &:after {
+      @include thumbnailIcon(-2%, -2%);
+      background-image: url('../../../assets/icon/air.svg');
+      border-color: inherit;
+    }
+  }
+
+  &.fire {
+    &:after {
+      background-image: url('../../../assets/icon/fire.svg');
+    }
+  }
+
+  &.grass {
+    &:after {
+      background-image: url('../../../assets/icon/grass.svg');
+    }
+  }
+
+  &.water {
+    &:after {
+      background-image: url('../../../assets/icon/water.svg');
+    }
+  }
+
+  &.staked {
+    &:before {
+      @include thumbnailIcon(-2%, auto, auto, -2%);
+      background-image: url('../../../assets/icon/swordAndShield.svg');
+      border-color: inherit;
+    }
+  }
+
   .#{$global-prefix}rarity-badge {
     border-bottom-right-radius: 0;
   }

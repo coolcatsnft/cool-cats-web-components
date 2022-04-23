@@ -6,8 +6,9 @@ import Stats from "../Stats";
 
 import '../../utils/scss/globals.scss';
 import '../CatThumbnail/CatThumbnail.scss';
+import { CatThumbnailImage } from "../CatThumbnail/CatThumbnail";
 
-export function PetThumbnail({ id, src, stats, onClick, href, phase = "", selected = false }: IPetThumbnail) {
+export function PetThumbnail({ id, stats, src, onClick, href, children, phase = "", element = "", selected = false, staked = false }: IPetThumbnail) {
   const petId = `# ${id}`;
   const statsProps = {
     stats: stats
@@ -42,6 +43,11 @@ export function PetThumbnail({ id, src, stats, onClick, href, phase = "", select
         className: "selected",
         condition: selected === true
       }, {
+        className: "staked",
+        condition: staked === true
+      }, {
+        className: typeof element === 'string' && element.length > 0 ? element : ""
+      }, {
         attr: "data-phase",
         condition: typeof phase === 'string',
         value: typeof phase === 'string' ? phase : ''
@@ -56,10 +62,9 @@ export function PetThumbnail({ id, src, stats, onClick, href, phase = "", select
       }]}
       onClick={onClick}
     >
-      <Container className="ccwc-cat-thumbnail__image">
-        {typeof src === 'string' && <img src={src} alt={petId} />}
-        {typeof src !== 'string' && <>{src}</>}
-      </Container>
+      <CatThumbnailImage src={src} srcAlt={petId}>
+        {children || null}
+      </CatThumbnailImage>
       <Container className="ccwc-cat-thumbnail__stats">
         <Stats {...statsProps}>
           { StatsChild } 

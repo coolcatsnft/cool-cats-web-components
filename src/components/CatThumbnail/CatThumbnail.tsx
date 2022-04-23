@@ -7,7 +7,17 @@ import Stats from "../Stats";
 import '../../utils/scss/globals.scss';
 import './CatThumbnail.scss';
 
-export function CatThumbnail({ id, src, stats, onClick, href, selected = false, claimable = false }: ICatThumbnail) {
+export function CatThumbnailImage({ src, srcAlt, children }: { src?: string|React.ReactNode, srcAlt?: string, children?: React.ReactNode }) {
+  return (
+    <Container className="ccwc-cat-thumbnail__image">
+      {typeof src === 'string' && <img src={src} alt={srcAlt} />}
+      {typeof src !== 'string' && typeof src !== 'undefined' && <>{src}</>}
+      {children || null}
+    </Container>
+  )
+}
+
+export function CatThumbnail({ id, stats, src, onClick, href, children, selected = false, claimable = false }: ICatThumbnail) {
   const catId = `# ${id}`;
   const total = (stats.hats || 0) + (stats.face || 0) + (stats.shirt || 0);
   const statsProps = {
@@ -57,10 +67,9 @@ export function CatThumbnail({ id, src, stats, onClick, href, selected = false, 
       }]}
       onClick={onClick}
     >
-      <Container className="ccwc-cat-thumbnail__image">
-        {typeof src === 'string' && <img src={src} alt={catId} />}
-        {typeof src !== 'string' && <>{src}</>}
-      </Container>
+      <CatThumbnailImage src={src} srcAlt={catId}>
+        {children || null}
+      </CatThumbnailImage>
       <Container className="ccwc-cat-thumbnail__stats">
         <Stats {...statsProps}>
           <RarityBadge label={pointsLabel} value={total}>

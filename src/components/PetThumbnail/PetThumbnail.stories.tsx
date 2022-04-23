@@ -55,7 +55,20 @@ export default {
       },
       defaultValue: "egg"
     },
+    element: {
+      control: {
+        type: 'select',
+        options: ["", "air", "fire", "grass", "water"]
+      },
+      defaultValue: ""
+    },
     selected: {
+      control: {
+        type: 'boolean'
+      },
+      defaultValue: false
+    },
+    staked: {
       control: {
         type: 'boolean'
       },
@@ -74,6 +87,33 @@ export const Example = ((args) => {
   return (
     <PetThumbnail 
       src={`https://metadata.coolcatsnft.com/pet/image/${args.id}.png`}
+      id={args.id} 
+      stats={{
+        questsRemaining: {
+          amount: args.dailyQuestsRemainingAmount,
+          max: 10
+        }, 
+        dailyItemInteractions: {
+          amount: args.dailyItemInteractionsAmount,
+          max: 5
+        },
+        phaseItemInteractions: {
+          amount: args.phaseItemInteractionsAmount,
+          max: args.phaseItemInteractionsMax
+        }
+      }}
+      selected={args.selected}
+      href={args.href}
+      phase={args.phase}
+      element={args.element}
+      staked={args.staked}
+    />
+  )
+}).bind({});
+
+export const WithChildNode = ((args) => {
+  return (
+    <PetThumbnail 
       id={args.id} 
       stats={{
         questsRemaining: {
