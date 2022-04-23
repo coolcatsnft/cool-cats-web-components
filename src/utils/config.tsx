@@ -183,8 +183,22 @@ export interface IButtonProps {
 
 export interface ICatThumbnail {
 	id: string|number;
-	src: string;
+	src: string|React.ReactNode;
   stats: IStats;
 	onClick?: Function;
   href?: string;
+  selected?: boolean;
+  claimable?: boolean;
+};
+
+export type TPhase = "" | "egg" | "one" | "two" | "final_form";
+
+export interface IPetThumbnail {
+	id: string|number;
+	src: string|React.ReactNode;
+  stats: IStats;
+	onClick?: Function;
+  href?: string;
+  selected?: boolean;
+  phase?: TPhase;
 };

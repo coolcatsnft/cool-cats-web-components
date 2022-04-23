@@ -6,6 +6,8 @@ $width-badge-width: $global-rarity-badge-width + $global-margin;
 .#{$global-prefix}stats {
   > .#{$global-prefix}header {
     font-size: 20px;
+    margin: 0;
+    line-height: 1;
   }
 
   &--withbadge {

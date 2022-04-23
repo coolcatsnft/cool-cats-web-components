@@ -1,51 +1,50 @@
 import React from "react";
-import { ICatThumbnail } from "../../utils";
+import { IPetThumbnail } from "../../utils";
 import Container from "../Container";
 import RarityBadge from "../RarityBadge";
 import Stats from "../Stats";
 
 import '../../utils/scss/globals.scss';
-import './CatThumbnail.scss';
+import '../CatThumbnail/CatThumbnail.scss';
 
-export function CatThumbnail({ id, src, stats, onClick, href, selected = false, claimable = false }: ICatThumbnail) {
-  const catId = `# ${id}`;
-  const total = (stats.hats || 0) + (stats.face || 0) + (stats.shirt || 0);
+export function PetThumbnail({ id, src, stats, onClick, href, phase = "", selected = false }: IPetThumbnail) {
+  const petId = `# ${id}`;
   const statsProps = {
-    header: catId,
     stats: stats
   };
-
-  const num = (((total - 1) % 2) + 1);
-  let pointsLabel = 'cool';
-
-  // WILD
-  if (total > 4 && total < 7) {
-    pointsLabel = 'wild';
-  }
-
-  // CLASSY
-  if (total > 6 && total < 9) {
-    pointsLabel = 'classy';
-  }
-
-  // EXOTIC
-  if (total > 8) {
-    pointsLabel = 'exotic';
-  }
-
   const isHref = typeof href === 'string' && href.length > 0;
+  const petPhase = phase === 'final_form' ? 'Final' : phase.length > 0 ? phase[0].toUpperCase() + phase.substring(1) : "";
+
+  const StatsChild = petPhase.length > 0 ? (
+    <RarityBadge label="Phase">
+      <span>
+        <svg viewBox="0 0 500 500">
+          <text
+            x="50%"
+            y="50%"
+            dominantBaseline="middle" 
+            textAnchor="middle"
+            fontSize="150"
+          >
+            { petPhase }
+          </text>
+        </svg>  
+      </span>
+    </RarityBadge>
+  ) : null;
 
   return (
     <Container 
       className="ccwc-cat-thumbnail" 
-      title={catId}
+      title={petId}
       elementType={isHref ? "a" : "div"}
       states={[{
         className: "selected",
         condition: selected === true
       }, {
-        className: "claimable",
-        condition: claimable === true
+        attr: "data-phase",
+        condition: typeof phase === 'string',
+        value: typeof phase === 'string' ? phase : ''
       }, {
         attr: "href",
         value: isHref ? href : '',
@@ -58,18 +57,16 @@ export function CatThumbnail({ id, src, stats, onClick, href, selected = false, 
       onClick={onClick}
     >
       <Container className="ccwc-cat-thumbnail__image">
-        {typeof src === 'string' && <img src={src} alt={catId} />}
+        {typeof src === 'string' && <img src={src} alt={petId} />}
         {typeof src !== 'string' && <>{src}</>}
       </Container>
       <Container className="ccwc-cat-thumbnail__stats">
         <Stats {...statsProps}>
-          <RarityBadge label={pointsLabel} value={total}>
-            <span>{num}</span>
-          </RarityBadge>
+          { StatsChild } 
         </Stats>
       </Container>
     </Container>
   )
 }
 
-export default CatThumbnail;
+export default PetThumbnail;
