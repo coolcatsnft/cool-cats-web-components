@@ -40,6 +40,9 @@ export function PetThumbnail({ id, stats, src, onClick, href, children, phase = 
       title={petId}
       elementType={isHref ? "a" : "div"}
       states={[{
+        className: "ccwc-cat-thumbnail--pet",
+        condition: selected === true
+      }, {
         className: "selected",
         condition: selected === true
       }, {
@@ -51,6 +54,9 @@ export function PetThumbnail({ id, stats, src, onClick, href, children, phase = 
         attr: "data-phase",
         condition: typeof phase === 'string',
         value: typeof phase === 'string' ? phase : ''
+      }, {
+        className: "clickable",
+        condition: typeof onClick === 'function'
       }, {
         attr: "href",
         value: isHref ? href : '',

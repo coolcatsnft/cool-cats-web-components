@@ -57,6 +57,9 @@ export function CatThumbnail({ id, stats, src, onClick, href, children, selected
         className: "claimable",
         condition: claimable === true
       }, {
+        className: "clickable",
+        condition: typeof onClick === 'function'
+      }, {
         attr: "href",
         value: isHref ? href : '',
         condition: isHref

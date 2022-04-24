@@ -70,18 +70,21 @@ $border-radius: 10px;
   &.fire {
     &:after {
       background-image: url('../../../assets/icon/fire.svg');
+      background-size: 70%;
     }
   }
 
   &.grass {
     &:after {
       background-image: url('../../../assets/icon/grass.svg');
+      background-size: 60%;
     }
   }
 
   &.water {
     &:after {
       background-image: url('../../../assets/icon/water.svg');
+      background-size: 75%;
     }
   }
 
@@ -95,5 +98,9 @@ $border-radius: 10px;
 
   .#{$global-prefix}rarity-badge {
     border-bottom-right-radius: 0;
+  }
+
+  &.clickable {
+    cursor: pointer;
   }
 }

@@ -79,7 +79,13 @@ export default {
         type: 'text'
       },
       defaultValue: ''
-    }
+    },
+    enableOnClick: {
+      control: {
+        type: 'boolean'
+      },
+      defaultValue: false
+    },
   }
 }
 
@@ -107,6 +113,7 @@ export const Example = ((args) => {
       phase={args.phase}
       element={args.element}
       staked={args.staked}
+      onClick={args.enableOnClick ? () => alert('Hello') : undefined}
     />
   )
 }).bind({});
@@ -132,6 +139,8 @@ export const WithChildNode = ((args) => {
       selected={args.selected}
       href={args.href}
       phase={args.phase}
-    />
+    >
+      <img src="https://via.placeholder.com/150" />
+    </PetThumbnail>
   )
 }).bind({});
