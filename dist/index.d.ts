@@ -160,6 +160,30 @@ interface IButtonProps {
     title?: string;
     removeBaseClass?: boolean;
 }
+interface ICatThumbnail {
+    id: string | number;
+    stats: IStats;
+    src?: string | React.ReactNode;
+    onClick?: Function;
+    href?: string;
+    selected?: boolean;
+    claimable?: boolean;
+    children?: React.ReactNode;
+}
+declare type TPhase = "" | "egg" | "one" | "two" | "final_form";
+declare type TElement = "" | "air" | "fire" | "grass" | "water";
+interface IPetThumbnail {
+    id: string | number;
+    stats: IStats;
+    src?: string | React.ReactNode;
+    onClick?: Function;
+    href?: string;
+    selected?: boolean;
+    staked?: boolean;
+    phase?: TPhase;
+    element?: TElement;
+    children?: React.ReactNode;
+}
 
 declare const simpleSlug: (str: string) => string;
 declare const getSizes: () => string[];
@@ -191,6 +215,10 @@ type Utils_ISubStats = ISubStats;
 type Utils_IStats = IStats;
 type Utils_IStatBlock = IStatBlock;
 type Utils_IButtonProps = IButtonProps;
+type Utils_ICatThumbnail = ICatThumbnail;
+type Utils_TPhase = TPhase;
+type Utils_TElement = TElement;
+type Utils_IPetThumbnail = IPetThumbnail;
 declare namespace Utils {
   export {
     Utils_simpleSlug as simpleSlug,
@@ -219,6 +247,10 @@ declare namespace Utils {
     Utils_IStats as IStats,
     Utils_IStatBlock as IStatBlock,
     Utils_IButtonProps as IButtonProps,
+    Utils_ICatThumbnail as ICatThumbnail,
+    Utils_TPhase as TPhase,
+    Utils_TElement as TElement,
+    Utils_IPetThumbnail as IPetThumbnail,
   };
 }
 
@@ -394,6 +426,10 @@ declare function InputButton({ input, button }: {
 
 declare function Button({ children, label, disabled, sashed, expanded, colour, className, size, onClick, elementType, states, title, removeBaseClass }: IButtonProps): JSX.Element;
 
+declare function CatThumbnail({ id, stats, src, onClick, href, children, selected, claimable }: ICatThumbnail): JSX.Element;
+
+declare function PetThumbnail({ id, stats, src, onClick, href, children, phase, element, selected, staked }: IPetThumbnail): JSX.Element;
+
 declare function Legend({ children }: IJustChildrenProps): JSX.Element;
 
 declare function Element({ type, label, disabled, error, size, htmlFor, children }: IFormElement): JSX.Element;
@@ -429,6 +465,8 @@ declare const Components_StatTable: typeof StatTable;
 declare const Components_RarityBadge: typeof RarityBadge;
 declare const Components_InputButton: typeof InputButton;
 declare const Components_Button: typeof Button;
+declare const Components_CatThumbnail: typeof CatThumbnail;
+declare const Components_PetThumbnail: typeof PetThumbnail;
 declare namespace Components {
   export {
     Components_Container as Container,
@@ -456,6 +494,8 @@ declare namespace Components {
     Components_RarityBadge as RarityBadge,
     Components_InputButton as InputButton,
     Components_Button as Button,
+    Components_CatThumbnail as CatThumbnail,
+    Components_PetThumbnail as PetThumbnail,
     Legend as FormLegend,
     Element as FormElement,
     Label as FormLabel,
@@ -544,4 +584,4 @@ declare const _default: {
     Utils: typeof Utils;
 };
 
-export { Air as AirIcon, Alert, AlertText, Battling as BattlingIcon, BooleanVisibilityContainer, BoxGroup as BoxGroupIcon, Box as BoxIcon, Button, Cat as CatIcon, ChestGroup as ChestGroupIcon, Chest as ChestIcon, Circle as CircleIcon, CogGroup as CogGroupIcon, Cog as CogIcon, Container, Dots, EggGroup as EggGroupIcon, Egg as EggIcon, Envelope as EnvelopeIcon, ErrorMessage, Fire as FireIcon, Element as FormElement, Fieldset as FormFieldset, Input as FormInput, Label as FormLabel, Legend as FormLegend, Grass as GrassIcon, Group, HammerGroup as HammerGroupIcon, Hammer as HammerIcon, Header, Help as HelpIcon, Housing as HousingIcon, IButtonProps, IContainerAttributeState, IContainerClassState, IEditableInput, IFormElement, IFormLabel, IGenericElementProps, IIndexable, IInput, IJustChildrenProps, IPanelProps, IPill, IPills, IPluralProps, IStatBlock, IStats, ISubStats, ITab, ITabsContent, ITabsProps, ITabsTab, Icon, InputButton, Item as ItemIcon, ItemSummary, List, Logo as LogoIcon, LogoMotion as LogoMotionIcon, Marketplace as MarketplaceIcon, Meowpad as MeowpadIcon, Milk as MilkIcon, MilkValue, NetworkErrorMessage, Opensea as OpenseaIcon, Panel, Pet as PetIcon, Pill, Pills, Plural, Questing as QuestingIcon, QuestionMarkGroup as QuestionMarkGroupIcon, QuestionMark as QuestionMarkIcon, RarityBadge, ShareGroup as ShareGroupIcon, Share as ShareIcon, Shop as ShopIcon, SiteLogo as SiteLogoIcon, SiteLogoMotion as SiteLogoMotionIcon, StatTable, Stats, TChildNode, THeaderSize, TPanelType, Tabs, TabsContent, TabsTab, Water as WaterIcon, WhiteOutlineLogo as WhiteOutlineLogoIcon, WhiteOutlineLogoMotion as WhiteOutlineLogoMotionIcon, _default as default, getSizes, simpleSlug, useData, useEyes, useMousePosition, useObserver };
+export { Air as AirIcon, Alert, AlertText, Battling as BattlingIcon, BooleanVisibilityContainer, BoxGroup as BoxGroupIcon, Box as BoxIcon, Button, Cat as CatIcon, CatThumbnail, ChestGroup as ChestGroupIcon, Chest as ChestIcon, Circle as CircleIcon, CogGroup as CogGroupIcon, Cog as CogIcon, Container, Dots, EggGroup as EggGroupIcon, Egg as EggIcon, Envelope as EnvelopeIcon, ErrorMessage, Fire as FireIcon, Element as FormElement, Fieldset as FormFieldset, Input as FormInput, Label as FormLabel, Legend as FormLegend, Grass as GrassIcon, Group, HammerGroup as HammerGroupIcon, Hammer as HammerIcon, Header, Help as HelpIcon, Housing as HousingIcon, IButtonProps, ICatThumbnail, IContainerAttributeState, IContainerClassState, IEditableInput, IFormElement, IFormLabel, IGenericElementProps, IIndexable, IInput, IJustChildrenProps, IPanelProps, IPetThumbnail, IPill, IPills, IPluralProps, IStatBlock, IStats, ISubStats, ITab, ITabsContent, ITabsProps, ITabsTab, Icon, InputButton, Item as ItemIcon, ItemSummary, List, Logo as LogoIcon, LogoMotion as LogoMotionIcon, Marketplace as MarketplaceIcon, Meowpad as MeowpadIcon, Milk as MilkIcon, MilkValue, NetworkErrorMessage, Opensea as OpenseaIcon, Panel, Pet as PetIcon, PetThumbnail, Pill, Pills, Plural, Questing as QuestingIcon, QuestionMarkGroup as QuestionMarkGroupIcon, QuestionMark as QuestionMarkIcon, RarityBadge, ShareGroup as ShareGroupIcon, Share as ShareIcon, Shop as ShopIcon, SiteLogo as SiteLogoIcon, SiteLogoMotion as SiteLogoMotionIcon, StatTable, Stats, TChildNode, TElement, THeaderSize, TPanelType, TPhase, Tabs, TabsContent, TabsTab, Water as WaterIcon, WhiteOutlineLogo as WhiteOutlineLogoIcon, WhiteOutlineLogoMotion as WhiteOutlineLogoMotionIcon, _default as default, getSizes, simpleSlug, useData, useEyes, useMousePosition, useObserver };

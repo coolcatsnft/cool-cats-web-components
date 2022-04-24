@@ -158,3 +158,27 @@ export interface IButtonProps {
     title?: string;
     removeBaseClass?: boolean;
 }
+export interface ICatThumbnail {
+    id: string | number;
+    stats: IStats;
+    src?: string | React.ReactNode;
+    onClick?: Function;
+    href?: string;
+    selected?: boolean;
+    claimable?: boolean;
+    children?: React.ReactNode;
+}
+export declare type TPhase = "" | "egg" | "one" | "two" | "final_form";
+export declare type TElement = "" | "air" | "fire" | "grass" | "water";
+export interface IPetThumbnail {
+    id: string | number;
+    stats: IStats;
+    src?: string | React.ReactNode;
+    onClick?: Function;
+    href?: string;
+    selected?: boolean;
+    staked?: boolean;
+    phase?: TPhase;
+    element?: TElement;
+    children?: React.ReactNode;
+}
