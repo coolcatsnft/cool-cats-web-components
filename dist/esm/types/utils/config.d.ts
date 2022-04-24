@@ -172,7 +172,7 @@ export declare type TPhase = "" | "egg" | "one" | "two" | "final_form";
 export declare type TElement = "" | "air" | "fire" | "grass" | "water";
 export interface IPetThumbnail {
     id: string | number;
-    stats: IStats;
+    stats?: IStats;
     src?: string | React.ReactNode;
     onClick?: Function;
     href?: string;
