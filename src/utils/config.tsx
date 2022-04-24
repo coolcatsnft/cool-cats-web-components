@@ -204,6 +204,7 @@ export interface IPetThumbnail {
   selected?: boolean;
   staked?: boolean;
   hideStats?: boolean;
+  hideBadge?: boolean;
   phase?: TPhase;
   element?: TElement;
   children?: React.ReactNode;

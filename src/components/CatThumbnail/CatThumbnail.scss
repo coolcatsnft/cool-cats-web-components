@@ -24,7 +24,7 @@ $border-radius: 10px;
 
   &__stats {
     .#{$global-prefix}stats {
-      padding: $global-padding;
+      padding: 12px $global-padding;
 
       &--withbadge {
         padding: 0;
