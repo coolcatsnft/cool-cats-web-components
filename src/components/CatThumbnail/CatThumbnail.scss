@@ -34,9 +34,8 @@ $border-radius: 10px;
   }
 
   &__image {
-    border-top-right-radius: $border-radius * 0.5;
+    border-radius: $border-radius * 0.5;
     overflow: hidden;
-    border-top-left-radius: $border-radius * 0.5;
 
     > span,
     > img {
@@ -46,13 +45,21 @@ $border-radius: 10px;
     }
   }
 
+  &--petstats {
+    .#{$global-prefix}cat-thumbnail__image {
+      border-radius: 0;
+      border-top-left-radius: $border-radius * 0.5;
+      border-top-right-radius: $border-radius * 0.5;
+    }
+  }
+
   &.selected {
     border-color: rgba(0,0,0,.7);
   }
 
   &.claimable {
     &:after {
-      @include thumbnailIcon(-2%, -2%);
+      @include thumbnailIcon(-8px, -8px);
       background-image: url('../../../assets/icon/egg.png');
       border-color: inherit;
     }
@@ -63,7 +70,7 @@ $border-radius: 10px;
   &.grass,
   &.water {
     &:after {
-      @include thumbnailIcon(-2%, -2%);
+      @include thumbnailIcon(-8px, -8px);
       background-image: url('../../../assets/icon/air.svg');
       border-color: inherit;
     }
@@ -92,7 +99,7 @@ $border-radius: 10px;
 
   &.staked {
     &:before {
-      @include thumbnailIcon(-2%, auto, auto, -2%);
+      @include thumbnailIcon(-8px, auto, auto, -8px);
       background-image: url('../../../assets/icon/swordAndShield.svg');
       border-color: inherit;
     }

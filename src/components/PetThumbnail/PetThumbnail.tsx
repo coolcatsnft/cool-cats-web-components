@@ -57,6 +57,9 @@ export function PetThumbnail({ id, stats, src, onClick, href, children, phase = 
         className: "clickable",
         condition: typeof onClick === 'function'
       }, {
+        className: "ccwc-cat-thumbnail--petstats",
+        condition: typeof stats !== 'undefined'
+      }, {
         attr: "href",
         value: isHref ? href : '',
         condition: isHref
@@ -70,11 +73,13 @@ export function PetThumbnail({ id, stats, src, onClick, href, children, phase = 
       <CatThumbnailImage src={src} srcAlt={petId}>
         {children || null}
       </CatThumbnailImage>
-      <Container className="ccwc-cat-thumbnail__stats">
-        <Stats {...statsProps}>
-          { StatsChild } 
-        </Stats>
-      </Container>
+      { stats && (
+        <Container className="ccwc-cat-thumbnail__stats">
+          <Stats stats={stats}>
+            { StatsChild } 
+          </Stats>
+        </Container>
+      ) }
     </Container>
   )
 }

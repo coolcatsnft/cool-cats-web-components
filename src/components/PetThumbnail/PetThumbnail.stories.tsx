@@ -86,6 +86,12 @@ export default {
       },
       defaultValue: false
     },
+    hideStats: {
+      control: {
+        type: 'boolean'
+      },
+      defaultValue: false
+    },
   }
 }
 
@@ -94,7 +100,7 @@ export const Example = ((args) => {
     <PetThumbnail 
       src={`https://metadata.coolcatsnft.com/pet/image/${args.id}.png`}
       id={args.id} 
-      stats={{
+      stats={!args.hideStats ? {
         questsRemaining: {
           amount: args.dailyQuestsRemainingAmount,
           max: 10
@@ -107,7 +113,7 @@ export const Example = ((args) => {
           amount: args.phaseItemInteractionsAmount,
           max: args.phaseItemInteractionsMax
         }
-      }}
+      }: undefined}
       selected={args.selected}
       href={args.href}
       phase={args.phase}

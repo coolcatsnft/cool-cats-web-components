@@ -197,7 +197,7 @@ export type TElement = "" | "air" | "fire" | "grass" | "water";
 
 export interface IPetThumbnail {
 	id: string|number;
-  stats: IStats;
+  stats?: IStats;
 	src?: string|React.ReactNode;
 	onClick?: Function;
   href?: string;
