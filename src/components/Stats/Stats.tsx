@@ -46,7 +46,12 @@ export function StatTable(stats: IStats) {
         </li>
       ) }
       { stats.dailyItemInteractions && (
-        <li className="items" data-amount={stats.dailyItemInteractions.amount} data-max={stats.dailyItemInteractions.max} title="Daily item interactions">
+        <li 
+          className="items" 
+          data-amount={stats.dailyItemInteractions.amount} 
+          data-max={stats.dailyItemInteractions.max} 
+          title="Daily item interactions complete"
+        >
           {getItems(stats.dailyItemInteractions.max, stats.dailyItemInteractions.amount)}
         </li>
       ) }
@@ -60,12 +65,13 @@ export function StatTable(stats: IStats) {
 }
 
 export function Stats(props: IStatBlock) {
+  console.log(props.children)
   return (
     <Container
       className="ccwc-stats"
       states={[{
         className: "ccwc-stats--withbadge",
-        condition: typeof props.children !== 'undefined'
+        condition: typeof props.children !== 'undefined' && props.children !== null
       }]}
     >
       { props.header && <Header size="4">{props.header}</Header> }

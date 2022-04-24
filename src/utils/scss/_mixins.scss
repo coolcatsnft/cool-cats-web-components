@@ -45,3 +45,23 @@
     @content;
   }
 }
+
+@mixin thumbnailIcon($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  content: "";
+  display: inline-grid;
+  aspect-ratio: 1;
+  width: 10%;
+  min-width: 20px;
+  background-color: #fff;
+  position: absolute;
+  right: $right;
+  top: $top;
+  left: $left;
+  bottom: $bottom;
+  border: $global-border-width solid #222;
+  z-index: 1;
+  border-radius: 50%;
+  background-position: 50% 50%;
+  background-size: 80%;
+  background-repeat: no-repeat;
+}

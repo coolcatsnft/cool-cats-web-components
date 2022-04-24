@@ -1,0 +1,106 @@
+@import '../../utils/scss/';
+
+$border-radius: 10px;
+
+.#{$global-prefix}cat-thumbnail {
+  display: inline-block;
+  margin: 0;
+  margin-bottom: $global-margin;  
+  color: inherit;
+  width: 100%;
+  height: 100%;
+  box-shadow: none;
+  border-radius: $border-radius;
+  position: relative;
+  border: $global-border-width solid rgba(0, 0, 0, .1);
+  max-width: 500px;
+  transition: all 0.3s;
+  user-select: none;
+
+  &,
+  > * {
+    text-decoration: none !important;
+  }
+
+  &__stats {
+    .#{$global-prefix}stats {
+      padding: $global-padding;
+
+      &--withbadge {
+        padding: 0;
+        margin: 12px 0 12px $global-padding;
+      }
+    }
+  }
+
+  &__image {
+    > span,
+    > img {
+      display: block;
+      margin: 0;
+      border-top-left-radius: $border-radius * 0.5;
+      border-top-right-radius: $border-radius * 0.5;
+      width: 100%;
+    }
+  }
+
+  &.selected {
+    border-color: rgba(0,0,0,.7);
+  }
+
+  &.claimable {
+    &:after {
+      @include thumbnailIcon(-2%, -2%);
+      background-image: url('../../../assets/icon/egg.png');
+      border-color: inherit;
+    }
+  }
+
+  &.air,
+  &.fire,
+  &.grass,
+  &.water {
+    &:after {
+      @include thumbnailIcon(-2%, -2%);
+      background-image: url('../../../assets/icon/air.svg');
+      border-color: inherit;
+    }
+  }
+
+  &.fire {
+    &:after {
+      background-image: url('../../../assets/icon/fire.svg');
+      background-size: 70%;
+    }
+  }
+
+  &.grass {
+    &:after {
+      background-image: url('../../../assets/icon/grass.svg');
+      background-size: 60%;
+    }
+  }
+
+  &.water {
+    &:after {
+      background-image: url('../../../assets/icon/water.svg');
+      background-size: 75%;
+    }
+  }
+
+  &.staked {
+    &:before {
+      @include thumbnailIcon(-2%, auto, auto, -2%);
+      background-image: url('../../../assets/icon/swordAndShield.svg');
+      border-color: inherit;
+    }
+  }
+
+  .#{$global-prefix}rarity-badge {
+    border-bottom-right-radius: 0;
+  }
+
+  &.clickable {
+    cursor: pointer;
+  }
+}
