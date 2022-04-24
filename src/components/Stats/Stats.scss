@@ -64,8 +64,13 @@ $width-badge-width: $global-rarity-badge-width + $global-margin;
     &:before,
     &:after {
       font-weight: bold;
-      font-size: 16px;
-      line-height: 16px;
+      font-size: 12px;
+      line-height: 14px;
+
+      @include largedesktopbreakpoint() {
+        font-size: 16px;
+        line-height: 16px;
+      }
     }
 
     &:before {

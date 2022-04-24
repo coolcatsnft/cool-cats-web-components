@@ -34,12 +34,14 @@ $border-radius: 10px;
   }
 
   &__image {
+    border-top-right-radius: $border-radius * 0.5;
+    overflow: hidden;
+    border-top-left-radius: $border-radius * 0.5;
+
     > span,
     > img {
-      display: block;
+      display: block !important;
       margin: 0;
-      border-top-left-radius: $border-radius * 0.5;
-      border-top-right-radius: $border-radius * 0.5;
       width: 100%;
     }
   }

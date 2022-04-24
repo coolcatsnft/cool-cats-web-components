@@ -40,8 +40,7 @@ export function PetThumbnail({ id, stats, src, onClick, href, children, phase = 
       title={petId}
       elementType={isHref ? "a" : "div"}
       states={[{
-        className: "ccwc-cat-thumbnail--pet",
-        condition: selected === true
+        className: "ccwc-cat-thumbnail--pet"
       }, {
         className: "selected",
         condition: selected === true

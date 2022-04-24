@@ -65,7 +65,6 @@ export function StatTable(stats: IStats) {
 }
 
 export function Stats(props: IStatBlock) {
-  console.log(props.children)
   return (
     <Container
       className="ccwc-stats"
