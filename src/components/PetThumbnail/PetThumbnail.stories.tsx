@@ -92,6 +92,12 @@ export default {
       },
       defaultValue: false
     },
+    hideBadge: {
+      control: {
+        type: 'boolean'
+      },
+      defaultValue: false
+    },
   }
 }
 
@@ -119,6 +125,7 @@ export const Example = ((args) => {
       phase={args.phase}
       element={args.element}
       staked={args.staked}
+      hideBadge={args.hideBadge}
       onClick={args.enableOnClick ? () => alert('Hello') : undefined}
     />
   )

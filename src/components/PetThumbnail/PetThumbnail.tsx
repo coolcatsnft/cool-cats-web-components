@@ -8,7 +8,7 @@ import '../../utils/scss/globals.scss';
 import '../CatThumbnail/CatThumbnail.scss';
 import { CatThumbnailImage } from "../CatThumbnail/CatThumbnail";
 
-export function PetThumbnail({ id, stats, src, onClick, href, children, phase = "", element = "", selected = false, staked = false, hideStats = false }: IPetThumbnail) {
+export function PetThumbnail({ id, stats, src, onClick, href, children, phase = "", element = "", selected = false, staked = false, hideStats = false, hideBadge = false }: IPetThumbnail) {
   const petId = `# ${id}`;
   const statsProps = {
     stats: stats
@@ -16,7 +16,7 @@ export function PetThumbnail({ id, stats, src, onClick, href, children, phase = 
   const isHref = typeof href === 'string' && href.length > 0;
   const petPhase = phase === 'final_form' ? 'Final' : phase.length > 0 ? phase[0].toUpperCase() + phase.substring(1) : "";
 
-  const StatsChild = petPhase.length > 0 ? (
+  const StatsChild = petPhase.length > 0 && !hideBadge ? (
     <RarityBadge label="Phase">
       <span>
         <svg viewBox="0 0 500 500">
