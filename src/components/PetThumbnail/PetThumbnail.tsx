@@ -42,6 +42,8 @@ export function PetThumbnail({ id, stats, src, onClick, href, children, phase = 
       states={[{
         className: "ccwc-cat-thumbnail--pet"
       }, {
+        className: `ccwc-cat-thumbnail--pet-phase-${typeof phase === 'string' ? phase : 'egg'}`
+      }, {
         className: "selected",
         condition: selected === true
       }, {
