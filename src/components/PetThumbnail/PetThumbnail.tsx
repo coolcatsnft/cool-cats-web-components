@@ -8,7 +8,7 @@ import '../../utils/scss/globals.scss';
 import '../CatThumbnail/CatThumbnail.scss';
 import { CatThumbnailImage } from "../CatThumbnail/CatThumbnail";
 
-export function PetThumbnail({ id, stats, src, onClick, href, children, phase = "", element = "", selected = false, staked = false }: IPetThumbnail) {
+export function PetThumbnail({ id, stats, src, onClick, href, children, phase = "", element = "", selected = false, staked = false, hideStats = false }: IPetThumbnail) {
   const petId = `# ${id}`;
   const statsProps = {
     stats: stats
@@ -58,7 +58,7 @@ export function PetThumbnail({ id, stats, src, onClick, href, children, phase = 
         condition: typeof onClick === 'function'
       }, {
         className: "ccwc-cat-thumbnail--petstats",
-        condition: typeof stats !== 'undefined'
+        condition: typeof stats !== 'undefined' && !hideStats
       }, {
         attr: "href",
         value: isHref ? href : '',
@@ -73,7 +73,7 @@ export function PetThumbnail({ id, stats, src, onClick, href, children, phase = 
       <CatThumbnailImage src={src} srcAlt={petId}>
         {children || null}
       </CatThumbnailImage>
-      { stats && (
+      { stats && !hideStats && (
         <Container className="ccwc-cat-thumbnail__stats">
           <Stats stats={stats}>
             { StatsChild } 

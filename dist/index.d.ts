@@ -180,6 +180,7 @@ interface IPetThumbnail {
     href?: string;
     selected?: boolean;
     staked?: boolean;
+    hideStats?: boolean;
     phase?: TPhase;
     element?: TElement;
     children?: React.ReactNode;
@@ -430,7 +431,7 @@ declare function Button({ children, label, disabled, sashed, expanded, colour, c
 
 declare function CatThumbnail({ id, stats, src, onClick, href, children, selected, claimable }: ICatThumbnail): JSX.Element;
 
-declare function PetThumbnail({ id, stats, src, onClick, href, children, phase, element, selected, staked }: IPetThumbnail): JSX.Element;
+declare function PetThumbnail({ id, stats, src, onClick, href, children, phase, element, selected, staked, hideStats }: IPetThumbnail): JSX.Element;
 
 declare function Legend({ children }: IJustChildrenProps): JSX.Element;
 
