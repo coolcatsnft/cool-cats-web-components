@@ -26,6 +26,7 @@ import { Grass } from './Grass';
 import { Water } from './Water';
 import { Swords } from './Swords';
 import { Cog, CogGroup } from './Cog';
+import { SwordAndShield } from './SwordAndShield';
 import { Logo, LogoMotion, SiteLogo, SiteLogoMotion, WhiteOutlineLogo, WhiteOutlineLogoMotion } from './Logo';
 
 export default {
@@ -294,6 +295,16 @@ export const IconExample = (() => {
     <Icon>
       <i>
         <Pet />
+      </i>
+    </Icon>
+  )
+}).bind({});
+
+export const SwordAndShieldIcon = (() => {
+  return (
+    <Icon color="grey">
+      <i>
+        <SwordAndShield />
       </i>
     </Icon>
   )

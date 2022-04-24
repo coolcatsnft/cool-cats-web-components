@@ -24,6 +24,7 @@ import { Chest, ChestGroup } from './Chest';
 import { Share, ShareGroup } from './Share';
 import { Cog, CogGroup } from './Cog';
 import { QuestionMark, QuestionMarkGroup } from './QuestionMark';
+import { SwordAndShield } from './SwordAndShield';
 import { Logo, LogoMotion, SiteLogo, SiteLogoMotion, WhiteOutlineLogo, WhiteOutlineLogoMotion } from './Logo';
-export { Air, Fire, Grass, Water, Cat, Pet, Item, Marketplace, Questing, Housing, Battling, Shop, Envelope, Meowpad, Help, Milk, Opensea, Icon, Logo, LogoMotion, SiteLogo, SiteLogoMotion, WhiteOutlineLogo, WhiteOutlineLogoMotion, Circle, Box, BoxGroup, Chest, ChestGroup, Egg, EggGroup, Hammer, HammerGroup, Share, ShareGroup, Cog, CogGroup, QuestionMark, QuestionMarkGroup };
+export { Air, Fire, Grass, Water, Cat, Pet, Item, Marketplace, Questing, Housing, Battling, Shop, Envelope, Meowpad, Help, Milk, Opensea, Icon, Logo, LogoMotion, SiteLogo, SiteLogoMotion, WhiteOutlineLogo, WhiteOutlineLogoMotion, Circle, Box, BoxGroup, Chest, ChestGroup, Egg, EggGroup, Hammer, HammerGroup, Share, ShareGroup, Cog, CogGroup, QuestionMark, QuestionMarkGroup, SwordAndShield };
 export default Icon;

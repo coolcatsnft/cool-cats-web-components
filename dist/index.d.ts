@@ -389,6 +389,8 @@ declare function QuestionMark({ fill, stroke }: {
     stroke?: string;
 }): JSX.Element;
 
+declare function SwordAndShield(): JSX.Element;
+
 interface ILogo {
     x?: number;
     y?: number;
@@ -533,6 +535,7 @@ declare namespace Components {
     CogGroup as CogGroupIcon,
     QuestionMark as QuestionMarkIcon,
     QuestionMarkGroup as QuestionMarkGroupIcon,
+    SwordAndShield as SwordAndShieldIcon,
     Logo as LogoIcon,
     LogoMotion as LogoMotionIcon,
     SiteLogo as SiteLogoIcon,
@@ -584,4 +587,4 @@ declare const _default: {
     Utils: typeof Utils;
 };
 
-export { Air as AirIcon, Alert, AlertText, Battling as BattlingIcon, BooleanVisibilityContainer, BoxGroup as BoxGroupIcon, Box as BoxIcon, Button, Cat as CatIcon, CatThumbnail, ChestGroup as ChestGroupIcon, Chest as ChestIcon, Circle as CircleIcon, CogGroup as CogGroupIcon, Cog as CogIcon, Container, Dots, EggGroup as EggGroupIcon, Egg as EggIcon, Envelope as EnvelopeIcon, ErrorMessage, Fire as FireIcon, Element as FormElement, Fieldset as FormFieldset, Input as FormInput, Label as FormLabel, Legend as FormLegend, Grass as GrassIcon, Group, HammerGroup as HammerGroupIcon, Hammer as HammerIcon, Header, Help as HelpIcon, Housing as HousingIcon, IButtonProps, ICatThumbnail, IContainerAttributeState, IContainerClassState, IEditableInput, IFormElement, IFormLabel, IGenericElementProps, IIndexable, IInput, IJustChildrenProps, IPanelProps, IPetThumbnail, IPill, IPills, IPluralProps, IStatBlock, IStats, ISubStats, ITab, ITabsContent, ITabsProps, ITabsTab, Icon, InputButton, Item as ItemIcon, ItemSummary, List, Logo as LogoIcon, LogoMotion as LogoMotionIcon, Marketplace as MarketplaceIcon, Meowpad as MeowpadIcon, Milk as MilkIcon, MilkValue, NetworkErrorMessage, Opensea as OpenseaIcon, Panel, Pet as PetIcon, PetThumbnail, Pill, Pills, Plural, Questing as QuestingIcon, QuestionMarkGroup as QuestionMarkGroupIcon, QuestionMark as QuestionMarkIcon, RarityBadge, ShareGroup as ShareGroupIcon, Share as ShareIcon, Shop as ShopIcon, SiteLogo as SiteLogoIcon, SiteLogoMotion as SiteLogoMotionIcon, StatTable, Stats, TChildNode, TElement, THeaderSize, TPanelType, TPhase, Tabs, TabsContent, TabsTab, Water as WaterIcon, WhiteOutlineLogo as WhiteOutlineLogoIcon, WhiteOutlineLogoMotion as WhiteOutlineLogoMotionIcon, _default as default, getSizes, simpleSlug, useData, useEyes, useMousePosition, useObserver };
+export { Air as AirIcon, Alert, AlertText, Battling as BattlingIcon, BooleanVisibilityContainer, BoxGroup as BoxGroupIcon, Box as BoxIcon, Button, Cat as CatIcon, CatThumbnail, ChestGroup as ChestGroupIcon, Chest as ChestIcon, Circle as CircleIcon, CogGroup as CogGroupIcon, Cog as CogIcon, Container, Dots, EggGroup as EggGroupIcon, Egg as EggIcon, Envelope as EnvelopeIcon, ErrorMessage, Fire as FireIcon, Element as FormElement, Fieldset as FormFieldset, Input as FormInput, Label as FormLabel, Legend as FormLegend, Grass as GrassIcon, Group, HammerGroup as HammerGroupIcon, Hammer as HammerIcon, Header, Help as HelpIcon, Housing as HousingIcon, IButtonProps, ICatThumbnail, IContainerAttributeState, IContainerClassState, IEditableInput, IFormElement, IFormLabel, IGenericElementProps, IIndexable, IInput, IJustChildrenProps, IPanelProps, IPetThumbnail, IPill, IPills, IPluralProps, IStatBlock, IStats, ISubStats, ITab, ITabsContent, ITabsProps, ITabsTab, Icon, InputButton, Item as ItemIcon, ItemSummary, List, Logo as LogoIcon, LogoMotion as LogoMotionIcon, Marketplace as MarketplaceIcon, Meowpad as MeowpadIcon, Milk as MilkIcon, MilkValue, NetworkErrorMessage, Opensea as OpenseaIcon, Panel, Pet as PetIcon, PetThumbnail, Pill, Pills, Plural, Questing as QuestingIcon, QuestionMarkGroup as QuestionMarkGroupIcon, QuestionMark as QuestionMarkIcon, RarityBadge, ShareGroup as ShareGroupIcon, Share as ShareIcon, Shop as ShopIcon, SiteLogo as SiteLogoIcon, SiteLogoMotion as SiteLogoMotionIcon, StatTable, Stats, SwordAndShield as SwordAndShieldIcon, TChildNode, TElement, THeaderSize, TPanelType, TPhase, Tabs, TabsContent, TabsTab, Water as WaterIcon, WhiteOutlineLogo as WhiteOutlineLogoIcon, WhiteOutlineLogoMotion as WhiteOutlineLogoMotionIcon, _default as default, getSizes, simpleSlug, useData, useEyes, useMousePosition, useObserver };
