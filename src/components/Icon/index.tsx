@@ -24,6 +24,7 @@ import { Chest, ChestGroup } from './Chest';
 import { Share, ShareGroup } from './Share';
 import { Cog, CogGroup } from './Cog';
 import { QuestionMark, QuestionMarkGroup } from './QuestionMark';
+import { SwordAndShield } from './SwordAndShield';
 import { Logo, LogoMotion, SiteLogo, SiteLogoMotion, WhiteOutlineLogo, WhiteOutlineLogoMotion } from './Logo';
 
 export { 
@@ -65,7 +66,8 @@ export {
   Cog,
   CogGroup,
   QuestionMark,
-  QuestionMarkGroup
+  QuestionMarkGroup,
+  SwordAndShield
 };
 
 export default Icon;
