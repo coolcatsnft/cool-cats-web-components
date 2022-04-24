@@ -203,6 +203,7 @@ export interface IPetThumbnail {
   href?: string;
   selected?: boolean;
   staked?: boolean;
+  hideStats?: boolean;
   phase?: TPhase;
   element?: TElement;
   children?: React.ReactNode;
