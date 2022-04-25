@@ -1,0 +1,111 @@
+@import '../../utils/scss/';
+
+.#{$global-prefix}button-increment {
+  @include button;
+  padding: 0 !important;
+  display: inline-block;
+  overflow: hidden;
+  
+  & > * {
+    width: auto;
+  }
+
+  > button {
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+
+  > button {
+    @include button-font;
+    @include button-disabled;
+    background: none;
+    background-color: inherit;
+    line-height: inherit;
+    margin: 0;
+    outline: none;
+    border: 0 none;
+    display: block;
+    float: left;
+    
+    &:not([disabled]) {
+      cursor: pointer;
+    }
+  }
+
+  .#{$global-prefix}increment > button,
+  .#{$global-prefix}increment > span,
+  > button {
+    padding: $global-padding * 0.5 $global-padding;
+    color: inherit;
+  }
+
+  .#{$global-prefix}increment > button,
+  .#{$global-prefix}increment > span {
+    &:hover {
+      transform: scale(1) !important;
+    }
+  }
+
+  &.large,
+  &.xlarge,
+  &.massive {
+    .#{$global-prefix}increment > button,
+    .#{$global-prefix}increment > span,
+    > button {
+      padding: $global-padding;
+    }
+  }
+
+  .#{$global-prefix}form-element {
+    display: block;
+    float: right;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  .#{$global-prefix}increment {
+    margin: 0;
+    font-size: inherit;
+    line-height: inherit;
+
+    > button {
+      margin: 0;
+      min-width: 24px;
+      line-height: inherit;
+      box-shadow: none;
+      border-radius: 0;
+      background-color: rgba($color: #000000, $alpha: 0.2);
+      width: auto;
+      min-width: none;
+      max-width: none;
+    }
+
+    > span {
+      font-size: inherit;
+      line-height: inherit;
+      background-color: rgba($color: #FFF, $alpha: 0.5);
+      min-width: 45px;
+    }
+  }
+
+  &.tiny .#{$global-prefix}increment > span {
+    min-width: 40px;
+  }
+
+  &.small .#{$global-prefix}increment > span {
+    min-width: 42px;
+  }
+
+  &.large .#{$global-prefix}increment > span {
+    min-width: 51px;
+  }
+
+  &.xlarge .#{$global-prefix}increment > span {
+    min-width: 57px;
+  }
+
+  &.massive .#{$global-prefix}increment > span {
+    min-width: 63px;
+  }
+}

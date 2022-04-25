@@ -64,3 +64,112 @@
   background-size: 80%;
   background-repeat: no-repeat;
 }
+
+@mixin button() {
+  padding: map-get($global-button-sizes,  padding-normal);
+  background-color: map-get($global-button-colors, default);
+  border-radius: 40px;
+  box-shadow: 0px 4px 16px 0px #00000026;
+  border: none;
+  position: relative;
+  transition: all 0.1s;
+
+  @include button-font;
+  
+  @include desktopbreakpoint() {
+    font-size: map-get($global-button-sizes, font-normal--desktop);
+    line-height: map-get($global-button-sizes,  line-height-normal--desktop);
+  }
+
+  &:not([disabled]) {
+    @each $key, $color in $global-button-colors {
+      &.#{"" + $key} {
+        background-color: $color;
+        color: map-get($global-button-font-colors, $key);
+      }
+    }
+  }
+
+  @each $size in $global-sizes {
+    &.#{"" + $size} {
+      padding: map-get($global-button-sizes, #{'padding-' + $size});
+    }
+  }
+
+  &.expanded,
+  &--expanded {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  &.sashed {
+    overflow: hidden;
+    z-index: 1;
+    position: relative;
+
+    &:before {
+      position: absolute;
+      z-index: 3;
+      width: 15%;
+      height: 1000px;
+      transform: rotate(30deg);
+      transform-origin: center;
+      background-color: rgba(255, 255, 255, 0.3);
+      content: "";
+      display: block;
+      left: calc(50% - 7.5%);
+      top: calc(50% - 500px);
+      z-index: -1;
+      transition: all 0.4s;
+    }
+
+    &:not([disabled]) {
+      &:hover {
+        &:before {
+          width: 25%;
+          left: calc(50% - 12.5%);
+        }
+      }
+      &:active {
+        &:before {
+          width: 1000px;
+          left: calc(50% - 500px);
+        }
+      }
+    }
+  }
+}
+
+@mixin button-font() {
+  font-size: map-get($global-button-sizes, font-normal);
+  line-height: map-get($global-button-sizes,  line-height-normal);
+  font-family: 'Poppins', sans-serif;
+  color: map-get($global-button-font-colors, default);
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  user-select: none;
+  font-weight: bold;
+
+  @each $size in $global-sizes {
+    &.#{"" + $size} {
+      font-size: map-get($global-button-sizes, #{'font-' + $size});
+      line-height: map-get($global-button-sizes, #{'line-height-' + $size});
+
+      @include desktopbreakpoint() {
+        font-size: map-get($global-button-sizes, #{'font-' + $size + '--desktop'});
+        line-height: map-get($global-button-sizes, #{'line-height-' + $size + '--desktop'});
+      }
+    }
+  }
+}
+
+@mixin button-disabled() {
+  &[disabled],
+  &.disabled,
+  &.button-disabled {
+    cursor: not-allowed !important;
+    background-color: map-get($global-site-colors, disabled);
+  }
+}

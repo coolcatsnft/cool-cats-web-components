@@ -25,6 +25,8 @@ export { default as InputButton } from "./InputButton";
 export { default as Button } from "./Button";
 export { default as CatThumbnail } from "./CatThumbnail";
 export { default as PetThumbnail } from "./PetThumbnail";
+export { default as Increment } from "./Increment";
+export { default as ButtonIncrement } from "./ButtonIncrement";
 
 // Form
 export { Legend as FormLegend } from "./Form";

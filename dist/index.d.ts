@@ -186,12 +186,23 @@ interface IPetThumbnail {
     element?: TElement;
     children?: React.ReactNode;
 }
+interface IIncrement {
+    min: number;
+    max: number;
+    defaultValue?: number;
+    callback?: Function;
+    label?: string;
+    disabled?: boolean;
+    buttonSize?: string;
+}
 
 declare const simpleSlug: (str: string) => string;
 declare const getSizes: () => string[];
+declare const getColours: () => string[];
 
 declare const Utils_simpleSlug: typeof simpleSlug;
 declare const Utils_getSizes: typeof getSizes;
+declare const Utils_getColours: typeof getColours;
 type Utils_IIndexable = IIndexable;
 type Utils_TChildNode = TChildNode;
 type Utils_IGenericElementProps = IGenericElementProps;
@@ -221,10 +232,12 @@ type Utils_ICatThumbnail = ICatThumbnail;
 type Utils_TPhase = TPhase;
 type Utils_TElement = TElement;
 type Utils_IPetThumbnail = IPetThumbnail;
+type Utils_IIncrement = IIncrement;
 declare namespace Utils {
   export {
     Utils_simpleSlug as simpleSlug,
     Utils_getSizes as getSizes,
+    Utils_getColours as getColours,
     Utils_IIndexable as IIndexable,
     Utils_TChildNode as TChildNode,
     Utils_IGenericElementProps as IGenericElementProps,
@@ -253,6 +266,7 @@ declare namespace Utils {
     Utils_TPhase as TPhase,
     Utils_TElement as TElement,
     Utils_IPetThumbnail as IPetThumbnail,
+    Utils_IIncrement as IIncrement,
   };
 }
 
@@ -434,6 +448,17 @@ declare function CatThumbnail({ id, stats, src, onClick, href, children, selecte
 
 declare function PetThumbnail({ id, stats, src, onClick, href, children, phase, element, selected, staked, hideStats, hideBadge }: IPetThumbnail): JSX.Element;
 
+declare function Increment({ min, max, defaultValue, callback, label, buttonSize, disabled }: IIncrement): JSX.Element;
+
+declare function ButtonIncrement({ size, colour, disabled, allowZero, buttonProps, incrementProps }: {
+    size?: string;
+    colour?: string;
+    disabled?: boolean;
+    allowZero?: boolean;
+    buttonProps: IButtonProps;
+    incrementProps: IIncrement;
+}): JSX.Element;
+
 declare function Legend({ children }: IJustChildrenProps): JSX.Element;
 
 declare function Element({ type, label, disabled, error, size, htmlFor, children }: IFormElement): JSX.Element;
@@ -471,6 +496,8 @@ declare const Components_InputButton: typeof InputButton;
 declare const Components_Button: typeof Button;
 declare const Components_CatThumbnail: typeof CatThumbnail;
 declare const Components_PetThumbnail: typeof PetThumbnail;
+declare const Components_Increment: typeof Increment;
+declare const Components_ButtonIncrement: typeof ButtonIncrement;
 declare namespace Components {
   export {
     Components_Container as Container,
@@ -500,6 +527,8 @@ declare namespace Components {
     Components_Button as Button,
     Components_CatThumbnail as CatThumbnail,
     Components_PetThumbnail as PetThumbnail,
+    Components_Increment as Increment,
+    Components_ButtonIncrement as ButtonIncrement,
     Legend as FormLegend,
     Element as FormElement,
     Label as FormLabel,
@@ -589,4 +618,4 @@ declare const _default: {
     Utils: typeof Utils;
 };
 
-export { Air as AirIcon, Alert, AlertText, Battling as BattlingIcon, BooleanVisibilityContainer, BoxGroup as BoxGroupIcon, Box as BoxIcon, Button, Cat as CatIcon, CatThumbnail, ChestGroup as ChestGroupIcon, Chest as ChestIcon, Circle as CircleIcon, CogGroup as CogGroupIcon, Cog as CogIcon, Container, Dots, EggGroup as EggGroupIcon, Egg as EggIcon, Envelope as EnvelopeIcon, ErrorMessage, Fire as FireIcon, Element as FormElement, Fieldset as FormFieldset, Input as FormInput, Label as FormLabel, Legend as FormLegend, Grass as GrassIcon, Group, HammerGroup as HammerGroupIcon, Hammer as HammerIcon, Header, Help as HelpIcon, Housing as HousingIcon, IButtonProps, ICatThumbnail, IContainerAttributeState, IContainerClassState, IEditableInput, IFormElement, IFormLabel, IGenericElementProps, IIndexable, IInput, IJustChildrenProps, IPanelProps, IPetThumbnail, IPill, IPills, IPluralProps, IStatBlock, IStats, ISubStats, ITab, ITabsContent, ITabsProps, ITabsTab, Icon, InputButton, Item as ItemIcon, ItemSummary, List, Logo as LogoIcon, LogoMotion as LogoMotionIcon, Marketplace as MarketplaceIcon, Meowpad as MeowpadIcon, Milk as MilkIcon, MilkValue, NetworkErrorMessage, Opensea as OpenseaIcon, Panel, Pet as PetIcon, PetThumbnail, Pill, Pills, Plural, Questing as QuestingIcon, QuestionMarkGroup as QuestionMarkGroupIcon, QuestionMark as QuestionMarkIcon, RarityBadge, ShareGroup as ShareGroupIcon, Share as ShareIcon, Shop as ShopIcon, SiteLogo as SiteLogoIcon, SiteLogoMotion as SiteLogoMotionIcon, StatTable, Stats, SwordAndShield as SwordAndShieldIcon, TChildNode, TElement, THeaderSize, TPanelType, TPhase, Tabs, TabsContent, TabsTab, Water as WaterIcon, WhiteOutlineLogo as WhiteOutlineLogoIcon, WhiteOutlineLogoMotion as WhiteOutlineLogoMotionIcon, _default as default, getSizes, simpleSlug, useData, useEyes, useMousePosition, useObserver };
+export { Air as AirIcon, Alert, AlertText, Battling as BattlingIcon, BooleanVisibilityContainer, BoxGroup as BoxGroupIcon, Box as BoxIcon, Button, ButtonIncrement, Cat as CatIcon, CatThumbnail, ChestGroup as ChestGroupIcon, Chest as ChestIcon, Circle as CircleIcon, CogGroup as CogGroupIcon, Cog as CogIcon, Container, Dots, EggGroup as EggGroupIcon, Egg as EggIcon, Envelope as EnvelopeIcon, ErrorMessage, Fire as FireIcon, Element as FormElement, Fieldset as FormFieldset, Input as FormInput, Label as FormLabel, Legend as FormLegend, Grass as GrassIcon, Group, HammerGroup as HammerGroupIcon, Hammer as HammerIcon, Header, Help as HelpIcon, Housing as HousingIcon, IButtonProps, ICatThumbnail, IContainerAttributeState, IContainerClassState, IEditableInput, IFormElement, IFormLabel, IGenericElementProps, IIncrement, IIndexable, IInput, IJustChildrenProps, IPanelProps, IPetThumbnail, IPill, IPills, IPluralProps, IStatBlock, IStats, ISubStats, ITab, ITabsContent, ITabsProps, ITabsTab, Icon, Increment, InputButton, Item as ItemIcon, ItemSummary, List, Logo as LogoIcon, LogoMotion as LogoMotionIcon, Marketplace as MarketplaceIcon, Meowpad as MeowpadIcon, Milk as MilkIcon, MilkValue, NetworkErrorMessage, Opensea as OpenseaIcon, Panel, Pet as PetIcon, PetThumbnail, Pill, Pills, Plural, Questing as QuestingIcon, QuestionMarkGroup as QuestionMarkGroupIcon, QuestionMark as QuestionMarkIcon, RarityBadge, ShareGroup as ShareGroupIcon, Share as ShareIcon, Shop as ShopIcon, SiteLogo as SiteLogoIcon, SiteLogoMotion as SiteLogoMotionIcon, StatTable, Stats, SwordAndShield as SwordAndShieldIcon, TChildNode, TElement, THeaderSize, TPanelType, TPhase, Tabs, TabsContent, TabsTab, Water as WaterIcon, WhiteOutlineLogo as WhiteOutlineLogoIcon, WhiteOutlineLogoMotion as WhiteOutlineLogoMotionIcon, _default as default, getColours, getSizes, simpleSlug, useData, useEyes, useMousePosition, useObserver };

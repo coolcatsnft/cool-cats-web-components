@@ -1,27 +1,19 @@
 import React from 'react';
 import { getColours, getSizes } from '../../utils';
-import { Button } from './Button';
+import { ButtonIncrement } from './ButtonIncrement';
 
 export default {
-  title: 'Button',
-  component: Button,
+  title: 'Form/ButtonIncrement',
+  component: ButtonIncrement,
   argTypes: {
     disabled: {
-      control: { type: 'boolean' },
-      defaultValue: false
-    },
-    sashed: {
-      control: { type: 'boolean' },
-      defaultValue: false
-    },
-    expanded: {
       control: { type: 'boolean' },
       defaultValue: false
     },
     size: {
       control: "select",
       options: getSizes(),
-      defaultValue: "normal",
+      defaultValue: "",
       name: "Size"
     },
     colour: {
@@ -29,12 +21,16 @@ export default {
       options: getColours(),
       defaultValue: "default",
       name: "Colour"
+    },
+    label: {
+      control: "text",
+      defaultValue: "Purchase"
     }
   }
 }
 
-export const Simple = ((args) => {
+export const Example = ((args) => {
   return (
-    <Button {...args}>A button</Button>
+    <ButtonIncrement {...args} incrementProps={ { min: 1, max: 3 } } buttonProps={ { label: args.label } } />
   )
 }).bind({});
