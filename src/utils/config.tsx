@@ -209,3 +209,13 @@ export interface IPetThumbnail {
   element?: TElement;
   children?: React.ReactNode;
 };
+
+export interface IIncrement {
+  min: number;
+  max: number;
+  defaultValue?: number;
+  callback?: Function;
+  label?: string;
+  disabled?: boolean;
+  buttonSize?: string;
+};
