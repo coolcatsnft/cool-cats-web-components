@@ -55,7 +55,8 @@ export function Button({
       disabled={disabled || _disabled || false}
       title={title}
       states={[{
-        className: 'ccwc-button'
+        className: 'ccwc-button',
+        condition: !removeBaseClass
       }, {
         className: 'button',
         condition: !removeBaseClass
