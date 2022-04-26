@@ -82,18 +82,38 @@ $width-badge-width: $global-rarity-badge-width + $global-margin;
     }
 
     @include largemobilebreakpoint() {
-      padding-top: 8px;
+      padding-top: 0;
       padding-left: 30px;
       background-repeat: no-repeat;
       background-position: left center;
       background-size: 20px;
       max-height: 33%;
+      cursor: pointer;
+      position: static;
+
       &:before {
+        opacity: 0;
+        transition: all 0.4s;
+        visibility: hidden;
+        top: -16px;
+        left: 0;
+        padding: $global-padding * 0.5;
         position: absolute;
-        top: -2px;
+        border: $global-border-width solid rgba(0, 0, 0, .1);
+        background-color: white;
+        z-index: 2;
+        border-radius: 10px;
+        width: 100%;
       }
       &:after {
         display: none;
+      }
+
+      &:active {
+        &:before {
+          visibility: visible;
+          opacity: 1;
+        }
       }
 
       &:before,
@@ -105,9 +125,6 @@ $width-badge-width: $global-rarity-badge-width + $global-margin;
 
     @include tabletbreakpoint() {
       padding-top: 0;
-      &:before {
-        display: none;
-      }
     }
 
     &:last-of-type {
