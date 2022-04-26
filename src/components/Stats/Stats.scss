@@ -89,13 +89,12 @@ $width-badge-width: $global-rarity-badge-width + $global-margin;
       background-size: 20px;
       max-height: 33%;
       cursor: pointer;
-      position: static;
 
       &:before {
         opacity: 0;
         transition: all 0.4s;
         visibility: hidden;
-        top: -16px;
+        top: $global-padding * -0.5;
         left: 0;
         padding: $global-padding * 0.5;
         position: absolute;
@@ -104,6 +103,7 @@ $width-badge-width: $global-rarity-badge-width + $global-margin;
         z-index: 2;
         border-radius: 10px;
         width: 100%;
+        line-height: 1;
       }
       &:after {
         display: none;
