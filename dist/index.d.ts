@@ -193,6 +193,8 @@ interface IIncrement {
     callback?: Function;
     label?: string;
     disabled?: boolean;
+    removeBaseClass?: boolean;
+    buttonClassName?: string;
     buttonSize?: string;
 }
 
@@ -448,7 +450,7 @@ declare function CatThumbnail({ id, stats, src, onClick, href, children, selecte
 
 declare function PetThumbnail({ id, stats, src, onClick, href, children, phase, element, selected, staked, hideStats, hideBadge }: IPetThumbnail): JSX.Element;
 
-declare function Increment({ min, max, defaultValue, callback, label, buttonSize, disabled }: IIncrement): JSX.Element;
+declare function Increment({ min, max, defaultValue, callback, label, buttonSize, disabled, removeBaseClass, buttonClassName }: IIncrement): JSX.Element;
 
 declare function ButtonIncrement({ size, colour, disabled, allowZero, buttonProps, incrementProps }: {
     size?: string;

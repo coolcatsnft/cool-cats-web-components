@@ -20,7 +20,7 @@ const range = (start: number, end?: number, step: number = 1) => {
   return output;
 };
 
-export function Increment({ min, max, defaultValue, callback, label, buttonSize, disabled = false }: IIncrement) {
+export function Increment({ min, max, defaultValue, callback, label, buttonSize, disabled = false, removeBaseClass = false, buttonClassName = "" }: IIncrement) {
   const [value, setValue] = useState<number>(defaultValue || min);
   const [editable, setEditable] = useState<boolean>(false);
   const inputRef = useRef<HTMLSelectElement>(null);
@@ -55,16 +55,16 @@ export function Increment({ min, max, defaultValue, callback, label, buttonSize,
   };
 
   return (
-    <Element type="increment" label={label}>
+    <Element type="increment" label={label} disabled={disabled}>
       <Container className="ccwc-increment">
-        <Button size={buttonSize} disabled={value === min || disabled} onClick={decrease}>-</Button>
-        { !editable && <span onClick={() => setEditable(true)}>{ value }</span> }
+        <Button size={buttonSize} disabled={value === min || disabled} onClick={decrease} removeBaseClass={removeBaseClass} className={buttonClassName}>-</Button>
+        { !editable && <Container elementType="span" disabled={disabled} onClick={() => setEditable(true)}>{ value }</Container> }
         { editable && (
-          <select ref={inputRef} defaultValue={value} onChange={setValueFromInput}>
+          <select ref={inputRef} disabled={disabled} defaultValue={value} onChange={setValueFromInput}>
             { range(min, max).map((i: number) => <option key={i} value={i}>{i}</option>) }
           </select>
         ) }
-        <Button size={buttonSize} disabled={value === max || disabled} onClick={increase}>+</Button>
+        <Button size={buttonSize} disabled={value === max || disabled} onClick={increase} removeBaseClass={removeBaseClass} className={buttonClassName}>+</Button>
       </Container>
     </Element>
   );

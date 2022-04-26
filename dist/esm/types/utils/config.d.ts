@@ -191,5 +191,7 @@ export interface IIncrement {
     callback?: Function;
     label?: string;
     disabled?: boolean;
+    removeBaseClass?: boolean;
+    buttonClassName?: string;
     buttonSize?: string;
 }

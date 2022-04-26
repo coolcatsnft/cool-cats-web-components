@@ -24,6 +24,8 @@ export function ButtonIncrement({ size, colour, disabled = false, allowZero = tr
   const incProps = {...incrementProps};
   incProps.disabled = disabled || (allowZero === false && value === 0);
   incProps.buttonSize = size;
+  incProps.removeBaseClass = true;
+  incProps.buttonClassName = "ccwc-button";
   incProps.callback = (val: number) => {
     setValue(val);
     if (incrementProps.callback) {
