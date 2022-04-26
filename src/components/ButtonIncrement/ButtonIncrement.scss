@@ -136,6 +136,16 @@
     }
   }
 
+  .#{$global-prefix}form-element--disabled {
+    .#{$global-prefix}increment {
+      > button,
+      > span,
+      > select {
+        @include button-disabled;
+      }
+    }
+  }
+
   &.tiny .#{$global-prefix}increment > span {
     min-width: 40px;
   }
