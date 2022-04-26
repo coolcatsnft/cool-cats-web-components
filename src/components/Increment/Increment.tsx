@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useState, useEffect } from 'react';
+import useOnClickOutside from '../../hooks/useOnClickOutside';
 import { IIncrement } from '../../utils';
 import Button from '../Button';
 import Container from '../Container';
@@ -7,8 +8,26 @@ import { Element } from '../Form';
 
 import './Increment.scss';
 
+const range = (start: number, end?: number, step: number = 1) => {
+  let output = [];
+  if (typeof end === 'undefined') {
+    end = start;
+    start = 0;
+  }
+  for (let i = start; i <= end; i += step) {
+    output.push(i);
+  }
+  return output;
+};
+
 export function Increment({ min, max, defaultValue, callback, label, buttonSize, disabled = false }: IIncrement) {
   const [value, setValue] = useState<number>(defaultValue || min);
+  const [editable, setEditable] = useState<boolean>(false);
+  const inputRef = useRef<HTMLSelectElement>(null);
+
+  useOnClickOutside(inputRef, () => {
+    setEditable(false);
+  });
 
   useEffect(() => {
     if (callback) {
@@ -29,11 +48,22 @@ export function Increment({ min, max, defaultValue, callback, label, buttonSize,
     setValue(v => v + 1);
   };
 
+  const setValueFromInput = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    if (e && e.target) {
+      setValue(Number(e.target.value));
+    }
+  };
+
   return (
     <Element type="increment" label={label}>
       <Container className="ccwc-increment">
         <Button size={buttonSize} disabled={value === min || disabled} onClick={decrease}>-</Button>
-        <span>{ value }</span>
+        { !editable && <span onClick={() => setEditable(true)}>{ value }</span> }
+        { editable && (
+          <select ref={inputRef} defaultValue={value} onChange={setValueFromInput}>
+            { range(min, max).map((i: number) => <option key={i} value={i}>{i}</option>) }
+          </select>
+        ) }
         <Button size={buttonSize} disabled={value === max || disabled} onClick={increase}>+</Button>
       </Container>
     </Element>

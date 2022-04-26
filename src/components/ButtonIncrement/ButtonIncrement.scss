@@ -6,11 +6,22 @@
   display: inline-block;
   overflow: hidden;
   
+  &,
+  .#{$global-prefix}increment,
   & > * {
-    width: auto;
+    width: 100%;
+
+    @include largemobilebreakpoint() {
+      width: auto;
+    }
   }
 
   > button {
+    text-align: center;
+
+    @include largemobilebreakpoint() {
+      text-align: left;
+    }
     &:active {
       transform: scale(0.98);
     }
@@ -26,7 +37,10 @@
     outline: none;
     border: 0 none;
     display: block;
-    float: left;
+
+    @include largemobilebreakpoint() {
+      float: left;
+    }
     
     &:not([disabled]) {
       cursor: pointer;
@@ -35,13 +49,23 @@
 
   .#{$global-prefix}increment > button,
   .#{$global-prefix}increment > span,
+  .#{$global-prefix}increment > select,
   > button {
     padding: $global-padding * 0.5 $global-padding;
     color: inherit;
   }
 
+  .#{$global-prefix}increment > select {
+    white-space: normal;
+    text-rendering: auto;
+    appearance: none;
+    opacity: 1;
+    cursor: pointer;
+  }
+
   .#{$global-prefix}increment > button,
-  .#{$global-prefix}increment > span {
+  .#{$global-prefix}increment > span,
+  .#{$global-prefix}increment > select {
     &:hover {
       transform: scale(1) !important;
     }
@@ -52,6 +76,7 @@
   &.massive {
     .#{$global-prefix}increment > button,
     .#{$global-prefix}increment > span,
+    .#{$global-prefix}increment > select,
     > button {
       padding: $global-padding;
     }
@@ -59,9 +84,12 @@
 
   .#{$global-prefix}form-element {
     display: block;
-    float: right;
     font-size: inherit;
     line-height: inherit;
+
+    @include largemobilebreakpoint() {
+      float: right;
+    }
   }
 
   .#{$global-prefix}increment {
@@ -75,17 +103,36 @@
       line-height: inherit;
       box-shadow: none;
       border-radius: 0;
-      background-color: rgba($color: #000000, $alpha: 0.2);
-      width: auto;
       min-width: none;
       max-width: none;
+      &:not([disabled]) {
+        background-color: rgba($color: #000000, $alpha: 0.2);
+      }
+      &[disabled] {
+        background-color: rgba($color: #FFF, $alpha: 0.2);
+      }
     }
 
+    > input,
+    > select,
     > span {
       font-size: inherit;
       line-height: inherit;
-      background-color: rgba($color: #FFF, $alpha: 0.5);
       min-width: 45px;
+    }
+
+    > span {
+      background-color: rgba($color: #FFF, $alpha: 0.5);
+    }
+
+    > button,
+    > select,
+    > span {
+      width: 33%;
+
+      @include largemobilebreakpoint() {
+        width: auto;
+      }
     }
   }
 

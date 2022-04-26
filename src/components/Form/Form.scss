@@ -43,20 +43,20 @@ $form-input-sizes: (
     }
   }
 
-	select,
-	input[type=text],
-	input[type=email],
-	input[type=password],
-	input[type=number],
-	textarea {
+	> select,
+	> input[type=text],
+	> input[type=email],
+	> input[type=password],
+	> input[type=number],
+	> textarea {
 		width: 100%;
 	}
 
-	select,
-	input[type=text],
-	input[type=email],
-	input[type=number],
-	textarea {
+	> select,
+	> input[type=text],
+	> input[type=email],
+	> input[type=number],
+	> textarea {
     font-size: 18px;
     color: #000000;
     border: solid $global-border-width map-get($global-site-colors, formelement-border);
@@ -74,7 +74,7 @@ $form-input-sizes: (
     }
   }
 
-	textarea {
+	> textarea {
     height: 123px;
     resize: none;
   }
@@ -107,23 +107,23 @@ $form-input-sizes: (
       font-size: small;
     }
 
-    select,
-    input[type=text],
-    input[type=email],
-    input[type=password],
-    input[type=number],
-    textarea {
+    > select,
+    > input[type=text],
+    > input[type=email],
+    > input[type=password],
+    > input[type=number],
+    > textarea {
       border-color: map-get($global-site-colors, error);
     }
   }
 
-  input[type=text],
-  input[type=email] {
+  > input[type=text],
+  > input[type=email] {
     text-transform: none;
   }
 
-	input[type=radio],
-	input[type=checkbox] {
+	> input[type=radio],
+	> input[type=checkbox] {
     appearance: none;
     background-color: #ffffff;
     border: $global-border-width solid map-get($global-site-colors, formelement-border);
@@ -161,14 +161,14 @@ $form-input-sizes: (
     margin-bottom: $global-border-width;
   }
 
-  &--disabled input,
-  &--disabled button,
-  &--disabled select,
-  &--disabled textarea,
-  input[disabled],
-  button[disabled],
-  textarea[disabled],
-  select[disabled] {
+  &--disabled > input,
+  &--disabled > button,
+  &--disabled > select,
+  &--disabled > textarea,
+  > input[disabled],
+  > button[disabled],
+  > textarea[disabled],
+  > select[disabled] {
     cursor: not-allowed !important;
     background-color: map-get($global-site-colors, disabled) !important;
   }
@@ -187,8 +187,8 @@ $form-input-sizes: (
         line-height: map-get($global-input-sizes, #{'line-height-' + $size});
       }
 
-      input[type=radio],
-      input[type=checkbox] {
+      > input[type=radio],
+      > input[type=checkbox] {
         padding: map-get($checkbox-input-sizes, #{'padding-' + $size});
 
         &:after {
@@ -196,12 +196,12 @@ $form-input-sizes: (
         }
       }
 
-      select,
-      input[type=text],
-      input[type=email],
-      input[type=password],
-      input[type=number],
-      textarea {
+      > select,
+      > input[type=text],
+      > input[type=email],
+      > input[type=password],
+      > input[type=number],
+      > textarea {
         font-size: map-get($global-input-sizes, #{'font-' + $size});
         line-height: map-get($global-input-sizes, #{'line-height-' + $size});
         padding: map-get($form-input-sizes, #{'padding-' + $size});
