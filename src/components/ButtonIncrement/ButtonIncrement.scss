@@ -123,6 +123,10 @@
 
     > span {
       background-color: rgba($color: #FFF, $alpha: 0.5);
+
+      &:hover {
+        background-color: rgba($color: #FFF, $alpha: 0.4);
+      }
     }
 
     > button,

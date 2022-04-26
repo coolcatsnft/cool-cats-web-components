@@ -9,7 +9,7 @@ import './ButtonIncrement.scss';
 export function ButtonIncrement({ size, colour, disabled = false, allowZero = true, buttonProps, incrementProps }: { size?: string, colour?: string, disabled?: boolean, allowZero?: boolean, buttonProps: IButtonProps, incrementProps: IIncrement }) {
   const [value, setValue] = useState<number>(incrementProps.defaultValue || incrementProps.min);
   const btnProps = {...buttonProps};
-  btnProps.disabled = disabled || (allowZero === false && value === 0);
+  btnProps.disabled = buttonProps.disabled || disabled || (allowZero === false && value === 0);
   btnProps.size = size;
   btnProps.removeBaseClass = true;
   btnProps.states = (btnProps.states || []).concat([{
@@ -22,7 +22,7 @@ export function ButtonIncrement({ size, colour, disabled = false, allowZero = tr
   }
 
   const incProps = {...incrementProps};
-  incProps.disabled = disabled || (allowZero === false && value === 0);
+  incProps.disabled = incrementProps.disabled || disabled || (allowZero === false && value === 0);
   incProps.buttonSize = size;
   incProps.removeBaseClass = true;
   incProps.buttonClassName = "ccwc-button";
