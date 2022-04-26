@@ -11,6 +11,7 @@ import { CatThumbnailImage } from "../CatThumbnail/CatThumbnail";
 export function PetThumbnail({ id, stats, src, onClick, href, children, phase = "", element = "", selected = false, staked = false, hideStats = false, hideBadge = false }: IPetThumbnail) {
   const petId = `# ${id}`;
   const statsProps = {
+    header: petId,
     stats: stats
   };
   const isHref = typeof href === 'string' && href.length > 0;
@@ -77,7 +78,7 @@ export function PetThumbnail({ id, stats, src, onClick, href, children, phase = 
       </CatThumbnailImage>
       { stats && !hideStats && (
         <Container className="ccwc-cat-thumbnail__stats">
-          <Stats stats={stats}>
+          <Stats {...statsProps}>
             { StatsChild } 
           </Stats>
         </Container>
