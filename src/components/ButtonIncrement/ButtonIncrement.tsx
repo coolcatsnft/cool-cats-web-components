@@ -41,7 +41,8 @@ export function ButtonIncrement({ size, colour, disabled = false, allowZero = tr
       }, {
         className: typeof colour === 'string' && colour.length > 0 ? colour : ''
       }, {
-        attr: 'disabled',
+        attr: "disabled",
+        value: "disabled",
         condition: disabled === true || (allowZero === false && value === 0)
       }]}
     >

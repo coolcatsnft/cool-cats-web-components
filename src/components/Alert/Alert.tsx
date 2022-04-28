@@ -16,9 +16,7 @@ export function AlertText({ children }: { children?: React.ReactNode }) {
 export function Alert({ visible, fixed, type, className, children }: { visible?: boolean, fixed?: boolean, type?: string, className?: string, children?: React.ReactNode }) {
   return (
     <Container 
-      className={[
-        'ccwc-alert'
-      ]} 
+      className="ccwc-alert"
       states={[{
         className: className ? `${className}` : '',
         condition: typeof className === 'string' && className.length > 0

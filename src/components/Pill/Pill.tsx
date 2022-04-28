@@ -19,8 +19,10 @@ export function Pill(
 ) {
   return (
     <Container
-      className={["ccwc-pill", className || ""]}
+      className={className || ""}
       states={[{
+        className: "ccwc-pill"
+      }, {
         className: "appear",
         condition: appear === true
       }, {
