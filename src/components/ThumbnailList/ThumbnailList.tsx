@@ -55,7 +55,7 @@ export function ThumbnailList(props: IThumbnailListProps) {
       }
     }
 
-    if (child?.type?.displayName === 'CatThumbnail') {
+    if (child?.type === CatThumbnail) {
       return (
         <CatThumbnail key={index} {...newProps}>
           {children || null}
@@ -63,7 +63,7 @@ export function ThumbnailList(props: IThumbnailListProps) {
       );
     }
 
-    if (child?.type?.displayName === 'PetThumbnail') {
+    if (child?.type === PetThumbnail) {
       return (
         <PetThumbnail key={index} {...newProps}>
           {children || null}
@@ -71,7 +71,7 @@ export function ThumbnailList(props: IThumbnailListProps) {
       );
     }
 
-    if (child?.type?.displayName === 'Thumbnail') {
+    if (child?.type === Thumbnail) {
       return (
         <Thumbnail key={index} {...newProps}>
           {children || null}
