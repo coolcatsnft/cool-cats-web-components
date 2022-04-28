@@ -12,6 +12,7 @@ export interface IContainerProps extends React.HTMLAttributes<HTMLElement | HTML
     classNames?: string[];
     loading?: boolean;
     emptyCondition?: boolean;
+    disabled?: boolean;
     states?: (IContainerClassState | IContainerAttributeState)[];
     invalidProps?: string[];
     elementType?: string;
