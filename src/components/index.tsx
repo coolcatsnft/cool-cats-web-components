@@ -60,6 +60,8 @@ export { Hammer as HammerIcon } from "./Icon";
 export { HammerGroup as HammerGroupIcon } from "./Icon";
 export { Share as ShareIcon } from "./Icon";
 export { ShareGroup as ShareGroupIcon } from "./Icon";
+export { ViewInfo as ViewInfoIcon } from "./Icon";
+export { ViewInfoGroup as ViewInfoGroupIcon } from "./Icon";
 export { Air as AirIcon } from "./Icon";
 export { Fire as FireIcon } from "./Icon";
 export { Grass as GrassIcon } from "./Icon";
