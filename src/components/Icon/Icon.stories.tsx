@@ -261,6 +261,15 @@ export const ViewInfoIcon = (() => {
   )
 }).bind({});
 
+export const ViewInfoWithCircleIcon = (() => {
+  return (
+    <Icon color="grey">
+      <Circle>
+        <ViewInfoGroup />
+      </Circle>
+    </Icon>
+  )
+}).bind({});
 
 export const LogoIcon = (() => {
   return (
@@ -424,6 +433,11 @@ export const MultipleIconsExample = (() => {
       <Icon elementType="button" className="clickable">
         <Circle>
           <CogGroup />
+        </Circle>
+      </Icon>
+      <Icon>
+        <Circle>
+          <ViewInfoGroup />
         </Circle>
       </Icon>
     </>
