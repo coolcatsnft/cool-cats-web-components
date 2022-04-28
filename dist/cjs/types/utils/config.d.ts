@@ -18,6 +18,9 @@ export interface IContainerProps extends React.HTMLAttributes<HTMLElement | HTML
     elementType?: string;
     href?: string;
     children?: React.ReactNode;
+    viewBox?: string;
+    width?: string;
+    height?: string;
 }
 export interface IThumbnailListProps extends IContainerProps {
     size?: string;
@@ -91,7 +94,7 @@ export interface IContainerClassState {
 }
 export interface IContainerAttributeState {
     attr: string;
-    value: string | number;
+    value: string | number | any;
     condition?: boolean | Function;
 }
 export interface IFormElement {

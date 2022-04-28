@@ -7,7 +7,7 @@ import './ErrorMessage.scss';
 
 export function ErrorMessage({ children, className, elementType: ElementType = 'p', ...rest }: IGenericElementProps) {
   return (
-    <Container elementType={ElementType} className={[className || '', "ccwc-error-message"]}>
+    <Container elementType={ElementType} className={className || ""} states={[{ className: "ccwc-error-message"}]}>
       { children }
     </Container>
   );

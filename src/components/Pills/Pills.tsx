@@ -8,11 +8,13 @@ export function Pills({ children, className, bordered, states, ...rest }: IPills
   const pillsStates = (states || []).concat([{
     className: "bordered",
     condition: bordered === true
+  }, {
+    className: "ccwc-pills"
   }]);
   return (
     <Container
       {...rest}
-      className={["ccwc-pills", className || '']}
+      className={className || ""}
       states={pillsStates}
     >
       { children }
