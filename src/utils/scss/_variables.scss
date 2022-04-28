@@ -245,3 +245,26 @@ $global-rarity-badge-width: 80px;
 
 $global-icons-swords-right: rotateY(180deg) translateX(calc(100% * -1));
 $global-icons-swords-left: rotateY(0deg) translateX(0%);
+
+$global-thumbnail-dimensions: (
+  min-width-tiny: $global-margin * 3,
+  max-width-tiny: $global-margin * 4,
+
+  min-width-small: $global-margin * 4,
+  max-width-small: $global-margin * 6,
+
+  min-width-normal: $global-margin * 6,
+  max-width-normal: $global-margin * 10,
+
+  min-width-medium: $global-margin * 6,
+  max-width-medium: $global-margin * 10,
+
+  min-width-large: $global-margin * 10,
+  max-width-large: $global-margin * 18,
+
+  min-width-xlarge: $global-margin * 18,
+  max-width-xlarge: $global-margin * 24,
+
+  min-width-massive: $global-margin * 24,
+  max-width-massive: $global-margin * 32
+);

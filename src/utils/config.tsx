@@ -10,6 +10,38 @@ export interface IGenericElementProps {
   elementType?: string;
 };
 
+export interface IContainerProps extends React.HTMLAttributes<HTMLElement|HTMLButtonElement|HTMLInputElement> {
+  classNames?: string[];
+  loading?: boolean;
+  emptyCondition?: boolean;
+  states?: (IContainerClassState|IContainerAttributeState)[];
+  invalidProps?: string[];
+  elementType?: string;
+  href?: string;
+  children?: React.ReactNode;
+};
+
+export interface IThumbnailListProps extends IContainerProps {
+  size?: string;
+  selectable?: boolean;
+  fluid?: boolean;
+  showCloseIcon?: boolean;
+}
+
+export interface IThumbnailProps extends IContainerProps {
+  size?: string;
+  selected?: boolean;
+  closeable?: boolean;
+  quantity?: number;
+  href?: string;
+  claimable?: boolean;
+};
+
+export interface IThumbnailImageProps extends IContainerProps {
+  src?: string|React.ReactNode,
+  srcAlt?: string
+};
+
 export interface IJustChildrenProps {
   children: TChildNode;
 };
@@ -181,33 +213,21 @@ export interface IButtonProps {
   removeBaseClass?: boolean;
 };
 
-export interface ICatThumbnail {
-	id: string|number;
+export interface ICatThumbnail extends IThumbnailProps {
+	id: string;
   stats: IStats;
 	src?: string|React.ReactNode;
-	onClick?: Function;
-  href?: string;
-  selected?: boolean;
-  claimable?: boolean;
-  children?: React.ReactNode;
+  hideStats?: boolean;
+  hideBadge?: boolean;
 };
 
 export type TPhase = "" | "egg" | "one" | "two" | "final_form";
 export type TElement = "" | "air" | "fire" | "grass" | "water";
 
-export interface IPetThumbnail {
-	id: string|number;
-  stats?: IStats;
-	src?: string|React.ReactNode;
-	onClick?: Function;
-  href?: string;
-  selected?: boolean;
+export interface IPetThumbnail extends ICatThumbnail {
   staked?: boolean;
-  hideStats?: boolean;
-  hideBadge?: boolean;
   phase?: TPhase;
   element?: TElement;
-  children?: React.ReactNode;
 };
 
 export interface IIncrement {

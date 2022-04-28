@@ -3,53 +3,48 @@
 $border-radius: 10px;
 
 .#{$global-prefix}cat-thumbnail {
-  display: inline-block;
-  margin: 0;
-  margin-bottom: $global-margin;  
-  color: inherit;
-  width: 100%;
-  height: 100%;
-  box-shadow: none;
-  border-radius: $border-radius;
-  position: relative;
-  border: $global-border-width solid rgba(0, 0, 0, .1);
-  max-width: 500px;
-  transition: all 0.3s;
-  user-select: none;
+  @include largemobilebreakpoint() {
+    min-width: map-get($global-thumbnail-dimensions, min-width-large);
+    max-width: map-get($global-thumbnail-dimensions, max-width-large);
+  }
 
-  &,
-  > * {
-    text-decoration: none !important;
+  &.#{$global-prefix}thumbnail--tiny,
+  &.#{$global-prefix}thumbnail--small,
+  &.#{$global-prefix}thumbnail--normal,
+  &.#{$global-prefix}thumbnail--medium {
+    .#{$global-prefix}cat-thumbnail__stats {
+      display: none;
+    }
   }
 
   &__stats {
     .#{$global-prefix}stats {
-      padding: 12px $global-padding;
+      margin: 12px $global-margin;
 
       &--withbadge {
         padding: 0;
-        margin: 12px 0 12px $global-padding;
+        margin: 12px 0 12px $global-margin;
       }
     }
   }
 
-  &__image {
-    border-radius: $border-radius * 0.5;
-    overflow: hidden;
-
-    > span,
-    > img {
-      display: block !important;
-      margin: 0;
-      width: 100%;
+  &.#{$global-prefix}thumbnail--large,
+  &.#{$global-prefix}thumbnail--xlarge,
+  &.#{$global-prefix}thumbnail--massive {
+    .#{$global-prefix}cat-thumbnail__stats {
+      display: block;
     }
   }
 
-  &--petstats {
-    .#{$global-prefix}cat-thumbnail__image {
-      border-radius: 0;
-      border-top-left-radius: $border-radius * 0.5;
-      border-top-right-radius: $border-radius * 0.5;
+  &--withstats {
+    &.#{$global-prefix}thumbnail--large,
+    &.#{$global-prefix}thumbnail--xlarge,
+    &.#{$global-prefix}thumbnail--massive {
+      .#{$global-prefix}cat-thumbnail__image {
+        border-radius: 0;
+        border-top-left-radius: $border-radius * 0.5;
+        border-top-right-radius: $border-radius * 0.5;
+      }
     }
   }
 

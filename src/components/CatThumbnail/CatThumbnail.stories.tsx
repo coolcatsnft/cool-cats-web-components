@@ -1,4 +1,5 @@
 import React from 'react';
+import { getSizes } from '../../utils';
 import { CatThumbnail } from './CatThumbnail';
 
 export default {
@@ -12,6 +13,12 @@ export default {
         max: 9999
       },
       defaultValue: 0
+    },
+    size: {
+      control: "select",
+      options: getSizes(),
+      defaultValue: "",
+      name: "Size"
     },
     hats: {
       control: {
@@ -54,6 +61,18 @@ export default {
         type: 'text'
       },
       defaultValue: ''
+    },
+    hideStats: {
+      control: {
+        type: 'boolean'
+      },
+      defaultValue: false
+    },
+    hideBadge: {
+      control: {
+        type: 'boolean'
+      },
+      defaultValue: false
     }
   }
 }
@@ -68,9 +87,12 @@ export const Example = ((args) => {
         shirt: args.shirt,
         face: args.face
       }}
+      size={args.size}
       selected={args.selected}
       claimable={args.claimable}
       href={args.href}
+      hideStats={args.hideStats}
+      hideBadge={args.hideBadge}
     />
   )
 }).bind({});
