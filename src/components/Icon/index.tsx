@@ -22,6 +22,7 @@ import { Hammer, HammerGroup } from './Hammer';
 import { Box, BoxGroup } from './Box';
 import { Chest, ChestGroup } from './Chest';
 import { Share, ShareGroup } from './Share';
+import { ViewInfo, ViewInfoGroup } from './ViewInfo';
 import { Cog, CogGroup } from './Cog';
 import { QuestionMark, QuestionMarkGroup } from './QuestionMark';
 import { SwordAndShield } from './SwordAndShield';
@@ -63,6 +64,8 @@ export {
   HammerGroup,
   Share,
   ShareGroup,
+  ViewInfo,
+  ViewInfoGroup,
   Cog,
   CogGroup,
   QuestionMark,

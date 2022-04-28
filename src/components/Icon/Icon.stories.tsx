@@ -20,6 +20,7 @@ import { Box, BoxGroup } from './Box';
 import { Egg, EggGroup } from './Egg';
 import { Hammer, HammerGroup } from './Hammer';
 import { Share, ShareGroup } from './Share';
+import { ViewInfo, ViewInfoGroup } from './ViewInfo';
 import { Air } from './Air';
 import { Fire } from './Fire';
 import { Grass } from './Grass';
@@ -254,6 +255,22 @@ export const ShareCircleIcon = (() => {
   )
 }).bind({});
 
+export const ViewInfoIcon = (() => {
+  return (
+    <ViewInfo />
+  )
+}).bind({});
+
+export const ViewInfoWithCircleIcon = (() => {
+  return (
+    <Icon color="grey">
+      <Circle>
+        <ViewInfoGroup />
+      </Circle>
+    </Icon>
+  )
+}).bind({});
+
 export const LogoIcon = (() => {
   return (
     <Logo />
@@ -416,6 +433,11 @@ export const MultipleIconsExample = (() => {
       <Icon elementType="button" className="clickable">
         <Circle>
           <CogGroup />
+        </Circle>
+      </Icon>
+      <Icon>
+        <Circle>
+          <ViewInfoGroup />
         </Circle>
       </Icon>
     </>
