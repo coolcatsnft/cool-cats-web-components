@@ -1,0 +1,88 @@
+@import '../../utils/scss/';
+
+$border-radius: 10px;
+
+.#{$global-prefix}thumbnail {
+  display: inline-block;
+  margin: 0;
+  margin-bottom: $global-margin;  
+  color: inherit;
+  width: 100%;
+  height: 100%;
+  box-shadow: none;
+  border-radius: $border-radius;
+  position: relative;
+  border: $global-border-width solid rgba(0, 0, 0, .1);
+  aspect-ratio: 1/1;
+  transition: all 0.3s;
+  user-select: none;
+  appearance: none;
+
+  @include largemobilebreakpoint() {
+    min-width: map-get($global-thumbnail-dimensions, min-width-normal);
+    max-width: map-get($global-thumbnail-dimensions, max-width-normal);
+  }
+
+  &--selected {
+    border-color: rgba(0, 0, 0, 0.7);
+  }
+
+  &.clickable,
+  &[href] {
+    cursor: pointer;
+    &,
+    > * {
+      text-decoration: none !important;
+    }  
+  }
+
+  @each $size in $global-sizes {
+    &.#{$global-prefix}thumbnail--#{$size} {
+      @include largemobilebreakpoint() {
+        min-width: map-get($global-thumbnail-dimensions, #{'min-width-' + $size});
+        max-width: map-get($global-thumbnail-dimensions, #{'max-width-' + $size});
+      }
+    }
+  }
+
+  > img,
+  &__image {
+    border-radius: $border-radius * 0.5;
+    overflow: hidden;
+
+    > span,
+    > img {
+      display: block !important;
+      margin: 0;
+      width: 100%;
+    }
+  }
+
+  &[data-quantity],
+  &.closeable {
+    &:after {
+      @include thumbnailIcon(-8px, -8px);
+      border-color: inherit;
+      width: 40%;
+      max-width: 30px;
+    }
+  }
+
+  &.closeable {
+    &:after {
+      background-image: url('../../../assets/icon/times.svg');
+      background-size: 80% 80%;
+    }
+  }
+
+  &[data-quantity] {
+    &:after {
+      background-image: none;
+      content: attr(data-quantity);
+      line-height: 1;
+      text-align: center;
+      font-size: 12px;
+      padding: 5px 0;
+    }
+  }
+}

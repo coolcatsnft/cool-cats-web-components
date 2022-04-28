@@ -3,21 +3,20 @@ import { IPetThumbnail } from "../../utils";
 import Container from "../Container";
 import RarityBadge from "../RarityBadge";
 import Stats from "../Stats";
+import Thumbnail, { ThumbnailImage } from "../Thumbnail/Thumbnail";
 
 import '../../utils/scss/globals.scss';
 import '../CatThumbnail/CatThumbnail.scss';
-import { CatThumbnailImage } from "../CatThumbnail/CatThumbnail";
 
-export function PetThumbnail({ id, stats, src, onClick, href, children, phase = "", element = "", selected = false, staked = false, hideStats = false, hideBadge = false }: IPetThumbnail) {
-  const petId = `# ${id}`;
+export function PetThumbnail(props: IPetThumbnail) {
+  const petId = `# ${props.id}`;
   const statsProps = {
     header: petId,
-    stats: stats
+    stats: props.stats
   };
-  const isHref = typeof href === 'string' && href.length > 0;
-  const petPhase = phase === 'final_form' ? 'Final' : phase.length > 0 ? phase[0].toUpperCase() + phase.substring(1) : "";
+  const petPhase = props.phase === 'final_form' ? 'Final' : props.phase.length > 0 ? props.phase[0].toUpperCase() + props.phase.substring(1) : "Egg";
 
-  const StatsChild = petPhase.length > 0 && !hideBadge ? (
+  const StatsChild = petPhase.length > 0 && !props.hideBadge ? (
     <RarityBadge label="Phase">
       <span>
         <svg viewBox="0 0 500 500">
@@ -36,54 +35,49 @@ export function PetThumbnail({ id, stats, src, onClick, href, children, phase = 
   ) : null;
 
   return (
-    <Container 
+    <Thumbnail 
+      invalidProps={[
+        'stats', 
+        'hideBadge', 
+        'hideStats', 
+        'phase', 
+        'staked', 
+        'element', 
+        'enableOnClick', 
+        'dailyQuestsRemainingAmount', 
+        'dailyItemInteractionsAmount', 
+        'phaseItemInteractionsAmount', 
+        'phaseItemInteractionsMax'
+      ]}
+      {...props}
       className="ccwc-cat-thumbnail" 
       title={petId}
-      elementType={isHref ? "a" : "div"}
-      states={[{
+      onClick={props.onClick}
+      states={(props.states || []).concat([{
         className: "ccwc-cat-thumbnail--pet"
       }, {
-        className: `ccwc-cat-thumbnail--pet-phase-${typeof phase === 'string' ? phase : 'egg'}`
-      }, {
-        className: "selected",
-        condition: selected === true
+        className: `ccwc-cat-thumbnail--pet-phase-${petPhase}`
       }, {
         className: "staked",
-        condition: staked === true
+        condition: props.staked === true
       }, {
-        className: typeof element === 'string' && element.length > 0 ? element : ""
+        className: "ccwc-cat-thumbnail--withstats",
+        condition: typeof props.stats !== 'undefined' && !props.hideStats 
       }, {
-        attr: "data-phase",
-        condition: typeof phase === 'string',
-        value: typeof phase === 'string' ? phase : ''
-      }, {
-        className: "clickable",
-        condition: typeof onClick === 'function'
-      }, {
-        className: "ccwc-cat-thumbnail--petstats",
-        condition: typeof stats !== 'undefined' && !hideStats
-      }, {
-        attr: "href",
-        value: isHref ? href : '',
-        condition: isHref
-      }, {
-        attr: "target",
-        value: isHref && href.slice(0, 4) === 'http' ? '_blank' : '',
-        condition: isHref && href.slice(0, 4) === 'http'
-      }]}
-      onClick={onClick}
+        className: typeof props.element === 'string' && props.element.length > 0 ? props.element : ""
+      }])}
     >
-      <CatThumbnailImage src={src} srcAlt={petId}>
-        {children || null}
-      </CatThumbnailImage>
-      { stats && !hideStats && (
+      <ThumbnailImage className="ccwc-cat-thumbnail__image" src={props.src} srcAlt={petId}>
+        {props.children || null}
+      </ThumbnailImage>
+      { props.stats && !props.hideStats && (
         <Container className="ccwc-cat-thumbnail__stats">
           <Stats {...statsProps}>
             { StatsChild } 
           </Stats>
         </Container>
       ) }
-    </Container>
+    </Thumbnail>
   )
 }
 

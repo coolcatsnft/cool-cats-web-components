@@ -1,4 +1,5 @@
 import React from 'react';
+import { getSizes } from '../../utils';
 import { PetThumbnail } from './PetThumbnail';
 
 export default {
@@ -12,6 +13,12 @@ export default {
         max: 19999
       },
       defaultValue: 0
+    },
+    size: {
+      control: "select",
+      options: getSizes(),
+      defaultValue: "",
+      name: "Size"
     },
     dailyQuestsRemainingAmount: {
       control: {
@@ -98,6 +105,12 @@ export default {
       },
       defaultValue: false
     },
+    closeable: {
+      control: {
+        type: 'boolean'
+      },
+      defaultValue: false
+    },
   }
 }
 
@@ -105,7 +118,6 @@ export const Example = ((args) => {
   return (
     <PetThumbnail 
       src={`https://metadata.coolcatsnft.com/pet/image/${args.id}.png`}
-      id={args.id} 
       stats={!args.hideStats ? {
         questsRemaining: {
           amount: args.dailyQuestsRemainingAmount,
@@ -120,13 +132,8 @@ export const Example = ((args) => {
           max: args.phaseItemInteractionsMax
         }
       }: undefined}
-      selected={args.selected}
-      href={args.href}
-      phase={args.phase}
-      element={args.element}
-      staked={args.staked}
-      hideBadge={args.hideBadge}
       onClick={args.enableOnClick ? () => alert('Hello') : undefined}
+      {...args}
     />
   )
 }).bind({});
@@ -149,9 +156,7 @@ export const WithChildNode = ((args) => {
           max: args.phaseItemInteractionsMax
         }
       }}
-      selected={args.selected}
-      href={args.href}
-      phase={args.phase}
+      {...args}
     >
       <img src="https://via.placeholder.com/150" />
     </PetThumbnail>

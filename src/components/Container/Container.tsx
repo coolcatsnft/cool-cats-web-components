@@ -1,5 +1,5 @@
 import React from 'react';
-import { IGenericElementProps, IIndexable } from '../../utils';
+import { IContainerProps, IGenericElementProps, IIndexable } from '../../utils';
 
 export function Element({ children, className, elementType: ElementType = 'div', ...rest }: IGenericElementProps): JSX.Element {
   const props = ({ ...rest}) as IIndexable;
@@ -10,7 +10,7 @@ export function Element({ children, className, elementType: ElementType = 'div',
   return React.createElement(ElementType, props, children);
 }
 
-export function Container(props: any) {
+export function Container(props: IContainerProps) {
   let classNames = [] as string[];
   const dataAttributes = {} as any;
   if (typeof props.className === 'string' && props.className.length > 0) {

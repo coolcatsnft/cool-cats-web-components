@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import { IGenericElementProps } from '../../utils';
+import { IContainerProps, IGenericElementProps } from '../../utils';
 export declare function Element({ children, className, elementType: ElementType, ...rest }: IGenericElementProps): JSX.Element;
-export declare function Container(props: any): JSX.Element;
+export declare function Container(props: IContainerProps): JSX.Element;
 export default Container;

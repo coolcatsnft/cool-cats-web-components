@@ -1,0 +1,92 @@
+@import '../../utils/scss/';
+
+$size-props: (
+  margin-tiny: $global-margin * 0.5,
+  margin-small: $global-margin * 0.5,
+  margin-medium: $global-margin,
+  margin-normal: $global-margin,
+  margin-large: $global-margin,
+  margin-xlarge: $global-margin,
+  margin-massive: $global-margin
+);
+
+.#{$global-prefix}thumbnail-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  > .#{$global-prefix}thumbnail {
+    margin-right: $global-margin;
+  }
+
+  @each $size in $global-sizes {
+    &.#{$global-prefix}thumbnail-list--#{$size} {
+      > .#{$global-prefix}thumbnail {
+        margin-right: map-get($size-props, #{'margin-' + $size});
+        margin-bottom: map-get($size-props, #{'margin-' + $size});
+      }
+    }
+  }
+
+  &--fluid {
+    > .#{$global-prefix}thumbnail {
+      flex-basis: 100%;
+      margin-right: auto;
+      margin-left: auto;
+      max-width: none;
+
+      @include tabletbreakpoint() {
+        flex-basis: calc(50% - #{map-get($size-props, margin-normal)});
+        margin-right: map-get($size-props, margin-normal);
+
+        &:nth-child(even) {
+          margin-right: 0;
+        }
+      }
+
+      @include desktopbreakpoint() {
+        flex-basis: calc(33% - #{map-get($size-props, margin-normal)});
+
+        &,
+        &:nth-child(even) {
+          margin-right: map-get($size-props, margin-normal);
+        }
+
+        &:nth-child(3n) {
+          margin-right: 0;
+        }
+      }
+    }
+
+    @each $size in $global-sizes {
+      &.#{$global-prefix}thumbnail-list--#{$size} {
+        > .#{$global-prefix}thumbnail {
+          margin-right: auto;
+          margin-left: auto;
+
+          @include tabletbreakpoint() {
+            flex-basis: calc(50% - #{map-get($size-props, #{'margin-' + $size})});
+            margin-right: map-get($size-props, #{'margin-' + $size});
+            margin-left: 0;
+    
+            &:nth-child(even) {
+              margin-right: 0;
+            }
+          }
+    
+          @include desktopbreakpoint() {
+            flex-basis: calc(33% - #{map-get($size-props, #{'margin-' + $size})});
+    
+            &,
+            &:nth-child(even) {
+              margin-right: map-get($size-props, #{'margin-' + $size});
+            }
+    
+            &:nth-child(3n) {
+              margin-right: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
