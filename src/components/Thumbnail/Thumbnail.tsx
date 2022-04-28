@@ -37,8 +37,7 @@ export function Thumbnail(props: IThumbnailProps) {
       states={(props.states || []).concat([{
         className: "ccwc-thumbnail"
       }, {
-        className: typeof props.size === 'string' && props.size.length > 0 ? `ccwc-thumbnail--${props.size}` : '',
-        condition: typeof props.size === 'string' && props.size.length > 0
+        className: typeof props.size === 'string' && props.size.length > 0 ? `ccwc-thumbnail--${props.size}` : 'ccwc-thumbnail--normal'
       }, {
         className: 'ccwc-thumbnail--selected',
         condition: props.selected === true
