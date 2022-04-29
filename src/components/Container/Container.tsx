@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { IContainerProps, IGenericElementProps, IIndexable } from '../../utils';
 
-export function Element({ children, className, elementType: ElementType = 'div', ...rest }: IGenericElementProps): JSX.Element {
+export const Element = forwardRef(({ children, className, elementType: ElementType = 'div', ...rest }: IGenericElementProps, ref): JSX.Element => {
   const props = ({ ...rest}) as IIndexable;
   if (className) {
     props.className = className;
   }
 
-  return React.createElement(ElementType, props, children);
-}
+  return React.createElement(ElementType, { ...props, ref }, children);
+})
 
-export function Container(props: IContainerProps) {
+export const Container = forwardRef((props: IContainerProps, ref) => {
   let classNames = [] as string[];
   const dataAttributes = {} as any;
   if (typeof props.className === 'string' && props.className.length > 0) {
@@ -115,10 +115,10 @@ export function Container(props: IContainerProps) {
   const classNamesFiltered = classNames.filter((cls: string) => cls);
 
   return (
-    <Element elementType={ElementType} className={classNamesFiltered.join(' ')} {...rest} {...dataAttributes}>
+    <Element elementType={ElementType} className={classNamesFiltered.join(' ')} {...rest} {...dataAttributes} ref={ref}>
       { props.children }
     </Element>
   );
-}
+})
 
 export default Container;
