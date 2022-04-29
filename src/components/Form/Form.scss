@@ -94,7 +94,7 @@ $form-input-sizes: (
     margin-top: $global-margin;
   }
 
-  &--error {
+  &--required {
     > label {
       &:after {
         content: " *";
@@ -102,7 +102,9 @@ $form-input-sizes: (
         margin-left: math.div($global-margin, 2);
       }
     }
+  }
 
+  &--error {
     .error {
       font-size: small;
     }
@@ -147,6 +149,15 @@ $form-input-sizes: (
         color: #006613;
         font-weight: bold;
         line-height: 1;
+      }
+    }
+  }
+
+  input[type=radio] {
+    &:checked {
+      &:after {
+        content: '\2718';
+        left: 3px;
       }
     }
   }
