@@ -19,17 +19,9 @@ export function PetThumbnail(props: IPetThumbnail) {
   const StatsChild = petPhase.length > 0 && !props.hideBadge ? (
     <RarityBadge label="Phase">
       <span>
-        <svg viewBox="0 0 500 500">
-          <text
-            x="50%"
-            y="50%"
-            dominantBaseline="middle" 
-            textAnchor="middle"
-            fontSize="150"
-          >
-            { petPhase }
-          </text>
-        </svg>  
+        <svg width="200" height="200" viewBox="0 0 200 200">
+          <text x="100" y="100" text-anchor="middle" dominant-baseline="middle" font-size="75" >{petPhase}</text>
+        </svg>
       </span>
     </RarityBadge>
   ) : null;
