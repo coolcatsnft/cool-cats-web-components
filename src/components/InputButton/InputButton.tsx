@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import { Input } from "../Form";
 import Button from "../Button";
 import Container from "../Container";
-import { IButtonProps } from "../../utils";
+import { IButtonProps, InputProps } from "../../utils";
 
 import '../../utils/scss/globals.scss';
 import './InputButton.scss';
-import { InputProps } from '../Form/types';
 
 export function InputButton({ input, button }: { input: InputProps, button: IButtonProps}) {
   const [value, setValue] = useState<any>(input.value);

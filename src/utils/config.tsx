@@ -12,12 +12,12 @@ export interface IGenericElementProps {
   elementType?: string;
 };
 
-export interface IContainerProps extends React.HTMLAttributes<HTMLElement|HTMLButtonElement|HTMLInputElement> {
+export interface IContainerProps extends React.HTMLAttributes<HTMLElement | HTMLButtonElement | HTMLInputElement> {
   classNames?: string[];
   loading?: boolean;
   emptyCondition?: boolean;
   disabled?: boolean;
-  states?: (IContainerClassState|IContainerAttributeState)[];
+  states?: (IContainerClassState | IContainerAttributeState)[];
   invalidProps?: string[];
   elementType?: string;
   href?: string;
@@ -44,7 +44,7 @@ export interface IThumbnailProps extends IContainerProps {
 };
 
 export interface IThumbnailImageProps extends IContainerProps {
-  src?: string|React.ReactNode,
+  src?: string | React.ReactNode,
   srcAlt?: string
 };
 
@@ -59,7 +59,7 @@ export interface ITab {
 
 export interface ITabsProps {
   children: React.ReactNode;
-  tabs: (string|ITab)[];
+  tabs: (string | ITab)[];
   activeTab?: string;
   callback?: Function;
 };
@@ -70,7 +70,7 @@ export interface ITabsContent {
 };
 
 export interface ITabsTab {
-  tab: string|ITab;
+  tab: string | ITab;
   active: boolean;
   onClick: Function;
 };
@@ -83,7 +83,7 @@ export interface IPluralProps {
   loading?: string
 };
 
-export type THeaderSize = 1|2|3|4|5;
+export type THeaderSize = 1 | 2 | 3 | 4 | 5;
 
 export interface IPill {
   children?: React.ReactNode,
@@ -102,18 +102,18 @@ export interface IPills {
   className?: string;
   elementType?: string,
   bordered?: boolean,
-  states?: (IContainerClassState|IContainerAttributeState)[]
+  states?: (IContainerClassState | IContainerAttributeState)[]
 };
 
 export interface IContainerClassState {
   className: string,
-  condition?: boolean|Function
+  condition?: boolean | Function
 };
 
 export interface IContainerAttributeState {
   attr: string,
-  value: string|number|any,
-  condition?: boolean|Function
+  value: string | number | any,
+  condition?: boolean | Function
 };
 
 export interface IFormElement {
@@ -133,7 +133,7 @@ export interface IFormLabel {
 };
 
 export type InputProps = {
-  errorMessage: string,
+  error: string,
   type: string,
   placeholder: string,
   id: string,
@@ -148,13 +148,16 @@ export type InputProps = {
   value: any,
   defaultValue: any
   label?: string | ReactNode | boolean,
-  readonly: boolean,
+  readOnly: boolean,
   disabled: boolean,
   required: boolean,
-  size:  any,
+  size: any,
   cols: number,
   rows: number,
   checked: boolean,
+  register: any,
+  registerOptions: any
+  hideErrorMessage: boolean
 }
 
 export interface IEditableInput {
@@ -209,25 +212,25 @@ export interface IStatBlock {
 };
 
 export interface IButtonProps {
-	children?: React.ReactNode;
-	label?: React.ReactNode;
-	disabled?: boolean;
-	expanded?: boolean;
-	sashed?: boolean;
-	colour?: string;
-	className?: string;
-	size?: string;
-	onClick?: Function;
-	elementType?: string;
-	states?: any;
+  children?: React.ReactNode;
+  label?: React.ReactNode;
+  disabled?: boolean;
+  expanded?: boolean;
+  sashed?: boolean;
+  colour?: string;
+  className?: string;
+  size?: string;
+  onClick?: Function;
+  elementType?: string;
+  states?: any;
   title?: string;
   removeBaseClass?: boolean;
 };
 
 export interface ICatThumbnail extends IThumbnailProps {
-	id: string;
+  id: string;
   stats: IStats;
-	src?: string|React.ReactNode;
+  src?: string | React.ReactNode;
   hideStats?: boolean;
   hideBadge?: boolean;
 };
