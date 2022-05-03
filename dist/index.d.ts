@@ -334,8 +334,9 @@ declare function Pill({ children, appear, direction, colour, icon, noText, disab
 
 declare function Pills({ children, className, bordered, states, ...rest }: IPills): JSX.Element;
 
-declare function NetworkErrorMessage({ networkId }: {
+declare function NetworkErrorMessage({ networkId, onClick }: {
     networkId: number;
+    onClick?: React$1.MouseEventHandler<HTMLElement | HTMLButtonElement | HTMLInputElement>;
 }): JSX.Element;
 
 declare function Group({ children, className, elementType: ElementType, ...rest }: IGenericElementProps): JSX.Element;
@@ -344,7 +345,7 @@ declare function ItemSummary(props: any): JSX.Element;
 
 declare function Panel({ type, header, children }: IPanelProps): JSX.Element;
 
-declare function ErrorMessage({ children, className, elementType: ElementType, ...rest }: IGenericElementProps): JSX.Element;
+declare function ErrorMessage({ children, className, elementType: ElementType, ...rest }: IContainerProps): JSX.Element;
 
 declare function MilkValue({ children, size, elementType }: {
     children?: React$1.ReactNode;
