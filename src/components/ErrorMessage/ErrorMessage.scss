@@ -13,4 +13,12 @@
   border-radius: $global-radius;
   letter-spacing: 1px;
   text-align: center;
+  appearance: none;
+  border: 0 none;
+  display: block;
+  width: 100%;
+}
+
+button.#{$global-prefix}error-message {
+  cursor: pointer;
 }

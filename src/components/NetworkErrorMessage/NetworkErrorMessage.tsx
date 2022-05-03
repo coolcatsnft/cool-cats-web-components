@@ -1,9 +1,9 @@
 import React from "react";
 import ErrorMessage from "../ErrorMessage";
 
-export function NetworkErrorMessage({ networkId }: { networkId: number }) {
+export function NetworkErrorMessage({ networkId, onClick }: { networkId: number, onClick?: React.MouseEventHandler<HTMLElement | HTMLButtonElement | HTMLInputElement>}) {
   return (
-    <ErrorMessage>
+    <ErrorMessage onClick={onClick} elementType={typeof onClick !== 'undefined' ? 'button' : 'p'}>
       Switch to the<br />{ networkName(networkId) } network.
     </ErrorMessage>
   );
