@@ -28,6 +28,7 @@ import { Water } from './Water';
 import { Swords } from './Swords';
 import { Cog, CogGroup } from './Cog';
 import { SwordAndShield } from './SwordAndShield';
+import { Twitter, TwitterGroup } from './Twitter';
 import { Logo, LogoMotion, SiteLogo, SiteLogoMotion, WhiteOutlineLogo, WhiteOutlineLogoMotion } from './Logo';
 
 export default {
@@ -38,6 +39,12 @@ export default {
 export const AirIcon = (() => {
   return (
     <Air />
+  )
+}).bind({});
+
+export const TwitterIcon = (() => {
+  return (
+    <Twitter />
   )
 }).bind({});
 
@@ -439,6 +446,11 @@ export const MultipleIconsExample = (() => {
         <Circle>
           <ViewInfoGroup />
         </Circle>
+      </Icon>
+      <Icon color="twitter" className="clickable ccwc-icon--svg-white ccwc-icon--svg-hover-twitter ccwc-icon--hover-white">
+        <button>
+          <Twitter />
+        </button>
       </Icon>
     </>
   )

@@ -74,6 +74,40 @@ $height: 42px;
     }
   }
 
+  @each $key, $color in $global-base-colors {
+    &--hover-#{"" + $key} {
+      &,
+      > button,
+      > i {
+        transition: background-color 0.2s;
+      }
+
+      &:hover {
+        &,
+        > button,
+        > i {
+          background-color: $color;
+        }
+      }
+    }
+    &--svg-#{"" + $key} {
+      path {
+        fill: $color;
+      }
+    }
+    &--svg-hover-#{"" + $key} {
+      path {
+        transition: fill 0.2s;
+      }
+      
+      &:hover {
+        path {
+          fill: $color;
+        }
+      }
+    }
+  }
+
   &.#{$global-prefix}icon--fill {
     > button,
     > a,
