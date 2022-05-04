@@ -26,6 +26,7 @@ import { ViewInfo, ViewInfoGroup } from './ViewInfo';
 import { Cog, CogGroup } from './Cog';
 import { QuestionMark, QuestionMarkGroup } from './QuestionMark';
 import { SwordAndShield } from './SwordAndShield';
+import { Twitter, TwitterGroup } from './Twitter';
 import { Logo, LogoMotion, SiteLogo, SiteLogoMotion, WhiteOutlineLogo, WhiteOutlineLogoMotion } from './Logo';
 
 export { 
@@ -70,7 +71,9 @@ export {
   CogGroup,
   QuestionMark,
   QuestionMarkGroup,
-  SwordAndShield
+  SwordAndShield,
+  Twitter,
+  TwitterGroup
 };
 
 export default Icon;
