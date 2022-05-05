@@ -12,7 +12,7 @@
   .select-container {
     position: relative;
     min-width: 40px;
-    height: 36px;
+    height: inherit;
 
     select {
       position: absolute;
