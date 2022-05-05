@@ -237,7 +237,7 @@ $global-button-sizes: (
   padding-massive: 8px 32px
 );
 $global-input-sizes: $global-button-sizes;
-
+$global-button-border-radius: 40px;
 $global-pill-font-colors: $global-background-font-colors;
 $global-pill-colors: $global-base-colors;
 $global-site-colors: map.merge($global-base-colors, $global-element-colors);
