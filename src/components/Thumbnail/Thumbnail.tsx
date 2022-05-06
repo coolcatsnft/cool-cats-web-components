@@ -45,6 +45,9 @@ export function Thumbnail(props: IThumbnailProps) {
         className: 'selected',
         condition: props.selected === true
       }, {
+        className: 'ticked',
+        condition: props.ticked === true
+      }, {
         className: 'clickable',
         condition: typeof props.onClick === 'function'
       }, {

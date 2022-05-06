@@ -56,6 +56,12 @@ export default {
       },
       defaultValue: false
     },
+    ticked: {
+      control: {
+        type: 'boolean'
+      },
+      defaultValue: false
+    },
     href: {
       control: {
         type: 'text'
@@ -93,6 +99,7 @@ export const Example = ((args) => {
       href={args.href}
       hideStats={args.hideStats}
       hideBadge={args.hideBadge}
+      ticked={args.ticked}
     />
   )
 }).bind({});
