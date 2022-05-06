@@ -18,6 +18,12 @@ export default {
       },
       defaultValue: false
     },
+    ticked: {
+      control: {
+        type: 'boolean'
+      },
+      defaultValue: false
+    },
     clickable: {
       control: {
         type: 'boolean'
