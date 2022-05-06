@@ -1,5 +1,4 @@
-import React, { useRef } from 'react';
-import { useState, useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import useOnClickOutside from '../../hooks/useOnClickOutside';
 import { IIncrement } from '../../utils';
 import Button from '../Button';
@@ -41,12 +40,21 @@ export function Increment({ min, max, defaultValue, callback, label, buttonSize,
     }
     setValue(v => v - 1);
   };
+
   const increase = () => {
     if (value === max) {
       return;
     }
+
     setValue(v => v + 1);
   };
+
+  const setMax = () => {
+    if (value === max) {
+      return;
+    }
+    setValue(max)
+  }
 
   const setValueFromInput = (e: React.ChangeEvent<HTMLSelectElement>) => {
     if (e && e.target) {
@@ -58,13 +66,14 @@ export function Increment({ min, max, defaultValue, callback, label, buttonSize,
     <Element type="increment" label={label} disabled={disabled}>
       <Container className="ccwc-increment">
         <Button size={buttonSize} disabled={value === min || disabled} onClick={decrease} removeBaseClass={removeBaseClass} className={buttonClassName}>-</Button>
-        { !editable && <Container elementType="span" disabled={disabled} onClick={() => setEditable(true)}>{ value }</Container> }
-        { editable && (
-          <select ref={inputRef} disabled={disabled} defaultValue={value} onChange={setValueFromInput}>
+        <div className="select-container">
+          <Container elementType="span" disabled={disabled} onClick={() => setEditable(true)}>{ value }</Container>
+          <select ref={inputRef} disabled={disabled} value={value} onChange={setValueFromInput} name="select" style={{ opacity: !editable ? '0' : '1' }}>
             { range(min, max).map((i: number) => <option key={i} value={i}>{i}</option>) }
           </select>
-        ) }
+        </div>
         <Button size={buttonSize} disabled={value === max || disabled} onClick={increase} removeBaseClass={removeBaseClass} className={buttonClassName}>+</Button>
+        <Button size={buttonSize} disabled={value === max || disabled} onClick={setMax} removeBaseClass={removeBaseClass} className={buttonClassName}>Max</Button>
       </Container>
     </Element>
   );
