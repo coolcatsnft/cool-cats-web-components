@@ -175,6 +175,7 @@ export interface IStatBlock {
     stats: IStats;
     children?: React.ReactNode;
     header?: string;
+    nogaps?: boolean;
 }
 export interface IButtonProps {
     children?: React.ReactNode;
