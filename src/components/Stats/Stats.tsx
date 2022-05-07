@@ -60,7 +60,7 @@ export function StatTable(stats: IStats) {
           className="pets" 
           data-amount={stats.phaseItemInteractions.amount} 
           data-max={stats.phaseItemInteractions.max} 
-          title={stats.phaseItemInteractions.amount === stats.phaseItemInteractions.max ? `Phase complete!` : `${stats.phaseItemInteractions.max - stats.phaseItemInteractions.amount} item interactions to next phase`}
+          title={stats.phaseItemInteractions.amount === stats.phaseItemInteractions.max ? `Phase complete!` : `${stats.phaseItemInteractions.max - stats.phaseItemInteractions.amount} item interaction${(stats.phaseItemInteractions.max - stats.phaseItemInteractions.amount) === 1 ? '' : 's'} to next phase`}
         >
           {getItems(stats.phaseItemInteractions.max, stats.phaseItemInteractions.amount)}
         </li>
@@ -76,6 +76,9 @@ export function Stats(props: IStatBlock) {
       states={[{
         className: "ccwc-stats--withbadge",
         condition: typeof props.children !== 'undefined' && props.children !== null
+      }, {
+        className: "ccwc-stats--nogaps",
+        condition: props.nogaps === true
       }]}
     >
       { props.header && <Header size="4">{props.header}</Header> }

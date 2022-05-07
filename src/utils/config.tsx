@@ -199,7 +199,8 @@ export interface IStats {
 export interface IStatBlock {
   stats: IStats,
   children?: React.ReactNode,
-  header?: string
+  header?: string,
+  nogaps?: boolean
 };
 
 export interface IButtonProps {

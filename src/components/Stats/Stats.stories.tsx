@@ -64,6 +64,30 @@ export const PetExample = (() => {
   )
 }).bind({});
 
+export const PetExampleNoGaps = (() => {
+  const props = {
+    stats: {
+      questsRemaining: {
+        max: 10,
+        amount: 4
+      },
+      dailyItemInteractions: {
+        max: 50,
+        amount: 36
+      },
+      phaseItemInteractions: {
+        max: 25,
+        amount: 23
+      }
+    },
+    nogaps: true
+  };
+
+  return (
+    <Stats {...props} />
+  )
+}).bind({});
+
 export const PetWithBadgeExample = (() => {
   const props = {
     stats: {

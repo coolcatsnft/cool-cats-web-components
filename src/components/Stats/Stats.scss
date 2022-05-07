@@ -8,6 +8,7 @@ $width-badge-width: $global-rarity-badge-width + $global-margin;
     font-size: 20px;
     margin: 0;
     line-height: 1;
+    text-align: left;
   }
 
   &--withbadge {
@@ -37,6 +38,34 @@ $width-badge-width: $global-rarity-badge-width + $global-margin;
       height: 100%;
       position: absolute;
       left: 0;
+    }
+  }
+
+  &--nogaps {
+    .#{$global-prefix}stats-table {
+      > li {
+        background-image: none !important;
+        padding-left: 0;
+
+        span {
+          margin: 0;
+  
+          &:not(:last-child) {
+            &,
+            &:after {
+              border-top-right-radius: 0;
+              border-bottom-right-radius: 0;
+            }
+          }
+          + span {
+            &,
+            &:after {
+              border-top-left-radius: 0;
+              border-bottom-left-radius: 0; 
+            }
+          }
+        }
+      }
     }
   }
 }
