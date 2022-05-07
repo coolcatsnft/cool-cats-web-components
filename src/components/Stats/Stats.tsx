@@ -41,7 +41,7 @@ export function StatTable(stats: IStats) {
         </li>
       ) }
       { stats.questsRemaining && (
-        <li className="quests" data-amount={stats.questsRemaining.amount} title="Quests completed">
+        <li className="quests" data-amount={stats.questsRemaining.amount} title={`${stats.questsRemaining.amount} / ${stats.questsRemaining.max} quests completed`}>
           {getItems(stats.questsRemaining.max, stats.questsRemaining.amount)}
         </li>
       ) }
@@ -50,13 +50,18 @@ export function StatTable(stats: IStats) {
           className="items" 
           data-amount={stats.dailyItemInteractions.amount} 
           data-max={stats.dailyItemInteractions.max} 
-          title="Daily item interactions complete"
+          title={`${stats.dailyItemInteractions.amount} / ${stats.dailyItemInteractions.max} daily item interactions complete`}
         >
           {getItems(stats.dailyItemInteractions.max, stats.dailyItemInteractions.amount)}
         </li>
       ) }
       { stats.phaseItemInteractions && (
-        <li className="pets" data-amount={stats.phaseItemInteractions.amount} data-max={stats.phaseItemInteractions.max} title={stats.phaseItemInteractions.amount === stats.phaseItemInteractions.max ? `Phase complete!` : `Item interactions to next phase`}>
+        <li 
+          className="pets" 
+          data-amount={stats.phaseItemInteractions.amount} 
+          data-max={stats.phaseItemInteractions.max} 
+          title={stats.phaseItemInteractions.amount === stats.phaseItemInteractions.max ? `Phase complete!` : `${stats.phaseItemInteractions.max - stats.phaseItemInteractions.amount} item interactions to next phase`}
+        >
           {getItems(stats.phaseItemInteractions.max, stats.phaseItemInteractions.amount)}
         </li>
       ) }

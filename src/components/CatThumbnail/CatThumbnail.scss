@@ -53,42 +53,45 @@ $border-radius: 10px;
   }
 
   &.claimable {
-    &:after {
-      @include thumbnailIcon(-8px, -8px);
-      background-image: url('../../../assets/icon/egg.png');
-      border-color: inherit;
+    &:not(.ticked):not(.closeable) {
+      &:after {
+        background-image: url('../../../assets/icon/egg.png');
+      }
     }
   }
 
-  &.air,
-  &.fire,
-  &.grass,
-  &.water {
-    &:after {
-      @include thumbnailIcon(-8px, -8px);
-      background-image: url('../../../assets/icon/air.svg');
-      border-color: inherit;
+  &.air {
+    &:not(.ticked):not(.closeable) {
+      &:after {
+        background-image: url('../../../assets/icon/air.svg');
+      }
     }
   }
 
   &.fire {
-    &:after {
-      background-image: url('../../../assets/icon/fire.svg');
-      background-size: 70%;
+    &:not(.ticked):not(.closeable) {
+      &:after {
+        background-image: url('../../../assets/icon/fire.svg');
+        background-size: 70%;
+      }
     }
   }
 
   &.grass {
-    &:after {
-      background-image: url('../../../assets/icon/grass.svg');
-      background-size: 60%;
+    &:not(.ticked):not(.closeable) {
+      &:after {
+        background-image: url('../../../assets/icon/grass.svg');
+        background-size: 60%;
+      }
     }
   }
 
   &.water {
-    &:after {
-      background-image: url('../../../assets/icon/water.svg');
-      background-size: 75%;
+    &:not(.ticked):not(.closeable) {
+      &:after {
+        background-image: url('../../../assets/icon/water.svg');
+        background-size: 75%;
+      }
     }
   }
 
