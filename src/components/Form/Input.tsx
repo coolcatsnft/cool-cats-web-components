@@ -4,15 +4,13 @@ import Element from "./Element";
 import { InputProps } from '../../utils';
 
 export const Input = forwardRef<any, Partial<InputProps>>((props, ref) => {
-  const { error, name, register, hideErrorMessage, registerOptions, ...rest } = props;
+  const { error, name, register, hideErrorMessage, ...rest } = props;
   const isTextArea = props.type === 'textarea';
   const isStringType = props.type === 'text' || props.type === 'email';
-  const isNumberType = props.type === 'number' || props.type === 'tel';
   const inputRegister = register ? register(name) : {};
 
   const iProps = {
     ...rest,
-    placeholder: (isStringType || isNumberType) ? props.placeholder || '' : undefined,
     autoComplete: props.autoComplete || 'off',
     type: props.type || 'text',
     id: props.id || props.name
