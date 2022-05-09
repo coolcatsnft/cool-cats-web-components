@@ -1,6 +1,6 @@
 import React from 'react';
 import { getSizes } from '../../utils';
-import { Input } from './Input';
+import { Input}  from './Input';
 
 export default {
   title: 'Form/TextInput',
@@ -18,14 +18,32 @@ export default {
   }
 }
 
-export const Basic = ((args) => {
+export const BasicText = ((args) => {
   return (
-    <Input name='test' {...args} />
+    <Input name='test' label="Basic Input" {...args} />
+  )
+}).bind({});
+
+export const BasicDisabledText = ((args) => {
+  return (
+    <Input name='test' label="Basic Disabled Input" {...args} disabled/>
+  )
+}).bind({});
+
+export const BasicTextWithValidation = ((args) => {
+  return (
+    <Input name='test' label="Basic Input" {...args} error="Required" required/>
+  )
+}).bind({});
+
+export const BasicNumber = ((args) => {
+  return (
+    <Input name='number field' label="Number" type="number" min={0} max={10} {...args} />
   )
 }).bind({});
 
 export const Textarea = ((args) => {
   return (
-    <Input name='textarea' label='Text area' type='textarea' {...args} />
+    <Input name='textarea' label='Text area' type='textarea' {...args} max={250}/>
   )
 }).bind({});

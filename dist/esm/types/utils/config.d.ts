@@ -1,4 +1,4 @@
-/// <reference types="react" />
+import { ChangeEventHandler, ReactNode } from 'react';
 export interface IIndexable {
     [key: string]: any;
 }
@@ -101,6 +101,7 @@ export interface IContainerAttributeState {
 export interface IFormElement {
     type: string;
     disabled?: boolean;
+    required?: boolean;
     error?: boolean;
     size?: string;
     htmlFor?: string;
@@ -111,27 +112,33 @@ export interface IFormLabel {
     htmlFor?: string;
     children?: string | React.ReactNode;
 }
-export interface IInput {
+export declare type InputProps = {
+    error: string;
+    type: string;
+    placeholder: string;
+    id: string;
+    autoComplete: string;
     name: string;
-    id?: string;
-    label?: string | React.ReactNode | boolean;
-    type?: string;
-    placeholder?: string;
-    size?: string;
-    required?: boolean;
-    value?: any;
-    min?: number;
-    max?: number;
-    hideLabel?: boolean;
-    disabled?: boolean;
-    checked?: boolean;
-    pattern?: RegExp;
-    onChange?: Function;
-    onError?: Function;
-    restrictOnError?: boolean;
-    showError?: boolean;
-    readonly?: boolean;
-}
+    onChange: ChangeEventHandler<HTMLElement>;
+    onBlur: ChangeEventHandler<HTMLElement>;
+    max: number;
+    maxLength: number;
+    min: number;
+    minLength: number;
+    value: any;
+    defaultValue: any;
+    label?: string | ReactNode | boolean;
+    readOnly: boolean;
+    disabled: boolean;
+    required: boolean;
+    size: any;
+    cols: number;
+    rows: number;
+    checked: boolean;
+    register: any;
+    registerOptions: any;
+    hideErrorMessage: boolean;
+};
 export interface IEditableInput {
     editMode: boolean;
     name: string;

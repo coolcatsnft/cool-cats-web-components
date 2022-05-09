@@ -1,5 +1,5 @@
-/// <reference types="react" />
+import React from 'react';
 import { IContainerProps, IGenericElementProps } from '../../utils';
-export declare function Element({ children, className, elementType: ElementType, ...rest }: IGenericElementProps): JSX.Element;
-export declare function Container(props: IContainerProps): JSX.Element;
+export declare const Element: React.ForwardRefExoticComponent<IGenericElementProps & React.RefAttributes<unknown>>;
+export declare const Container: React.ForwardRefExoticComponent<IContainerProps & React.RefAttributes<unknown>>;
 export default Container;

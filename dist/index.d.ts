@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import React$1, { RefObject } from 'react';
+import React$1, { ChangeEventHandler, ReactNode, RefObject } from 'react';
 
 interface IIndexable {
     [key: string]: any;
@@ -103,6 +103,7 @@ interface IContainerAttributeState {
 interface IFormElement {
     type: string;
     disabled?: boolean;
+    required?: boolean;
     error?: boolean;
     size?: string;
     htmlFor?: string;
@@ -113,27 +114,33 @@ interface IFormLabel {
     htmlFor?: string;
     children?: string | React.ReactNode;
 }
-interface IInput {
+declare type InputProps = {
+    error: string;
+    type: string;
+    placeholder: string;
+    id: string;
+    autoComplete: string;
     name: string;
-    id?: string;
-    label?: string | React.ReactNode | boolean;
-    type?: string;
-    placeholder?: string;
-    size?: string;
-    required?: boolean;
-    value?: any;
-    min?: number;
-    max?: number;
-    hideLabel?: boolean;
-    disabled?: boolean;
-    checked?: boolean;
-    pattern?: RegExp;
-    onChange?: Function;
-    onError?: Function;
-    restrictOnError?: boolean;
-    showError?: boolean;
-    readonly?: boolean;
-}
+    onChange: ChangeEventHandler<HTMLElement>;
+    onBlur: ChangeEventHandler<HTMLElement>;
+    max: number;
+    maxLength: number;
+    min: number;
+    minLength: number;
+    value: any;
+    defaultValue: any;
+    label?: string | ReactNode | boolean;
+    readOnly: boolean;
+    disabled: boolean;
+    required: boolean;
+    size: any;
+    cols: number;
+    rows: number;
+    checked: boolean;
+    register: any;
+    registerOptions: any;
+    hideErrorMessage: boolean;
+};
 interface IEditableInput {
     editMode: boolean;
     name: string;
@@ -247,7 +254,7 @@ type Utils_IContainerClassState = IContainerClassState;
 type Utils_IContainerAttributeState = IContainerAttributeState;
 type Utils_IFormElement = IFormElement;
 type Utils_IFormLabel = IFormLabel;
-type Utils_IInput = IInput;
+type Utils_InputProps = InputProps;
 type Utils_IEditableInput = IEditableInput;
 type Utils_TPanelType = TPanelType;
 declare const Utils_TPanelType: typeof TPanelType;
@@ -286,7 +293,7 @@ declare namespace Utils {
     Utils_IContainerAttributeState as IContainerAttributeState,
     Utils_IFormElement as IFormElement,
     Utils_IFormLabel as IFormLabel,
-    Utils_IInput as IInput,
+    Utils_InputProps as InputProps,
     Utils_IEditableInput as IEditableInput,
     Utils_TPanelType as TPanelType,
     Utils_IPanelProps as IPanelProps,
@@ -302,7 +309,7 @@ declare namespace Utils {
   };
 }
 
-declare function Container(props: IContainerProps): JSX.Element;
+declare const Container: React$1.ForwardRefExoticComponent<IContainerProps & React$1.RefAttributes<unknown>>;
 
 declare function BooleanVisibilityContainer(props: any): JSX.Element;
 
@@ -474,7 +481,7 @@ declare function RarityBadge({ label, className, value, children }: {
 }): JSX.Element;
 
 declare function InputButton({ input, button }: {
-    input: IInput;
+    input: InputProps;
     button: IButtonProps;
 }): JSX.Element;
 
@@ -502,13 +509,13 @@ declare function ThumbnailList(props: IThumbnailListProps): JSX.Element;
 
 declare function Legend({ children }: IJustChildrenProps): JSX.Element;
 
-declare function Element({ type, label, disabled, error, size, htmlFor, children }: IFormElement): JSX.Element;
+declare function Element({ type, label, disabled, error, size, htmlFor, required, children }: IFormElement): JSX.Element;
 
 declare function Fieldset(props: any): JSX.Element;
 
 declare function Label({ htmlFor, children }: IFormLabel): JSX.Element;
 
-declare function Input({ name, id, type, value, label, min, max, hideLabel, placeholder, size, pattern, required, onChange, onError, disabled, checked, restrictOnError, showError, readonly }: IInput): JSX.Element;
+declare const Input: React$1.ForwardRefExoticComponent<Partial<InputProps> & React$1.RefAttributes<any>>;
 
 declare const Components_Container: typeof Container;
 declare const Components_BooleanVisibilityContainer: typeof BooleanVisibilityContainer;
@@ -671,4 +678,4 @@ declare const _default: {
     Utils: typeof Utils;
 };
 
-export { Air as AirIcon, Alert, AlertText, Battling as BattlingIcon, BooleanVisibilityContainer, BoxGroup as BoxGroupIcon, Box as BoxIcon, Button, ButtonIncrement, Cat as CatIcon, CatThumbnail, ChestGroup as ChestGroupIcon, Chest as ChestIcon, Circle as CircleIcon, CogGroup as CogGroupIcon, Cog as CogIcon, Container, Dots, EggGroup as EggGroupIcon, Egg as EggIcon, Envelope as EnvelopeIcon, ErrorMessage, Fire as FireIcon, Element as FormElement, Fieldset as FormFieldset, Input as FormInput, Label as FormLabel, Legend as FormLegend, Grass as GrassIcon, Group, HammerGroup as HammerGroupIcon, Hammer as HammerIcon, Header, Help as HelpIcon, Housing as HousingIcon, IButtonProps, ICatThumbnail, IContainerAttributeState, IContainerClassState, IContainerProps, IEditableInput, IFormElement, IFormLabel, IGenericElementProps, IIncrement, IIndexable, IInput, IJustChildrenProps, IPanelProps, IPetThumbnail, IPill, IPills, IPluralProps, IStatBlock, IStats, ISubStats, ITab, ITabsContent, ITabsProps, ITabsTab, IThumbnailImageProps, IThumbnailListProps, IThumbnailProps, Icon, Increment, InputButton, Item as ItemIcon, ItemSummary, List, Logo as LogoIcon, LogoMotion as LogoMotionIcon, Marketplace as MarketplaceIcon, Meowpad as MeowpadIcon, Milk as MilkIcon, MilkValue, NetworkErrorMessage, Opensea as OpenseaIcon, Panel, Pet as PetIcon, PetThumbnail, Pill, Pills, Plural, Questing as QuestingIcon, QuestionMarkGroup as QuestionMarkGroupIcon, QuestionMark as QuestionMarkIcon, RarityBadge, ShareGroup as ShareGroupIcon, Share as ShareIcon, Shop as ShopIcon, SiteLogo as SiteLogoIcon, SiteLogoMotion as SiteLogoMotionIcon, StatTable, Stats, SwordAndShield as SwordAndShieldIcon, TChildNode, TElement, THeaderSize, TPanelType, TPhase, Tabs, TabsContent, TabsTab, Thumbnail, ThumbnailImage, ThumbnailList, ViewInfoGroup as ViewInfoGroupIcon, ViewInfo as ViewInfoIcon, Water as WaterIcon, WhiteOutlineLogo as WhiteOutlineLogoIcon, WhiteOutlineLogoMotion as WhiteOutlineLogoMotionIcon, _default as default, getColours, getSizes, simpleSlug, useData, useEyes, useMousePosition, useObserver, useOnClickOutside };
+export { Air as AirIcon, Alert, AlertText, Battling as BattlingIcon, BooleanVisibilityContainer, BoxGroup as BoxGroupIcon, Box as BoxIcon, Button, ButtonIncrement, Cat as CatIcon, CatThumbnail, ChestGroup as ChestGroupIcon, Chest as ChestIcon, Circle as CircleIcon, CogGroup as CogGroupIcon, Cog as CogIcon, Container, Dots, EggGroup as EggGroupIcon, Egg as EggIcon, Envelope as EnvelopeIcon, ErrorMessage, Fire as FireIcon, Element as FormElement, Fieldset as FormFieldset, Input as FormInput, Label as FormLabel, Legend as FormLegend, Grass as GrassIcon, Group, HammerGroup as HammerGroupIcon, Hammer as HammerIcon, Header, Help as HelpIcon, Housing as HousingIcon, IButtonProps, ICatThumbnail, IContainerAttributeState, IContainerClassState, IContainerProps, IEditableInput, IFormElement, IFormLabel, IGenericElementProps, IIncrement, IIndexable, IJustChildrenProps, IPanelProps, IPetThumbnail, IPill, IPills, IPluralProps, IStatBlock, IStats, ISubStats, ITab, ITabsContent, ITabsProps, ITabsTab, IThumbnailImageProps, IThumbnailListProps, IThumbnailProps, Icon, Increment, InputButton, InputProps, Item as ItemIcon, ItemSummary, List, Logo as LogoIcon, LogoMotion as LogoMotionIcon, Marketplace as MarketplaceIcon, Meowpad as MeowpadIcon, Milk as MilkIcon, MilkValue, NetworkErrorMessage, Opensea as OpenseaIcon, Panel, Pet as PetIcon, PetThumbnail, Pill, Pills, Plural, Questing as QuestingIcon, QuestionMarkGroup as QuestionMarkGroupIcon, QuestionMark as QuestionMarkIcon, RarityBadge, ShareGroup as ShareGroupIcon, Share as ShareIcon, Shop as ShopIcon, SiteLogo as SiteLogoIcon, SiteLogoMotion as SiteLogoMotionIcon, StatTable, Stats, SwordAndShield as SwordAndShieldIcon, TChildNode, TElement, THeaderSize, TPanelType, TPhase, Tabs, TabsContent, TabsTab, Thumbnail, ThumbnailImage, ThumbnailList, ViewInfoGroup as ViewInfoGroupIcon, ViewInfo as ViewInfoIcon, Water as WaterIcon, WhiteOutlineLogo as WhiteOutlineLogoIcon, WhiteOutlineLogoMotion as WhiteOutlineLogoMotionIcon, _default as default, getColours, getSizes, simpleSlug, useData, useEyes, useMousePosition, useObserver, useOnClickOutside };
