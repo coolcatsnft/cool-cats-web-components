@@ -23,7 +23,7 @@ export function ThumbnailImage(props: IThumbnailImageProps) {
 
 export function Thumbnail(props: IThumbnailProps) {
   const isHref = typeof props.href === 'string' && props.href.length > 0;
-  const invalids = ['size', 'closeable', 'clickable', 'quantity', 'src'];
+  const invalids = ['size', 'closeable', 'clickable', 'quantity', 'src', 'ticked'];
   if (!isHref) {
     invalids.push('href');
   }
@@ -31,8 +31,8 @@ export function Thumbnail(props: IThumbnailProps) {
   return (
     <Container 
       elementType={isHref ? "a" : "div"}
-      invalidProps={(props.invalidProps || []).concat(invalids)}
       {...props}
+      invalidProps={(props.invalidProps || []).concat(invalids)}
       className={props.className || ""}
       states={(props.states || []).concat([{
         className: "ccwc-thumbnail"

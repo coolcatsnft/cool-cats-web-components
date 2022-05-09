@@ -25,3 +25,9 @@ export const ButtonExample = ((args) => {
     <NetworkErrorMessage onClick={() => alert('Hello')} {...args} />
   )
 }).bind({});
+
+export const ButtonPromiseExample = ((args) => {
+  return (
+    <NetworkErrorMessage onClick={() => new Promise((res: Function) => { setTimeout(() => { console.log('test'); res() }, 3000) }) } {...args} />
+  )
+}).bind({});

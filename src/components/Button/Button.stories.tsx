@@ -38,3 +38,9 @@ export const Simple = ((args) => {
     <Button {...args}>A button</Button>
   )
 }).bind({});
+
+export const PromiseButton = ((args) => {
+  return (
+    <Button {...args} onClick={() => new Promise((res: Function) => { setTimeout(() => { res(); alert('Hello'); }, 3000) }) }>A button</Button>
+  )
+}).bind({});
