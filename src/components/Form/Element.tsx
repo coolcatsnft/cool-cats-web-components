@@ -6,11 +6,14 @@ import Label from "./Label";
 import '../../utils/scss/globals.scss';
 import './Form.scss';
 
-export function Element({ type, label, disabled, error, size, htmlFor, children }: IFormElement) {
+export function Element({ type, label, disabled, error, size, htmlFor, required, children }: IFormElement) {
   return (
     <Container 
       className="ccwc-form-element" 
       states={[{
+        className: 'ccwc-form-element--required',
+        condition: required === true
+      }, {
         className: 'ccwc-form-element--error',
         condition: error === true
       }, { 
