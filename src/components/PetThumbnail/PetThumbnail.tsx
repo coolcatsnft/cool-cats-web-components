@@ -20,7 +20,7 @@ export function PetThumbnail(props: IPetThumbnail) {
     <RarityBadge label="Phase">
       <span>
         <svg width="200" height="200" viewBox="0 0 200 200">
-          <text x="100" y="100" text-anchor="middle" dominant-baseline="middle" font-size="75" >{petPhase}</text>
+          <text x="100" y="100" textAnchor="middle" dominantBaseline="middle" fontSize="75" >{petPhase}</text>
         </svg>
       </span>
     </RarityBadge>

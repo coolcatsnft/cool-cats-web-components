@@ -42,8 +42,8 @@ export function CatThumbnail(props: ICatThumbnail) {
 
   return (
     <Thumbnail 
-      invalidProps={['stats', 'claimable', 'hideBadge', 'hideStats']}
       {...props}
+      invalidProps={(props.invalidProps || []).concat(['stats', 'claimable', 'hideBadge', 'hideStats', 'ticked'])}
       className="ccwc-cat-thumbnail" 
       title={catId}
       onClick={props.onClick}

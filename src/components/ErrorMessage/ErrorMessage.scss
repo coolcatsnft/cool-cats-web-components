@@ -17,6 +17,10 @@
   border: 0 none;
   display: block;
   width: 100%;
+
+  &[disabled] {
+    background-color: map-get($global-site-colors, disabled);
+  }
 }
 
 button.#{$global-prefix}error-message {

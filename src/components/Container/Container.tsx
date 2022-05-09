@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useEffect, useState } from 'react';
 import { IContainerProps, IGenericElementProps, IIndexable } from '../../utils';
 
 export const Element = forwardRef(({ children, className, elementType: ElementType = 'div', ...rest }: IGenericElementProps, ref): JSX.Element => {
@@ -11,6 +11,28 @@ export const Element = forwardRef(({ children, className, elementType: ElementTy
 })
 
 export const Container = forwardRef((props: IContainerProps, ref) => {
+  const [promised, setPromised] = useState<boolean>(false);
+  useEffect(() => {
+    return () => {
+      setPromised(false);
+    }
+  }, []);
+
+  const onClick = (e) => {
+    if (props.onClick) {
+      const evt = props.onClick(e) as any;
+      if (evt instanceof Promise) {
+        setPromised(true);
+        return evt.finally(() => {
+          setPromised(false);
+          return evt;
+        });
+      }
+
+      return evt;
+    }
+  }
+
   let classNames = [] as string[];
   const dataAttributes = {} as any;
   if (typeof props.className === 'string' && props.className.length > 0) {
@@ -85,6 +107,7 @@ export const Container = forwardRef((props: IContainerProps, ref) => {
     'className',
     'emptyCondition',
     'loading',
+    'onClick',
     'invalidProps'
   ].concat(props.invalidProps || []);
   const rest = Object.fromEntries(
@@ -112,10 +135,18 @@ export const Container = forwardRef((props: IContainerProps, ref) => {
     return <>{ props.children }</>;
   }
 
+  if (promised) {
+    classNames.push('promised');
+
+    if (ElementType === 'button') {
+      rest.disabled = "disabled";
+    }
+  }
+
   const classNamesFiltered = classNames.filter((cls: string) => cls);
 
   return (
-    <Element elementType={ElementType} className={classNamesFiltered.join(' ')} {...rest} {...dataAttributes} ref={ref}>
+    <Element elementType={ElementType} className={classNamesFiltered.join(' ')} {...rest} onClick={onClick} {...dataAttributes} ref={ref}>
       { props.children }
     </Element>
   );
