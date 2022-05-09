@@ -38,6 +38,7 @@ export interface IThumbnailProps extends IContainerProps {
   size?: string;
   selected?: boolean;
   closeable?: boolean;
+  ticked?: boolean;
   quantity?: number;
   href?: string;
   claimable?: boolean;
@@ -208,7 +209,8 @@ export interface IStats {
 export interface IStatBlock {
   stats: IStats,
   children?: React.ReactNode,
-  header?: string
+  header?: string,
+  nogaps?: boolean
 };
 
 export interface IButtonProps {

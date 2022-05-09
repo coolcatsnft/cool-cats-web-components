@@ -13,7 +13,7 @@ export function ButtonIncrement({ size, colour, disabled = false, allowZero = tr
   btnProps.size = size;
   btnProps.removeBaseClass = true;
   btnProps.states = (btnProps.states || []).concat([{
-    className: "ccwc- "
+    className: "ccwc-button "
   }]);
   btnProps.onClick = () => {
     if (buttonProps.onClick) {

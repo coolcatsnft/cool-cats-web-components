@@ -75,6 +75,12 @@ export default {
       },
       defaultValue: false
     },
+    ticked: {
+      control: {
+        type: 'boolean'
+      },
+      defaultValue: false
+    },
     staked: {
       control: {
         type: 'boolean'

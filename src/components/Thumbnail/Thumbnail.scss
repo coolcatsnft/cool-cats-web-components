@@ -58,19 +58,39 @@ $border-radius: 10px;
   }
 
   &[data-quantity],
+  &.cross,
+  &.ticked,
+  &.air,
+  &.water,
+  &.grass,
+  &.fire,
+  &.claimable,
   &.closeable {
     &:after {
       @include thumbnailIcon(-8px, -8px);
       border-color: inherit;
       width: 40%;
-      max-width: 30px;
+      max-height: 40px;
+      max-width: 40px;
     }
   }
 
+  &.cross,
   &.closeable {
     &:after {
       background-image: url('../../../assets/icon/times.svg');
       background-size: 80% 80%;
+    }
+  }
+
+  &.ticked {
+    &:after {
+      background-image: url('../../../assets/icon/tick.svg');
+      background-size: 60% 60%;
+    }
+
+    &.selected {
+      border-color: map-get($global-base-colors, green);
     }
   }
 

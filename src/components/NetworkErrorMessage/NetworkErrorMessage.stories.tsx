@@ -19,3 +19,9 @@ export const Example = ((args) => {
     <NetworkErrorMessage {...args} />
   )
 }).bind({});
+
+export const ButtonExample = ((args) => {
+  return (
+    <NetworkErrorMessage onClick={() => alert('Hello')} {...args} />
+  )
+}).bind({});

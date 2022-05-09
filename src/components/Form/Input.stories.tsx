@@ -30,16 +30,9 @@ export const BasicDisabledText = ((args) => {
   )
 }).bind({});
 
-export const BasicRequiredText = ((args) => {
-  return (
-    <Input name='test' label="Basic Required Text" {...args} required />
-  )
-}).bind({});
-
-
 export const BasicTextWithValidation = ((args) => {
   return (
-    <Input name='test' label="Basic Input" {...args} errorMessage="Required"/>
+    <Input name='test' label="Basic Input" {...args} error="Required" required/>
   )
 }).bind({});
 

@@ -8,6 +8,7 @@ $width-badge-width: $global-rarity-badge-width + $global-margin;
     font-size: 20px;
     margin: 0;
     line-height: 1;
+    text-align: left;
   }
 
   &--withbadge {
@@ -39,6 +40,34 @@ $width-badge-width: $global-rarity-badge-width + $global-margin;
       left: 0;
     }
   }
+
+  &--nogaps {
+    .#{$global-prefix}stats-table {
+      > li {
+        background-image: none !important;
+        padding-left: 0;
+
+        span {
+          margin: 0;
+  
+          &:not(:last-child) {
+            &,
+            &:after {
+              border-top-right-radius: 0;
+              border-bottom-right-radius: 0;
+            }
+          }
+          + span {
+            &,
+            &:after {
+              border-top-left-radius: 0;
+              border-bottom-left-radius: 0; 
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 .#{$global-prefix}stats-table {
@@ -59,10 +88,12 @@ $width-badge-width: $global-rarity-badge-width + $global-margin;
     position: relative;
     flex-basis: 100%;
     background-image: none;
-    max-height: 20%;
 
-    &:before,
-    &:after {
+    @include largemobilebreakpoint() {
+      max-height: 20%;
+    }
+
+    &:before {
       font-weight: bold;
       font-size: 12px;
       line-height: 14px;
@@ -75,10 +106,6 @@ $width-badge-width: $global-rarity-badge-width + $global-margin;
 
     &:before {
       content: attr(title);
-    }
-
-    &:after {
-      content: attr(data-amount);
     }
 
     @include largemobilebreakpoint() {
@@ -105,9 +132,6 @@ $width-badge-width: $global-rarity-badge-width + $global-margin;
         width: 100%;
         line-height: 1;
       }
-      &:after {
-        display: none;
-      }
 
       &:active {
         &:before {
@@ -116,8 +140,7 @@ $width-badge-width: $global-rarity-badge-width + $global-margin;
         }
       }
 
-      &:before,
-      &:after {
+      &:before {
         font-size: 12px;
         line-height: 12px;
       }

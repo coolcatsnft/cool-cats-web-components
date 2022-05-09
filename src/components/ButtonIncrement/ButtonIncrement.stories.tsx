@@ -31,6 +31,13 @@ export default {
 
 export const Example = ((args) => {
   return (
-    <ButtonIncrement {...args} incrementProps={ { min: 1, max: 3 } } buttonProps={ { label: args.label } } />
+    <>
+      <div>
+        <ButtonIncrement {...args} incrementProps={{ min: 1, max: 3 }} buttonProps={{ label: args.label }} />
+      </div>
+      <div>
+        <ButtonIncrement {...args} incrementProps={{ min: 1, max: 100 }} buttonProps={{ label: args.label }} colour="green" />
+      </div>
+    </>
   )
 }).bind({});
