@@ -1,0 +1,63 @@
+@import '../../utils/scss';
+
+.#{$global-prefix}accordion {
+  display: flex;
+  flex-direction: column;
+  gap: $global-margin;
+
+  &--menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;x
+
+    .label {
+      width: 100%;
+    }
+
+    span {
+      position: absolute;
+      right: $global-margin;
+    }
+
+    .arrow-up {
+      justify-self: flex-end;
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+
+      border-bottom: 8px solid black;
+    }
+
+    .arrow-down {
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+
+      border-top: 8px solid black;
+    }
+  }
+
+  &--submenu {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    align-self: flex-end;
+    width: 100%;
+
+    button {
+      color: white;
+      background-color: map-get($global-base-colors, selected);
+
+      &.active, &:hover {
+        background-color: map-get($global-base-colors, border);
+      }
+
+      &:not(:last-child) {
+        margin-bottom: $global-margin;
+      }
+    }
+  }
+
+}

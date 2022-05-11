@@ -10,6 +10,19 @@ interface IGenericElementProps {
     className?: string;
     elementType?: string;
 }
+interface IAccordionItem {
+    id: number;
+    name: string;
+    submenu?: IAccordionItem[];
+    opened?: boolean;
+}
+interface IAccordionProps {
+    items: IAccordionItem[];
+    allowAllOpen?: boolean;
+    activeItem: number | null;
+    onItemClick: Function;
+    defaultOpenedMenus?: number[];
+}
 interface IContainerProps extends React.HTMLAttributes<HTMLElement | HTMLButtonElement | HTMLInputElement> {
     classNames?: string[];
     loading?: boolean;
@@ -237,6 +250,8 @@ declare const Utils_getColours: typeof getColours;
 type Utils_IIndexable = IIndexable;
 type Utils_TChildNode = TChildNode;
 type Utils_IGenericElementProps = IGenericElementProps;
+type Utils_IAccordionItem = IAccordionItem;
+type Utils_IAccordionProps = IAccordionProps;
 type Utils_IContainerProps = IContainerProps;
 type Utils_IThumbnailListProps = IThumbnailListProps;
 type Utils_IThumbnailProps = IThumbnailProps;
@@ -276,6 +291,8 @@ declare namespace Utils {
     Utils_IIndexable as IIndexable,
     Utils_TChildNode as TChildNode,
     Utils_IGenericElementProps as IGenericElementProps,
+    Utils_IAccordionItem as IAccordionItem,
+    Utils_IAccordionProps as IAccordionProps,
     Utils_IContainerProps as IContainerProps,
     Utils_IThumbnailListProps as IThumbnailListProps,
     Utils_IThumbnailProps as IThumbnailProps,
@@ -312,6 +329,8 @@ declare namespace Utils {
 declare const Container: React$1.ForwardRefExoticComponent<IContainerProps & React$1.RefAttributes<unknown>>;
 
 declare function BooleanVisibilityContainer(props: any): JSX.Element;
+
+declare function Accordion({ items, activeItem, onItemClick, defaultOpenedMenus, allowAllOpen }: IAccordionProps): JSX.Element;
 
 declare function AlertText({ children }: {
     children?: React$1.ReactNode;
@@ -519,6 +538,7 @@ declare const Input: React$1.ForwardRefExoticComponent<Partial<InputProps> & Rea
 
 declare const Components_Container: typeof Container;
 declare const Components_BooleanVisibilityContainer: typeof BooleanVisibilityContainer;
+declare const Components_Accordion: typeof Accordion;
 declare const Components_Alert: typeof Alert;
 declare const Components_AlertText: typeof AlertText;
 declare const Components_List: typeof List;
@@ -553,6 +573,7 @@ declare namespace Components {
   export {
     Components_Container as Container,
     Components_BooleanVisibilityContainer as BooleanVisibilityContainer,
+    Components_Accordion as Accordion,
     Components_Alert as Alert,
     Components_AlertText as AlertText,
     Components_List as List,
@@ -678,4 +699,4 @@ declare const _default: {
     Utils: typeof Utils;
 };
 
-export { Air as AirIcon, Alert, AlertText, Battling as BattlingIcon, BooleanVisibilityContainer, BoxGroup as BoxGroupIcon, Box as BoxIcon, Button, ButtonIncrement, Cat as CatIcon, CatThumbnail, ChestGroup as ChestGroupIcon, Chest as ChestIcon, Circle as CircleIcon, CogGroup as CogGroupIcon, Cog as CogIcon, Container, Dots, EggGroup as EggGroupIcon, Egg as EggIcon, Envelope as EnvelopeIcon, ErrorMessage, Fire as FireIcon, Element as FormElement, Fieldset as FormFieldset, Input as FormInput, Label as FormLabel, Legend as FormLegend, Grass as GrassIcon, Group, HammerGroup as HammerGroupIcon, Hammer as HammerIcon, Header, Help as HelpIcon, Housing as HousingIcon, IButtonProps, ICatThumbnail, IContainerAttributeState, IContainerClassState, IContainerProps, IEditableInput, IFormElement, IFormLabel, IGenericElementProps, IIncrement, IIndexable, IJustChildrenProps, IPanelProps, IPetThumbnail, IPill, IPills, IPluralProps, IStatBlock, IStats, ISubStats, ITab, ITabsContent, ITabsProps, ITabsTab, IThumbnailImageProps, IThumbnailListProps, IThumbnailProps, Icon, Increment, InputButton, InputProps, Item as ItemIcon, ItemSummary, List, Logo as LogoIcon, LogoMotion as LogoMotionIcon, Marketplace as MarketplaceIcon, Meowpad as MeowpadIcon, Milk as MilkIcon, MilkValue, NetworkErrorMessage, Opensea as OpenseaIcon, Panel, Pet as PetIcon, PetThumbnail, Pill, Pills, Plural, Questing as QuestingIcon, QuestionMarkGroup as QuestionMarkGroupIcon, QuestionMark as QuestionMarkIcon, RarityBadge, ShareGroup as ShareGroupIcon, Share as ShareIcon, Shop as ShopIcon, SiteLogo as SiteLogoIcon, SiteLogoMotion as SiteLogoMotionIcon, StatTable, Stats, SwordAndShield as SwordAndShieldIcon, TChildNode, TElement, THeaderSize, TPanelType, TPhase, Tabs, TabsContent, TabsTab, Thumbnail, ThumbnailImage, ThumbnailList, ViewInfoGroup as ViewInfoGroupIcon, ViewInfo as ViewInfoIcon, Water as WaterIcon, WhiteOutlineLogo as WhiteOutlineLogoIcon, WhiteOutlineLogoMotion as WhiteOutlineLogoMotionIcon, _default as default, getColours, getSizes, simpleSlug, useData, useEyes, useMousePosition, useObserver, useOnClickOutside };
+export { Accordion, Air as AirIcon, Alert, AlertText, Battling as BattlingIcon, BooleanVisibilityContainer, BoxGroup as BoxGroupIcon, Box as BoxIcon, Button, ButtonIncrement, Cat as CatIcon, CatThumbnail, ChestGroup as ChestGroupIcon, Chest as ChestIcon, Circle as CircleIcon, CogGroup as CogGroupIcon, Cog as CogIcon, Container, Dots, EggGroup as EggGroupIcon, Egg as EggIcon, Envelope as EnvelopeIcon, ErrorMessage, Fire as FireIcon, Element as FormElement, Fieldset as FormFieldset, Input as FormInput, Label as FormLabel, Legend as FormLegend, Grass as GrassIcon, Group, HammerGroup as HammerGroupIcon, Hammer as HammerIcon, Header, Help as HelpIcon, Housing as HousingIcon, IAccordionItem, IAccordionProps, IButtonProps, ICatThumbnail, IContainerAttributeState, IContainerClassState, IContainerProps, IEditableInput, IFormElement, IFormLabel, IGenericElementProps, IIncrement, IIndexable, IJustChildrenProps, IPanelProps, IPetThumbnail, IPill, IPills, IPluralProps, IStatBlock, IStats, ISubStats, ITab, ITabsContent, ITabsProps, ITabsTab, IThumbnailImageProps, IThumbnailListProps, IThumbnailProps, Icon, Increment, InputButton, InputProps, Item as ItemIcon, ItemSummary, List, Logo as LogoIcon, LogoMotion as LogoMotionIcon, Marketplace as MarketplaceIcon, Meowpad as MeowpadIcon, Milk as MilkIcon, MilkValue, NetworkErrorMessage, Opensea as OpenseaIcon, Panel, Pet as PetIcon, PetThumbnail, Pill, Pills, Plural, Questing as QuestingIcon, QuestionMarkGroup as QuestionMarkGroupIcon, QuestionMark as QuestionMarkIcon, RarityBadge, ShareGroup as ShareGroupIcon, Share as ShareIcon, Shop as ShopIcon, SiteLogo as SiteLogoIcon, SiteLogoMotion as SiteLogoMotionIcon, StatTable, Stats, SwordAndShield as SwordAndShieldIcon, TChildNode, TElement, THeaderSize, TPanelType, TPhase, Tabs, TabsContent, TabsTab, Thumbnail, ThumbnailImage, ThumbnailList, ViewInfoGroup as ViewInfoGroupIcon, ViewInfo as ViewInfoIcon, Water as WaterIcon, WhiteOutlineLogo as WhiteOutlineLogoIcon, WhiteOutlineLogoMotion as WhiteOutlineLogoMotionIcon, _default as default, getColours, getSizes, simpleSlug, useData, useEyes, useMousePosition, useObserver, useOnClickOutside };
