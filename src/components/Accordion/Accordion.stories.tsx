@@ -58,3 +58,9 @@ export const AccordionExampleWithSelectedSubItemAllowingAllOpen = ((args) => {
     <Accordion {...args} items={items} onItemClick={(item) => console.log(item)} activeItem={3} allowAllOpen />
   )
 }).bind({})
+
+export const AccordionExampleWithDefaultMenuOpened = ((args) => {
+  return (
+    <Accordion {...args} items={items} onItemClick={(item) => console.log(item)}  defaultOpenedMenus={[5]}/>
+  )
+}).bind({})
