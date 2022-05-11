@@ -12,6 +12,19 @@ export interface IGenericElementProps {
   elementType?: string;
 };
 
+export interface IAccordionItem {
+  id: number;
+  name: string;
+  submenu?: IAccordionItem[];
+  opened?: boolean;
+}
+
+export interface IAccordionProps {
+  items: IAccordionItem[];
+  activeItem: number | null,
+  onItemClick: Function
+}
+
 export interface IContainerProps extends React.HTMLAttributes<HTMLElement | HTMLButtonElement | HTMLInputElement> {
   classNames?: string[];
   loading?: boolean;

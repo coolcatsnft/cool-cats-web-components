@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import Container from '../Container';
 import { Button } from '../index';
+import { IAccordionItem, IAccordionProps } from '../../utils';
 
 import './Accordion.scss';
 
-export function Accordion({ items, activeItem, onItemClick }) {
-  //todo: set activeitem
-  const [accordionItems, setAccordionItems] = useState([]);
+export function Accordion({ items, activeItem, onItemClick }: IAccordionProps) {
+  const [accordionItems, setAccordionItems] = useState<IAccordionItem[]>([]);
 
   useEffect(() => {
     setAccordionItems(items.map(item => {
@@ -15,10 +15,10 @@ export function Accordion({ items, activeItem, onItemClick }) {
       }
       return { ...item, opened: item.submenu.some(subItem => subItem.id === activeItem) };
     }))
-  }, [])
+  }, [items])
 
 
-  const onMenuItemClick = (item) => {
+  const onMenuItemClick = (item: IAccordionItem) => {
     if (!item.submenu) {
       onItemClick(item);
       return;
@@ -36,10 +36,9 @@ export function Accordion({ items, activeItem, onItemClick }) {
   return (
     <Container className="ccwc-accordion">
       {
-        accordionItems.map((item, id) => (
-            <>
-              <Button key={id} size="simple-yellow" onClick={() => onMenuItemClick(item)}>
-                {/*todo change name*/}
+        accordionItems.map((item) => (
+            <Fragment key={item.id}>
+              <Button size="simple-yellow" onClick={() => onMenuItemClick(item)}>
                 <div className="ccwc-accordion--menu">
                   <div className="label">{item.name}</div>
                   {
@@ -53,17 +52,19 @@ export function Accordion({ items, activeItem, onItemClick }) {
                 (
                   <div className="ccwc-accordion--submenu">
                     {
-                      item.submenu.map((submenu, id) => (
-                        <Button key={id} className={submenu.id === activeItem && 'active'} onClick={() => onItemClick(submenu)} expanded>{submenu.name}</Button>
+                      item.submenu.map((submenu) => (
+                        <Button key={submenu.id} className={submenu.id === activeItem ? 'active' : ''} onClick={() => onItemClick(submenu)} expanded>{submenu.name}</Button>
                       ))
                     }
                   </div>
                 )
               }
-            </>
+            </Fragment>
           )
         )
       }
     </Container>
   )
 }
+
+export default Accordion;
