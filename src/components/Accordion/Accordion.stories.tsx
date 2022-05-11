@@ -43,12 +43,18 @@ const items = [
 
 export const AccordionExample = ((args) => {
   return (
-    <Accordion {...args} items={items} onItemClick={(item) => console.log(item)}/>
+    <Accordion {...args} items={items} onItemClick={(item) => console.log(item)} />
   )
 }).bind({})
 
 export const AccordionExampleWithSelectedSubItem = ((args) => {
   return (
-    <Accordion {...args} items={items} onItemClick={(item) => console.log(item)} activeItem={3}/>
+    <Accordion {...args} items={items} onItemClick={(item) => console.log(item)} activeItem={3} />
+  )
+}).bind({})
+
+export const AccordionExampleWithSelectedSubItemAllowingAllOpen = ((args) => {
+  return (
+    <Accordion {...args} items={items} onItemClick={(item) => console.log(item)} activeItem={3} allowAllOpen />
   )
 }).bind({})

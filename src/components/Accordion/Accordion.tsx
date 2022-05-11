@@ -5,7 +5,7 @@ import { IAccordionItem, IAccordionProps } from '../../utils';
 
 import './Accordion.scss';
 
-export function Accordion({ items, activeItem, onItemClick }: IAccordionProps) {
+export function Accordion({ items, activeItem, onItemClick, allowAllOpen = false }: IAccordionProps) {
   const [accordionItems, setAccordionItems] = useState<IAccordionItem[]>([]);
 
   useEffect(() => {
@@ -28,6 +28,8 @@ export function Accordion({ items, activeItem, onItemClick }: IAccordionProps) {
     setAccordionItems(items.map(accItem => {
       if (accItem.name === item.name) {
         accItem.opened = !accItem.opened;
+      } else if (!allowAllOpen) {
+        accItem.opened = false;
       }
       return accItem;
     }))

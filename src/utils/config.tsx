@@ -22,7 +22,8 @@ export interface IAccordionItem {
 export interface IAccordionProps {
   items: IAccordionItem[];
   activeItem: number | null,
-  onItemClick: Function
+  onItemClick: Function,
+  allowAllOpen?: boolean
 }
 
 export interface IContainerProps extends React.HTMLAttributes<HTMLElement | HTMLButtonElement | HTMLInputElement> {

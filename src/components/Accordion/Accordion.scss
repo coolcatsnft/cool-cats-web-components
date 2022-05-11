@@ -8,7 +8,7 @@
   &--menu {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between;x
 
     .label {
       width: 100%;
@@ -44,6 +44,7 @@
     flex-direction: column;
     width: fit-content;
     align-self: flex-end;
+    width: 100%;
 
     button {
       color: white;
