@@ -15,11 +15,11 @@ const getTabContent = (tab: string|ITab) => {
 
 export function Tabs({ tabs, children, activeTab, callback }: ITabsProps) {
   const [active, setActive] = useState<string>(getTab(activeTab || tabs[0]) || '');
-  const [history, setHistory] = useState<string[]>([]);
+  const [history, setHistory] = useState<string[]>([active]);
 
   const setActiveTab = (tab: string) => {
     setActive(tab);
-    const newHistory = {...history}.filter(t => t !== tab);
+    const newHistory = [...history].filter(t => t !== tab);
     newHistory.push(tab);
     setHistory(newHistory);
 
