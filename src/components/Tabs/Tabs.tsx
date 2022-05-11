@@ -15,9 +15,13 @@ const getTabContent = (tab: string|ITab) => {
 
 export function Tabs({ tabs, children, activeTab, callback }: ITabsProps) {
   const [active, setActive] = useState<string>(getTab(activeTab || tabs[0]) || '');
+  const [history, setHistory] = useState<string[]>([]);
 
   const setActiveTab = (tab: string) => {
     setActive(tab);
+    const newHistory = {...history}.filter(t => t !== tab);
+    newHistory.push(tab);
+    setHistory(newHistory);
 
     if (callback) {
       callback(tab);
@@ -40,11 +44,15 @@ export function Tabs({ tabs, children, activeTab, callback }: ITabsProps) {
   const getContent = () => {
     const content = children as IIndexable;
     return tabs.map((tab: string, i: number) => {
-      return (
-        <TabsContent active={active === getTab(tab)} key={i}>
-          { content[i] }
-        </TabsContent>
-      )
+      if (active === getTab(tab) || history.includes(tab)) {
+        return (
+          <TabsContent active={active === getTab(tab)} key={i}>
+            { content[i] }
+          </TabsContent>
+        )
+      }
+
+      return null;
     });
   };
 
