@@ -21,8 +21,9 @@ export interface IAccordionItem {
 
 export interface IAccordionProps {
   items: IAccordionItem[];
-  activeItem: number | null,
-  onItemClick: Function
+  activeItem: number | null;
+  onItemClick: Function;
+  defaultOpenedMenus?: number[];
 }
 
 export interface IContainerProps extends React.HTMLAttributes<HTMLElement | HTMLButtonElement | HTMLInputElement> {

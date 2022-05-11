@@ -5,7 +5,7 @@ import { IAccordionItem, IAccordionProps } from '../../utils';
 
 import './Accordion.scss';
 
-export function Accordion({ items, activeItem, onItemClick }: IAccordionProps) {
+export function Accordion({ items, activeItem, onItemClick, defaultOpenedMenus }: IAccordionProps) {
   const [accordionItems, setAccordionItems] = useState<IAccordionItem[]>([]);
 
   useEffect(() => {
@@ -13,7 +13,7 @@ export function Accordion({ items, activeItem, onItemClick }: IAccordionProps) {
       if (!item.submenu) {
         return { ...item, opened: false };
       }
-      return { ...item, opened: item.submenu.some(subItem => subItem.id === activeItem) };
+      return { ...item, opened: item.submenu.some(subItem => subItem.id === activeItem) || defaultOpenedMenus?.some(i => i === item.id) };
     }))
   }, [items])
 
