@@ -15,10 +15,6 @@ $size-props: (
   flex-wrap: wrap;
   gap: $global-margin;
 
-  > .#{$global-prefix}thumbnail {
-    margin: 0;
-  }
-
   @each $size in $global-sizes {
     &.#{$global-prefix}thumbnail-list--#{$size} {
       gap: map-get($size-props, #{'margin-' + $size});
@@ -26,14 +22,19 @@ $size-props: (
   }
 
   &--fluid {
-    justify-content: space-between;
+    justify-content: flex-start;
 
     > .#{$global-prefix}thumbnail {
       flex-basis: 100%;
       max-width: none;
+      margin-bottom: 0;
+
+      @include largemobilebreakpoint() {
+        flex-basis: calc(50% - #{map-get($size-props, margin-normal)});
+      }
 
       @include tabletbreakpoint() {
-        flex-basis: calc(50% - #{map-get($size-props, margin-normal)});
+        flex-basis: calc(33% - #{map-get($size-props, margin-normal)});
       }
 
       @include desktopbreakpoint() {
@@ -44,8 +45,12 @@ $size-props: (
     @each $size in $global-sizes {
       &.#{$global-prefix}thumbnail-list--#{$size} {
         > .#{$global-prefix}thumbnail {
+          @include largemobilebreakpoint() {
+            flex-basis: calc(25% - #{map-get($size-props, #{'margin-' + $size})});
+          }
+
           @include tabletbreakpoint() {
-            flex-basis: calc(50% - #{map-get($size-props, #{'margin-' + $size})});
+            flex-basis: calc(33% - #{map-get($size-props, #{'margin-' + $size})});
           }
     
           @include desktopbreakpoint() {
