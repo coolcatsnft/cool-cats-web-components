@@ -110,7 +110,7 @@ $width-badge-width: $global-rarity-badge-width + $global-margin;
 
     @include largemobilebreakpoint() {
       padding-top: 0;
-      padding-left: 30px;
+      padding-left: 24px;
       background-repeat: no-repeat;
       background-position: left center;
       background-size: 20px;
