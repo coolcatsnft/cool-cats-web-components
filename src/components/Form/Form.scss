@@ -1,5 +1,5 @@
 @use "sass:math";
-@import '../../utils/scss/';
+@import '../../utils/scss';
 
 $checkbox-input-sizes: (
   padding-tiny: 4px,
@@ -80,13 +80,14 @@ $form-input-sizes: (
   }
 
   + .#{$global-prefix}boolean-visibility {
-    position: absolute;
+    position: relative;
     font-size: x-small;
     color: map-get($global-site-colors, error);
     margin-top: 0;
+    line-height: $global-margin;
 
     & + .#{$global-prefix}form-element {
-      margin-top: $global-margin;
+      margin-top: 0;
     }
   }
 
