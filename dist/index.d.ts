@@ -185,6 +185,7 @@ interface ISubStats {
     amount: number;
 }
 interface IStats {
+    energy?: ISubStats;
     body?: number;
     shirt?: number;
     hats?: number;

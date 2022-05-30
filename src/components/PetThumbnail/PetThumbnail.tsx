@@ -36,6 +36,7 @@ export function PetThumbnail(props: IPetThumbnail) {
         'staked', 
         'element', 
         'enableOnClick', 
+        'energyAmount', 
         'dailyQuestsRemainingAmount', 
         'dailyItemInteractionsAmount', 
         'phaseItemInteractionsAmount', 

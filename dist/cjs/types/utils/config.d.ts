@@ -183,6 +183,7 @@ export interface ISubStats {
     amount: number;
 }
 export interface IStats {
+    energy?: ISubStats;
     body?: number;
     shirt?: number;
     hats?: number;
