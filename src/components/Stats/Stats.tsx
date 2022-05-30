@@ -24,7 +24,16 @@ export function StatTable(stats: IStats) {
   };
 
   return (
-    <List className="ccwc-stats-table">
+    <List className="ccwc-stats-table" data-stats-length={Object.keys(stats).length}>
+      { stats.energy && (
+        <li 
+          className="energy" 
+          data-max={stats.energy.max} 
+          data-amount={stats.energy.amount} title={`${stats.energy.amount} / ${stats.energy.max} energy remaining`}
+        >
+          {getItems(stats.energy.max, stats.energy.amount)}
+        </li>
+      ) }
       { stats.hats && (
         <li className="hat" data-amount={stats.hats} title="Hat">
           {getItems(4, stats.hats)}

@@ -38,6 +38,15 @@ export default {
       defaultValue: 0,
       name: "Daily interactions"
     },
+    energyAmount: {
+      control: {
+        type: 'number',
+        min: 0,
+        max: 100
+      },
+      defaultValue: 100,
+      name: "Energy remaining"
+    },
     phaseItemInteractionsAmount: {
       control: {
         type: 'number',
@@ -125,6 +134,10 @@ export const Example = ((args) => {
     <PetThumbnail 
       src={`https://metadata.coolcatsnft.com/pet/image/${args.id}.png`}
       stats={!args.hideStats ? {
+        energy: {
+          amount: args.energyAmount,
+          max: 100
+        }, 
         questsRemaining: {
           amount: args.dailyQuestsRemainingAmount,
           max: 10

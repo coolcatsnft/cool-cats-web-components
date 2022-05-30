@@ -64,6 +64,64 @@ export const PetExample = (() => {
   )
 }).bind({});
 
+export const PetWithEnergyExample = (() => {
+  const props = {
+    stats: {
+      energy: {
+        max: 100,
+        amount: 90
+      },
+      questsRemaining: {
+        max: 10,
+        amount: 4
+      },
+      dailyItemInteractions: {
+        max: 50,
+        amount: 36
+      },
+      phaseItemInteractions: {
+        max: 25,
+        amount: 12
+      }
+    }
+  };
+
+  return (
+    <Stats {...props} />
+  )
+}).bind({});
+
+export const PetWithEnergyWithBadgeExample = (() => {
+  const props = {
+    stats: {
+      energy: {
+        max: 100,
+        amount: 90
+      },
+      questsRemaining: {
+        max: 10,
+        amount: 4
+      },
+      dailyItemInteractions: {
+        max: 50,
+        amount: 36
+      },
+      phaseItemInteractions: {
+        max: 25,
+        amount: 12
+      }
+    }
+  };
+
+  return (
+    <Stats {...props}>
+      <RarityBadge label="Phase">
+        <span>Egg</span>
+      </RarityBadge>
+    </Stats>
+  )
+}).bind({});
+
 export const PetExampleNoGaps = (() => {
   const props = {
     stats: {
