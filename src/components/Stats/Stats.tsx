@@ -9,6 +9,23 @@ import './Stats.scss';
 
 export function StatTable(stats: IStats) {
   const getItems = (max: number, value: number) => {
+    if (stats.nogaps === true) {
+      return (
+        <>
+          <Container 
+            elementType="span"
+            data-max={max}
+            data-value={value}
+          />
+          <Container 
+            className="activebar"
+            elementType="span"
+            style={{width: String(Number((value / max) * 100).toFixed(0)) + "%"}}
+          />
+        </>
+      );
+    }
+
     return Array.from(Array(max).keys()).map((key: number) => {
       return (
         <Container 
@@ -24,7 +41,10 @@ export function StatTable(stats: IStats) {
   };
 
   return (
-    <List className="ccwc-stats-table" data-stats-length={Object.keys(stats).length}>
+    <List 
+      className="ccwc-stats-table" 
+      data-stats-length={Object.keys(stats).length}
+    >
       { stats.energy && (
         <li 
           className="energy" 
@@ -91,7 +111,7 @@ export function Stats(props: IStatBlock) {
       }]}
     >
       { props.header && <Header size="4">{props.header}</Header> }
-      <StatTable {...props.stats} />
+      <StatTable {...props.stats} nogaps={props.nogaps} />
       { props.children || null }
     </Container>
   )

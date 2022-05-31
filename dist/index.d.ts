@@ -185,6 +185,7 @@ interface ISubStats {
     amount: number;
 }
 interface IStats {
+    nogaps?: boolean;
     energy?: ISubStats;
     body?: number;
     shirt?: number;

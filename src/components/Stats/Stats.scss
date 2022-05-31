@@ -48,25 +48,16 @@ $width-badge-width: $global-rarity-badge-width + $global-margin;
   &--nogaps {
     .#{$global-prefix}stats-table {
       > li {
-        background-image: none !important;
-        padding-left: 0;
-
         span {
           margin: 0;
-  
-          &:not(:last-child) {
-            &,
-            &:after {
-              border-top-right-radius: 0;
-              border-bottom-right-radius: 0;
-            }
-          }
-          + span {
-            &,
-            &:after {
-              border-top-left-radius: 0;
-              border-bottom-left-radius: 0; 
-            }
+          position: relative;
+          overflow: hidden;
+          border-radius: 4px;
+
+          &.activebar {
+            position: absolute;
+            left: 22px;
+            height: 100%;
           }
         }
       }
@@ -114,10 +105,10 @@ $width-badge-width: $global-rarity-badge-width + $global-margin;
 
     @include largemobilebreakpoint() {
       padding-top: 0;
-      padding-left: 24px;
+      padding-left: 22px;
       background-repeat: no-repeat;
       background-position: left center;
-      background-size: 20px;
+      background-size: 18px;
       max-height: 33%;
       cursor: pointer;
 
@@ -162,10 +153,9 @@ $width-badge-width: $global-rarity-badge-width + $global-margin;
       &.energy {
         background-image: url('../../../assets/icon/star.svg');
 
-        span.active {
-          &:after {
-            background-color: #39E27D;
-          }
+        span.activebar,
+        span.active:after {
+          background-color: #39E27D;
         }
       }
       
@@ -218,42 +208,15 @@ $width-badge-width: $global-rarity-badge-width + $global-margin;
             position: absolute;
             left: 0px;
             top: 0px;
-            background-color: #FAD121;
             width: 100%;
             height: 100%;
             border-radius: 4px;
           }
         }
-      }
-    }
-
-    &[data-max="15"],
-    &[data-max="25"],
-    &[data-max="50"],
-    &[data-max="100"] {
-      span {
-        &,
-        &:after {
-          @include largemobilebreakpoint() {
-            margin-right: 0;
-            border-radius: 0;
-          }
-        }
-
-        &:first-of-type {
-          &,
-          &:after {
-            border-top-left-radius: 4px;
-            border-bottom-left-radius: 4px;
-          }
-        }
-
-        &:last-of-type {
-          &,
-          &:after {
-            border-top-right-radius: 4px;
-            border-bottom-right-radius: 4px;
-          }
+  
+        &.activebar,
+        &.active:after {
+          background-color: #FAD121;
         }
       }
     }

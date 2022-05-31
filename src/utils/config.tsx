@@ -212,6 +212,7 @@ export interface ISubStats {
 };
 
 export interface IStats {
+  nogaps?: boolean,
   energy?: ISubStats,
   body?: number,
   shirt?: number,
