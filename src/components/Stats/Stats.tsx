@@ -39,10 +39,12 @@ export function StatTable(stats: IStats) {
     })
   };
 
+  const statsLength = Object.keys(stats).filter(s => s !== 'nogaps').length;
+
   return (
     <List 
       className="ccwc-stats-table" 
-      data-stats-length={Object.keys(stats).length}
+      data-stats-length={statsLength}
     >
       { stats.energy && (
         <li 
