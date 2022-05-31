@@ -78,6 +78,12 @@ export default {
       },
       defaultValue: ""
     },
+    noStatGaps: {
+      control: {
+        type: 'boolean'
+      },
+      defaultValue: false
+    },
     selected: {
       control: {
         type: 'boolean'

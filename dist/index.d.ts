@@ -48,6 +48,7 @@ interface IThumbnailProps extends IContainerProps {
     selected?: boolean;
     closeable?: boolean;
     ticked?: boolean;
+    noStatGaps?: boolean;
     quantity?: number;
     href?: string;
     claimable?: boolean;

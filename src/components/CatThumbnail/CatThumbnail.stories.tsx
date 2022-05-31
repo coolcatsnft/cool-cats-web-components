@@ -50,6 +50,12 @@ export default {
       },
       defaultValue: false
     },
+    noStatGaps: {
+      control: {
+        type: 'boolean'
+      },
+      defaultValue: false
+    },
     claimable: {
       control: {
         type: 'boolean'
@@ -100,6 +106,7 @@ export const Example = ((args) => {
       hideStats={args.hideStats}
       hideBadge={args.hideBadge}
       ticked={args.ticked}
+      noStatGaps={args.noStatGaps}
     />
   )
 }).bind({});

@@ -12,7 +12,8 @@ export function PetThumbnail(props: IPetThumbnail) {
   const petId = `# ${props.id}`;
   const statsProps = {
     header: petId,
-    stats: props.stats
+    stats: props.stats,
+    nogaps: props.noStatGaps === true
   };
   const petPhase = props.phase === 'final_form' ? 'Final' : props.phase.length > 0 ? props.phase[0].toUpperCase() + props.phase.substring(1) : "Egg";
 
@@ -32,6 +33,7 @@ export function PetThumbnail(props: IPetThumbnail) {
         'stats', 
         'hideBadge', 
         'hideStats', 
+        'noStatGaps', 
         'phase', 
         'staked', 
         'element', 
