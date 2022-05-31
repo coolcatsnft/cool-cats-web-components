@@ -13,7 +13,8 @@ export function CatThumbnail(props: ICatThumbnail) {
   const total = (props.stats.hats || 0) + (props.stats.face || 0) + (props.stats.shirt || 0);
   const statsProps = {
     header: catId,
-    stats: props.stats
+    stats: props.stats,
+    nogaps: props.noStatGaps === true
   };
 
   const num = (((total - 1) % 2) + 1);

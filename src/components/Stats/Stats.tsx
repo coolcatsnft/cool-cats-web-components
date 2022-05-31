@@ -11,18 +11,17 @@ export function StatTable(stats: IStats) {
   const getItems = (max: number, value: number) => {
     if (stats.nogaps === true) {
       return (
-        <>
-          <Container 
-            elementType="span"
-            data-max={max}
-            data-value={value}
-          />
+        <Container 
+          elementType="span"
+          data-max={max}
+          data-value={value}
+        >
           <Container 
             className="activebar"
             elementType="span"
             style={{width: String(Number((value / max) * 100).toFixed(0)) + "%"}}
           />
-        </>
+        </Container>
       );
     }
 
