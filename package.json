@@ -57,7 +57,8 @@
     "sass-loader": "^10.2.1",
     "style-loader": "^2.0.0",
     "tslib": "^2.3.1",
-    "typescript": "^4.5.4"
+    "typescript": "^4.5.4",
+    "@floating-ui/react-dom-interactions": "^0.6.3"
   },
   "peerDependencies": {
     "react": "^17.0.2",
