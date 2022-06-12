@@ -31,7 +31,7 @@ export const WithHtmlLabel = ((args) => {
   const label = <div><h1>label</h1></div>
   return (
     <Tooltip label={label} options={args}>
-      <Button>le' tooltip</Button>
+      <Button>tooltip - html</Button>
     </Tooltip>
   )
 }).bind({})
@@ -47,7 +47,7 @@ export const TooltipOnClick = ((args) => {
   }
   return (
     <Tooltip label="the tooltip label" options={{ ...args, ...options }}>
-      <div>le' tooltip</div>
+      <div>tooltip on click</div>
     </Tooltip>
   )
 }).bind({})
@@ -55,7 +55,7 @@ export const TooltipOnClick = ((args) => {
 export const Simple = ((args) => {
   return (
     <Tooltip label="test" options={args}>
-      <Button>le' tooltip</Button>
+      <Button>tooltip</Button>
     </Tooltip>
   )
 }).bind({})

@@ -2,6 +2,8 @@ import React, { cloneElement, useState } from 'react';
 import { autoUpdate, flip, offset, shift, useClick, useDismiss, useFloating, useFocus, useHover, useInteractions, useRole } from "@floating-ui/react-dom-interactions";
 import { ITooltipOptions, ITooltipProps } from '../../utils';
 
+import './Tooltip.scss';
+
 export const defaultOptions: ITooltipOptions = {
   placement: 'top',
   shiftOptions: {},
