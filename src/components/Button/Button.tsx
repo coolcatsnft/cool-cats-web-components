@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { forwardRef, useEffect, useState } from 'react';
 import { IButtonProps } from '../../utils';
 import Container from '../Container';
 
 import '../../utils/scss/globals.scss';
 import './Button.scss';
 
-export function Button({ 
+export const Button = forwardRef(({
   children, 
   label, 
   disabled, 
@@ -19,7 +19,7 @@ export function Button({
   states, 
   title, 
   removeBaseClass
-}: IButtonProps) {
+}: IButtonProps, ref)  => {
   const [_disabled, setDisabled] = useState(false);
   const [_promised, setPromised] = useState(false);
 
@@ -80,11 +80,12 @@ export function Button({
       }, {
         className: colour || ''
       }].concat(states || [])}
+      ref={ref}
     >
       { label }
       { children }
     </Container>
   );
-}
+})
 
 export default Button;
