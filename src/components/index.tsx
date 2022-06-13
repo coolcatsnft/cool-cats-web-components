@@ -26,6 +26,7 @@ export { default as InputButton } from "./InputButton";
 export { default as Button } from "./Button";
 export { default as Thumbnail } from "./Thumbnail";
 export { ThumbnailImage } from "./Thumbnail";
+export { default as Tooltip } from "./Tooltip";
 export { default as CatThumbnail } from "./CatThumbnail";
 export { default as PetThumbnail } from "./PetThumbnail";
 export { default as Increment } from "./Increment";

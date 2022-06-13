@@ -1,5 +1,6 @@
 /// <reference types="react" />
 import React$1, { ChangeEventHandler, ReactNode, RefObject } from 'react';
+import { DetectOverflowOptions, MiddlewareArguments, Coords, FloatingContext, FloatingTreeType, Placement } from '@floating-ui/react-dom-interactions';
 
 interface IIndexable {
     [key: string]: any;
@@ -242,6 +243,70 @@ interface IIncrement {
     buttonClassName?: string;
     buttonSize?: string;
 }
+interface IShiftOptions extends DetectOverflowOptions {
+    mainAxis?: boolean;
+    crossAxis?: boolean;
+    limiter?: {
+        fn: (middlewareArguments: MiddlewareArguments) => Coords;
+        options?: any;
+    };
+}
+interface IHoverOptions {
+    enabled?: boolean;
+    mouseOnly?: boolean;
+    delay?: number | Partial<{
+        open: number;
+        close: number;
+    }>;
+    restMs?: number;
+    handleClose?: null | ((context: FloatingContext & {
+        onClose: () => void;
+        tree?: FloatingTreeType | null;
+    }) => (event: PointerEvent) => void);
+}
+interface IFocusOptions {
+    enabled?: boolean;
+    keyboardOnly?: boolean;
+}
+interface IClickOptions {
+    enabled?: boolean;
+    pointerDown?: boolean;
+    toggle?: boolean;
+    ignoreMouse?: boolean;
+}
+interface IDismissOptions {
+    enabled?: boolean;
+    escapeKey?: boolean;
+    referencePointerDown?: boolean;
+    outsidePointerDown?: boolean;
+    ancestorScroll?: boolean;
+    bubbles?: boolean;
+}
+interface AxesOffsets {
+    mainAxis?: number;
+    crossAxis?: number;
+    alignmentAxis?: number | null;
+}
+declare type OffsetOptions = number | AxesOffsets | (({ reference, floating, placement: Placement, }: {
+    reference: any;
+    floating: any;
+    placement: any;
+}) => number | AxesOffsets);
+interface ITooltipOptions {
+    placement: Placement | undefined;
+    shiftOptions: Partial<IShiftOptions>;
+    hoverOptions: Partial<IHoverOptions>;
+    focusOptions: Partial<IFocusOptions>;
+    clickOptions: Partial<IClickOptions>;
+    dismissOptions: Partial<IDismissOptions>;
+    offsetOptions: Partial<OffsetOptions>;
+}
+interface ITooltipProps {
+    label: string | ReactNode;
+    children: JSX.Element;
+    className?: string;
+    options?: ITooltipOptions;
+}
 
 declare const simpleSlug: (str: string) => string;
 declare const getSizes: () => string[];
@@ -286,6 +351,13 @@ type Utils_TPhase = TPhase;
 type Utils_TElement = TElement;
 type Utils_IPetThumbnail = IPetThumbnail;
 type Utils_IIncrement = IIncrement;
+type Utils_IShiftOptions = IShiftOptions;
+type Utils_IHoverOptions = IHoverOptions;
+type Utils_IFocusOptions = IFocusOptions;
+type Utils_IClickOptions = IClickOptions;
+type Utils_IDismissOptions = IDismissOptions;
+type Utils_ITooltipOptions = ITooltipOptions;
+type Utils_ITooltipProps = ITooltipProps;
 declare namespace Utils {
   export {
     Utils_simpleSlug as simpleSlug,
@@ -326,6 +398,13 @@ declare namespace Utils {
     Utils_TElement as TElement,
     Utils_IPetThumbnail as IPetThumbnail,
     Utils_IIncrement as IIncrement,
+    Utils_IShiftOptions as IShiftOptions,
+    Utils_IHoverOptions as IHoverOptions,
+    Utils_IFocusOptions as IFocusOptions,
+    Utils_IClickOptions as IClickOptions,
+    Utils_IDismissOptions as IDismissOptions,
+    Utils_ITooltipOptions as ITooltipOptions,
+    Utils_ITooltipProps as ITooltipProps,
   };
 }
 
@@ -507,10 +586,12 @@ declare function InputButton({ input, button }: {
     button: IButtonProps;
 }): JSX.Element;
 
-declare function Button({ children, label, disabled, sashed, expanded, colour, className, size, onClick, elementType, states, title, removeBaseClass }: IButtonProps): JSX.Element;
+declare const Button: React$1.ForwardRefExoticComponent<IButtonProps & React$1.RefAttributes<unknown>>;
 
 declare function ThumbnailImage(props: IThumbnailImageProps): JSX.Element;
 declare function Thumbnail(props: IThumbnailProps): JSX.Element;
+
+declare const Tooltip: ({ children, label, className, options }: ITooltipProps) => JSX.Element;
 
 declare function CatThumbnail(props: ICatThumbnail): JSX.Element;
 
@@ -567,6 +648,7 @@ declare const Components_InputButton: typeof InputButton;
 declare const Components_Button: typeof Button;
 declare const Components_Thumbnail: typeof Thumbnail;
 declare const Components_ThumbnailImage: typeof ThumbnailImage;
+declare const Components_Tooltip: typeof Tooltip;
 declare const Components_CatThumbnail: typeof CatThumbnail;
 declare const Components_PetThumbnail: typeof PetThumbnail;
 declare const Components_Increment: typeof Increment;
@@ -602,6 +684,7 @@ declare namespace Components {
     Components_Button as Button,
     Components_Thumbnail as Thumbnail,
     Components_ThumbnailImage as ThumbnailImage,
+    Components_Tooltip as Tooltip,
     Components_CatThumbnail as CatThumbnail,
     Components_PetThumbnail as PetThumbnail,
     Components_Increment as Increment,
@@ -702,4 +785,4 @@ declare const _default: {
     Utils: typeof Utils;
 };
 
-export { Accordion, Air as AirIcon, Alert, AlertText, Battling as BattlingIcon, BooleanVisibilityContainer, BoxGroup as BoxGroupIcon, Box as BoxIcon, Button, ButtonIncrement, Cat as CatIcon, CatThumbnail, ChestGroup as ChestGroupIcon, Chest as ChestIcon, Circle as CircleIcon, CogGroup as CogGroupIcon, Cog as CogIcon, Container, Dots, EggGroup as EggGroupIcon, Egg as EggIcon, Envelope as EnvelopeIcon, ErrorMessage, Fire as FireIcon, Element as FormElement, Fieldset as FormFieldset, Input as FormInput, Label as FormLabel, Legend as FormLegend, Grass as GrassIcon, Group, HammerGroup as HammerGroupIcon, Hammer as HammerIcon, Header, Help as HelpIcon, Housing as HousingIcon, IAccordionItem, IAccordionProps, IButtonProps, ICatThumbnail, IContainerAttributeState, IContainerClassState, IContainerProps, IEditableInput, IFormElement, IFormLabel, IGenericElementProps, IIncrement, IIndexable, IJustChildrenProps, IPanelProps, IPetThumbnail, IPill, IPills, IPluralProps, IStatBlock, IStats, ISubStats, ITab, ITabsContent, ITabsProps, ITabsTab, IThumbnailImageProps, IThumbnailListProps, IThumbnailProps, Icon, Increment, InputButton, InputProps, Item as ItemIcon, ItemSummary, List, Logo as LogoIcon, LogoMotion as LogoMotionIcon, Marketplace as MarketplaceIcon, Meowpad as MeowpadIcon, Milk as MilkIcon, MilkValue, NetworkErrorMessage, Opensea as OpenseaIcon, Panel, Pet as PetIcon, PetThumbnail, Pill, Pills, Plural, Questing as QuestingIcon, QuestionMarkGroup as QuestionMarkGroupIcon, QuestionMark as QuestionMarkIcon, RarityBadge, ShareGroup as ShareGroupIcon, Share as ShareIcon, Shop as ShopIcon, SiteLogo as SiteLogoIcon, SiteLogoMotion as SiteLogoMotionIcon, StatTable, Stats, SwordAndShield as SwordAndShieldIcon, TChildNode, TElement, THeaderSize, TPanelType, TPhase, Tabs, TabsContent, TabsTab, Thumbnail, ThumbnailImage, ThumbnailList, ViewInfoGroup as ViewInfoGroupIcon, ViewInfo as ViewInfoIcon, Water as WaterIcon, WhiteOutlineLogo as WhiteOutlineLogoIcon, WhiteOutlineLogoMotion as WhiteOutlineLogoMotionIcon, _default as default, getColours, getSizes, simpleSlug, useData, useEyes, useMousePosition, useObserver, useOnClickOutside };
+export { Accordion, Air as AirIcon, Alert, AlertText, Battling as BattlingIcon, BooleanVisibilityContainer, BoxGroup as BoxGroupIcon, Box as BoxIcon, Button, ButtonIncrement, Cat as CatIcon, CatThumbnail, ChestGroup as ChestGroupIcon, Chest as ChestIcon, Circle as CircleIcon, CogGroup as CogGroupIcon, Cog as CogIcon, Container, Dots, EggGroup as EggGroupIcon, Egg as EggIcon, Envelope as EnvelopeIcon, ErrorMessage, Fire as FireIcon, Element as FormElement, Fieldset as FormFieldset, Input as FormInput, Label as FormLabel, Legend as FormLegend, Grass as GrassIcon, Group, HammerGroup as HammerGroupIcon, Hammer as HammerIcon, Header, Help as HelpIcon, Housing as HousingIcon, IAccordionItem, IAccordionProps, IButtonProps, ICatThumbnail, IClickOptions, IContainerAttributeState, IContainerClassState, IContainerProps, IDismissOptions, IEditableInput, IFocusOptions, IFormElement, IFormLabel, IGenericElementProps, IHoverOptions, IIncrement, IIndexable, IJustChildrenProps, IPanelProps, IPetThumbnail, IPill, IPills, IPluralProps, IShiftOptions, IStatBlock, IStats, ISubStats, ITab, ITabsContent, ITabsProps, ITabsTab, IThumbnailImageProps, IThumbnailListProps, IThumbnailProps, ITooltipOptions, ITooltipProps, Icon, Increment, InputButton, InputProps, Item as ItemIcon, ItemSummary, List, Logo as LogoIcon, LogoMotion as LogoMotionIcon, Marketplace as MarketplaceIcon, Meowpad as MeowpadIcon, Milk as MilkIcon, MilkValue, NetworkErrorMessage, Opensea as OpenseaIcon, Panel, Pet as PetIcon, PetThumbnail, Pill, Pills, Plural, Questing as QuestingIcon, QuestionMarkGroup as QuestionMarkGroupIcon, QuestionMark as QuestionMarkIcon, RarityBadge, ShareGroup as ShareGroupIcon, Share as ShareIcon, Shop as ShopIcon, SiteLogo as SiteLogoIcon, SiteLogoMotion as SiteLogoMotionIcon, StatTable, Stats, SwordAndShield as SwordAndShieldIcon, TChildNode, TElement, THeaderSize, TPanelType, TPhase, Tabs, TabsContent, TabsTab, Thumbnail, ThumbnailImage, ThumbnailList, Tooltip, ViewInfoGroup as ViewInfoGroupIcon, ViewInfo as ViewInfoIcon, Water as WaterIcon, WhiteOutlineLogo as WhiteOutlineLogoIcon, WhiteOutlineLogoMotion as WhiteOutlineLogoMotionIcon, _default as default, getColours, getSizes, simpleSlug, useData, useEyes, useMousePosition, useObserver, useOnClickOutside };

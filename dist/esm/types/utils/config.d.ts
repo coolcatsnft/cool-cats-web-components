@@ -1,4 +1,5 @@
 import { ChangeEventHandler, ReactNode } from 'react';
+import { Coords, DetectOverflowOptions, FloatingContext, FloatingTreeType, MiddlewareArguments, Placement } from '@floating-ui/react-dom-interactions';
 export interface IIndexable {
     [key: string]: any;
 }
@@ -240,3 +241,68 @@ export interface IIncrement {
     buttonClassName?: string;
     buttonSize?: string;
 }
+export interface IShiftOptions extends DetectOverflowOptions {
+    mainAxis?: boolean;
+    crossAxis?: boolean;
+    limiter?: {
+        fn: (middlewareArguments: MiddlewareArguments) => Coords;
+        options?: any;
+    };
+}
+export interface IHoverOptions {
+    enabled?: boolean;
+    mouseOnly?: boolean;
+    delay?: number | Partial<{
+        open: number;
+        close: number;
+    }>;
+    restMs?: number;
+    handleClose?: null | ((context: FloatingContext & {
+        onClose: () => void;
+        tree?: FloatingTreeType | null;
+    }) => (event: PointerEvent) => void);
+}
+export interface IFocusOptions {
+    enabled?: boolean;
+    keyboardOnly?: boolean;
+}
+export interface IClickOptions {
+    enabled?: boolean;
+    pointerDown?: boolean;
+    toggle?: boolean;
+    ignoreMouse?: boolean;
+}
+export interface IDismissOptions {
+    enabled?: boolean;
+    escapeKey?: boolean;
+    referencePointerDown?: boolean;
+    outsidePointerDown?: boolean;
+    ancestorScroll?: boolean;
+    bubbles?: boolean;
+}
+interface AxesOffsets {
+    mainAxis?: number;
+    crossAxis?: number;
+    alignmentAxis?: number | null;
+}
+declare type OffsetOptions = number | AxesOffsets | (({ reference, floating, placement: Placement, }: {
+    reference: any;
+    floating: any;
+    placement: any;
+}) => number | AxesOffsets);
+export interface ITooltipOptions {
+    placement: Placement | undefined;
+    shiftOptions: Partial<IShiftOptions>;
+    hoverOptions: Partial<IHoverOptions>;
+    focusOptions: Partial<IFocusOptions>;
+    clickOptions: Partial<IClickOptions>;
+    dismissOptions: Partial<IDismissOptions>;
+    offsetOptions: Partial<OffsetOptions>;
+}
+export interface ITooltipProps {
+    label: string | ReactNode;
+    children: JSX.Element;
+    className?: string;
+    options?: ITooltipOptions;
+}
+export {};
