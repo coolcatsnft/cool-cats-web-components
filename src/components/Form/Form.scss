@@ -184,7 +184,7 @@ $form-input-sizes: (
     cursor: not-allowed !important;
     background-color: map-get($global-site-colors, disabled) !important;
   }
-  
+
   &--disabled {
     > label {
       font-weight: bold;
