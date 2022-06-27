@@ -222,7 +222,7 @@ export interface IStats {
   face?: number,
   questsRemaining?: ISubStats,
   dailyItemInteractions?: ISubStats,
-  phaseItemInteractions?: ISubStats
+  stageItemInteractions?: ISubStats
 };
 
 export interface IStatBlock {
@@ -256,12 +256,12 @@ export interface ICatThumbnail extends IThumbnailProps {
   hideBadge?: boolean;
 };
 
-export type TPhase = "" | "egg" | "one" | "two" | "final_form";
+export type TStage = "" | "egg" | "one" | "two" | "final_form";
 export type TElement = "" | "air" | "fire" | "grass" | "water";
 
 export interface IPetThumbnail extends ICatThumbnail {
   staked?: boolean;
-  phase?: TPhase;
+  stage?: TStage;
   element?: TElement;
 };
 

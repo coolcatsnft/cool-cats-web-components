@@ -195,7 +195,7 @@ interface IStats {
     face?: number;
     questsRemaining?: ISubStats;
     dailyItemInteractions?: ISubStats;
-    phaseItemInteractions?: ISubStats;
+    stageItemInteractions?: ISubStats;
 }
 interface IStatBlock {
     stats: IStats;
@@ -225,11 +225,11 @@ interface ICatThumbnail extends IThumbnailProps {
     hideStats?: boolean;
     hideBadge?: boolean;
 }
-declare type TPhase = "" | "egg" | "one" | "two" | "final_form";
+declare type TStage = "" | "egg" | "one" | "two" | "final_form";
 declare type TElement = "" | "air" | "fire" | "grass" | "water";
 interface IPetThumbnail extends ICatThumbnail {
     staked?: boolean;
-    phase?: TPhase;
+    stage?: TStage;
     element?: TElement;
 }
 interface IIncrement {
@@ -347,7 +347,7 @@ type Utils_IStats = IStats;
 type Utils_IStatBlock = IStatBlock;
 type Utils_IButtonProps = IButtonProps;
 type Utils_ICatThumbnail = ICatThumbnail;
-type Utils_TPhase = TPhase;
+type Utils_TStage = TStage;
 type Utils_TElement = TElement;
 type Utils_IPetThumbnail = IPetThumbnail;
 type Utils_IIncrement = IIncrement;
@@ -394,7 +394,7 @@ declare namespace Utils {
     Utils_IStatBlock as IStatBlock,
     Utils_IButtonProps as IButtonProps,
     Utils_ICatThumbnail as ICatThumbnail,
-    Utils_TPhase as TPhase,
+    Utils_TStage as TStage,
     Utils_TElement as TElement,
     Utils_IPetThumbnail as IPetThumbnail,
     Utils_IIncrement as IIncrement,
@@ -785,4 +785,4 @@ declare const _default: {
     Utils: typeof Utils;
 };
 
-export { Accordion, Air as AirIcon, Alert, AlertText, Battling as BattlingIcon, BooleanVisibilityContainer, BoxGroup as BoxGroupIcon, Box as BoxIcon, Button, ButtonIncrement, Cat as CatIcon, CatThumbnail, ChestGroup as ChestGroupIcon, Chest as ChestIcon, Circle as CircleIcon, CogGroup as CogGroupIcon, Cog as CogIcon, Container, Dots, EggGroup as EggGroupIcon, Egg as EggIcon, Envelope as EnvelopeIcon, ErrorMessage, Fire as FireIcon, Element as FormElement, Fieldset as FormFieldset, Input as FormInput, Label as FormLabel, Legend as FormLegend, Grass as GrassIcon, Group, HammerGroup as HammerGroupIcon, Hammer as HammerIcon, Header, Help as HelpIcon, Housing as HousingIcon, IAccordionItem, IAccordionProps, IButtonProps, ICatThumbnail, IClickOptions, IContainerAttributeState, IContainerClassState, IContainerProps, IDismissOptions, IEditableInput, IFocusOptions, IFormElement, IFormLabel, IGenericElementProps, IHoverOptions, IIncrement, IIndexable, IJustChildrenProps, IPanelProps, IPetThumbnail, IPill, IPills, IPluralProps, IShiftOptions, IStatBlock, IStats, ISubStats, ITab, ITabsContent, ITabsProps, ITabsTab, IThumbnailImageProps, IThumbnailListProps, IThumbnailProps, ITooltipOptions, ITooltipProps, Icon, Increment, InputButton, InputProps, Item as ItemIcon, ItemSummary, List, Logo as LogoIcon, LogoMotion as LogoMotionIcon, Marketplace as MarketplaceIcon, Meowpad as MeowpadIcon, Milk as MilkIcon, MilkValue, NetworkErrorMessage, Opensea as OpenseaIcon, Panel, Pet as PetIcon, PetThumbnail, Pill, Pills, Plural, Questing as QuestingIcon, QuestionMarkGroup as QuestionMarkGroupIcon, QuestionMark as QuestionMarkIcon, RarityBadge, ShareGroup as ShareGroupIcon, Share as ShareIcon, Shop as ShopIcon, SiteLogo as SiteLogoIcon, SiteLogoMotion as SiteLogoMotionIcon, StatTable, Stats, SwordAndShield as SwordAndShieldIcon, TChildNode, TElement, THeaderSize, TPanelType, TPhase, Tabs, TabsContent, TabsTab, Thumbnail, ThumbnailImage, ThumbnailList, Tooltip, ViewInfoGroup as ViewInfoGroupIcon, ViewInfo as ViewInfoIcon, Water as WaterIcon, WhiteOutlineLogo as WhiteOutlineLogoIcon, WhiteOutlineLogoMotion as WhiteOutlineLogoMotionIcon, _default as default, getColours, getSizes, simpleSlug, useData, useEyes, useMousePosition, useObserver, useOnClickOutside };
+export { Accordion, Air as AirIcon, Alert, AlertText, Battling as BattlingIcon, BooleanVisibilityContainer, BoxGroup as BoxGroupIcon, Box as BoxIcon, Button, ButtonIncrement, Cat as CatIcon, CatThumbnail, ChestGroup as ChestGroupIcon, Chest as ChestIcon, Circle as CircleIcon, CogGroup as CogGroupIcon, Cog as CogIcon, Container, Dots, EggGroup as EggGroupIcon, Egg as EggIcon, Envelope as EnvelopeIcon, ErrorMessage, Fire as FireIcon, Element as FormElement, Fieldset as FormFieldset, Input as FormInput, Label as FormLabel, Legend as FormLegend, Grass as GrassIcon, Group, HammerGroup as HammerGroupIcon, Hammer as HammerIcon, Header, Help as HelpIcon, Housing as HousingIcon, IAccordionItem, IAccordionProps, IButtonProps, ICatThumbnail, IClickOptions, IContainerAttributeState, IContainerClassState, IContainerProps, IDismissOptions, IEditableInput, IFocusOptions, IFormElement, IFormLabel, IGenericElementProps, IHoverOptions, IIncrement, IIndexable, IJustChildrenProps, IPanelProps, IPetThumbnail, IPill, IPills, IPluralProps, IShiftOptions, IStatBlock, IStats, ISubStats, ITab, ITabsContent, ITabsProps, ITabsTab, IThumbnailImageProps, IThumbnailListProps, IThumbnailProps, ITooltipOptions, ITooltipProps, Icon, Increment, InputButton, InputProps, Item as ItemIcon, ItemSummary, List, Logo as LogoIcon, LogoMotion as LogoMotionIcon, Marketplace as MarketplaceIcon, Meowpad as MeowpadIcon, Milk as MilkIcon, MilkValue, NetworkErrorMessage, Opensea as OpenseaIcon, Panel, Pet as PetIcon, PetThumbnail, Pill, Pills, Plural, Questing as QuestingIcon, QuestionMarkGroup as QuestionMarkGroupIcon, QuestionMark as QuestionMarkIcon, RarityBadge, ShareGroup as ShareGroupIcon, Share as ShareIcon, Shop as ShopIcon, SiteLogo as SiteLogoIcon, SiteLogoMotion as SiteLogoMotionIcon, StatTable, Stats, SwordAndShield as SwordAndShieldIcon, TChildNode, TElement, THeaderSize, TPanelType, TStage, Tabs, TabsContent, TabsTab, Thumbnail, ThumbnailImage, ThumbnailList, Tooltip, ViewInfoGroup as ViewInfoGroupIcon, ViewInfo as ViewInfoIcon, Water as WaterIcon, WhiteOutlineLogo as WhiteOutlineLogoIcon, WhiteOutlineLogoMotion as WhiteOutlineLogoMotionIcon, _default as default, getColours, getSizes, simpleSlug, useData, useEyes, useMousePosition, useObserver, useOnClickOutside };

@@ -52,7 +52,7 @@ export const PetExample = (() => {
         max: 50,
         amount: 36
       },
-      phaseItemInteractions: {
+      stageItemInteractions: {
         max: 25,
         amount: 12
       }
@@ -79,7 +79,7 @@ export const PetWithEnergyExample = (() => {
         max: 50,
         amount: 36
       },
-      phaseItemInteractions: {
+      stageItemInteractions: {
         max: 25,
         amount: 12
       }
@@ -106,7 +106,7 @@ export const PetWithEnergyWithBadgeExample = (() => {
         max: 50,
         amount: 36
       },
-      phaseItemInteractions: {
+      stageItemInteractions: {
         max: 25,
         amount: 12
       }
@@ -115,7 +115,7 @@ export const PetWithEnergyWithBadgeExample = (() => {
 
   return (
     <Stats {...props}>
-      <RarityBadge label="Phase">
+      <RarityBadge label="Stage">
         <span>Egg</span>
       </RarityBadge>
     </Stats>
@@ -133,7 +133,7 @@ export const PetExampleNoGaps = (() => {
         max: 50,
         amount: 36
       },
-      phaseItemInteractions: {
+      stageItemInteractions: {
         max: 25,
         amount: 23
       }
@@ -157,7 +157,7 @@ export const PetWithBadgeExample = (() => {
         max: 50,
         amount: 36
       },
-      phaseItemInteractions: {
+      stageItemInteractions: {
         max: 25,
         amount: 12
       }
@@ -166,7 +166,7 @@ export const PetWithBadgeExample = (() => {
 
   return (
     <Stats {...props}>
-      <RarityBadge label="Phase">
+      <RarityBadge label="Stage">
         <span>Egg</span>
       </RarityBadge>
     </Stats>
@@ -189,7 +189,7 @@ export const PetWithBadgeExampleNoGaps = (() => {
         max: 50,
         amount: 36
       },
-      phaseItemInteractions: {
+      stageItemInteractions: {
         max: 25,
         amount: 12
       }
@@ -198,7 +198,7 @@ export const PetWithBadgeExampleNoGaps = (() => {
 
   return (
     <Stats {...props} nogaps>
-      <RarityBadge label="Phase">
+      <RarityBadge label="Stage">
         <span>Egg</span>
       </RarityBadge>
     </Stats>
