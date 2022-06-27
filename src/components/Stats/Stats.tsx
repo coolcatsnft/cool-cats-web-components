@@ -1,4 +1,3 @@
-
 import React from "react";
 import List from "../List";
 import { IStatBlock, IStats } from "../../utils";
@@ -27,7 +26,7 @@ export function StatTable(stats: IStats) {
 
     return Array.from(Array(max).keys()).map((key: number) => {
       return (
-        <Container 
+        <Container
           key={key}
           elementType="span"
           states={[{
@@ -76,23 +75,23 @@ export function StatTable(stats: IStats) {
         </li>
       ) }
       { stats.dailyItemInteractions && (
-        <li 
-          className="items" 
-          data-amount={stats.dailyItemInteractions.amount} 
-          data-max={stats.dailyItemInteractions.max} 
+        <li
+          className="items"
+          data-amount={stats.dailyItemInteractions.amount}
+          data-max={stats.dailyItemInteractions.max}
           title={`${stats.dailyItemInteractions.amount} / ${stats.dailyItemInteractions.max} daily item interactions complete`}
         >
           {getItems(stats.dailyItemInteractions.max, stats.dailyItemInteractions.amount)}
         </li>
       ) }
-      { stats.phaseItemInteractions && (
-        <li 
-          className="pets" 
-          data-amount={stats.phaseItemInteractions.amount} 
-          data-max={stats.phaseItemInteractions.max} 
-          title={stats.phaseItemInteractions.amount === stats.phaseItemInteractions.max ? `Phase complete!` : `${stats.phaseItemInteractions.max - stats.phaseItemInteractions.amount} item interaction${(stats.phaseItemInteractions.max - stats.phaseItemInteractions.amount) === 1 ? '' : 's'} to next phase`}
+      { stats.stageItemInteractions && (
+        <li
+          className="pets"
+          data-amount={stats.stageItemInteractions.amount}
+          data-max={stats.stageItemInteractions.max}
+          title={stats.stageItemInteractions.amount === stats.stageItemInteractions.max ? `Stage complete!` : `${stats.stageItemInteractions.max - stats.stageItemInteractions.amount} item interaction${(stats.stageItemInteractions.max - stats.stageItemInteractions.amount) === 1 ? '' : 's'} to next stage`}
         >
-          {getItems(stats.phaseItemInteractions.max, stats.phaseItemInteractions.amount)}
+          {getItems(stats.stageItemInteractions.max, stats.stageItemInteractions.amount)}
         </li>
       ) }
     </List>

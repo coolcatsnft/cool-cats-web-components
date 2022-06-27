@@ -47,24 +47,24 @@ export default {
       defaultValue: 100,
       name: "Energy remaining"
     },
-    phaseItemInteractionsAmount: {
+    stageItemInteractionsAmount: {
       control: {
         type: 'number',
         min: 0,
         max: 5
       },
       defaultValue: 0,
-      name: "Phase interactions"
+      name: "Stage interactions"
     },
-    phaseItemInteractionsMax: {
+    stageItemInteractionsMax: {
       control: {
         type: 'select',
         options: [10, 15, 25]
       },
       defaultValue: 10,
-      name: "Phase interactions (max)"
+      name: "Stage interactions (max)"
     },
-    phase: {
+    stage: {
       control: {
         type: 'select',
         options: ["", "egg", "one", "two", "final_form"]
@@ -137,24 +137,24 @@ export default {
 
 export const Example = ((args) => {
   return (
-    <PetThumbnail 
+    <PetThumbnail
       src={`https://metadata.coolcatsnft.com/pet/image/${args.id}.png`}
       stats={!args.hideStats ? {
         energy: {
           amount: args.energyAmount,
           max: 100
-        }, 
+        },
         questsRemaining: {
           amount: args.dailyQuestsRemainingAmount,
           max: 10
-        }, 
+        },
         dailyItemInteractions: {
           amount: args.dailyItemInteractionsAmount,
           max: 5
         },
-        phaseItemInteractions: {
-          amount: args.phaseItemInteractionsAmount,
-          max: args.phaseItemInteractionsMax
+        stageItemInteractions: {
+          amount: args.stageItemInteractionsAmount,
+          max: args.stageItemInteractionsMax
         }
       }: undefined}
       onClick={args.enableOnClick ? () => alert('Hello') : undefined}
@@ -165,20 +165,20 @@ export const Example = ((args) => {
 
 export const WithChildNode = ((args) => {
   return (
-    <PetThumbnail 
-      id={args.id} 
+    <PetThumbnail
+      id={args.id}
       stats={{
         questsRemaining: {
           amount: args.dailyQuestsRemainingAmount,
           max: 10
-        }, 
+        },
         dailyItemInteractions: {
           amount: args.dailyItemInteractionsAmount,
           max: 5
         },
-        phaseItemInteractions: {
-          amount: args.phaseItemInteractionsAmount,
-          max: args.phaseItemInteractionsMax
+        stageItemInteractions: {
+          amount: args.stageItemInteractionsAmount,
+          max: args.stageItemInteractionsMax
         }
       }}
       {...args}

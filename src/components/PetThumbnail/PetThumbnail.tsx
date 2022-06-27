@@ -15,49 +15,48 @@ export function PetThumbnail(props: IPetThumbnail) {
     stats: props.stats,
     nogaps: props.noStatGaps === true
   };
-  const petPhase = props.phase === 'final_form' ? 'Final' : props.phase.length > 0 ? props.phase[0].toUpperCase() + props.phase.substring(1) : "Egg";
+  const petStage = props.stage === 'final_form' ? 'Final' : props.stage.length > 0 ? props.stage[0].toUpperCase() + props.stage.substring(1) : "Egg";
 
-  const StatsChild = petPhase.length > 0 && !props.hideBadge ? (
-    <RarityBadge label="Phase">
+  const StatsChild = petStage.length > 0 && !props.hideBadge ? (
+    <RarityBadge label="Stage">
       <span>
         <svg width="200" height="200" viewBox="0 0 200 200">
-          <text x="100" y="100" textAnchor="middle" dominantBaseline="middle" fontSize="75" >{petPhase}</text>
+          <text x="100" y="100" textAnchor="middle" dominantBaseline="middle" fontSize="75">{petStage}</text>
         </svg>
       </span>
     </RarityBadge>
   ) : null;
 
   return (
-    <Thumbnail 
+    <Thumbnail
       invalidProps={[
-        'stats', 
-        'hideBadge', 
-        'hideStats', 
-        'noStatGaps', 
-        'phase', 
-        'staked', 
-        'element', 
-        'enableOnClick', 
-        'energyAmount', 
-        'dailyQuestsRemainingAmount', 
-        'dailyItemInteractionsAmount', 
-        'phaseItemInteractionsAmount', 
-        'phaseItemInteractionsMax'
+        'stats',
+        'hideBadge',
+        'hideStats',
+        'noStatGaps',
+        'stage',
+        'staked',
+        'element',
+        'enableOnClick',
+        'dailyQuestsRemainingAmount',
+        'dailyItemInteractionsAmount',
+        'stageItemInteractionsAmount',
+        'stageItemInteractionsMax'
       ]}
       {...props}
-      className="ccwc-cat-thumbnail" 
+      className="ccwc-cat-thumbnail"
       title={petId}
       onClick={props.onClick}
       states={(props.states || []).concat([{
         className: "ccwc-cat-thumbnail--pet"
       }, {
-        className: `ccwc-cat-thumbnail--pet-phase-${petPhase}`
+        className: `ccwc-cat-thumbnail--pet-stage-${petStage}`
       }, {
         className: "staked",
         condition: props.staked === true
       }, {
         className: "ccwc-cat-thumbnail--withstats",
-        condition: typeof props.stats !== 'undefined' && !props.hideStats 
+        condition: typeof props.stats !== 'undefined' && !props.hideStats
       }, {
         className: typeof props.element === 'string' && props.element.length > 0 ? props.element : ""
       }])}
@@ -65,13 +64,13 @@ export function PetThumbnail(props: IPetThumbnail) {
       <ThumbnailImage className="ccwc-cat-thumbnail__image" src={props.src} srcAlt={petId}>
         {props.children || null}
       </ThumbnailImage>
-      { props.stats && !props.hideStats && (
+      {props.stats && !props.hideStats && (
         <Container className="ccwc-cat-thumbnail__stats">
           <Stats {...statsProps}>
-            { StatsChild } 
+            {StatsChild}
           </Stats>
         </Container>
-      ) }
+      )}
     </Thumbnail>
   )
 }
