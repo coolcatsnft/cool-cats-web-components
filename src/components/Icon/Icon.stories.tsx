@@ -30,6 +30,7 @@ import { Cog, CogGroup } from './Cog';
 import { SwordAndShield } from './SwordAndShield';
 import { Twitter, TwitterGroup } from './Twitter';
 import { Logo, LogoMotion, SiteLogo, SiteLogoMotion, WhiteOutlineLogo, WhiteOutlineLogoMotion } from './Logo';
+import { Ticket } from './Ticket';
 
 export default {
   title: 'Icon',
@@ -344,6 +345,16 @@ export const IconWithColourExample = (() => {
   )
 }).bind({});
 
+export const TicketIcon = (() => {
+  return (
+    <Icon color="grey">
+      <i>
+        <Ticket />
+      </i>
+    </Icon>
+  )
+}).bind({});
+
 export const MultipleIconsExample = (() => {
   return (
     <>
@@ -451,6 +462,9 @@ export const MultipleIconsExample = (() => {
         <button>
           <Twitter />
         </button>
+      </Icon>
+      <Icon elementType="button" className="eggshake--hover">
+        <Ticket />
       </Icon>
     </>
   )
