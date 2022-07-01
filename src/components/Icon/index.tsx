@@ -27,6 +27,7 @@ import { Cog, CogGroup } from './Cog';
 import { QuestionMark, QuestionMarkGroup } from './QuestionMark';
 import { SwordAndShield } from './SwordAndShield';
 import { Twitter, TwitterGroup } from './Twitter';
+import { Ticket } from './Ticket';
 import { Logo, LogoMotion, SiteLogo, SiteLogoMotion, WhiteOutlineLogo, WhiteOutlineLogoMotion } from './Logo';
 
 export { 
@@ -73,7 +74,8 @@ export {
   QuestionMarkGroup,
   SwordAndShield,
   Twitter,
-  TwitterGroup
+  TwitterGroup,
+  Ticket
 };
 
 export default Icon;

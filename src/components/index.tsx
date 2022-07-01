@@ -76,6 +76,7 @@ export { CogGroup as CogGroupIcon } from "./Icon";
 export { QuestionMark as QuestionMarkIcon } from "./Icon";
 export { QuestionMarkGroup as QuestionMarkGroupIcon } from "./Icon";
 export { SwordAndShield as SwordAndShieldIcon } from "./Icon";
+export { Ticket as TicketIcon } from "./Icon";
 export { 
   Logo as LogoIcon,
   LogoMotion as LogoMotionIcon,
