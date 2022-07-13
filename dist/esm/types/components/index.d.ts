@@ -73,4 +73,5 @@ export { QuestionMark as QuestionMarkIcon } from "./Icon";
 export { QuestionMarkGroup as QuestionMarkGroupIcon } from "./Icon";
 export { SwordAndShield as SwordAndShieldIcon } from "./Icon";
 export { Ticket as TicketIcon } from "./Icon";
+export { Swords as SwordsIcon, SwordsGroup as SwordsGroupIcon } from "./Icon";
 export { Logo as LogoIcon, LogoMotion as LogoMotionIcon, SiteLogo as SiteLogoIcon, SiteLogoMotion as SiteLogoMotionIcon, WhiteOutlineLogo as WhiteOutlineLogoIcon, WhiteOutlineLogoMotion as WhiteOutlineLogoMotionIcon } from './Icon';

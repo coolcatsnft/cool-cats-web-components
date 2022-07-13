@@ -26,6 +26,7 @@ import { ViewInfo, ViewInfoGroup } from './ViewInfo';
 import { Cog, CogGroup } from './Cog';
 import { QuestionMark, QuestionMarkGroup } from './QuestionMark';
 import { SwordAndShield } from './SwordAndShield';
+import { Swords, SwordsGroup } from './Swords';
 import { Twitter, TwitterGroup } from './Twitter';
 import { Ticket } from './Ticket';
 import { Logo, LogoMotion, SiteLogo, SiteLogoMotion, WhiteOutlineLogo, WhiteOutlineLogoMotion } from './Logo';
@@ -73,6 +74,8 @@ export {
   QuestionMark,
   QuestionMarkGroup,
   SwordAndShield,
+  Swords,
+  SwordsGroup,
   Twitter,
   TwitterGroup,
   Ticket
