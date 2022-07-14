@@ -48,7 +48,15 @@ $border-radius: 10px;
     }
   }
 
-  &.selected {
+  &.selected:not(.disabled) {
+    border-color: map-get($global-base-colors, green);
+  }
+
+  &:hover, &:focus {
+    transform: scale(1.05);
+  }
+
+  &:focus, &:active {
     border-color: rgba(0,0,0,.7);
   }
 
@@ -110,4 +118,5 @@ $border-radius: 10px;
   &.clickable {
     cursor: pointer;
   }
+  outline: none;
 }

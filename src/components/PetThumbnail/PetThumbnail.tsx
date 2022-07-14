@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { IPetThumbnail } from "../../utils";
 import Container from "../Container";
 import RarityBadge from "../RarityBadge";
@@ -8,7 +8,7 @@ import Thumbnail, { ThumbnailImage } from "../Thumbnail/Thumbnail";
 import '../../utils/scss/globals.scss';
 import '../CatThumbnail/CatThumbnail.scss';
 
-export function PetThumbnail(props: IPetThumbnail) {
+export const PetThumbnail = forwardRef((props: IPetThumbnail, ref) => {
   const petId = `# ${props.id}`;
   const statsProps = {
     header: petId,
@@ -27,8 +27,15 @@ export function PetThumbnail(props: IPetThumbnail) {
     </RarityBadge>
   ) : null;
 
+  const onThumbnailClick = () => {
+    if (typeof props.onClick === 'function' && !props.disabled) {
+      props.onClick(props.nft);
+    }
+  }
+
   return (
     <Thumbnail
+      ref={ref}
       invalidProps={[
         'stats',
         'hideBadge',
@@ -46,7 +53,7 @@ export function PetThumbnail(props: IPetThumbnail) {
       {...props}
       className="ccwc-cat-thumbnail"
       title={petId}
-      onClick={props.onClick}
+      onClick={onThumbnailClick}
       states={(props.states || []).concat([{
         className: "ccwc-cat-thumbnail--pet"
       }, {
@@ -73,6 +80,6 @@ export function PetThumbnail(props: IPetThumbnail) {
       )}
     </Thumbnail>
   )
-}
+})
 
 export default PetThumbnail;
