@@ -51,6 +51,7 @@ export interface IThumbnailProps extends IContainerProps {
     quantity?: number;
     href?: string;
     claimable?: boolean;
+    nft?: any;
 }
 export interface IThumbnailImageProps extends IContainerProps {
     src?: string | React.ReactNode;

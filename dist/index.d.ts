@@ -53,6 +53,7 @@ interface IThumbnailProps extends IContainerProps {
     quantity?: number;
     href?: string;
     claimable?: boolean;
+    nft?: any;
 }
 interface IThumbnailImageProps extends IContainerProps {
     src?: string | React.ReactNode;
@@ -600,13 +601,13 @@ declare function InputButton({ input, button }: {
 declare const Button: React$1.ForwardRefExoticComponent<IButtonProps & React$1.RefAttributes<unknown>>;
 
 declare function ThumbnailImage(props: IThumbnailImageProps): JSX.Element;
-declare function Thumbnail(props: IThumbnailProps): JSX.Element;
+declare const Thumbnail: React$1.ForwardRefExoticComponent<IThumbnailProps & React$1.RefAttributes<unknown>>;
 
 declare const Tooltip: ({ children, label, className, options }: ITooltipProps) => JSX.Element;
 
-declare function CatThumbnail(props: ICatThumbnail): JSX.Element;
+declare const CatThumbnail: React$1.ForwardRefExoticComponent<ICatThumbnail & React$1.RefAttributes<unknown>>;
 
-declare function PetThumbnail(props: IPetThumbnail): JSX.Element;
+declare const PetThumbnail: React$1.ForwardRefExoticComponent<IPetThumbnail & React$1.RefAttributes<unknown>>;
 
 declare function Increment({ min, max, defaultValue, callback, label, buttonSize, disabled, removeBaseClass, buttonClassName }: IIncrement): JSX.Element;
 
