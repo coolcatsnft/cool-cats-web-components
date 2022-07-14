@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { IThumbnailImageProps, IThumbnailProps } from "../../utils";
 import Container from "../Container";
 
@@ -7,7 +7,7 @@ import './Thumbnail.scss';
 
 export function ThumbnailImage(props: IThumbnailImageProps) {
   return (
-    <Container 
+    <Container
       {...props}
       invalidProps={['src', 'srcAlt', 'children']}
       states={(props.states || []).concat([{
@@ -19,9 +19,9 @@ export function ThumbnailImage(props: IThumbnailImageProps) {
       {props.children || null}
     </Container>
   )
-};
+}
 
-export function Thumbnail(props: IThumbnailProps) {
+export const Thumbnail = forwardRef((props: IThumbnailProps, ref) => {
   const isHref = typeof props.href === 'string' && props.href.length > 0;
   const invalids = ['size', 'closeable', 'clickable', 'quantity', 'src', 'ticked'];
   if (!isHref) {
@@ -29,9 +29,10 @@ export function Thumbnail(props: IThumbnailProps) {
   }
 
   return (
-    <Container 
+    <Container
       elementType={isHref ? "a" : "div"}
       {...props}
+      ref={ref}
       invalidProps={(props.invalidProps || []).concat(invalids)}
       className={props.className || ""}
       states={(props.states || []).concat([{
@@ -70,6 +71,6 @@ export function Thumbnail(props: IThumbnailProps) {
       {props.children}
     </Container>
   )
-}
+})
 
 export default Thumbnail;

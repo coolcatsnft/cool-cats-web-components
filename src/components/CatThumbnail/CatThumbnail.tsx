@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { ICatThumbnail } from "../../utils";
 import Thumbnail, { ThumbnailImage } from "../Thumbnail/Thumbnail";
 import Container from "../Container";
@@ -8,7 +8,7 @@ import Stats from "../Stats";
 import '../../utils/scss/globals.scss';
 import './CatThumbnail.scss';
 
-export function CatThumbnail(props: ICatThumbnail) {
+export const CatThumbnail = forwardRef((props: ICatThumbnail, ref: any) => {
   const catId = `# ${props.id}`;
   const total = (props.stats.hats || 0) + (props.stats.face || 0) + (props.stats.shirt || 0);
   const statsProps = {
@@ -41,13 +41,20 @@ export function CatThumbnail(props: ICatThumbnail) {
     </RarityBadge>
   ) : undefined;
 
+  const onThumbnailClick = () => {
+    if (typeof props.onClick === 'function' && !props.disabled) {
+      props.onClick(props.nft);
+    }
+  }
+
   return (
-    <Thumbnail 
+    <Thumbnail
+      ref={ref}
       {...props}
       invalidProps={(props.invalidProps || []).concat(['stats', 'claimable', 'hideBadge', 'hideStats', 'ticked', 'noStatGaps'])}
-      className="ccwc-cat-thumbnail" 
+      className="ccwc-cat-thumbnail"
       title={catId}
-      onClick={props.onClick}
+      onClick={onThumbnailClick}
       states={(props.states || []).concat([{
         className: "claimable",
         condition: props.claimable === true
@@ -59,15 +66,15 @@ export function CatThumbnail(props: ICatThumbnail) {
       <ThumbnailImage className="ccwc-cat-thumbnail__image" src={props.src} srcAlt={catId}>
         {props.children || null}
       </ThumbnailImage>
-      { !props.hideStats && (
+      {!props.hideStats && (
         <Container className="ccwc-cat-thumbnail__stats">
           <Stats {...statsProps}>
             {statsChild}
           </Stats>
         </Container>
-      ) }
+      )}
     </Thumbnail>
   )
-}
+})
 
 export default CatThumbnail;
