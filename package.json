@@ -1,8 +1,5 @@
 {
-  "name": "@alex-coolcats/cool-cats-web-components",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/alex-coolcats"
-  },
+  "name": "@coolcatsnft/cool-cats-web-components",
   "version": "0.1.89",
   "description": "React web components used by the Cool Cats frontend team.",
   "scripts": {
