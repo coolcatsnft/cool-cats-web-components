@@ -1,4 +1,4 @@
-# Cool Cats Web Components
+# Cool Cats Web Components!
 
 ## Getting started
 ``` npm install && npm run storybook ```
